@@ -70,6 +70,27 @@ body {
 	color: var(--text-primary);
 }
 
+.career-filter {
+	border: 1px solid var(--border-color);
+	border-radius: 0.2rem;
+	background: var(--bg-secondary);
+	padding: 0.65rem 0.75rem;
+	color: var(--text-primary);
+	font: inherit;
+	font-size: 0.7rem;
+}
+
+.career-filter:focus {
+	border-color: var(--gold-primary);
+	outline: 2px solid color-mix(in srgb, var(--gold-primary) 24%, transparent);
+	outline-offset: 1px;
+}
+
+.career-filter option {
+	background: var(--bg-secondary);
+	color: var(--text-primary);
+}
+
 .footer-section-heading {
 	position: relative;
 	padding-bottom: 0.75rem;

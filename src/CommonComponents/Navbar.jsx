@@ -25,13 +25,21 @@ const Navbar = () => {
   }, []);
 
   const renderLink = (link, mobile = false) => {
-    const isContactPage = link.id === 'contact' && pathname === '/contact';
-    const isActive = isContactPage || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
+    const isPageActive =
+      (link.id === 'contact' && pathname === '/contact') ||
+      (link.id === 'careers' && pathname === '/careers');
+    const isActive = isPageActive || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
 
     return (
       <a
         key={link.id}
-        href={link.id === 'contact' ? '/contact' : `/#${link.id}`}
+        href={
+          link.id === 'contact'
+            ? '/contact'
+            : link.id === 'careers'
+              ? '/careers'
+              : `/#${link.id}`
+        }
         onClick={() => {
           setActiveHash(`#${link.id}`);
           setIsMobileMenuOpen(false);
