@@ -1,7 +1,7 @@
 import { FaClapperboard, FaCube, FaLayerGroup, FaWandMagicSparkles } from 'react-icons/fa6';
 
-const cinematicImage = (photoId) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=3200&q=100&sharp=100`;
+const heroImage = (filename) =>
+  `/images/heroimages/${encodeURIComponent(filename)}`;
 
 export const heroSlides = [
   {
@@ -10,7 +10,7 @@ export const heroSlides = [
     highlight: 'Creating reality.',
     description:
       'We are a creative visual effects studio crafting breathtaking worlds through VFX, CGI, compositing and post-production.',
-    image: cinematicImage('photo-1462331940025-496dfbfc7564'),
+    image: heroImage('1.png'),
     highlights: [
       { value: 'VFX', label: 'Visual effects' },
       { value: 'CGI', label: 'Digital worlds' },
@@ -23,7 +23,7 @@ export const heroSlides = [
     highlight: 'feel cinematic.',
     description:
       'From the first concept to the final composite, we help filmmakers bring ambitious visual stories to life.',
-    image: cinematicImage('photo-1534796636912-3b95b3ab5986'),
+    image: heroImage('2.png'),
     highlights: [
       { value: 'DESIGN', label: 'Creative vision' },
       { value: 'CRAFT', label: 'Pixel precision' },
@@ -36,7 +36,7 @@ export const heroSlides = [
     highlight: 'Unforgettable worlds.',
     description:
       'Build believable environments and seamless shots with thoughtful matchmove, paint-prep and compositing.',
-    image: cinematicImage('photo-1519608487953-e999c86e7455'),
+    image: heroImage('3.png'),
     highlights: [
       { value: 'TRACK', label: 'Matchmove' },
       { value: 'REFINE', label: 'Paint-prep' },
@@ -49,7 +49,7 @@ export const heroSlides = [
     highlight: 'single pixel.',
     description:
       'Our artists bring focus and care to every cleanup, cosmetic fix and finishing pass.',
-    image: cinematicImage('photo-1518709268805-4e9042af9f23'),
+    image: heroImage('4.png'),
     highlights: [
       { value: 'CLEAN', label: 'Careful cleanup' },
       { value: 'POLISH', label: 'Cosmetic fixes' },
@@ -62,7 +62,7 @@ export const heroSlides = [
     highlight: 'Built together.',
     description:
       'Partner with Feather VFX Studio for collaborative visual effects and post-production from start to finish.',
-    image: cinematicImage('photo-1470225620780-dba8ba36b745'),
+    image: heroImage('5.png'),
     highlights: [
       { value: 'IDEATE', label: 'Plan together' },
       { value: 'CREATE', label: 'Craft each shot' },

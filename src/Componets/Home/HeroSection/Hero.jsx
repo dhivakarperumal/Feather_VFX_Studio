@@ -26,7 +26,7 @@ const Hero = () => {
         aria-label="Feather VFX Studio"
         className="relative isolate overflow-hidden bg-[var(--bg-primary)]"
       >
-        <div className="absolute inset-0 -z-20" aria-hidden="true">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
           {heroSlides.map((item, index) => (
             <img
               key={item.image}
@@ -40,15 +40,15 @@ const Hero = () => {
           ))}
         </div>
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
+          className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]/15"
+          className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]/15"
           aria-hidden="true"
         />
 
-        <div className="mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
           <div className="max-w-2xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-sm">
               {slide.eyebrow}
@@ -96,7 +96,7 @@ const Hero = () => {
           type="button"
           onClick={() => showSlide(activeSlide - 1)}
           aria-label="Previous hero slide"
-          className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:left-6"
+          className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:left-6"
         >
           <FaArrowLeft aria-hidden="true" />
         </button>
@@ -104,12 +104,12 @@ const Hero = () => {
           type="button"
           onClick={() => showSlide(activeSlide + 1)}
           aria-label="Next hero slide"
-          className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:right-6"
+          className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:right-6"
         >
           <FaArrowRight aria-hidden="true" />
         </button>
 
-        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
+        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
           {heroSlides.map((item, index) => (
             <button
               key={item.image}
