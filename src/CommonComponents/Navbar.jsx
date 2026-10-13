@@ -26,6 +26,7 @@ const Navbar = () => {
 
   const renderLink = (link, mobile = false) => {
     const isPageActive =
+      (link.id === 'about-us' && pathname === '/about') ||
       (link.id === 'contact' && pathname === '/contact') ||
       (link.id === 'careers' && pathname === '/careers');
     const isActive = isPageActive || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
@@ -38,6 +39,8 @@ const Navbar = () => {
             ? '/contact'
             : link.id === 'careers'
               ? '/careers'
+              : link.id === 'about-us'
+                ? '/about'
               : `/#${link.id}`
         }
         onClick={() => {
