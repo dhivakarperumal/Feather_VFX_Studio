@@ -26,7 +26,7 @@ const Footer = () => {
     <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <PageContainer className="py-16">
         {/* We use a responsive grid that will naturally wrap items to the next row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 lg:gap-10">
           
           {/* 1. Logo & Info */}
           <div className="space-y-6" data-aos="fade-up" data-aos-delay="0">
@@ -133,6 +133,33 @@ const Footer = () => {
           {/* 5. Google Map */}
           <div data-aos="fade-up" data-aos-delay="400">
             <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Google Map</h3>
+            
+             <div className="mb-8">
+              
+              <form
+                action="mailto:enquiry@feathervfx.com"
+                method="post"
+                encType="text/plain"
+                className="flex w-full"
+              >
+                <label className="sr-only" htmlFor="footer-newsletter-email">Your email address</label>
+                <input
+                  id="footer-newsletter-email"
+                  name="Email"
+                  type="email"
+                  placeholder="Your email address"
+                  autoComplete="email"
+                  required
+                  className="min-w-0 flex-1 rounded-l-md border border-[var(--border-color)] bg-[var(--bg-primary)] px-3 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] focus:border-[var(--gold-primary)] focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="shrink-0 rounded-r-md bg-[var(--gold-primary)] px-3 py-3 text-sm font-semibold text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
             <a
               href={mapUrl}
               target="_blank"
@@ -142,6 +169,8 @@ const Footer = () => {
               <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
               <span>{studioAddress}<span className="mt-2 block font-semibold text-[var(--text-primary)]">View on Google Maps →</span></span>
             </a>
+
+           
           </div>
 
           
