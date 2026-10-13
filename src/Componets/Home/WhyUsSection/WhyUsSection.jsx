@@ -29,12 +29,13 @@ const WhyUsSection = () => {
         style={{ backgroundImage: "url('/images/whyusbg.png')" }}
         aria-hidden="true"
       />
-      <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,10,13,0.60)_0%,rgba(4,10,13,0.3)_42%,rgba(4,10,13,0.28)_100%)]"
-        aria-hidden="true"
-      />
+      <div className="relative mx-auto max-w-[1500px]">
+        <div
+          className="pointer-events-none absolute left-1/2 top-[-4rem] z-0 h-[440px] w-[min(1200px,100vw)] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.82)_48%,rgba(0,0,0,0)_100%)]"
+          aria-hidden="true"
+        />
 
-      <div className="mx-auto max-w-[1500px]">
+        <div className="relative z-10">
         <p className="mx-auto max-w-4xl text-center text-[0.66rem] font-semibold uppercase leading-relaxed tracking-[0.2em] text-[var(--text-primary)]/75 sm:text-xs sm:tracking-[0.25em]">
           We offer smooth VFX services with the right amount of{' '}
           <span className="text-[var(--gold-bright)]">passion and innovation</span>, with{' '}
@@ -81,6 +82,7 @@ const WhyUsSection = () => {
               </div>
             </article>
           ))}
+        </div>
         </div>
       </div>
     </section>
