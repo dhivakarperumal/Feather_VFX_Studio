@@ -7,27 +7,24 @@ const testimonials = [
       'Feather VFX Studio delivered exceptional quality and creativity. Their attention to detail is outstanding.',
     name: 'Arjun Mehta',
     role: 'Freelancer',
-    initials: 'AM',
-    image: '/images/heroimages/1.png',
-    portraitPosition: 'left',
+    avatar: '/images/heroimages/1.png',
+    avatarPosition: 'center top',
   },
   {
     quote:
       'A fantastic team to work with. Professional, creative and always delivers beyond expectations.',
     name: 'Priya Sharma',
     role: 'Creative Director',
-    initials: 'PS',
-    image: '/images/heroimages/3.png',
-    portraitPosition: 'center',
+    avatar: '/images/heroimages/3.png',
+    avatarPosition: 'center top',
   },
   {
     quote:
       'Their VFX and compositing work completely elevated our project. Highly recommended!',
     name: 'Karan Raj',
     role: 'Producer',
-    initials: 'KR',
-    image: '/images/heroimages/2.png',
-    portraitPosition: 'left',
+    avatar: '/images/heroimages/2.png',
+    avatarPosition: 'center top',
   },
 ];
 
@@ -50,9 +47,10 @@ const TestimonialsSection = () => {
       aria-labelledby="testimonials-heading"
       className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-16 text-[var(--text-primary)] sm:px-[5%] sm:py-20 lg:px-[3%] lg:py-24"
     >
+      {/* Section background image */}
       <div
         className="absolute inset-0 -z-20 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/whyusbg.png')" }}
+        style={{ backgroundImage: "url('/images/testimonial.png')" }}
         aria-hidden="true"
       />
       <div
@@ -65,6 +63,7 @@ const TestimonialsSection = () => {
       />
 
       <div className="relative mx-auto max-w-[1500px]">
+        {/* Section header */}
         <div className="mb-8 max-w-xl sm:mb-10">
           <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--text-primary)]/85 sm:text-xs">
             Client stories
@@ -83,6 +82,7 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="relative">
+          {/* Prev button */}
           <button
             type="button"
             onClick={showPrevious}
@@ -92,47 +92,92 @@ const TestimonialsSection = () => {
             <ChevronLeft className="h-6 w-6" aria-hidden="true" />
           </button>
 
+          {/* Cards grid */}
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {visibleTestimonials.map(({ quote, name, role, initials, image, portraitPosition }) => (
+            {visibleTestimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
               <article
                 key={name}
-                className="group relative min-h-[315px] overflow-hidden border border-[var(--gold-primary)]/65 bg-[rgba(3,9,12,0.78)] p-px shadow-[0_12px_36px_rgba(0,0,0,0.28)] transition-all duration-300 hover:border-[var(--gold-bright)] hover:shadow-[0_0_28px_rgba(214,160,74,0.22)] sm:min-h-[330px]"
+                className="group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
                 style={{
-                  clipPath: 'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
+                  clipPath:
+                    'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
                 }}
               >
+                {/* Subtle hover inner glow */}
                 <div
-                  className="absolute inset-0 bg-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${image}')`, backgroundPosition: portraitPosition }}
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--gold-primary)]/[0.04] via-transparent to-[var(--gold-primary)]/[0.07] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,9,12,0.94)_0%,rgba(3,9,12,0.74)_58%,rgba(3,9,12,0.35)_100%)]" aria-hidden="true" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(3,9,12,0.78)] via-transparent to-[rgba(3,9,12,0.12)]" aria-hidden="true" />
-                <span className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_14px_rgba(240,168,88,0.55)]" aria-hidden="true" />
-                <span className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[3px_3px_14px_rgba(240,168,88,0.55)]" aria-hidden="true" />
 
-                <div className="relative z-10 flex h-full min-h-[313px] flex-col p-5 sm:min-h-[328px] sm:p-6">
+                {/* Corner accents */}
+                <span
+                  className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_14px_rgba(240,168,88,0.55)]"
+                  aria-hidden="true"
+                />
+                <span
+                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[3px_3px_14px_rgba(240,168,88,0.55)]"
+                  aria-hidden="true"
+                />
+
+                <div className="relative z-10 flex flex-col gap-5 p-5 sm:p-6">
+                  {/* Avatar + Stars row */}
                   <div className="flex items-center gap-4">
-                    <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border-2 border-[var(--gold-bright)] bg-[radial-gradient(circle_at_35%_25%,rgba(240,168,88,0.72),rgba(19,23,24,0.97)_55%)] text-sm font-bold tracking-[0.12em] text-white shadow-[0_0_15px_rgba(240,168,88,0.45)] sm:h-[76px] sm:w-[76px]">
-                      {initials}
+                    {/* Circular avatar with gold ring */}
+                    <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
+                      <div
+                        className="pointer-events-none absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
+                        aria-hidden="true"
+                      />
+                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_18px_rgba(240,168,88,0.45)]">
+                        <img
+                          src={avatar}
+                          alt={name}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          style={{ objectPosition: avatarPosition }}
+                        />
+                      </div>
                     </div>
-                    <div className="flex gap-1 text-[var(--gold-bright)]" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }, (_, index) => (
-                        <Star key={index} className="h-4 w-4 fill-current sm:h-[18px] sm:w-[18px]" aria-hidden="true" />
+
+                    {/* Stars */}
+                    <div
+                      className="flex gap-[3px] text-[var(--gold-bright)]"
+                      aria-label="5 out of 5 stars"
+                    >
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <Star
+                          key={i}
+                          className="h-[15px] w-[15px] fill-current drop-shadow-[0_0_4px_rgba(240,168,88,0.7)] sm:h-[17px] sm:w-[17px]"
+                          aria-hidden="true"
+                        />
                       ))}
                     </div>
                   </div>
 
-                  <div className="relative mt-4 pl-7">
-                    <Quote className="absolute -left-1 -top-1 h-7 w-7 rotate-180 fill-[var(--gold-primary)]/50 text-[var(--gold-primary)]/50" aria-hidden="true" />
-                    <p className="text-sm leading-[1.65] text-white/85 sm:text-[0.95rem]">{quote}</p>
+                  {/* Quote text */}
+                  <div className="relative pl-7">
+                    <Quote
+                      className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/55 text-[var(--gold-primary)]/55"
+                      aria-hidden="true"
+                    />
+                    <p className="text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
+                    <Quote
+                      className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/30 text-[var(--gold-primary)]/30"
+                      aria-hidden="true"
+                    />
                   </div>
 
-                  <div className="mt-auto pl-7 pt-5">
+                  {/* Divider */}
+                  <div
+                    className="h-px w-full bg-gradient-to-r from-[var(--gold-primary)]/45 via-[var(--gold-primary)]/20 to-transparent"
+                    aria-hidden="true"
+                  />
+
+                  {/* Name + Role */}
+                  <div className="pl-1">
                     <h3 className="font-serif text-lg font-semibold uppercase tracking-[0.02em] text-white sm:text-xl">
                       {name}
                     </h3>
-                    <p className="mt-1 inline-block border-b border-[var(--gold-primary)]/60 pb-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
+                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]/80">
                       {role}
                     </p>
                   </div>
@@ -141,6 +186,7 @@ const TestimonialsSection = () => {
             ))}
           </div>
 
+          {/* Next button */}
           <button
             type="button"
             onClick={showNext}
@@ -151,6 +197,7 @@ const TestimonialsSection = () => {
           </button>
         </div>
 
+        {/* Dot indicators */}
         <div className="mt-7 flex justify-center gap-2" aria-label="Choose testimonial set">
           {testimonials.map(({ name }, index) => (
             <button
