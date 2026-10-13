@@ -18,21 +18,25 @@ const socialLinks = [
 ];
 
 const TopHeader = () => (
-  <div className="min-h-[42px] shrink-0 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] py-2 text-[var(--text-primary)]">
+  <div className="hidden min-h-[42px] shrink-0 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] py-2 text-[var(--text-primary)] md:block">
     <PageContainer className="grid min-h-[26px] grid-cols-[1fr_auto] items-center gap-4 sm:gap-6 lg:grid-cols-[1fr_auto_1fr]">
       <div className="flex min-w-0 items-center gap-4 text-[10px] sm:gap-7 sm:text-xs">
         <a
           href="tel:+918674685645"
           className="flex shrink-0 items-center gap-2 whitespace-nowrap transition-opacity hover:opacity-70"
         >
-          <FaPhoneAlt className="shrink-0" aria-hidden="true" />
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white">
+            <FaPhoneAlt aria-hidden="true" />
+          </span>
           <span>+91 86746 85645</span>
         </a>
         <a
           href="mailto:info@feathervfx.com"
           className="flex min-w-0 items-center gap-2 whitespace-nowrap transition-opacity hover:opacity-70"
         >
-          <FaEnvelope className="shrink-0" aria-hidden="true" />
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white">
+            <FaEnvelope aria-hidden="true" />
+          </span>
           <span>info@feathervfx.com</span>
         </a>
       </div>
