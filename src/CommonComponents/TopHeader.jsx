@@ -7,6 +7,7 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import PageContainer from './PageContainer';
 
 const socialLinks = [
   { name: 'Facebook', href: 'https://www.facebook.com/', Icon: FaFacebookF },
@@ -18,7 +19,7 @@ const socialLinks = [
 
 const TopHeader = () => (
   <div className="min-h-[42px] shrink-0 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] py-2 text-[var(--text-primary)]">
-    <div className="mx-auto grid min-h-[26px] max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-2 sm:gap-6 sm:px-3 lg:grid-cols-[1fr_auto_1fr] lg:px-4">
+    <PageContainer className="grid min-h-[26px] grid-cols-[1fr_auto] items-center gap-4 sm:gap-6 lg:grid-cols-[1fr_auto_1fr]">
       <div className="flex min-w-0 items-center gap-4 text-[10px] sm:gap-7 sm:text-xs">
         <a
           href="tel:+918674685645"
@@ -54,7 +55,7 @@ const TopHeader = () => (
           </a>
         ))}
       </nav>
-    </div>
+    </PageContainer>
   </div>
 );
 

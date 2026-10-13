@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PageContainer from './PageContainer';
 
 const navLinks = [
   { label: 'HOME', id: 'home' },
@@ -49,7 +50,8 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 text-[var(--text-primary)] shadow-lg shadow-black/20 backdrop-blur-md">
-      <nav aria-label="Main navigation" className="mx-auto flex min-h-[76px] max-w-[1440px] items-center justify-between gap-6 px-3 py-3 sm:px-4 lg:px-5">
+      <nav aria-label="Main navigation">
+        <PageContainer className="flex min-h-[76px] items-center justify-between gap-6 py-3">
         <a href="/#home" aria-label="Feather VFX Studio home" className="w-[170px] shrink-0 sm:w-[200px] lg:w-[220px]">
           <img
             src="/images/logo.png"
@@ -89,6 +91,7 @@ const Navbar = () => {
             </svg>
           )}
         </button>
+        </PageContainer>
       </nav>
 
       {isMobileMenuOpen && (

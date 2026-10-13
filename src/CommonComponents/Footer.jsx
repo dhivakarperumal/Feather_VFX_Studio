@@ -1,4 +1,5 @@
 import { FaFacebookF, FaTwitter, FaAngleRight, FaMapMarkerAlt, FaInstagram, FaEnvelope, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
+import PageContainer from "./PageContainer";
 
 const Footer = () => {
   const quickLinks = [
@@ -23,7 +24,7 @@ const Footer = () => {
 
   return (
     <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
-      <div className="container mx-auto px-4 md:px-8 py-16">
+      <PageContainer className="py-16">
         {/* We use a responsive grid that will naturally wrap items to the next row */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 lg:gap-10">
           
@@ -63,7 +64,7 @@ const Footer = () => {
                 <li key={index}>
                   <a 
                     href={link.path} 
-                    className="flex items-center border-b border-[var(--border-color)] pb-3 text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-all group"
+                    className="flex items-center text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-all group"
                   >
                     <FaAngleRight className="mr-2 text-[var(--gold-primary)] transition-transform group-hover:translate-x-1" size={14} />
                     {link.name}
@@ -145,7 +146,7 @@ const Footer = () => {
 
           
         </div>
-      </div>
+      </PageContainer>
 
       {/* Bottom Copyright Bar */}
       <div className="border-t border-[var(--border-color)] py-6 text-center text-[var(--text-secondary)] text-sm" data-aos="fade-up" data-aos-delay="100">
