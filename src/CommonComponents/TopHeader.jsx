@@ -49,7 +49,7 @@ const TopHeader = () => (
             target="_blank"
             rel="noreferrer"
             aria-label={name}
-            className="flex h-7 w-6 items-center justify-center transition-opacity hover:opacity-70"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white transition-colors hover:bg-[var(--gold-bright)]"
           >
             <Icon aria-hidden="true" className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </a>
