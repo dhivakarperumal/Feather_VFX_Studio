@@ -64,6 +64,17 @@ body {
 	transform: scaleX(1);
 }
 
+.footer-map-button {
+	border: 1px solid var(--gold-primary);
+	background-color: var(--bg-primary);
+	color: var(--gold-bright);
+}
+
+.footer-map-button:hover {
+	background-color: var(--gold-primary);
+	color: var(--bg-primary);
+}
+
 /* Page Navigation Transition Animations */
 .page-transition {
 	animation: pageFadeSlide 420ms cubic-bezier(0.16, 1, 0.3, 1) both;

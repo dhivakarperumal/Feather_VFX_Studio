@@ -167,7 +167,12 @@ const Footer = () => {
               className="inline-flex items-start gap-3 text-[var(--text-secondary)] text-[15px] leading-relaxed transition-colors hover:text-[var(--gold-bright)]"
             >
               <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-              <span>{studioAddress}<span className="mt-2 block font-semibold text-[var(--text-primary)]">View on Google Maps →</span></span>
+              <span>
+                {studioAddress}
+                <span className="footer-map-button mt-3 inline-flex items-center gap-2 rounded-md px-4 py-2 font-semibold transition-colors">
+                  View on Google Maps <span aria-hidden="true">→</span>
+                </span>
+              </span>
             </a>
 
            
