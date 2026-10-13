@@ -30,7 +30,7 @@ const WhyUsSection = () => {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,10,13,0.76)_0%,rgba(4,10,13,0.62)_42%,rgba(4,10,13,0.38)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,10,13,0.42)_0%,rgba(4,10,13,0.3)_42%,rgba(4,10,13,0.18)_100%)]"
         aria-hidden="true"
       />
 
@@ -54,12 +54,12 @@ const WhyUsSection = () => {
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
-              className="group relative flex min-h-[370px] flex-col items-center overflow-hidden border border-[var(--gold-primary)]/50 bg-[rgba(8,15,18,0.68)] px-6 pb-6 pt-5 text-center shadow-[inset_0_0_40px_rgba(214,160,74,0.05)] backdrop-blur-[0.5px] transition-colors duration-300 hover:border-[var(--gold-bright)]/90 hover:bg-[rgba(8,15,18,0.78)] sm:px-8"
+              className="group relative flex min-h-[370px] flex-col items-center overflow-hidden border border-[var(--gold-primary)]/50 bg-[rgba(8,15,18,0.38)] px-6 pb-6 pt-5 text-center shadow-[inset_0_0_40px_rgba(214,160,74,0.05)] backdrop-blur-[0.5px] transition-colors duration-300 hover:border-[var(--gold-bright)]/90 hover:bg-[rgba(8,15,18,0.5)] sm:px-8"
             >
               <span className="pointer-events-none absolute left-0 top-0 h-7 w-7 border-l border-t border-[var(--gold-bright)]" aria-hidden="true" />
               <span className="pointer-events-none absolute bottom-0 right-0 h-7 w-7 border-b border-r border-[var(--gold-bright)]" aria-hidden="true" />
 
-              <div className="relative mb-4 flex h-28 w-28 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/80 bg-[radial-gradient(circle,rgba(214,160,74,0.22)_0%,rgba(8,15,18,0.78)_68%)] text-[var(--gold-bright)] shadow-[0_0_24px_rgba(214,160,74,0.2)] transition-shadow group-hover:shadow-[0_0_34px_rgba(214,160,74,0.36)]">
+              <div className="relative mb-4 flex h-28 w-28 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/80 bg-[radial-gradient(circle,rgba(214,160,74,0.22)_0%,rgba(8,15,18,0.5)_68%)] text-[var(--gold-bright)] shadow-[0_0_24px_rgba(214,160,74,0.2)] transition-shadow group-hover:shadow-[0_0_34px_rgba(214,160,74,0.36)]">
                 <span className="absolute inset-2 rounded-full border border-[var(--gold-primary)]/25" aria-hidden="true" />
                 <Icon className="relative h-11 w-11 stroke-[1.8]" aria-hidden="true" />
               </div>
