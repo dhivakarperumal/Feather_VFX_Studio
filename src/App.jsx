@@ -32,7 +32,7 @@ function App() {
   return (
     <section className="relative min-h-screen flex flex-col">
       {isNavigating && <div className="route-progress-bar" aria-hidden="true" />}
-      <TopHeader />
+      {!["/contact", "/careers"].includes(location.pathname) && <TopHeader />}
       <Navbar />
       <div className="print:hidden">
         <ScrollToTop />
