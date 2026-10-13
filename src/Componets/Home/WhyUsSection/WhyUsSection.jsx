@@ -55,13 +55,30 @@ const WhyUsSection = () => {
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
-              className="group relative flex min-h-[430px] flex-col items-center overflow-hidden border border-[var(--gold-primary)]/75 px-5 pb-5 pt-3 text-center transition-colors duration-300 hover:border-[var(--gold-bright)] sm:min-h-[450px] sm:px-7"
+              className="group relative flex min-h-[430px] flex-col items-center overflow-hidden px-5 pb-5 pt-3 text-center sm:min-h-[450px] sm:px-7"
               style={{
                 clipPath: 'polygon(0 28px, 28px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)',
                 backgroundColor: 'rgba(3, 9, 12, 0.72)',
               }}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_18%,rgba(214,160,74,0.1),transparent_44%)] opacity-80 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(240,168,88,0.2),transparent_40%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+              <span className="pointer-events-none absolute left-[8%] top-[2px] z-20 h-1 w-10 rounded-full bg-[var(--gold-bright)] opacity-60 blur-[2px] transition-all duration-300 group-hover:w-16 group-hover:opacity-100 group-hover:shadow-[0_0_16px_rgba(240,168,88,0.9)]" aria-hidden="true" />
+              <span className="pointer-events-none absolute right-[7%] top-[2px] z-20 h-1 w-8 rounded-full bg-[var(--gold-bright)] opacity-50 blur-[2px] transition-all duration-300 group-hover:w-14 group-hover:opacity-100 group-hover:shadow-[0_0_16px_rgba(240,168,88,0.9)]" aria-hidden="true" />
+              <svg
+                className="pointer-events-none absolute inset-0 z-20 h-full w-full overflow-visible opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:drop-shadow-[0_0_5px_rgba(240,168,88,0.7)]"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M 1 7 L 7 1 H 93 L 99 7 V 93 L 93 99 H 1 Z"
+                  fill="none"
+                  stroke="var(--gold-primary)"
+                  strokeWidth="0.45"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
 
               <div className="relative mb-2 flex h-[142px] w-[180px] shrink-0 items-center justify-center">
                 <span className="absolute h-[112px] w-[142px] rotate-[-16deg] rounded-[50%] border border-[var(--gold-bright)]/65 shadow-[0_0_15px_rgba(240,168,88,0.3)] transition-transform duration-500 group-hover:rotate-[-22deg] group-hover:scale-105" aria-hidden="true" />
