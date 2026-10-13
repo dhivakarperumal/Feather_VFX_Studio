@@ -92,22 +92,22 @@ const Hero = () => {
           </div>
         </div>
 
-        <button
+        {/* <button
           type="button"
           onClick={() => showSlide(activeSlide - 1)}
           aria-label="Previous hero slide"
           className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:left-6"
         >
           <FaArrowLeft aria-hidden="true" />
-        </button>
-        <button
+        </button> */}
+        {/* <button
           type="button"
           onClick={() => showSlide(activeSlide + 1)}
           aria-label="Next hero slide"
           className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:right-6"
         >
           <FaArrowRight aria-hidden="true" />
-        </button>
+        </button> */}
 
         <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
           {heroSlides.map((item, index) => (
