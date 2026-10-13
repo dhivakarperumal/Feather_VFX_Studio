@@ -54,7 +54,7 @@ const WhyUsSection = () => {
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
-              className="group relative flex min-h-[370px] flex-col items-center overflow-hidden border border-[var(--gold-primary)]/50 bg-[rgba(4,10,13,0.72)] px-6 pb-6 pt-5 text-center shadow-[inset_0_0_40px_rgba(214,160,74,0.05)] backdrop-blur-[2px] transition-colors duration-300 hover:border-[var(--gold-bright)]/90 hover:bg-[rgba(4,10,13,0.84)] sm:px-8"
+              className="group relative flex min-h-[370px] flex-col items-center overflow-hidden border border-[var(--gold-primary)]/50 bg-[rgba(4,10,13,0.82)] px-6 pb-6 pt-5 text-center shadow-[inset_0_0_40px_rgba(214,160,74,0.05)] backdrop-blur-[0.5px] transition-colors duration-300 hover:border-[var(--gold-bright)]/90 hover:bg-[rgba(4,10,13,0.9)] sm:px-8"
             >
               <span className="pointer-events-none absolute left-0 top-0 h-7 w-7 border-l border-t border-[var(--gold-bright)]" aria-hidden="true" />
               <span className="pointer-events-none absolute bottom-0 right-0 h-7 w-7 border-b border-r border-[var(--gold-bright)]" aria-hidden="true" />
