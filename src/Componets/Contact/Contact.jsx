@@ -278,34 +278,35 @@ const Contact = () => {
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaGlobe aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Work with us</strong><span className="mt-1 block text-[var(--text-secondary)]">India | Remote | Worldwide</span></span>
                 </div>
+                <div className="mt-6 flex flex-col px-1.5 items-start gap-3">
+                  <h2 className="whitespace-nowrap text-[12px] font-bold uppercase tracking-[0.2em]">Follow us</h2>
+                  <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
+                    {[
+                      ['Instagram', 'https://www.instagram.com/', FaInstagram],
+                      ['YouTube', 'https://www.youtube.com/', FaYoutube],
+                      ['LinkedIn', 'https://www.linkedin.com/', FaLinkedinIn],
+                      ['X', 'https://x.com/', FaXTwitter],
+                      ['Facebook', 'https://www.facebook.com/', FaFacebookF],
+                    ].map(([name, href, Icon]) => (
+                      <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
+                        <Icon aria-hidden="true" className="h-3.5 w-3.5" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              <div className="min-h-[220px] overflow-hidden border border-[var(--border-color)] sm:min-h-[280px]">
+              <div className="h-[320px] overflow-hidden border border-[var(--border-color)] sm:h-[400px] lg:h-[460px]">
                 <iframe
                   title={`Map showing Feather VFX Studio at ${studioAddress}`}
                   src={mapUrl}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full min-h-[220px] w-full border-0 sm:min-h-[280px]"
+                  className="h-full w-full border-0"
                 />
               </div>
             </div>
-            <div className="mt-6 flex flex-col items-start gap-3">
-              <h2 className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.2em]">Follow us</h2>
-              <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
-                {[
-                  ['Instagram', 'https://www.instagram.com/', FaInstagram],
-                  ['YouTube', 'https://www.youtube.com/', FaYoutube],
-                  ['LinkedIn', 'https://www.linkedin.com/', FaLinkedinIn],
-                  ['X', 'https://x.com/', FaXTwitter],
-                  ['Facebook', 'https://www.facebook.com/', FaFacebookF],
-                ].map(([name, href, Icon]) => (
-                  <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
-                    <Icon aria-hidden="true" className="h-3.5 w-3.5" />
-                  </a>
-                ))}
-              </div>
-            </div>
+
 
           </div>
         </div>
