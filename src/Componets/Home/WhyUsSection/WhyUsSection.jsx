@@ -30,7 +30,7 @@ const WhyUsSection = () => {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,10,13,0.42)_0%,rgba(4,10,13,0.3)_42%,rgba(4,10,13,0.18)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,10,13,0.60)_0%,rgba(4,10,13,0.3)_42%,rgba(4,10,13,0.28)_100%)]"
         aria-hidden="true"
       />
 
