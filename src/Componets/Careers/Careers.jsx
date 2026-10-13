@@ -19,6 +19,7 @@ import {
   FaWandMagicSparkles,
 } from 'react-icons/fa6';
 import TeamReviewsSlider from './TeamReviewsSlider';
+import { sendEmailJsForm } from '../../utils/emailJs';
 
 const benefits = [
   { title: 'Creative freedom', description: 'Bring your ideas to life and explore new possibilities.', Icon: FaLightbulb },
@@ -53,13 +54,15 @@ const galleryImages = [
   { src: '/images/heroimages/4.png', alt: 'A dramatic digital environment in production' },
 ];
 
-const applicationEmail = 'enquiry@feathervfx.com';
-
 function Careers() {
   const [search, setSearch] = useState('');
   const [department, setDepartment] = useState('');
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
+  const [selectedRole, setSelectedRole] = useState('');
+  const [isSendingApplication, setIsSendingApplication] = useState(false);
+  const [applicationStatus, setApplicationStatus] = useState(null);
+  const [resumeError, setResumeError] = useState('');
 
   const filteredRoles = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -71,9 +74,33 @@ function Careers() {
     ));
   }, [search, department, location, type]);
 
-  const applyLink = (roleTitle) => (
-    `mailto:${applicationEmail}?subject=${encodeURIComponent(`Careers application - ${roleTitle}`)}&body=${encodeURIComponent(`Hello Feather VFX Studio,\n\nI would like to apply for the ${roleTitle} position.\n\nName:\nPortfolio link:\nRelevant experience:\n\nI have attached my resume and portfolio.`)}`
-  );
+  const startApplication = (roleTitle) => {
+    setSelectedRole(roleTitle);
+    setApplicationStatus(null);
+    setResumeError('');
+  };
+
+  const submitApplication = async (event) => {
+    event.preventDefault();
+    if (isSendingApplication || resumeError) return;
+
+    const form = event.currentTarget;
+    setIsSendingApplication(true);
+    setApplicationStatus(null);
+
+    try {
+      await sendEmailJsForm(form, 'careers');
+      form.reset();
+      setApplicationStatus({ type: 'success', message: 'Your application was sent successfully. Thank you for your interest.' });
+    } catch (error) {
+      setApplicationStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'We could not send your application. Please try again.',
+      });
+    } finally {
+      setIsSendingApplication(false);
+    }
+  };
 
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
@@ -185,7 +212,7 @@ function Careers() {
           <div className="mt-5 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="space-y-2">
               {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon }) => (
-                <a key={title} href={applyLink(title)} className="group flex min-h-[64px] items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-secondary)] p-2 transition-colors hover:border-[var(--gold-primary)]">
+                <button key={title} type="button" onClick={() => startApplication(title)} className="group flex min-h-[64px] w-full items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-secondary)] p-2 text-left transition-colors hover:border-[var(--gold-primary)]">
                   <img src={image} alt="" loading="lazy" className="h-12 w-20 shrink-0 object-cover sm:w-28" />
                   <div className="min-w-0 flex-1">
                     <h3 className="truncate text-xs font-bold">{title}</h3>
@@ -199,7 +226,7 @@ function Careers() {
                     <Icon className="text-xs sm:hidden" aria-hidden="true" />
                     <FaChevronRight className="hidden text-[10px] sm:block" aria-hidden="true" />
                   </span>
-                </a>
+                </button>
               )) : (
                 <div className="border border-[var(--border-color)] p-6 text-sm text-[var(--text-secondary)]">
                   No roles match those filters. Try a different search or check back soon.
@@ -220,9 +247,9 @@ function Careers() {
                   <br />
                   together
                 </h3>
-                <a href={`mailto:${applicationEmail}?subject=${encodeURIComponent('Career enquiry - Feather VFX Studio')}`} className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
+                <button type="button" onClick={() => startApplication('General Career Application')} className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
                   Apply now <FaArrowRight aria-hidden="true" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -271,6 +298,79 @@ function Careers() {
       </section>
 
       <TeamReviewsSlider />
+
+      {selectedRole && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-sm"
+          onClick={(event) => {
+            if (event.target === event.currentTarget && !isSendingApplication) setSelectedRole('');
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape' && !isSendingApplication) setSelectedRole('');
+          }}
+          role="presentation"
+        >
+          <section role="dialog" aria-modal="true" aria-labelledby="career-application-title" className="my-auto w-full max-w-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 shadow-2xl sm:p-7">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Careers at Feather VFX</p>
+                <h2 id="career-application-title" className="mt-1 font-serif text-2xl font-bold uppercase">
+                  Apply: <span className="text-[var(--gold-primary)]">{selectedRole}</span>
+                </h2>
+              </div>
+              <button type="button" onClick={() => setSelectedRole('')} disabled={isSendingApplication} aria-label="Close application form" className="text-2xl text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-primary)] disabled:opacity-50">×</button>
+            </div>
+            <form className="mt-5 space-y-3" onSubmit={submitApplication}>
+              <input type="hidden" name="role" value={selectedRole} />
+              <div className="grid gap-3 sm:grid-cols-2">
+                <label className="sr-only" htmlFor="career-applicant-name">Full name</label>
+                <input id="career-applicant-name" name="name" required autoComplete="name" placeholder="Full name *" className="contact-field" />
+                <label className="sr-only" htmlFor="career-applicant-email">Email</label>
+                <input id="career-applicant-email" name="email" required type="email" autoComplete="email" placeholder="Email *" className="contact-field" />
+              </div>
+              <label className="sr-only" htmlFor="career-applicant-phone">Phone number</label>
+              <input id="career-applicant-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" className="contact-field" />
+              <label className="sr-only" htmlFor="career-portfolio">Portfolio or showreel link</label>
+              <input id="career-portfolio" name="portfolio_url" type="url" placeholder="Portfolio / showreel link" className="contact-field" />
+              <label className="sr-only" htmlFor="career-experience">Relevant experience</label>
+              <textarea id="career-experience" name="experience" rows="3" placeholder="Tell us about your relevant experience" className="contact-field resize-y" />
+              <label className="block text-xs text-[var(--text-secondary)]" htmlFor="career-resume">
+                Resume (PDF, max 10 MB) *
+              </label>
+              <input
+                id="career-resume"
+                name="resume"
+                type="file"
+                accept=".pdf,application/pdf"
+                required
+                onChange={(event) => {
+                  const file = event.target.files?.[0];
+                  if (file && file.size > 10 * 1024 * 1024) {
+                    event.target.value = '';
+                    setResumeError('Resume file must be smaller than 10 MB.');
+                    return;
+                  }
+                  setResumeError('');
+                }}
+                className="career-filter w-full file:mr-3 file:border-0 file:bg-[var(--gold-primary)] file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[var(--bg-primary)]"
+              />
+              {resumeError && <p role="alert" className="text-xs text-red-400">{resumeError}</p>}
+              <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
+                Configure the Careers EmailJS template with a form file attachment named <code>resume</code>.
+              </p>
+              {applicationStatus && (
+                <p role={applicationStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${applicationStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
+                  {applicationStatus.message}
+                </p>
+              )}
+              <button type="submit" disabled={isSendingApplication || Boolean(resumeError)} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
+                {isSendingApplication ? 'Sending application...' : 'Submit application'}
+                {!isSendingApplication && <FaArrowRight aria-hidden="true" />}
+              </button>
+            </form>
+          </section>
+        </div>
+      )}
 
       <section className="relative isolate overflow-hidden">
         <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]" />

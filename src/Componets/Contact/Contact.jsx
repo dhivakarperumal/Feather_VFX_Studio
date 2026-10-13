@@ -16,6 +16,7 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import { FaClapperboard, FaFilm, FaHandshake, FaXTwitter } from 'react-icons/fa6';
+import { sendEmailJsForm } from '../../utils/emailJs';
 
 const studioAddress =
   '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
@@ -67,14 +68,16 @@ const Contact = () => {
   const [projectType, setProjectType] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [fileError, setFileError] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [formStatus, setFormStatus] = useState(null);
 
   const handleFilesChange = (event) => {
     const files = Array.from(event.target.files || []);
     const totalSize = files.reduce((size, file) => size + file.size, 0);
 
-    if (totalSize > 100 * 1024 * 1024) {
+    if (totalSize > 20 * 1024 * 1024) {
       setSelectedFiles([]);
-      setFileError('Please choose files with a combined size under 100 MB.');
+      setFileError('Please choose reference files with a combined size under 20 MB.');
       event.target.value = '';
       return;
     }
@@ -83,36 +86,28 @@ const Contact = () => {
     setFileError('');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (fileError) return;
+    if (fileError || isSending) return;
 
     const form = event.currentTarget;
-    const values = new FormData(form);
-    const name = values.get('name');
-    const email = values.get('email');
-    const phone = values.get('phone') || 'Not provided';
-    const company = values.get('company') || 'Not provided';
-    const message = values.get('message');
-    const subject = `Project enquiry${projectType ? ` - ${projectType}` : ''}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Phone: ${phone}`,
-      `Company / Studio: ${company}`,
-      `Project type: ${projectType || 'Not selected'}`,
-      '',
-      'Project details:',
-      message,
-      '',
-      selectedFiles.length
-        ? `Please attach these selected reference files before sending: ${selectedFiles.map((file) => file.name).join(', ')}`
-        : '',
-    ]
-      .filter(Boolean)
-      .join('\n');
+    setIsSending(true);
+    setFormStatus(null);
 
-    window.location.href = `mailto:${enquiryEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      await sendEmailJsForm(form, 'contact');
+      form.reset();
+      setProjectType('');
+      setSelectedFiles([]);
+      setFormStatus({ type: 'success', message: 'Thanks for reaching out. Your enquiry was sent successfully.' });
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'We could not send your enquiry. Please try again.',
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const selectEnquiryType = (value) => {
@@ -195,6 +190,7 @@ const Contact = () => {
               <label className="sr-only" htmlFor="contact-project-type">Project type</label>
               <select
                 id="contact-project-type"
+                name="project_type"
                 value={projectType}
                 onChange={(event) => setProjectType(event.target.value)}
                 className="contact-field"
@@ -222,13 +218,14 @@ const Contact = () => {
                 <FaUpload className="shrink-0 text-lg text-[var(--gold-primary)]" aria-hidden="true" />
                 <span className="text-xs">
                   <span className="block font-semibold">Upload reference files (optional)</span>
-                  <span className="mt-1 block text-[10px] text-[var(--text-secondary)]">Images, videos, scripts, or concept art (max 100 MB total)</span>
+                  <span className="mt-1 block text-[10px] text-[var(--text-secondary)]">Images, videos, scripts, or concept art (max 20 MB total)</span>
                   {selectedFiles.length > 0 && (
                     <span className="mt-1 block text-[var(--gold-primary)]">{selectedFiles.length} file(s) selected</span>
                   )}
                 </span>
                 <input
                   type="file"
+                  name="reference_files"
                   multiple
                   accept="image/*,video/*,.pdf,.txt,.doc,.docx"
                   onChange={handleFilesChange}
@@ -237,13 +234,19 @@ const Contact = () => {
               </label>
               {fileError && <p role="alert" className="text-xs text-red-400">{fileError}</p>}
               <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
-                Your email app will open with your enquiry. Attach the selected files there before sending.
+                Your message and selected reference files will be sent through EmailJS.
               </p>
+              {formStatus && (
+                <p role={formStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${formStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
+                  {formStatus.message}
+                </p>
+              )}
               <button
                 type="submit"
-                className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                disabled={isSending || Boolean(fileError)}
+                className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Send message <FaArrowRight aria-hidden="true" />
+                {isSending ? 'Sending...' : 'Send message'} {!isSending && <FaArrowRight aria-hidden="true" />}
               </button>
             </form>
           </div>
