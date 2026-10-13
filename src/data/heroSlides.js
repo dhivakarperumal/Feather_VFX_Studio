@@ -1,7 +1,7 @@
 import { FaClapperboard, FaCube, FaLayerGroup, FaWandMagicSparkles } from 'react-icons/fa6';
 
 const cinematicImage = (photoId) =>
-  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=2400&q=85`;
+  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=3200&q=100&sharp=100`;
 
 export const heroSlides = [
   {
