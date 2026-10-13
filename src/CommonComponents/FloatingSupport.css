@@ -73,16 +73,11 @@
   box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
 }
 
-.support-item.call {
-  background: linear-gradient(135deg, #fb5921 0%, #d60e1e 100%);
-  color: #ffffff;
-  box-shadow: 0 8px 22px rgba(214, 14, 30, 0.35);
-}
-
+.support-item.call,
 .support-item.scroll-top {
-  background: linear-gradient(135deg, #fb5921 0%, #d60e1e 100%);
-  color: #ffffff;
-  box-shadow: 0 8px 22px rgba(214, 14, 30, 0.35);
+  background: var(--gold-primary);
+  color: var(--bg-primary);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--gold-primary) 35%, transparent);
 }
 
 /* Tooltip appears to the left of the right-side buttons */
