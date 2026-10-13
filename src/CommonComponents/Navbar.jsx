@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import PageContainer from './PageContainer';
 
 const navLinks = [
@@ -15,6 +16,7 @@ const navLinks = [
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(window.location.hash);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const updateActiveHash = () => setActiveHash(window.location.hash);
@@ -23,12 +25,13 @@ const Navbar = () => {
   }, []);
 
   const renderLink = (link, mobile = false) => {
-    const isActive = activeHash === `#${link.id}` || (!activeHash && link.id === 'home');
+    const isContactPage = link.id === 'contact' && pathname === '/contact';
+    const isActive = isContactPage || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
 
     return (
       <a
         key={link.id}
-        href={`/#${link.id}`}
+        href={link.id === 'contact' ? '/contact' : `/#${link.id}`}
         onClick={() => {
           setActiveHash(`#${link.id}`);
           setIsMobileMenuOpen(false);
@@ -65,7 +68,7 @@ const Navbar = () => {
         </div>
 
         <a
-          href="/#contact"
+          href="/contact"
           onClick={() => setActiveHash('#contact')}
           className="hidden shrink-0 items-center gap-2 border border-[var(--gold-primary)] px-5 py-2.5 text-[11px] font-semibold tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] xl:flex"
         >
@@ -98,7 +101,7 @@ const Navbar = () => {
         <div id="mobile-navigation" className="border-t border-[var(--border-color)] bg-[var(--bg-secondary)] px-6 pb-5 pt-2 xl:hidden">
           {navLinks.map((link) => renderLink(link, true))}
           <a
-            href="/#contact"
+            href="/contact"
             onClick={() => {
               setActiveHash('#contact');
               setIsMobileMenuOpen(false);

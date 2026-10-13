@@ -6,6 +6,7 @@ import 'aos/dist/aos.css'
 import './index.css'
 import App from './App.jsx'
 import Home from './Componets/Home/Home.jsx'
+import Contact from './Componets/Contact/Contact.jsx'
 
 
 function AppRoot() {
@@ -24,6 +25,8 @@ function AppRoot() {
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="contactus" element={<Navigate to="/contact" replace />} />
           
         </Route>
       </Routes>

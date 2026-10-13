@@ -32,7 +32,7 @@ function App() {
   return (
     <section className="relative min-h-screen flex flex-col">
       {isNavigating && <div className="route-progress-bar" aria-hidden="true" />}
-      <TopHeader />
+      {location.pathname !== "/contact" && <TopHeader />}
       <Navbar />
       <div className="print:hidden">
         <ScrollToTop />
