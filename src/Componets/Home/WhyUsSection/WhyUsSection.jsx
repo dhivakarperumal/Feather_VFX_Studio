@@ -55,42 +55,36 @@ const WhyUsSection = () => {
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
-              className="group relative min-h-[430px] overflow-hidden bg-[var(--gold-primary)] p-px text-center transition-colors duration-300 hover:bg-[var(--gold-bright)] sm:min-h-[450px]"
+              className="group relative flex min-h-[430px] flex-col items-center overflow-hidden border border-[var(--gold-primary)]/75 px-5 pb-5 pt-3 text-center transition-colors duration-300 hover:border-[var(--gold-bright)] sm:min-h-[450px] sm:px-7"
               style={{
                 clipPath: 'polygon(0 28px, 28px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)',
+                backgroundColor: 'rgba(3, 9, 12, 0.72)',
               }}
             >
-              <div
-                className="relative flex h-full min-h-[428px] flex-col items-center overflow-hidden bg-[rgba(3,9,12,0.48)] px-5 pb-5 pt-6 transition-colors duration-300 group-hover:bg-[rgba(3,9,12,0.58)] sm:min-h-[448px] sm:px-7"
-                style={{
-                  clipPath: 'polygon(0 27px, 27px 0, calc(100% - 21px) 0, 100% 21px, 100% calc(100% - 27px), calc(100% - 27px) 100%, 0 100%)',
-                }}
-              >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(214,160,74,0.12),transparent_46%)] opacity-70 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_18%,rgba(214,160,74,0.1),transparent_44%)] opacity-80 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
 
-                <div className="relative mb-3 flex h-[142px] w-[180px] shrink-0 items-center justify-center">
-                  <span className="absolute h-[104px] w-[152px] rotate-[-14deg] rounded-[50%] border border-[var(--gold-bright)]/75 shadow-[0_0_16px_rgba(240,168,88,0.35)] transition-transform duration-500 group-hover:rotate-[-25deg] group-hover:scale-110" aria-hidden="true" />
-                  <span className="absolute h-[108px] w-[145px] rotate-[13deg] rounded-[50%] border border-[var(--gold-primary)]/60 shadow-[0_0_18px_rgba(214,160,74,0.28)] transition-transform duration-500 group-hover:rotate-[24deg] group-hover:scale-110" aria-hidden="true" />
-                  <span className="absolute h-[118px] w-[118px] rounded-full bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.32),rgba(214,160,74,0.12)_24%,rgba(3,9,12,0.96)_68%)] shadow-[inset_0_0_12px_rgba(240,168,88,0.55),0_0_26px_rgba(240,168,88,0.5)]" aria-hidden="true" />
-                  <span className="absolute h-[126px] w-[126px] rounded-full border border-white/25 shadow-[0_0_12px_rgba(240,168,88,0.3)]" aria-hidden="true" />
-                  <Icon className="relative z-10 h-12 w-12 text-[var(--gold-bright)] drop-shadow-[0_0_10px_rgba(240,168,88,0.8)]" aria-hidden="true" />
-                </div>
+              <div className="relative mb-2 flex h-[142px] w-[180px] shrink-0 items-center justify-center">
+                <span className="absolute h-[112px] w-[142px] rotate-[-16deg] rounded-[50%] border border-[var(--gold-bright)]/65 shadow-[0_0_15px_rgba(240,168,88,0.3)] transition-transform duration-500 group-hover:rotate-[-22deg] group-hover:scale-105" aria-hidden="true" />
+                <span className="absolute h-[112px] w-[142px] rotate-[16deg] rounded-[50%] border border-[var(--gold-primary)]/55 shadow-[0_0_18px_rgba(214,160,74,0.26)] transition-transform duration-500 group-hover:rotate-[22deg] group-hover:scale-105" aria-hidden="true" />
+                <span className="absolute h-[122px] w-[122px] rounded-full bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.42),rgba(150,117,75,0.3)_14%,rgba(19,23,24,0.96)_48%,rgba(4,9,12,0.98)_72%)] shadow-[inset_0_0_12px_rgba(240,168,88,0.45),0_0_24px_rgba(240,168,88,0.38)]" aria-hidden="true" />
+                <span className="absolute h-[130px] w-[130px] rounded-full border border-white/20 shadow-[0_0_12px_rgba(240,168,88,0.25)]" aria-hidden="true" />
+                <Icon className="relative z-10 h-12 w-12 text-[var(--gold-bright)] drop-shadow-[0_0_10px_rgba(240,168,88,0.75)]" aria-hidden="true" />
+              </div>
 
-                <h3 className="relative font-serif text-xl font-bold uppercase leading-tight tracking-[0.02em] text-white sm:text-2xl">
-                  {title}
-                </h3>
+              <h3 className="relative font-serif text-xl font-bold uppercase leading-tight tracking-[0.02em] text-white sm:text-2xl">
+                {title}
+              </h3>
 
-                <p className="relative mt-3 max-w-[360px] text-sm leading-[1.65] text-white/75 sm:text-[0.94rem]">
-                  {text}
-                </p>
+              <p className="relative mt-3 max-w-[360px] text-sm leading-[1.65] text-white/75 sm:text-[0.94rem]">
+                {text}
+              </p>
 
-                <div className="relative mt-auto flex w-full items-center justify-center pt-5">
-                  <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[var(--gold-primary)]/70 to-[var(--gold-primary)]/30" aria-hidden="true" />
-                  <span className="mx-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)] shadow-[0_0_12px_rgba(214,160,74,0.18)] transition-all duration-300 group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] group-hover:shadow-[0_0_20px_rgba(214,160,74,0.42)]">
-                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[var(--gold-primary)]/70 to-[var(--gold-primary)]/30" aria-hidden="true" />
-                </div>
+              <div className="relative mt-auto flex w-full items-center justify-center pt-5">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[var(--gold-primary)]/70 to-[var(--gold-primary)]/30" aria-hidden="true" />
+                <span className="mx-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)] shadow-[0_0_12px_rgba(214,160,74,0.18)] transition-all duration-300 group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] group-hover:shadow-[0_0_20px_rgba(214,160,74,0.42)]">
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[var(--gold-primary)]/70 to-[var(--gold-primary)]/30" aria-hidden="true" />
               </div>
             </article>
           ))}
