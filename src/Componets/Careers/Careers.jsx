@@ -18,6 +18,7 @@ import {
   FaLaptop,
   FaWandMagicSparkles,
 } from 'react-icons/fa6';
+import TeamReviewsSlider from './TeamReviewsSlider';
 
 const benefits = [
   { title: 'Creative freedom', description: 'Bring your ideas to life and explore new possibilities.', Icon: FaLightbulb },
@@ -268,6 +269,8 @@ function Careers() {
           </div>
         </div>
       </section>
+
+      <TeamReviewsSlider />
 
       <section className="relative isolate overflow-hidden">
         <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]" />
