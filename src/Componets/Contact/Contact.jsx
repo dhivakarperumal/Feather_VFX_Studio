@@ -10,8 +10,12 @@ import {
   FaQuestionCircle,
   FaShieldAlt,
   FaUpload,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
 } from 'react-icons/fa';
-import { FaClapperboard, FaFilm, FaHandshake } from 'react-icons/fa6';
+import { FaClapperboard, FaFilm, FaHandshake, FaXTwitter } from 'react-icons/fa6';
 
 const studioAddress =
   '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
@@ -286,21 +290,23 @@ const Contact = () => {
                 />
               </div>
             </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Follow us</span>
-              {[
-                ['Instagram', 'https://www.instagram.com/', 'ig'],
-                ['YouTube', 'https://www.youtube.com/', 'yt'],
-                ['LinkedIn', 'https://www.linkedin.com/', 'in'],
-                ['X', 'https://x.com/', 'x'],
-                ['Facebook', 'https://www.facebook.com/', 'f'],
-              ].map(([name, href, label]) => (
-                <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-xs font-bold transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
-                  {label}
-                </a>
-              ))}
+            <div className="mt-6 flex flex-col items-start gap-3">
+              <h2 className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.2em]">Follow us</h2>
+              <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
+                {[
+                  ['Instagram', 'https://www.instagram.com/', FaInstagram],
+                  ['YouTube', 'https://www.youtube.com/', FaYoutube],
+                  ['LinkedIn', 'https://www.linkedin.com/', FaLinkedinIn],
+                  ['X', 'https://x.com/', FaXTwitter],
+                  ['Facebook', 'https://www.facebook.com/', FaFacebookF],
+                ].map(([name, href, Icon]) => (
+                  <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
+                    <Icon aria-hidden="true" className="h-3.5 w-3.5" />
+                  </a>
+                ))}
+              </div>
             </div>
+
           </div>
         </div>
       </section>
