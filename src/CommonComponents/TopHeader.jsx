@@ -14,7 +14,7 @@ const socialLinks = [
   { name: 'Instagram', href: 'https://www.instagram.com/', Icon: FaInstagram },
   { name: 'YouTube', href: 'https://www.youtube.com/', Icon: FaYoutube },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: FaLinkedinIn },
-  { name: 'X', href: 'https://x.com/', Icon: FaXTwitter },
+  
 ];
 
 const TopHeader = () => (
