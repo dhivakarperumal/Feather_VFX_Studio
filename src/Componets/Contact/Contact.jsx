@@ -17,6 +17,7 @@ import {
 } from 'react-icons/fa';
 import { FaClapperboard, FaFilm, FaHandshake, FaXTwitter } from 'react-icons/fa6';
 import { sendEmailJsForm } from '../../utils/emailJs';
+import PageHeader from '../../CommonComponents/PageHeader';
 
 const studioAddress =
   '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
@@ -117,53 +118,38 @@ const Contact = () => {
 
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
-      <section
-        aria-labelledby="contact-page-title"
-        className="relative isolate flex min-h-[330px] items-center overflow-hidden border-b border-[var(--border-color)] sm:min-h-[370px]"
+      <PageHeader
+        eyebrow="Contact us"
+        title={
+          <>
+            Let&apos;s create
+            <br />
+            something
+            <br />
+            <span className="text-[var(--gold-primary)]">extraordinary</span>
+          </>
+        }
+        description="Have a project in mind? We'd love to hear from you. Get in touch and let's bring your vision to life."
+        background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+        align="left"
+        showBreadcrumb={false}
+        className="min-h-[330px] sm:min-h-[370px]"
       >
-        <img
-          src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
-          alt=""
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_56%]"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/10" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)]/70 via-transparent to-black/20" />
-        <div className="mx-auto w-full max-w-[1700px] px-[6%] py-14 sm:px-[5%] lg:px-[3%]">
-          <div className="max-w-2xl">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.34em] text-[var(--text-primary)] sm:text-xs">
-              Contact us
-            </p>
-            <h1
-              id="contact-page-title"
-              className="font-serif text-4xl font-bold uppercase leading-[0.98] sm:text-5xl md:text-6xl"
-            >
-              Let&apos;s create
-              <br />
-              something
-              <br />
-              <span className="text-[var(--gold-primary)]">extraordinary</span>
-            </h1>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/85 sm:text-base">
-              Have a project in mind? We&apos;d love to hear from you. Get in touch
-              and let&apos;s bring your vision to life.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
-              <div className="flex items-center gap-2.5">
-                <FaHeadphones className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-                <span><strong className="block font-semibold">Quick response</strong><span className="text-white/65">Within 24 hours</span></span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <FaShieldAlt className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-                <span><strong className="block font-semibold">Confidential</strong><span className="text-white/65">Project details stay safe</span></span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <FaGlobe className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-                <span><strong className="block font-semibold">Global collaboration</strong><span className="text-white/65">Work from anywhere</span></span>
-              </div>
-            </div>
+        <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
+          <div className="flex items-center gap-2.5">
+            <FaHeadphones className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
+            <span><strong className="block font-semibold">Quick response</strong><span className="text-white/65">Within 24 hours</span></span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <FaShieldAlt className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
+            <span><strong className="block font-semibold">Confidential</strong><span className="text-white/65">Project details stay safe</span></span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <FaGlobe className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
+            <span><strong className="block font-semibold">Global collaboration</strong><span className="text-white/65">Work from anywhere</span></span>
           </div>
         </div>
-      </section>
+      </PageHeader>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto grid max-w-[1700px] gap-8 px-[5%] py-8 sm:px-[5%] lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-[4%] xl:px-[3%]">

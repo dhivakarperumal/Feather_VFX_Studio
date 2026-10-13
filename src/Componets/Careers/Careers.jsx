@@ -20,6 +20,7 @@ import {
 } from 'react-icons/fa6';
 import TeamReviewsSlider from './TeamReviewsSlider';
 import { sendEmailJsForm } from '../../utils/emailJs';
+import PageHeader from '../../CommonComponents/PageHeader';
 
 const benefits = [
   { title: 'Creative freedom', description: 'Bring your ideas to life and explore new possibilities.', Icon: FaLightbulb },
@@ -104,46 +105,44 @@ function Careers() {
 
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
-      <section className="relative isolate flex min-h-[430px] items-center overflow-hidden border-b border-[var(--border-color)] sm:min-h-[500px] lg:min-h-[540px]">
-        <img src="/images/heroimages/2.png" alt="" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/10" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)]/80 via-transparent to-[var(--bg-primary)]/35" />
-        <div className="mx-auto w-full max-w-[1700px] px-[6%] py-14 sm:px-[5%] lg:px-[3%]">
-          <div className="max-w-xl">
-            <p className="text-[10px] font-bold uppercase tracking-[0.32em] sm:text-xs">Careers at Feather VFX</p>
-            <h1 className="mt-2 font-serif text-4xl font-bold uppercase leading-[0.98] sm:text-5xl md:text-6xl">
-              Create worlds
-              <br />
-              <span className="text-[var(--gold-primary)]">with us</span>
-            </h1>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/85 sm:text-base">
-              Be part of a passionate team that transforms imagination into breathtaking visual experiences. Join us and work on films, series, commercials, and next-gen virtual content.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
-                View open positions <FaArrowRight aria-hidden="true" />
-              </a>
-              <a href="#studio-life" className="inline-flex items-center gap-3 px-2 py-2 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[var(--gold-primary)]">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 text-sm">▶</span>
-                Watch our studio
-              </a>
-            </div>
-            <div className="mt-7 grid max-w-[570px] grid-cols-2 gap-y-4 border-t border-white/20 pt-4 sm:grid-cols-4">
-              {[
-                ['50+', 'Creative talents'],
-                ['25+', 'Global projects'],
-                ['10+', 'Years of excellence'],
-                ['∞', 'New possibilities'],
-              ].map(([value, label]) => (
-                <div key={label} className="border-l border-white/20 pl-3 first:border-0 first:pl-0">
-                  <p className="font-serif text-2xl text-[var(--gold-primary)]">{value}</p>
-                  <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/80">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+      <PageHeader
+        eyebrow="Careers at Feather VFX"
+        title={
+          <>
+            Create worlds
+            <br />
+            <span className="text-[var(--gold-primary)]">with us</span>
+          </>
+        }
+        description="Be part of a passionate team that transforms imagination into breathtaking visual experiences. Join us and work on films, series, commercials, and next-gen virtual content."
+        background="/images/heroimages/2.png"
+        align="left"
+        showBreadcrumb={false}
+        className="min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]"
+      >
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
+            View open positions <FaArrowRight aria-hidden="true" />
+          </a>
+          <a href="#studio-life" className="inline-flex items-center gap-3 px-2 py-2 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[var(--gold-primary)]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 text-sm">▶</span>
+            Watch our studio
+          </a>
         </div>
-      </section>
+        <div className="mt-7 grid max-w-[570px] grid-cols-2 gap-y-4 border-t border-white/20 pt-4 sm:grid-cols-4">
+          {[
+            ['50+', 'Creative talents'],
+            ['25+', 'Global projects'],
+            ['10+', 'Years of excellence'],
+            ['∞', 'New possibilities'],
+          ].map(([value, label]) => (
+            <div key={label} className="border-l border-white/20 pl-3 first:border-0 first:pl-0">
+              <p className="font-serif text-2xl text-[var(--gold-primary)]">{value}</p>
+              <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/80">{label}</p>
+            </div>
+          ))}
+        </div>
+      </PageHeader>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto max-w-[1700px] px-[6%] py-8 sm:px-[5%] lg:px-[3%]">
