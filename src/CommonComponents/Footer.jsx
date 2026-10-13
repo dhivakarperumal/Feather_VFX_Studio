@@ -1,88 +1,88 @@
-import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaAngleRight, FaMapMarkerAlt, FaClock, FaInstagram, FaWhatsapp, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaAngleRight, FaMapMarkerAlt, FaInstagram, FaEnvelope, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Products", path: "/products" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact Us", path: "/contact" },
+    { name: "Home", path: "/#home" },
+    { name: "About Us", path: "/#about-us" },
+    { name: "Projects", path: "/#projects" },
+    { name: "Blog", path: "/#blog" },
+    { name: "Contact Us", path: "/#contact" },
+    { name: "Sitemap", path: "/sitemap.xml" },
   ];
 
-  const ourProducts = [
-    "Enamel Thinner",
-    "Paint Thinner",
-    "Solvent Thinner",
-    "NC Thinner"
+  const ourServices = [
+    "Rotoscope",
+    "Paint-Prep",
+    "Cosmetic Fixes",
+    "Matchmove",
+    "Compositing",
   ];
+
+  const studioAddress = "18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.";
+  const mapUrl = "https://www.google.com/maps/search/?api=1&query=18%2F09%2C%20Valasaravakkam%2C%20Chennai%20-%20600087%2C%20Tamil%20Nadu%2C%20India";
 
   return (
-    <footer className="bg-[#111317] border-t border-gray-800 mt-auto text-white">
+    <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <div className="container mx-auto px-4 md:px-8 py-16">
         {/* We use a responsive grid that will naturally wrap items to the next row */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 lg:gap-10">
           
           {/* 1. Logo & Info */}
           <div className="space-y-6" data-aos="fade-up" data-aos-delay="0">
-            <div className="bg-white inline-block p-2 rounded-md">
+            <div className="w-[220px] max-w-full">
               <img 
                 src="/images/logo.png" 
-                alt="Marutham Marketing" 
-                className="h-12 object-contain" 
+                alt="Feather VFX Studio" 
+                className="block h-auto w-full object-contain" 
               />
             </div>
-            <p className="text-gray-400 text-[15px] leading-relaxed text-justify">
-              "Choosing Marutham Thinner for your projects offers several distinct advantages that make it stand out from other thinners in the market."
+            <p className="text-[var(--text-secondary)] text-[15px] leading-relaxed text-justify">
+              "Creative visual effects and post-production services, crafted with care by Feather VFX Studio."
             </p>
-           
-            <div className="flex items-center space-x-3 pt-2">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-[#0a8c43] hover:text-white transition-colors" aria-label="Facebook">
-                <FaFacebookF size={18} />
+            <nav aria-label="Social media" className="flex items-center gap-3">
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                <FaFacebookF size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-[#0a8c43] hover:text-white transition-colors" aria-label="Instagram">
-                <FaInstagram size={18} />
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                <FaLinkedinIn size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-[#0a8c43] hover:text-white transition-colors" aria-label="WhatsApp">
-                <FaWhatsapp size={18} />
+              <a href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                <FaTwitter size={16} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-[#0a8c43] hover:text-white transition-colors" aria-label="Twitter">
-                <FaTwitter size={18} />
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                <FaInstagram size={16} />
               </a>
-            </div>
+            </nav>
           </div>
 
            {/* 3. Quick Links */}
           <div data-aos="fade-up" data-aos-delay="100">
-            <h3 className="text-[17px] font-bold text-white mb-6">Quick Links</h3>
+            <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Quick Links</h3>
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    to={link.path} 
-                    className="flex items-center text-gray-400 text-[15px] hover:text-[#fb5921] transition-all group"
+                  <a 
+                    href={link.path} 
+                    className="flex items-center border-b border-[var(--border-color)] pb-3 text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-all group"
                   >
-                    <FaAngleRight className="mr-2 text-[#fb5921] transition-transform group-hover:translate-x-1" size={14} />
+                    <FaAngleRight className="mr-2 text-[var(--gold-primary)] transition-transform group-hover:translate-x-1" size={14} />
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* 2. Our Products */}
+          {/* 2. Our Services */}
           <div data-aos="fade-up" data-aos-delay="200">
-            <h3 className="text-[17px] font-bold text-white mb-6">Our Products</h3>
+            <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Our Services</h3>
             <ul className="space-y-4">
-              {ourProducts.map((item, index) => (
+              {ourServices.map((item, index) => (
                 <li key={index}>
-                  <Link 
-                    to={`/products?category=${encodeURIComponent(item)}`} 
-                    className="flex items-center text-gray-400 text-[15px] hover:text-[#fb5921] transition-all group"
-                  >
-                    <FaAngleRight className="mr-2 text-[#fb5921] transition-transform group-hover:translate-x-1" size={14} />
+                  <span className="flex items-center text-[var(--text-secondary)] text-[15px]">
+                    <FaAngleRight className="mr-2 text-[var(--gold-primary)]" size={14} />
                     {item}
-                  </Link>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -90,68 +90,57 @@ const Footer = () => {
 
          
 
-          {/* 4. Contact Us */}
+          {/* 4. Connect With Us */}
           <div data-aos="fade-up" data-aos-delay="300">
-            <h3 className="text-[17px] font-bold text-white mb-6">Contact Us</h3>
+            <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Connect With Us</h3>
             <div className="space-y-5">
               <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 shrink-0">
-                  <FaPhoneAlt className="text-white text-sm" />
+                <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
+                  <FaPhoneAlt className="text-[var(--gold-primary)] text-sm" />
                 </div>
-                <a href="tel:+91 84380 18090" className="text-gray-300 text-[15px] hover:text-[#fb5921] transition-colors">+91 84380 18090</a>
-              </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 shrink-0">
-                  <FaEnvelope className="text-white text-sm" />
-                </div>
-                <a href="mailto:maruthamthinner@gmail.com" className="text-gray-400  text-[15px] ">
-                  maruthamthinner@gmail.com
+                <a href="tel:+918674685645" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
+                  +91 86746 85645
                 </a>
               </div>
-            </div>
-
-            <div className="flex items-start mt-5">
-              <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 shrink-0 mt-1">
-                <FaMapMarkerAlt className="text-white text-sm" />
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
+                  <FaEnvelope className="text-[var(--gold-primary)] text-sm" />
+                </div>
+                <a href="mailto:info@feathervfx.com" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
+                  info@feathervfx.com
+                </a>
               </div>
-              <p className="text-gray-400 text-[15px] leading-relaxed">
-                S.F,No.16/9, Dharmapuri Main Road, Sundrampalli Village, Tirupattur District - 635 654
-              </p>
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
+                  <FaEnvelope className="text-[var(--gold-primary)] text-sm" />
+                </div>
+                <a href="mailto:enquiry@feathervfx.com" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
+                  enquiry@feathervfx.com
+                </a>
+              </div>
+              <div className="flex items-start">
+                <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
+                  <FaMapMarkerAlt className="text-[var(--gold-primary)] text-sm" />
+                </div>
+                <p className="text-[var(--text-secondary)] text-[15px] leading-relaxed">{studioAddress}</p>
+              </div>
             </div>
 
-            
           </div>
 
          
-          {/* 6. Newsletter Subscription */}
+          {/* 5. Google Map */}
           <div data-aos="fade-up" data-aos-delay="400">
-            <h3 className="text-[17px] font-bold text-white mb-6">Newsletter</h3>
-            <form className="flex w-full" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="bg-[#1c1f26] text-[14px] sm:text-[15px] text-gray-300 px-3 sm:px-4 py-3 rounded-l-md border border-gray-800 focus:outline-none focus:border-[#fb5921] w-full min-w-0"
-                required
-              />
-              <button 
-                type="submit" 
-                className="bg-gradient-to-r from-[#fb5921] to-[#e41a15] hover:from-[#e41a15] hover:to-[#c61410] text-white px-4 sm:px-6 py-3 rounded-r-md font-[500] transition-colors whitespace-nowrap shrink-0"
-              >
-                Subscribe
-              </button>
-            </form>
-
-            <div className="mt-6">
-              <div className="flex items-center mb-3">
-                <FaClock className="text-[#fb5921] text-lg mr-3 shrink-0" />
-                <h3 className="text-[17px] font-bold text-white">Hours:</h3>
-              </div>
-              <p className="text-gray-400 text-[15px] ml-7">
-                10:00am - 08:00pm<br/>
-                Monday To Sunday
-              </p>
-            </div>
-
+            <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Google Map</h3>
+            <a
+              href={mapUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-start gap-3 text-[var(--text-secondary)] text-[15px] leading-relaxed transition-colors hover:text-[var(--gold-bright)]"
+            >
+              <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+              <span>{studioAddress}<span className="mt-2 block font-semibold text-[var(--text-primary)]">View on Google Maps →</span></span>
+            </a>
           </div>
 
           
@@ -159,8 +148,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="border-t border-gray-800 py-6 text-center text-gray-500 text-sm" data-aos="fade-up" data-aos-delay="100">
-        <p>&copy; {new Date().getFullYear()} Marutham Marketing. All rights reserved.</p>
+      <div className="border-t border-[var(--border-color)] py-6 text-center text-[var(--text-secondary)] text-sm" data-aos="fade-up" data-aos-delay="100">
+        <p>&copy; {new Date().getFullYear()} Feather VFX Studio. All rights reserved.</p>
       </div>
     </footer>
   );
