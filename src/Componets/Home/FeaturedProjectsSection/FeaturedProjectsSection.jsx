@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../../CommonComponents/ModalPortal';
+import PageHeader from '../../../CommonComponents/PageHeader';
 import projectData from '../../../data/projects.json';
 
 const { filters, projects } = projectData;
@@ -89,47 +90,56 @@ const FeaturedProjectsSection = () => {
   );
 
   return (
-    <section
-      id="projects"
-      aria-labelledby="featured-projects-title"
-      className="relative isolate overflow-hidden bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,160,74,0.11),transparent_46%),#050a0b] px-[3%] py-16 sm:py-20 lg:py-14"
-    >
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,10,11,0.45),#050a0b_90%),url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%] opacity-25"
-        aria-hidden="true"
+    <>
+      <PageHeader
+        eyebrow="Our work"
+        title="Featured Projects"
+        description="Explore cinematic visuals and standout work created by the Feather VFX Studio team."
+        background="/images/project.png"
+        align="left"
+        showBreadcrumb={false}
       />
-      <div className="mx-auto w-full max-w-[1500px]">
-        <header className="flex flex-col items-center text-center">
-          <div className="flex items-center gap-4 text-[var(--text-primary)]">
-            <span className="h-px w-14 bg-gradient-to-r from-transparent to-[var(--gold-primary)]" />
-            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)]">Our Work</p>
-            <span className="h-px w-14 bg-gradient-to-l from-transparent to-[var(--gold-primary)]" />
-          </div>
-          <h2 id="featured-projects-title" className="mt-2 font-serif text-4xl font-bold uppercase leading-none text-[var(--text-primary)] sm:text-5xl lg:text-7xl">
-            Featured <span className="text-[var(--gold-bright)]">Projects</span>
-          </h2>
-          <p className="mt-3 text-sm text-[var(--text-primary)]/75">
-            Bringing imagination to life through stunning visuals and world-class VFX.
-          </p>
+      <section
+        id="projects"
+        aria-labelledby="featured-projects-title"
+        className="relative isolate overflow-hidden bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,160,74,0.11),transparent_46%),#050a0b] px-[3%] py-16 sm:py-20 lg:py-14"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,10,11,0.45),#050a0b_90%),url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%] opacity-25"
+          aria-hidden="true"
+        />
+        <div className="mx-auto w-full max-w-[1500px]">
+          <header className="flex flex-col items-center text-center">
+            <div className="flex items-center gap-4 text-[var(--text-primary)]">
+              <span className="h-px w-14 bg-gradient-to-r from-transparent to-[var(--gold-primary)]" />
+              <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)]">Our Work</p>
+              <span className="h-px w-14 bg-gradient-to-l from-transparent to-[var(--gold-primary)]" />
+            </div>
+            <h2 id="featured-projects-title" className="mt-2 font-serif text-4xl font-bold uppercase leading-none text-[var(--text-primary)] sm:text-5xl lg:text-7xl">
+              Featured <span className="text-[var(--gold-bright)]">Projects</span>
+            </h2>
+            <p className="mt-3 text-sm text-[var(--text-primary)]/75">
+              Bringing imagination to life through stunning visuals and world-class VFX.
+            </p>
 
-          <div className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Filter projects by discipline">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                aria-pressed={activeFilter === filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`min-h-8 cursor-pointer rounded-full border px-4 py-1.5 text-[11px] transition-colors focus-visible:border-[var(--gold-primary)] focus-visible:text-[var(--gold-bright)] ${
-                  activeFilter === filter
-                    ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
-                    : 'border-white/25 bg-black/50 text-white/85 hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)]'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </header>
+            <div className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Filter projects by discipline">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  type="button"
+                  aria-pressed={activeFilter === filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`min-h-8 cursor-pointer rounded-full border px-4 py-1.5 text-[11px] transition-colors focus-visible:border-[var(--gold-primary)] focus-visible:text-[var(--gold-bright)] ${
+                    activeFilter === filter
+                      ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
+                      : 'border-white/25 bg-black/50 text-white/85 hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)]'
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+          </header>
 
         <div className="mt-5 sm:hidden">{renderColumns(mobileColumns)}</div>
         <div className="mt-5 hidden sm:block">{renderColumns(desktopColumns)}</div>
@@ -192,8 +202,9 @@ const FeaturedProjectsSection = () => {
           </a>
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-l from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 
