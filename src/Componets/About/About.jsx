@@ -12,6 +12,7 @@ import {
   Target,
   UsersRound,
 } from 'lucide-react';
+import PageHeader from '../../CommonComponents/PageHeader';
 
 const studioPillars = [
   { label: 'Creative storytellers', Icon: Rocket },
@@ -36,6 +37,20 @@ const studioStats = [
 
 const About = () => (
   <>
+    <PageHeader
+      eyebrow="About Feather VFX Studio"
+      title={
+        <>
+          Imagining worlds.
+          <br />
+          <span className="text-[var(--gold-primary)]">Creating reality.</span>
+        </>
+      }
+      description="Meet the creative team bringing bold ideas to life through visual effects and post-production."
+      background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+      align="left"
+      showBreadcrumb={false}
+    />
     <section
       id="about-us"
       aria-labelledby="about-heading"
@@ -83,13 +98,13 @@ const About = () => (
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
             Our story
           </p>
-          <h1
+          <h2
             id="about-heading"
             className="mt-3 max-w-2xl font-serif text-4xl font-bold uppercase leading-[0.98] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl"
           >
             From imagination
             <span className="block text-[var(--gold-bright)]">to reality</span>
-          </h1>
+          </h2>
           <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-white/75 sm:text-base">
             Feather VFX Studio was founded by a group of creative professionals who shared a common vision — to create world-class visual effects and help storytellers bring their ideas to life. What started as a small team with a big dream has now grown into a full-scale VFX and post-production studio, trusted by filmmakers, brands and game developers worldwide.
           </p>
