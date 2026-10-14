@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaPlay, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ModalPortal from '../../../CommonComponents/ModalPortal';
@@ -7,29 +7,44 @@ import projectData from '../../../data/projects.json';
 
 const { filters, projects } = projectData;
 
-const balanceIntoColumns = (items, columnCount) => {
-  const columns = Array.from({ length: columnCount }, () => []);
-  const columnHeights = Array(columnCount).fill(0);
 
-  items.forEach((project) => {
-    const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
-    columns[shortestColumn].push(project);
-    columnHeights[shortestColumn] += project.heightRatio;
-  });
 
-  return columns;
-};
+const SLIDE_INTERVAL = 3000;
+const CARDS_VISIBLE = 3; // how many project cards show at once
 
 const FeaturedProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const slidePausedRef = useRef(false);
+  const slideTimerRef = useRef(null);
+
   const visibleProjects = activeFilter === 'All'
     ? projects
     : projects.filter((project) => project.collection === activeFilter);
   const portraitProjects = visibleProjects.filter((project) => project.orientation === 'portrait');
   const landscapeProjects = visibleProjects.filter((project) => project.orientation === 'landscape');
-  const mobileColumns = balanceIntoColumns(portraitProjects, 2);
-  const desktopColumns = balanceIntoColumns(portraitProjects, 3);
+
+  // Reset slide position when filter changes
+  useEffect(() => {
+    setSlideIndex(0);
+  }, [activeFilter]);
+
+  // Auto-slide for the portrait projects strip
+  const scheduleSlide = useCallback(() => {
+    clearTimeout(slideTimerRef.current);
+    slideTimerRef.current = setTimeout(() => {
+      if (!slidePausedRef.current && portraitProjects.length > CARDS_VISIBLE) {
+        setSlideIndex((current) => (current + 1) % portraitProjects.length);
+      }
+      scheduleSlide();
+    }, SLIDE_INTERVAL);
+  }, [portraitProjects.length]);
+
+  useEffect(() => {
+    scheduleSlide();
+    return () => clearTimeout(slideTimerRef.current);
+  }, [scheduleSlide]);
 
   useEffect(() => {
     if (selectedIndex === null) return undefined;
@@ -80,15 +95,7 @@ const FeaturedProjectsSection = () => {
     </article>
   );
 
-  const renderColumns = (columns) => (
-    <div className="grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
-      {columns.map((column, columnIndex) => (
-        <div key={columnIndex} className="flex h-full min-w-0 flex-col gap-2.5 sm:gap-3">
-          {column.map((project) => renderProjectCard(project))}
-        </div>
-      ))}
-    </div>
-  );
+
 
   return (
     <>
@@ -171,8 +178,34 @@ const FeaturedProjectsSection = () => {
             </div>
           </header>
 
-        <div className="mt-5 sm:hidden">{renderColumns(mobileColumns)}</div>
-        <div className="mt-5 hidden sm:block">{renderColumns(desktopColumns)}</div>
+        {/* Auto-sliding portrait projects strip */}
+        {portraitProjects.length > 0 && (
+          <div
+            className="mt-5 overflow-hidden"
+            onMouseEnter={() => { slidePausedRef.current = true; }}
+            onMouseLeave={() => { slidePausedRef.current = false; }}
+          >
+            <div
+              className="flex gap-2.5 sm:gap-3"
+              style={{
+                transform: `translateX(calc(-${slideIndex} * (${100 / 3}% + 10px)))`,
+                transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                width: `calc(${portraitProjects.length} * (${100 / 3}% + 10px))`,
+              }}
+            >
+              {/* Duplicate array for seamless infinite loop feel */}
+              {[...portraitProjects, ...portraitProjects.slice(0, CARDS_VISIBLE)].map((project, i) => (
+                <div
+                  key={`${project.title}-${i}`}
+                  className="min-w-0 shrink-0"
+                  style={{ width: `calc(${100 / 3}% - 7px)` }}
+                >
+                  {renderProjectCard(project)}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         {landscapeProjects.length > 0 && (
           <div className="mt-2.5 grid grid-cols-1 gap-2.5 sm:mt-3 sm:grid-cols-2 sm:gap-3">
             {landscapeProjects.map((project) => renderProjectCard(project, true))}
