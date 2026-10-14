@@ -28,7 +28,7 @@ const Footer = () => {
     <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <PageContainer className="py-16">
         {/* We use a responsive grid that will naturally wrap items to the next row */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-[1.15fr_0.65fr_0.8fr_1.1fr_1fr] lg:gap-10">
           
           {/* 1. Logo & Info */}
           <div className="space-y-6" data-aos="fade-up" data-aos-delay="0">
@@ -40,7 +40,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-[var(--text-secondary)] text-[15px] leading-relaxed text-justify">
-              "Creative visual effects and post-production services, crafted with care by Feather VFX Studio."
+              Creative visual effects and post-production services, crafted with care by Feather VFX Studio. Our team brings stories to life through meticulous artistry, technical expertise, and a passion for every frame.
             </p>
             <nav aria-label="Social media" className="flex items-center gap-3">
               <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
@@ -101,8 +101,8 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
                   <FaPhoneAlt className="text-[var(--gold-primary)] text-sm" />
                 </div>
-                <a href="tel:+918674685645" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
-                  +91 86746 85645
+                <a href="tel:+447459467325" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
+                  +44 74 5946 7325
                 </a>
               </div>
               <div className="flex items-center">
@@ -162,20 +162,26 @@ const Footer = () => {
                 </button>
               </form>
             </div>
-            <a
-              href={mapUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-start gap-3 text-[var(--text-secondary)] text-[15px] leading-relaxed transition-colors hover:text-[var(--gold-bright)]"
-            >
-              <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-              <span>
-                {studioAddress}
-                <span className="footer-map-button mt-3 inline-flex items-center gap-2 rounded-md px-4 py-2 font-semibold transition-colors">
-                  View on Google Maps <span aria-hidden="true">→</span>
-                </span>
-              </span>
-            </a>
+            <div className="flex flex-col items-start">
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-start gap-3 text-left text-[var(--text-secondary)] text-[15px] leading-relaxed transition-colors hover:text-[var(--gold-bright)]"
+              >
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>{studioAddress}</span>
+              </a>
+
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-map-button mt-3 inline-flex items-center gap-2 self-start rounded-md px-4 py-2 font-semibold transition-colors"
+              >
+                View on Google Maps <span aria-hidden="true">→</span>
+              </a>
+            </div>
 
            
           </div>

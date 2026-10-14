@@ -184,9 +184,14 @@ body {
 }
 
 .footer-map-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	border: 1px solid var(--gold-primary);
 	background-color: var(--bg-primary);
 	color: var(--gold-bright);
+	align-self: flex-start;
+	text-align: left;
 }
 
 .footer-map-button:hover {
