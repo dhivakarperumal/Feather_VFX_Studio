@@ -1,7 +1,6 @@
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import { Quote, Star } from 'lucide-react';
 
 const testimonials = [
@@ -119,33 +118,15 @@ const TestimonialsSection = () => {
           .testimonials-swiper .swiper-slide {
             height: auto;
           }
-          .testimonials-swiper .swiper-pagination-bullet {
-            width: 20px;
-            height: 6px;
-            border-radius: 9999px;
-            background: rgba(255,255,255,0.3);
-            opacity: 1;
-            transition: width 0.3s, background 0.3s, box-shadow 0.3s;
-          }
-          .testimonials-swiper .swiper-pagination-bullet-active {
-            width: 28px;
-            background: var(--gold-bright);
-            box-shadow: 0 0 9px rgba(240,168,88,0.65);
-          }
-          .testimonials-swiper .swiper-pagination {
-            position: relative;
-            margin-top: 28px;
-          }
         `}</style>
 
         <Swiper
           className="testimonials-swiper"
-          modules={[Autoplay, Pagination]}
+          modules={[Autoplay]}
           slidesPerView={1}
           spaceBetween={20}
           loop={true}
           autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-          pagination={{ clickable: true }}
           breakpoints={{
             768: { slidesPerView: 2, spaceBetween: 20 },
             1024: { slidesPerView: 3, spaceBetween: 20 },
