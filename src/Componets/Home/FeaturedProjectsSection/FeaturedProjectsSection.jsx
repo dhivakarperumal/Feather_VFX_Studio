@@ -111,7 +111,7 @@ const FeaturedProjectsSection = () => {
           to="/reels#featured-reel"
           className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
         >
-          Watch showreel
+          Explore Projects
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--gold-bright)]">
             <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
           </span>
