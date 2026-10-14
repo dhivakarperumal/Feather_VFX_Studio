@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   FaArrowRight,
   FaChartLine,
@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fa6';
 import TeamReviewsSlider from './TeamReviewsSlider';
 import { sendEmailJsForm } from '../../utils/emailJs';
+import ModalPortal from '../../CommonComponents/ModalPortal';
 import PageHeader from '../../CommonComponents/PageHeader';
 import { careerJobs } from '../../data/careerJobs';
 
@@ -50,6 +51,48 @@ function Careers() {
   const [selectedRole, setSelectedRole] = useState('');
   const [isSendingApplication, setIsSendingApplication] = useState(false);
   const [applicationStatus, setApplicationStatus] = useState(null);
+
+  useEffect(() => {
+    if (!selectedRole) return undefined;
+
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const originalStyles = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+      paddingRight: body.style.paddingRight,
+    };
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+
+    return () => {
+      Object.entries(originalStyles).forEach(([property, value]) => {
+        body.style[property] = value;
+      });
+      window.scrollTo(0, scrollY);
+    };
+  }, [selectedRole]);
+
+  useEffect(() => {
+    if (!selectedRole || isSendingApplication) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSelectedRole('');
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedRole, isSendingApplication]);
 
   const filteredRoles = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -308,64 +351,63 @@ function Careers() {
       <TeamReviewsSlider />
 
       {selectedRole && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-sm"
-          onClick={(event) => {
-            if (event.target === event.currentTarget && !isSendingApplication) setSelectedRole('');
-          }}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape' && !isSendingApplication) setSelectedRole('');
-          }}
-          role="presentation"
-        >
-          <section role="dialog" aria-modal="true" aria-labelledby="career-application-title" className="my-auto w-full max-w-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 shadow-2xl sm:p-7">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Careers at Feather VFX</p>
-                <h2 id="career-application-title" className="mt-1 font-serif text-2xl font-bold uppercase">
-                  Apply: <span className="text-[var(--gold-primary)]">{selectedRole}</span>
-                </h2>
+        <ModalPortal>
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-contain bg-black/80 p-4 backdrop-blur-sm"
+            onClick={(event) => {
+              if (event.target === event.currentTarget && !isSendingApplication) setSelectedRole('');
+            }}
+            role="presentation"
+          >
+            <section role="dialog" aria-modal="true" aria-labelledby="career-application-title" className="my-auto max-h-[calc(100vh-2rem)] max-h-[calc(100dvh-2rem)] w-full max-w-xl overflow-y-auto border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 shadow-2xl sm:p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Careers at Feather VFX</p>
+                  <h2 id="career-application-title" className="mt-1 font-serif text-2xl font-bold uppercase">
+                    Apply: <span className="text-[var(--gold-primary)]">{selectedRole}</span>
+                  </h2>
+                </div>
+                <button type="button" onClick={() => setSelectedRole('')} disabled={isSendingApplication} aria-label="Close application form" className="text-2xl text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-primary)] disabled:opacity-50">×</button>
               </div>
-              <button type="button" onClick={() => setSelectedRole('')} disabled={isSendingApplication} aria-label="Close application form" className="text-2xl text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-primary)] disabled:opacity-50">×</button>
-            </div>
-            <form className="mt-5 space-y-3" onSubmit={submitApplication}>
-              <input type="hidden" name="role" value={selectedRole} />
-              <div className="grid gap-3 sm:grid-cols-2">
-                <label className="sr-only" htmlFor="career-applicant-name">Full name</label>
-                <input id="career-applicant-name" name="name" required autoComplete="name" placeholder="Full name *" className="contact-field" />
-                <label className="sr-only" htmlFor="career-applicant-email">Email</label>
-                <input id="career-applicant-email" name="email" required type="email" autoComplete="email" placeholder="Email *" className="contact-field" />
-              </div>
-              <label className="sr-only" htmlFor="career-applicant-phone">Phone number</label>
-              <input id="career-applicant-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" className="contact-field" />
-              <label className="sr-only" htmlFor="career-portfolio">Portfolio or showreel link</label>
-              <input id="career-portfolio" name="portfolio_url" type="url" placeholder="Portfolio / showreel link" className="contact-field" />
-              <label className="sr-only" htmlFor="career-experience">Relevant experience</label>
-              <textarea id="career-experience" name="experience" rows="3" placeholder="Tell us about your relevant experience" className="contact-field resize-y" />
-              <label className="sr-only" htmlFor="career-resume-url">Resume link</label>
-              <input
-                id="career-resume-url"
-                name="resume_url"
-                type="url"
-                required
-                placeholder="Resume link (Google Drive, Dropbox, etc.) *"
-                className="contact-field"
-              />
-              <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
-                Add the resume link to your Careers EmailJS template using <code>{'{{resume_url}}'}</code>. Make sure the link can be opened by our hiring team.
-              </p>
-              {applicationStatus && (
-                <p role={applicationStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${applicationStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
-                  {applicationStatus.message}
+              <form className="mt-5 space-y-3" onSubmit={submitApplication}>
+                <input type="hidden" name="role" value={selectedRole} />
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="sr-only" htmlFor="career-applicant-name">Full name</label>
+                  <input id="career-applicant-name" name="name" required autoComplete="name" placeholder="Full name *" className="contact-field" />
+                  <label className="sr-only" htmlFor="career-applicant-email">Email</label>
+                  <input id="career-applicant-email" name="email" required type="email" autoComplete="email" placeholder="Email *" className="contact-field" />
+                </div>
+                <label className="sr-only" htmlFor="career-applicant-phone">Phone number</label>
+                <input id="career-applicant-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" className="contact-field" />
+                <label className="sr-only" htmlFor="career-portfolio">Portfolio or showreel link</label>
+                <input id="career-portfolio" name="portfolio_url" type="url" placeholder="Portfolio / showreel link" className="contact-field" />
+                <label className="sr-only" htmlFor="career-experience">Relevant experience</label>
+                <textarea id="career-experience" name="experience" rows="3" placeholder="Tell us about your relevant experience" className="contact-field resize-y" />
+                <label className="sr-only" htmlFor="career-resume-url">Resume link</label>
+                <input
+                  id="career-resume-url"
+                  name="resume_url"
+                  type="url"
+                  required
+                  placeholder="Resume link (Google Drive, Dropbox, etc.) *"
+                  className="contact-field"
+                />
+                <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
+                  Add the resume link to your Careers EmailJS template using <code>{'{{resume_url}}'}</code>. Make sure the link can be opened by our hiring team.
                 </p>
-              )}
-              <button type="submit" disabled={isSendingApplication} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
-                {isSendingApplication ? 'Sending application...' : 'Submit application'}
-                {!isSendingApplication && <FaArrowRight aria-hidden="true" />}
-              </button>
-            </form>
-          </section>
-        </div>
+                {applicationStatus && (
+                  <p role={applicationStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${applicationStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
+                    {applicationStatus.message}
+                  </p>
+                )}
+                <button type="submit" disabled={isSendingApplication} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
+                  {isSendingApplication ? 'Sending application...' : 'Submit application'}
+                  {!isSendingApplication && <FaArrowRight aria-hidden="true" />}
+                </button>
+              </form>
+            </section>
+          </div>
+        </ModalPortal>
       )}
 
       <section className="relative isolate overflow-hidden">
