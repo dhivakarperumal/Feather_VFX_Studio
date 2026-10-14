@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaPlay, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import ModalPortal from '../../../CommonComponents/ModalPortal';
 import PageHeader from '../../../CommonComponents/PageHeader';
 import projectData from '../../../data/projects.json';
@@ -92,13 +93,42 @@ const FeaturedProjectsSection = () => {
   return (
     <>
       <PageHeader
-        eyebrow="Our work"
-        title="Featured Projects"
-        description="Explore cinematic visuals and standout work created by the Feather VFX Studio team."
-        background="/images/project.png"
+        eyebrow="Our Projects"
+        title={
+          <>
+            Visual stories
+            <br />
+            <span className="text-[var(--gold-primary)]">that inspire.</span>
+          </>
+        }
+        description="Explore our collection of VFX, CGI, compositing and post-production work across films, commercials, and immersive experiences."
+        background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
         showBreadcrumb={false}
-      />
+        className="min-h-[420px]"
+      >
+        <Link
+          to="/reels#featured-reel"
+          className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+        >
+          Watch showreel
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--gold-bright)]">
+            <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
+          </span>
+        </Link>
+        <Link
+          to="/reels#featured-reel"
+          className="mt-5 flex w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/80 bg-black/30 transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
+            <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
+          </span>
+          <span className="flex flex-col gap-1">
+            <span className="text-[9px] font-bold uppercase tracking-[0.16em]">Featured reel</span>
+            <span className="text-[9px] uppercase tracking-[0.12em] text-white/70">Play video</span>
+          </span>
+        </Link>
+      </PageHeader>
       <section
         id="projects"
         aria-labelledby="featured-projects-title"
