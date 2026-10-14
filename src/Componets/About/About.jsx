@@ -47,7 +47,7 @@ const About = () => (
         </>
       }
       description="Meet the creative team bringing bold ideas to life through visual effects and post-production."
-      background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+      background="/images/heroimages/3.png"
       align="left"
       showBreadcrumb={false}
       className="min-h-[380px]"
