@@ -311,11 +311,9 @@ const Contact = () => {
                   <h2 className="whitespace-nowrap text-[12px] font-bold uppercase tracking-[0.2em]">Follow us</h2>
                   <div className="flex flex-nowrap items-center gap-2 sm:gap-3">
                     {[
-                      ['Instagram', 'https://www.instagram.com/', FaInstagram],
-                      ['YouTube', 'https://www.youtube.com/', FaYoutube],
-                      ['LinkedIn', 'https://www.linkedin.com/', FaLinkedinIn],
-                      ['X', 'https://x.com/', FaXTwitter],
-                      ['Facebook', 'https://www.facebook.com/', FaFacebookF],
+                      ['Facebook', 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', FaFacebookF],
+                      ['LinkedIn', 'https://www.linkedin.com/company/feather-vfx-studio/', FaLinkedinIn],
+                      ['X', 'https://x.com/feathervfx', FaXTwitter],
                     ].map(([name, href, Icon]) => (
                       <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
                         <Icon aria-hidden="true" className="h-3.5 w-3.5" />

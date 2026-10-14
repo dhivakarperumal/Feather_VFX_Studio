@@ -1,5 +1,6 @@
 import { FaFacebookF, FaTwitter, FaAngleRight, FaMapMarkerAlt, FaInstagram, FaEnvelope, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import PageContainer from "./PageContainer";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const quickLinks = [
@@ -43,17 +44,14 @@ const Footer = () => {
               Creative visual effects and post-production services, crafted with care by Feather VFX Studio. Our team brings stories to life through meticulous artistry, technical expertise, and a passion for every frame.
             </p>
             <nav aria-label="Social media" className="flex items-center gap-3">
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+              <a href="https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#" target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
                 <FaFacebookF size={16} />
               </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+              <a href="https://www.linkedin.com/company/feather-vfx-studio/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
                 <FaLinkedinIn size={16} />
               </a>
-              <a href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-                <FaTwitter size={16} />
-              </a>
-              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-                <FaInstagram size={16} />
+              <a href="https://x.com/feathervfx" target="_blank" rel="noreferrer" aria-label="X" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                <FaXTwitter  size={16} />
               </a>
             </nav>
           </div>

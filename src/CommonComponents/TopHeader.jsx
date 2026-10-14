@@ -10,10 +10,10 @@ import { FaXTwitter } from 'react-icons/fa6';
 import PageContainer from './PageContainer';
 
 const socialLinks = [
-  { name: 'Facebook', href: 'https://www.facebook.com/', Icon: FaFacebookF },
-  { name: 'Instagram', href: 'https://www.instagram.com/', Icon: FaInstagram },
-  { name: 'YouTube', href: 'https://www.youtube.com/', Icon: FaYoutube },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: FaLinkedinIn },
+  { name: 'Facebook', href: 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', Icon: FaFacebookF },
+  // { name: 'Instagram', href: 'https://www.instagram.com/', Icon: FaInstagram },
+  { name: 'Twitter', href: 'https://x.com/feathervfx', Icon: FaXTwitter },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/feather-vfx-studio/', Icon: FaLinkedinIn },
   
 ];
 
