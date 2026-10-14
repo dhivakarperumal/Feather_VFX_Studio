@@ -136,12 +136,12 @@ const Projects = () => {
                 onClick={() => selectProject(index)}
                 aria-label={`${isActive ? 'Current project' : 'Show project'}: ${project.title}`}
                 aria-current={isActive ? 'true' : undefined}
-                className={`absolute top-1/2 overflow-hidden rounded-xl border bg-[#090b0d] text-left shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${
+                className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${
                   isActive
                     ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[#f3b44e] shadow-[0_0_0_1px_rgba(243,180,78,0.35),0_0_38px_rgba(243,180,78,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
                     : distance === 1
-                      ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[#dda54d]/70 opacity-95 sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
-                      : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[#dda54d]/45 opacity-75 sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
+                      ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[#f3b44e]/90 opacity-95 shadow-[0_0_18px_rgba(243,180,78,0.16),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
+                      : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[#f3b44e]/75 opacity-90 shadow-[0_0_14px_rgba(243,180,78,0.12),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
                 }`}
                 style={{
                   left: `calc(50% + ${position}%)`,
@@ -157,30 +157,6 @@ const Projects = () => {
                   } motion-reduce:animate-none ${isActive ? 'animate-project-image-reveal' : ''}`}
                   draggable="false"
                 />
-                <span
-                  className={`pointer-events-none absolute inset-0 ${
-                    isActive
-                      ? 'bg-gradient-to-t from-black via-black/45 to-black/5'
-                      : 'bg-gradient-to-t from-black/90 via-black/15 to-transparent'
-                  }`}
-                  aria-hidden="true"
-                />
-                <span className={`absolute inset-x-0 bottom-0 p-3 sm:p-5 ${isActive ? '' : 'sm:p-4'}`}>
-                  <span className="block text-[9px] font-bold uppercase tracking-[0.2em] text-[#f3b44e] sm:text-[10px]">
-                    {project.category || project.collection}
-                  </span>
-                  <span className={`mt-1 block font-serif font-semibold leading-tight text-white ${
-                    isActive
-                      ? 'text-lg sm:text-2xl'
-                      : 'line-clamp-2 text-xs sm:text-base'
-                  }`}
-                  >
-                    {project.title}
-                  </span>
-                  {isActive && (
-                    <span className="mt-3 block h-px w-10 bg-[#f3b44e] sm:mt-4" aria-hidden="true" />
-                  )}
-                </span>
               </button>
             );
           })}
