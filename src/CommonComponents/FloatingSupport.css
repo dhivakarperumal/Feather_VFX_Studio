@@ -73,11 +73,15 @@
   box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
 }
 
-.support-item.call,
+.support-item.email,
 .support-item.scroll-top {
   background: var(--gold-primary);
   color: var(--bg-primary);
   box-shadow: 0 8px 22px color-mix(in srgb, var(--gold-primary) 35%, transparent);
+}
+
+.support-item.email {
+  text-decoration: none;
 }
 
 /* Tooltip appears to the left of the right-side buttons */

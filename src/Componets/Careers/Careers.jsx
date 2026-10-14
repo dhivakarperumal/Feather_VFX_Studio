@@ -11,16 +11,12 @@ import {
   FaUsers,
 } from 'react-icons/fa';
 import {
-  FaClapperboard,
-  FaCube,
-  FaFilm,
-  FaLayerGroup,
   FaLaptop,
-  FaWandMagicSparkles,
 } from 'react-icons/fa6';
 import TeamReviewsSlider from './TeamReviewsSlider';
 import { sendEmailJsForm } from '../../utils/emailJs';
 import PageHeader from '../../CommonComponents/PageHeader';
+import { careerJobs } from '../../data/careerJobs';
 
 const benefits = [
   { title: 'Creative freedom', description: 'Bring your ideas to life and explore new possibilities.', Icon: FaLightbulb },
@@ -29,15 +25,6 @@ const benefits = [
   { title: 'Cutting-edge technology', description: 'Access the latest tools and pipelines.', Icon: FaLaptop },
   { title: 'Global opportunities', description: 'Work on international projects for top brands and studios.', Icon: FaGlobe },
   { title: 'Work-life balance', description: 'Because creativity thrives in a healthy mind.', Icon: FaHeart },
-];
-
-const roles = [
-  { title: 'VFX Compositor', department: 'VFX', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/1.png', Icon: FaLayerGroup },
-  { title: '3D Environment Artist', department: '3D', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/5.png', Icon: FaCube },
-  { title: 'CG Character Artist', department: 'Character', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/4.png', Icon: FaWandMagicSparkles },
-  { title: 'Colorist', department: 'Post-Production', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/2.png', Icon: FaFilm },
-  { title: 'Virtual Production Artist', department: 'Virtual Production', type: 'Contract', location: 'Chennai, India', image: '/images/heroimages/3.png', Icon: FaClapperboard },
-  { title: 'Pipeline TD', department: 'Pipeline', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/2.png', Icon: FaLaptop },
 ];
 
 const processSteps = [
@@ -63,11 +50,10 @@ function Careers() {
   const [selectedRole, setSelectedRole] = useState('');
   const [isSendingApplication, setIsSendingApplication] = useState(false);
   const [applicationStatus, setApplicationStatus] = useState(null);
-  const [resumeError, setResumeError] = useState('');
 
   const filteredRoles = useMemo(() => {
     const query = search.trim().toLowerCase();
-    return roles.filter((role) => (
+    return careerJobs.filter((role) => (
       (!query || `${role.title} ${role.department} ${role.type} ${role.location}`.toLowerCase().includes(query))
       && (!department || role.department === department)
       && (!location || role.location === location)
@@ -78,12 +64,11 @@ function Careers() {
   const startApplication = (roleTitle) => {
     setSelectedRole(roleTitle);
     setApplicationStatus(null);
-    setResumeError('');
   };
 
   const submitApplication = async (event) => {
     event.preventDefault();
-    if (isSendingApplication || resumeError) return;
+    if (isSendingApplication) return;
 
     const form = event.currentTarget;
     setIsSendingApplication(true);
@@ -187,44 +172,68 @@ function Careers() {
                 <span className="sr-only">Filter by department</span>
                 <select value={department} onChange={(event) => setDepartment(event.target.value)} className="career-filter w-full xl:w-36">
                   <option value="">All departments</option>
-                  {[...new Set(roles.map((role) => role.department))].map((item) => <option key={item}>{item}</option>)}
+                  {[...new Set(careerJobs.map((role) => role.department))].map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
               <label>
                 <span className="sr-only">Filter by location</span>
                 <select value={location} onChange={(event) => setLocation(event.target.value)} className="career-filter w-full xl:w-36">
                   <option value="">All locations</option>
-                  {[...new Set(roles.map((role) => role.location))].map((item) => <option key={item}>{item}</option>)}
+                  {[...new Set(careerJobs.map((role) => role.location))].map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
               <label>
                 <span className="sr-only">Filter by employment type</span>
                 <select value={type} onChange={(event) => setType(event.target.value)} className="career-filter w-full xl:w-32">
                   <option value="">All types</option>
-                  {[...new Set(roles.map((role) => role.type))].map((item) => <option key={item}>{item}</option>)}
+                  {[...new Set(careerJobs.map((role) => role.type))].map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
             </div>
           </div>
 
           <div className="mt-5 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="space-y-2">
-              {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon }) => (
-                <button key={title} type="button" onClick={() => startApplication(title)} className="group flex min-h-[64px] w-full items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-secondary)] p-2 text-left transition-colors hover:border-[var(--gold-primary)]">
-                  <img src={image} alt="" loading="lazy" className="h-12 w-20 shrink-0 object-cover sm:w-28" />
-                  <div className="min-w-0 flex-1">
-                    <h3 className="truncate text-xs font-bold">{title}</h3>
-                    <div className="mt-1 flex flex-wrap gap-1.5">
-                      <span className="rounded-sm border border-[var(--border-color)] px-1.5 py-0.5 text-[9px] text-[var(--text-secondary)]">{team}</span>
-                      <span className="rounded-sm border border-[var(--border-color)] px-1.5 py-0.5 text-[9px] text-[var(--text-secondary)]">{contract}</span>
+            <div className="space-y-4">
+              {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon, responsibilities, qualifications }) => (
+                <article key={title} className="overflow-hidden border border-[var(--border-color)] bg-[var(--bg-secondary)]">
+                  <div className="grid sm:grid-cols-[120px_minmax(0,1fr)]">
+                    <div className="relative hidden min-h-full sm:block">
+                      <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/35">
+                        <Icon className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <div className="flex flex-wrap items-start justify-between gap-3">
+                        <div>
+                          <h3 className="font-serif text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{title}</h3>
+                          <div className="mt-2 flex flex-wrap gap-2 text-[10px] text-[var(--text-secondary)]">
+                            <span className="border border-[var(--border-color)] px-2 py-1">{team}</span>
+                            <span className="border border-[var(--border-color)] px-2 py-1">{contract}</span>
+                            <span className="inline-flex items-center gap-1 border border-[var(--border-color)] px-2 py-1"><FaMapMarkerAlt className="text-[var(--gold-primary)]" aria-hidden="true" />{place}</span>
+                          </div>
+                        </div>
+                        <button type="button" onClick={() => startApplication(title)} className="inline-flex shrink-0 items-center gap-2 bg-[var(--gold-primary)] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
+                          Apply now <FaChevronRight aria-hidden="true" />
+                        </button>
+                      </div>
+                      <div className="mt-4 grid gap-4 md:grid-cols-2">
+                        <div>
+                          <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--text-primary)]">Responsibilities</h4>
+                          <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[var(--text-secondary)]">
+                            {responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--text-primary)]">Qualifications</h4>
+                          <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[var(--text-secondary)]">
+                            {qualifications.map((qualification) => <li key={qualification}>{qualification}</li>)}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <span className="hidden items-center gap-1.5 text-[9px] text-[var(--text-secondary)] sm:flex"><FaMapMarkerAlt className="text-[var(--gold-primary)]" aria-hidden="true" />{place}</span>
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-primary)] transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)]" aria-label={`Apply for ${title}`}>
-                    <Icon className="text-xs sm:hidden" aria-hidden="true" />
-                    <FaChevronRight className="hidden text-[10px] sm:block" aria-hidden="true" />
-                  </span>
-                </button>
+                </article>
               )) : (
                 <div className="border border-[var(--border-color)] p-6 text-sm text-[var(--text-secondary)]">
                   No roles match those filters. Try a different search or check back soon.
@@ -332,36 +341,24 @@ function Careers() {
               <input id="career-portfolio" name="portfolio_url" type="url" placeholder="Portfolio / showreel link" className="contact-field" />
               <label className="sr-only" htmlFor="career-experience">Relevant experience</label>
               <textarea id="career-experience" name="experience" rows="3" placeholder="Tell us about your relevant experience" className="contact-field resize-y" />
-              <label className="block text-xs text-[var(--text-secondary)]" htmlFor="career-resume">
-                Resume (PDF, max 10 MB) *
-              </label>
+              <label className="sr-only" htmlFor="career-resume-url">Resume link</label>
               <input
-                id="career-resume"
-                name="resume"
-                type="file"
-                accept=".pdf,application/pdf"
+                id="career-resume-url"
+                name="resume_url"
+                type="url"
                 required
-                onChange={(event) => {
-                  const file = event.target.files?.[0];
-                  if (file && file.size > 10 * 1024 * 1024) {
-                    event.target.value = '';
-                    setResumeError('Resume file must be smaller than 10 MB.');
-                    return;
-                  }
-                  setResumeError('');
-                }}
-                className="career-filter w-full file:mr-3 file:border-0 file:bg-[var(--gold-primary)] file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[var(--bg-primary)]"
+                placeholder="Resume link (Google Drive, Dropbox, etc.) *"
+                className="contact-field"
               />
-              {resumeError && <p role="alert" className="text-xs text-red-400">{resumeError}</p>}
               <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
-                Configure the Careers EmailJS template with a form file attachment named <code>resume</code>.
+                Add the resume link to your Careers EmailJS template using <code>{'{{resume_url}}'}</code>. Make sure the link can be opened by our hiring team.
               </p>
               {applicationStatus && (
                 <p role={applicationStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${applicationStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
                   {applicationStatus.message}
                 </p>
               )}
-              <button type="submit" disabled={isSendingApplication || Boolean(resumeError)} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
+              <button type="submit" disabled={isSendingApplication} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
                 {isSendingApplication ? 'Sending application...' : 'Submit application'}
                 {!isSendingApplication && <FaArrowRight aria-hidden="true" />}
               </button>
