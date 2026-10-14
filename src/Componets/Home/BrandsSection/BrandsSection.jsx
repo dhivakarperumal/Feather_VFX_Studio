@@ -1,5 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const brands = [
   { name: 'NBCUniversal', image: '/images/logo/logo_1.png' },
@@ -11,32 +14,6 @@ const brands = [
 
 const BrandsSection = () => {
   const carouselRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const moveCarousel = useCallback((direction) => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const firstCard = carousel.firstElementChild;
-    if (!firstCard) return;
-
-    const cardWidth = firstCard.getBoundingClientRect().width;
-    const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-    const nextScroll = carousel.scrollLeft + direction * (cardWidth + gap);
-
-    carousel.scrollTo({
-      left: nextScroll > maxScroll ? 0 : nextScroll < 0 ? maxScroll : nextScroll,
-      behavior: 'smooth',
-    });
-  }, []);
-
-  useEffect(() => {
-    if (isPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-
-    const intervalId = window.setInterval(() => moveCarousel(1), 4000);
-    return () => window.clearInterval(intervalId);
-  }, [isPaused, moveCarousel]);
 
   return (
   <section
@@ -68,59 +45,69 @@ const BrandsSection = () => {
       </div>
 
       <div className="relative">
-        <div
-          onFocus={() => setIsPaused(true)}
-          onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
-          }}
-          className="relative"
-        >
-        <div
-          ref={carouselRef}
-          className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth sm:gap-4 lg:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-        {brands.map(({ name, image, wordmark }, index) => (
-          <div
-            key={name}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${index + 1} of ${brands.length}: ${name}`}
-            className="group relative flex min-h-[112px] basis-[82%] snap-start shrink-0 items-center justify-center overflow-hidden border border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.035),rgba(7,12,13,0.7))] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:basis-[46%] sm:px-5 lg:basis-[calc((100%_-_4.5rem)/4)]"
+        <div className="relative">
+          <Swiper
+            onSwiper={(swiper) => {
+              carouselRef.current = swiper;
+            }}
+            modules={[Autoplay]}
+            slidesPerView={1.15}
+            spaceBetween={12}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 16 },
+              1024: { slidesPerView: 4, spaceBetween: 24 },
+            }}
+            loop
+            speed={650}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }}
+            aria-label="Selected studio brands"
+            className="!overflow-visible"
           >
-            <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l border-t border-[var(--gold-primary)]/55" aria-hidden="true" />
-            <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[var(--gold-primary)]/55" aria-hidden="true" />
-            {wordmark ? (
-              <span
-                role="img"
-                aria-label={name}
-                className={`relative z-10 flex items-center font-bold uppercase leading-none transition-colors ${
-                  'font-sans text-4xl tracking-[-0.08em] text-[var(--gold-bright)] group-hover:text-white sm:text-5xl'
-                }`}
-              >
-                HB<span className="relative">O<span className="absolute inset-[30%] rounded-full border-2 border-[#05090a]" /></span>
-              </span>
-            ) : (
-              <img
-                src={image}
-                alt={name}
-                loading="lazy"
-                className={`relative z-10 object-contain transition duration-300 ${
-                  name === '20th Century Fox'
-                    ? 'max-h-24 max-w-[210px] opacity-100'
-                    : `max-h-12 max-w-[150px] sm:max-h-14 lg:max-w-[180px] ${
-                      name === 'Netflix'
-                        ? 'opacity-100'
-                        : 'opacity-70 grayscale brightness-0 invert group-hover:opacity-100 [mix-blend-mode:screen]'
-                    }`
-                }`}
-              />
-            )}
-          </div>
-        ))}
-        </div>
+            {brands.map(({ name, image, wordmark }, index) => (
+              <SwiperSlide key={name}>
+                <div
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${index + 1} of ${brands.length}: ${name}`}
+                  className="group relative flex min-h-[112px] items-center justify-center overflow-hidden border border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.035),rgba(7,12,13,0.7))] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:px-5"
+                >
+                  <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l border-t border-[var(--gold-primary)]/55" aria-hidden="true" />
+                  <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[var(--gold-primary)]/55" aria-hidden="true" />
+                  {wordmark ? (
+                    <span
+                      role="img"
+                      aria-label={name}
+                      className="relative z-10 flex items-center font-sans text-4xl font-bold uppercase leading-none tracking-[-0.08em] text-[var(--gold-bright)] transition-colors group-hover:text-white sm:text-5xl"
+                    >
+                      HB<span className="relative">O<span className="absolute inset-[30%] rounded-full border-2 border-[#05090a]" /></span>
+                    </span>
+                  ) : (
+                    <img
+                      src={image}
+                      alt={name}
+                      loading="lazy"
+                      className={`relative z-10 object-contain transition duration-300 ${
+                        name === '20th Century Fox'
+                          ? 'max-h-24 max-w-[210px] opacity-100'
+                          : `max-h-12 max-w-[150px] sm:max-h-14 lg:max-w-[180px] ${
+                            name === 'Netflix'
+                              ? 'opacity-100'
+                              : 'opacity-70 grayscale brightness-0 invert group-hover:opacity-100 [mix-blend-mode:screen]'
+                          }`
+                      }`}
+                    />
+                  )}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         <button
           type="button"
-          onClick={() => moveCarousel(-1)}
+          onClick={() => carouselRef.current?.slidePrev()}
           aria-label="Previous brand"
           className="absolute -left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-left-4 sm:h-10 sm:w-10"
         >
@@ -128,7 +115,7 @@ const BrandsSection = () => {
         </button>
         <button
           type="button"
-          onClick={() => moveCarousel(1)}
+          onClick={() => carouselRef.current?.slideNext()}
           aria-label="Next brand"
           className="absolute -right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-right-4 sm:h-10 sm:w-10"
         >
