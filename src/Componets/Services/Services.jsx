@@ -198,28 +198,7 @@ const Services = () => (
       </div>
     </section>
 
-    <section aria-label="Our expertise" className="relative border-b border-white/10 bg-[#060a0b]">
-      <div className="mx-auto grid max-w-[1500px] grid-cols-2 px-[5%] py-7 sm:grid-cols-4 sm:py-8 lg:px-[7%]">
-        {expertise.map(({ icon: Icon, title, description }, index) => (
-          <article
-            key={title}
-            className={`flex flex-col items-center px-3 py-3 text-center ${
-              index > 0 ? 'sm:border-l sm:border-white/10' : ''
-            }`}
-          >
-            <span className="grid h-12 w-12 place-items-center rounded-full border border-[#e3aa42] text-[#efb64e] shadow-[0_0_22px_rgba(227,170,66,0.18)]">
-              <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
-            </span>
-            <h2 className="mt-3 max-w-[150px] text-[10px] font-bold uppercase leading-tight tracking-[0.1em] text-white sm:text-xs">
-              {title}
-            </h2>
-            <p className="mt-1.5 max-w-[190px] text-[10px] leading-relaxed text-white/65 sm:text-xs">
-              {description}
-            </p>
-          </article>
-        ))}
-      </div>
-    </section>
+  
 
     <section id="services" aria-labelledby="vfx-services-title" className="relative isolate overflow-hidden bg-[#050809] px-[5%] py-12 sm:py-16">
       <div
@@ -245,6 +224,29 @@ const Services = () => (
             <ServiceCard key={service.title} service={service} />
           ))}
         </div>
+      </div>
+    </section>
+
+      <section aria-label="Our expertise" className="relative border-b border-white/10 bg-[#060a0b]">
+      <div className="mx-auto grid max-w-[1500px] grid-cols-2 px-[5%] py-7 sm:grid-cols-4 sm:py-8 lg:px-[7%]">
+        {expertise.map(({ icon: Icon, title, description }, index) => (
+          <article
+            key={title}
+            className={`flex flex-col items-center px-3 py-3 text-center ${
+              index > 0 ? 'sm:border-l sm:border-white/10' : ''
+            }`}
+          >
+            <span className="grid h-12 w-12 place-items-center rounded-full border border-[#e3aa42] text-[#efb64e] shadow-[0_0_22px_rgba(227,170,66,0.18)]">
+              <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
+            </span>
+            <h2 className="mt-3 max-w-[150px] text-[10px] font-bold uppercase leading-tight tracking-[0.1em] text-white sm:text-xs">
+              {title}
+            </h2>
+            <p className="mt-1.5 max-w-[190px] text-[10px] leading-relaxed text-white/65 sm:text-xs">
+              {description}
+            </p>
+          </article>
+        ))}
       </div>
     </section>
 
