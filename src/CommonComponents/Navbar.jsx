@@ -5,9 +5,8 @@ import PageContainer from './PageContainer';
 const navLinks = [
   { label: 'HOME', id: 'home' },
   { label: 'ABOUT US', id: 'about-us' },
+  { label: 'PROJECTS', id: 'projects' },
   { label: 'SERVICES', id: 'services' },
-  { label: 'OUR WORK', id: 'projects' },
-  { label: 'PROCESS', id: 'process' },
   { label: 'SHOWREEL', id: 'showreel' },
   { label: 'CAREERS', id: 'careers' },
   { label: 'BLOG', id: 'blog' },
