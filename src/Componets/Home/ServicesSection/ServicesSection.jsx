@@ -1,7 +1,6 @@
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import PageContainer from '../../../CommonComponents/PageContainer';
@@ -30,29 +29,9 @@ const ServicesSection = () => {
           </Link>
         </div>
 
-        <style>{`
-          .home-services-swiper .swiper-slide {
-            height: auto;
-          }
-          .home-services-swiper .swiper-pagination {
-            position: relative;
-            margin-top: 1.5rem;
-          }
-          .home-services-swiper .swiper-pagination-bullet {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.4);
-            opacity: 1;
-          }
-          .home-services-swiper .swiper-pagination-bullet-active {
-            width: 22px;
-            border-radius: 9999px;
-            background: var(--gold-bright);
-          }
-        `}</style>
         <Swiper
           className="home-services-swiper"
-          modules={[Autoplay, Pagination]}
+          modules={[Autoplay]}
           slidesPerView={1.1}
           spaceBetween={16}
           loop={services.length > 1}
@@ -62,7 +41,6 @@ const ServicesSection = () => {
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          pagination={{ clickable: true }}
           breakpoints={{
             640: { slidesPerView: 2, spaceBetween: 16 },
             1024: { slidesPerView: 3, spaceBetween: 20 },
