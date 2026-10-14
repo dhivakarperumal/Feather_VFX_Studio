@@ -7,12 +7,10 @@ const projects = [
   {
     title: 'Spider-Man: Far From Home',
     category: 'VFX & CGI',
-    layout: 'lg:row-span-2',
   },
   {
     title: 'Fast & Furious Presents: Hobbs & Shaw',
     category: 'Compositing',
-    layout: 'lg:col-span-2',
   },
   {
     title: 'Ant-Man and the Wasp',
@@ -49,6 +47,7 @@ const projects = [
 ].map((project, index) => ({
   ...project,
   image: `/images/projects/featured/${index + 1}.${index === 1 ? 'png' : 'jpg'}`,
+  orientation: index >= 20 ? 'landscape' : 'portrait',
 }));
 
 const FeaturedProjectsSection = () => {
@@ -56,7 +55,6 @@ const FeaturedProjectsSection = () => {
   const visibleProjects = activeFilter === 'All'
     ? projects
     : projects.filter((project) => project.category === activeFilter);
-  const isFeaturedLayout = activeFilter === 'All';
 
   return (
     <section
@@ -101,18 +99,14 @@ const FeaturedProjectsSection = () => {
           </div>
         </header>
 
-        <div className={`mt-5 grid grid-cols-3 gap-2.5 max-sm:grid-cols-2 max-sm:gap-2 ${
-          isFeaturedLayout ? 'lg:grid-cols-4 lg:grid-rows-[repeat(2,minmax(24rem,28rem))]' : ''
-        }`}>
-          {visibleProjects.map(({ title, category, image, layout = '' }) => (
+        <div className="mt-5 grid auto-rows-[5rem] grid-flow-dense grid-cols-2 gap-2.5 sm:auto-rows-[6rem] sm:grid-cols-3 lg:auto-rows-[7rem] lg:grid-cols-4 max-sm:gap-2">
+          {visibleProjects.map(({ title, category, image, orientation }) => (
             <article
               key={title}
-              className={`group relative min-h-[24rem] overflow-hidden rounded-md border border-[var(--gold-primary)]/75 bg-[#080d0f] shadow-[0_0_0_1px_rgba(255,255,255,0.035)] ${
-                isFeaturedLayout ? layout : ''
-              } ${
-                isFeaturedLayout && layout === 'lg:row-span-2' ? 'max-sm:col-span-2 max-sm:min-h-[32rem]' : ''
-              } ${
-                isFeaturedLayout && layout === 'lg:col-span-2' ? 'max-sm:col-span-2 max-sm:min-h-[24rem]' : ''
+              className={`group relative overflow-hidden rounded-md border border-[var(--gold-primary)]/75 bg-[#080d0f] shadow-[0_0_0_1px_rgba(255,255,255,0.035)] ${
+                orientation === 'portrait'
+                  ? 'row-span-3 lg:row-span-4'
+                  : 'col-span-2 row-span-2 lg:row-span-3'
               }`}
             >
               <img
