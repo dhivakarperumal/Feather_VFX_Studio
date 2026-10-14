@@ -162,20 +162,26 @@ const Footer = () => {
                 </button>
               </form>
             </div>
-            <a
-              href={mapUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-start gap-3 text-[var(--text-secondary)] text-[15px] leading-relaxed transition-colors hover:text-[var(--gold-bright)]"
-            >
-              <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-              <span>
-                {studioAddress}
-                <span className="footer-map-button mt-3 inline-flex items-center gap-2 rounded-md px-4 py-2 font-semibold transition-colors">
-                  View on Google Maps <span aria-hidden="true">→</span>
-                </span>
-              </span>
-            </a>
+            <div className="flex flex-col items-start">
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-start gap-3 text-left text-[var(--text-secondary)] text-[15px] leading-relaxed transition-colors hover:text-[var(--gold-bright)]"
+              >
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>{studioAddress}</span>
+              </a>
+
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-map-button mt-3 inline-flex items-center gap-2 self-start rounded-md px-4 py-2 font-semibold transition-colors"
+              >
+                View on Google Maps <span aria-hidden="true">→</span>
+              </a>
+            </div>
 
            
           </div>
