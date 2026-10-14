@@ -1,3 +1,6 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+
 const brands = [
   { name: 'NBCUniversal', image: '/images/logo/logo_1.png' },
   { name: 'HBO', wordmark: true },
@@ -6,9 +9,40 @@ const brands = [
   { name: 'Netflix', image: '/images/logo/logo_5.png' },
 ];
 
-const BrandsSection = () => (
+const BrandsSection = () => {
+  const carouselRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const moveCarousel = useCallback((direction) => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const firstCard = carousel.firstElementChild;
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    const nextScroll = carousel.scrollLeft + direction * (cardWidth + gap);
+
+    carousel.scrollTo({
+      left: nextScroll > maxScroll ? 0 : nextScroll < 0 ? maxScroll : nextScroll,
+      behavior: 'smooth',
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+    const intervalId = window.setInterval(() => moveCarousel(1), 4000);
+    return () => window.clearInterval(intervalId);
+  }, [isPaused, moveCarousel]);
+
+  return (
   <section
     aria-label="Selected studio brands"
+    role="region"
+    aria-roledescription="carousel"
     className="relative isolate overflow-hidden border-y border-white/[0.06] bg-[#05090a] px-[5%] py-16 sm:py-20 lg:px-[3%] lg:py-24"
   >
     <div
@@ -33,11 +67,24 @@ const BrandsSection = () => (
         </p>
       </div>
 
-      <div className="grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:gap-6">
-        {brands.map(({ name, image, wordmark }) => (
+      <div className="relative">
+        <div
+          ref={carouselRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
+          }}
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth sm:gap-4 lg:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+        {brands.map(({ name, image, wordmark }, index) => (
           <div
             key={name}
-            className="group relative flex min-h-[112px] items-center justify-center overflow-hidden border border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.035),rgba(7,12,13,0.7))] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:px-5"
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${brands.length}: ${name}`}
+            className="group relative flex min-h-[112px] basis-[82%] snap-start shrink-0 items-center justify-center overflow-hidden border border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.035),rgba(7,12,13,0.7))] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:basis-[46%] sm:px-5 lg:basis-[calc((100%_-_4.5rem)/4)]"
           >
             <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l border-t border-[var(--gold-primary)]/55" aria-hidden="true" />
             <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[var(--gold-primary)]/55" aria-hidden="true" />
@@ -56,20 +103,40 @@ const BrandsSection = () => (
                 src={image}
                 alt={name}
                 loading="lazy"
-                className={`relative z-10 max-h-12 max-w-[150px] object-contain transition duration-300 sm:max-h-14 lg:max-w-[180px] ${
+                className={`relative z-10 object-contain transition duration-300 ${
                   name === '20th Century Fox'
-                    ? 'max-h-16 max-w-[190px] opacity-100'
-                    : name === 'Netflix'
-                      ? 'opacity-100'
-                    : 'opacity-70 grayscale brightness-0 invert group-hover:opacity-100 [mix-blend-mode:screen]'
+                    ? 'max-h-24 max-w-[210px] opacity-100'
+                    : `max-h-12 max-w-[150px] sm:max-h-14 lg:max-w-[180px] ${
+                      name === 'Netflix'
+                        ? 'opacity-100'
+                        : 'opacity-70 grayscale brightness-0 invert group-hover:opacity-100 [mix-blend-mode:screen]'
+                    }`
                 }`}
               />
             )}
           </div>
         ))}
+        </div>
+        <button
+          type="button"
+          onClick={() => moveCarousel(-1)}
+          aria-label="Previous brand"
+          className="absolute -left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-left-4 sm:h-10 sm:w-10"
+        >
+          <ArrowLeft size={17} aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={() => moveCarousel(1)}
+          aria-label="Next brand"
+          className="absolute -right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-right-4 sm:h-10 sm:w-10"
+        >
+          <ArrowRight size={17} aria-hidden="true" />
+        </button>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default BrandsSection;
