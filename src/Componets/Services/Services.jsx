@@ -79,6 +79,11 @@ const ServiceCard = ({ service, index }) => {
   const details = serviceDetails[service.title];
   const Icon = details.icon;
   const outputImage = service.image.replace('_IN.jpg', '_OUT.jpg').replace('-IN.jpg', '-OUT.jpg');
+  const reverseComparison = ['Rotoscoping', 'Matchmove', 'Cosmetic VFX'].includes(service.title);
+  const firstImage = reverseComparison ? outputImage : service.image;
+  const secondImage = reverseComparison ? service.image : outputImage;
+  const firstLabel = reverseComparison ? 'OUT' : 'IN';
+  const secondLabel = reverseComparison ? 'IN' : 'OUT';
 
   return (
     <article
@@ -88,8 +93,8 @@ const ServiceCard = ({ service, index }) => {
     >
       <div className="service-comparison relative min-h-[190px] overflow-hidden sm:min-h-[210px]">
         <img
-          src={service.image}
-          alt={`${service.title} source footage`}
+          src={firstImage}
+          alt={`${service.title} ${firstLabel} image`}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -98,17 +103,17 @@ const ServiceCard = ({ service, index }) => {
           style={{ clipPath: `inset(0 0 0 ${comparisonPosition}%)` }}
         >
           <img
-            src={outputImage}
-            alt={`${service.title} output`}
+            src={secondImage}
+            alt={`${service.title} ${secondLabel} image`}
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <span className="pointer-events-none absolute bottom-2 left-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/85">
-          IN
+          {firstLabel}
         </span>
         <span className="pointer-events-none absolute bottom-2 right-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-[#f2c56e]">
-          OUT
+          {secondLabel}
         </span>
         <span
           className="service-comparison__divider pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.7)]"
