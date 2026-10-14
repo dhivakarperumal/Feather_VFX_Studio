@@ -103,6 +103,7 @@ function Careers() {
         background="/images/heroimages/2.png"
         align="left"
         showBreadcrumb={false}
+        className="min-h-[380px]"
       >
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
