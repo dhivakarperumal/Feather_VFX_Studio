@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import PageHeader from '../../CommonComponents/PageHeader';
 import ProcessSection from './ProcessSection';
+import PromiseSection from './PromiseSection';
 
 const studioPillars = [
   { label: 'Creative storytellers', Icon: Rocket },
@@ -202,6 +203,7 @@ const About = () => (
     </section>
 
     <ProcessSection />
+    <PromiseSection />
 
     <section
       aria-labelledby="values-heading"
