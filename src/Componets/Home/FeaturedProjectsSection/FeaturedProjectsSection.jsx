@@ -1,93 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../../CommonComponents/ModalPortal';
+import projectData from '../../../data/projects.json';
 
-const filters = ['All', 'Featured', 'Commercials', 'Episodes'];
-
-const projectDetails = [
-  {
-    title: 'Spider-Man: Far From Home',
-    category: 'VFX & CGI',
-  },
-  {
-    title: 'Fast & Furious Presents: Hobbs & Shaw',
-    category: 'Compositing',
-  },
-  {
-    title: 'Ant-Man and the Wasp',
-    category: 'VFX & CGI',
-  },
-  {
-    title: 'The Fate of the Furious',
-    category: 'Compositing',
-  },
-  {
-    title: 'Captain Marvel',
-    category: 'Environments',
-  },
-  {
-    title: 'Mission: Impossible – Fallout',
-    category: 'Color Grading',
-  },
-  { title: 'Deadpool 2', category: 'VFX & CGI' },
-  { title: 'Rampage', category: 'Environments' },
-  { title: 'Truth and Justice', category: 'Color Grading' },
-  { title: 'G.I. Joe: Retaliation', category: 'Compositing' },
-  { title: 'Constantine', category: 'VFX & CGI' },
-  { title: 'Chronicle', category: 'Environments' },
-  { title: 'The Predator', category: 'Color Grading' },
-  { title: 'Wonder Woman', category: 'Compositing' },
-  { title: 'Featured Project 15', category: 'VFX & CGI' },
-  { title: 'Featured Project 16', category: 'Environments' },
-  { title: 'Featured Project 17', category: 'Color Grading' },
-  { title: 'Featured Project 18', category: 'Compositing' },
-  { title: 'Featured Project 19', category: 'VFX & CGI' },
-  { title: 'Featured Project 20', category: 'Environments' },
-  { title: 'Featured Project 21', category: 'Color Grading' },
-  { title: 'Featured Project 22', category: 'Compositing' },
-];
-
-const imageHeightRatios = [
-  1.427, 1.434, 1.484, 1.48, 1.462, 1.483, 1.371, 1.461, 1.36, 1.5, 1.481,
-  1.541, 1.5, 1.481, 1.493, 1.471, 1.499, 1.481, 1.417, 1.448, 0.518, 0.563,
-];
-
-const featuredProjects = projectDetails.map((project, index) => ({
-  ...project,
-  image: `/images/projects/featured/${index + 1}.${index === 1 ? 'png' : 'jpg'}`,
-  collection: 'Featured',
-  orientation: imageHeightRatios[index] < 1 ? 'landscape' : 'portrait',
-  heightRatio: imageHeightRatios[index],
-}));
-
-const commercialFiles = [
-  ['1.png', 0.559], ['2.png', 0.56], ['3.png', 0.417], ['4.png', 0.558],
-  ['5.png', 0.562], ['6.jpg', 0.563], ['7.png', 0.565], ['8.png', 0.559],
-  ['9.jpg', 0.563], ['10.jpg', 0.563], ['11.jpg', 0.563], ['12.png', 0.563],
-  ['13.jpg', 0.563], ['14.jpg', 0.562], ['15.jpg', 0.562], ['16.jpg', 0.562],
-  ['17.jpg', 0.562], ['19.jpg', 0.563], ['20.jpg', 0.562], ['21.jpg', 0.562],
-];
-
-const commercialProjects = commercialFiles.map(([file, heightRatio]) => ({
-  title: `Commercial Project ${file.split('.')[0]}`,
-  image: `/images/projects/commercials/${file}`,
-  collection: 'Commercials',
-  orientation: 'landscape',
-  heightRatio,
-}));
-
-const episodeProjects = [
-  { file: '1.jpg', heightRatio: 1.502 },
-  { file: '2.jpg', heightRatio: 1.5 },
-].map(({ file, heightRatio }) => ({
-  title: `Episode ${file.split('.')[0]}`,
-  image: `/images/projects/episodes/${file}`,
-  collection: 'Episodes',
-  orientation: 'portrait',
-  heightRatio,
-}));
-
-const projects = [...featuredProjects, ...commercialProjects, ...episodeProjects];
+const { filters, projects } = projectData;
 
 const balanceIntoColumns = (items, columnCount) => {
   const columns = Array.from({ length: columnCount }, () => []);

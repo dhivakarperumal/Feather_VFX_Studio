@@ -1,0 +1,335 @@
+{
+  "filters": ["All", "Featured", "Commercials", "Episodes"],
+  "projects": [
+    {
+      "title": "Spider-Man: Far From Home",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/1.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.427
+    },
+    {
+      "title": "Fast & Furious Presents: Hobbs & Shaw",
+      "category": "Compositing",
+      "image": "/images/projects/featured/2.png",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.434
+    },
+    {
+      "title": "Ant-Man and the Wasp",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/3.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.484
+    },
+    {
+      "title": "The Fate of the Furious",
+      "category": "Compositing",
+      "image": "/images/projects/featured/4.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.48
+    },
+    {
+      "title": "Captain Marvel",
+      "category": "Environments",
+      "image": "/images/projects/featured/5.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.462
+    },
+    {
+      "title": "Mission: Impossible – Fallout",
+      "category": "Color Grading",
+      "image": "/images/projects/featured/6.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.483
+    },
+    {
+      "title": "Deadpool 2",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/7.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.371
+    },
+    {
+      "title": "Rampage",
+      "category": "Environments",
+      "image": "/images/projects/featured/8.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.461
+    },
+    {
+      "title": "Truth and Justice",
+      "category": "Color Grading",
+      "image": "/images/projects/featured/9.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.36
+    },
+    {
+      "title": "G.I. Joe: Retaliation",
+      "category": "Compositing",
+      "image": "/images/projects/featured/10.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.5
+    },
+    {
+      "title": "Constantine",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/11.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.481
+    },
+    {
+      "title": "Chronicle",
+      "category": "Environments",
+      "image": "/images/projects/featured/12.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.541
+    },
+    {
+      "title": "The Predator",
+      "category": "Color Grading",
+      "image": "/images/projects/featured/13.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.5
+    },
+    {
+      "title": "Wonder Woman",
+      "category": "Compositing",
+      "image": "/images/projects/featured/14.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.481
+    },
+    {
+      "title": "Featured Project 15",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/15.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.493
+    },
+    {
+      "title": "Featured Project 16",
+      "category": "Environments",
+      "image": "/images/projects/featured/16.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.471
+    },
+    {
+      "title": "Featured Project 17",
+      "category": "Color Grading",
+      "image": "/images/projects/featured/17.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.499
+    },
+    {
+      "title": "Featured Project 18",
+      "category": "Compositing",
+      "image": "/images/projects/featured/18.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.481
+    },
+    {
+      "title": "Featured Project 19",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/19.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.417
+    },
+    {
+      "title": "Featured Project 20",
+      "category": "Environments",
+      "image": "/images/projects/featured/20.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.448
+    },
+    {
+      "title": "Featured Project 21",
+      "category": "Color Grading",
+      "image": "/images/projects/featured/21.jpg",
+      "collection": "Featured",
+      "orientation": "landscape",
+      "heightRatio": 0.518
+    },
+    {
+      "title": "Featured Project 22",
+      "category": "Compositing",
+      "image": "/images/projects/featured/22.jpg",
+      "collection": "Featured",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 1",
+      "image": "/images/projects/commercials/1.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.559
+    },
+    {
+      "title": "Commercial Project 2",
+      "image": "/images/projects/commercials/2.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.56
+    },
+    {
+      "title": "Commercial Project 3",
+      "image": "/images/projects/commercials/3.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.417
+    },
+    {
+      "title": "Commercial Project 4",
+      "image": "/images/projects/commercials/4.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.558
+    },
+    {
+      "title": "Commercial Project 5",
+      "image": "/images/projects/commercials/5.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Commercial Project 6",
+      "image": "/images/projects/commercials/6.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 7",
+      "image": "/images/projects/commercials/7.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.565
+    },
+    {
+      "title": "Commercial Project 8",
+      "image": "/images/projects/commercials/8.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.559
+    },
+    {
+      "title": "Commercial Project 9",
+      "image": "/images/projects/commercials/9.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 10",
+      "image": "/images/projects/commercials/10.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 11",
+      "image": "/images/projects/commercials/11.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 12",
+      "image": "/images/projects/commercials/12.png",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 13",
+      "image": "/images/projects/commercials/13.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 14",
+      "image": "/images/projects/commercials/14.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Commercial Project 15",
+      "image": "/images/projects/commercials/15.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Commercial Project 16",
+      "image": "/images/projects/commercials/16.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Commercial Project 17",
+      "image": "/images/projects/commercials/17.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Commercial Project 19",
+      "image": "/images/projects/commercials/19.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.563
+    },
+    {
+      "title": "Commercial Project 20",
+      "image": "/images/projects/commercials/20.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Commercial Project 21",
+      "image": "/images/projects/commercials/21.jpg",
+      "collection": "Commercials",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Episode 1",
+      "image": "/images/projects/episodes/1.jpg",
+      "collection": "Episodes",
+      "orientation": "portrait",
+      "heightRatio": 1.502
+    },
+    {
+      "title": "Episode 2",
+      "image": "/images/projects/episodes/2.jpg",
+      "collection": "Episodes",
+      "orientation": "portrait",
+      "heightRatio": 1.5
+    }
+  ]
+}
