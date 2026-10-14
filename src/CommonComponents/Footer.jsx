@@ -28,7 +28,7 @@ const Footer = () => {
     <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <PageContainer className="py-16">
         {/* We use a responsive grid that will naturally wrap items to the next row */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-[1.15fr_0.65fr_0.8fr_1.1fr_1fr] lg:gap-10">
           
           {/* 1. Logo & Info */}
           <div className="space-y-6" data-aos="fade-up" data-aos-delay="0">
@@ -40,7 +40,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-[var(--text-secondary)] text-[15px] leading-relaxed text-justify">
-              "Creative visual effects and post-production services, crafted with care by Feather VFX Studio."
+              Creative visual effects and post-production services, crafted with care by Feather VFX Studio. Our team brings stories to life through meticulous artistry, technical expertise, and a passion for every frame.
             </p>
             <nav aria-label="Social media" className="flex items-center gap-3">
               <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
