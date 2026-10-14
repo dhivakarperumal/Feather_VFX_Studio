@@ -96,13 +96,13 @@ const FeaturedProjectsSection = () => {
         eyebrow="Our Projects"
         title={
           <>
-            Visual stories
+            Featured
             <br />
-            <span className="text-[var(--gold-primary)]">that inspire.</span>
+            <span className="text-[var(--gold-primary)]">Projects</span>
           </>
         }
-        description="Explore our collection of VFX, CGI, compositing and post-production work across films, commercials, and immersive experiences."
-        background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+        description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
+        background="/images/project.png"
         align="left"
         showBreadcrumb={false}
         className="min-h-[420px]"
