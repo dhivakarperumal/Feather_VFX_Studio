@@ -13,6 +13,7 @@ import {
   UsersRound,
 } from 'lucide-react';
 import PageHeader from '../../CommonComponents/PageHeader';
+import ProcessSection from './ProcessSection';
 
 const studioPillars = [
   { label: 'Creative storytellers', Icon: Rocket },
@@ -199,6 +200,8 @@ const About = () => (
         </article>
       </div>
     </section>
+
+    <ProcessSection />
 
     <section
       aria-labelledby="values-heading"
