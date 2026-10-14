@@ -64,7 +64,7 @@ const Projects = ({ homePage = false }) => {
         alt=""
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.6)_0%,rgba(4,10,13,0.3)_42%,rgba(4,10,13,0.28)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.68)_0%,rgba(4,10,13,0.4)_42%,rgba(4,10,13,0.38)_100%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center">
         <header className="relative z-40 text-center">
