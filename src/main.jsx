@@ -1,6 +1,6 @@
 import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate, useLocation } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './index.css'
@@ -15,20 +15,37 @@ import Reels from './Componets/Reels/Reels.jsx'
 import Sitemap from './Componets/Sitemap/Sitemap.jsx'
 import ServicesRoute from './Componets/Services/ServicesRoute.jsx'
 
+/**
+ * AOSManager — must live inside <BrowserRouter> so useLocation() works.
+ * Initialises AOS once, then re-refreshes it on every route change so
+ * scroll-reveal animations replay when the user navigates to a new page.
+ */
+function AOSManager() {
+  const location = useLocation()
 
-
-function AppRoot() {
   useEffect(() => {
     AOS.init({
-      duration: 700,
+      duration: 750,
       once: true,
       easing: 'ease-out-cubic',
-      offset: 40,
+      offset: 60,
+      delay: 0,
     })
   }, [])
 
+  useEffect(() => {
+    // Small delay lets the new page's DOM render before AOS scans elements
+    const id = setTimeout(() => AOS.refresh(), 120)
+    return () => clearTimeout(id)
+  }, [location.pathname])
+
+  return null
+}
+
+function AppRoot() {
   return (
     <BrowserRouter>
+      <AOSManager />
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<SiteHome />} />

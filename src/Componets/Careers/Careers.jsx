@@ -175,7 +175,7 @@ function Careers() {
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto max-w-[1700px] px-[6%] py-8 sm:px-[5%] lg:px-[3%]">
           <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr] sm:items-end">
-            <div>
+            <div data-aos="fade-up">
               <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Why join us</p>
               <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl">
                 More than a job
@@ -188,8 +188,8 @@ function Careers() {
             </p>
           </div>
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {benefits.map(({ title, description, Icon }) => (
-              <article key={title} className="flex min-h-[138px] flex-col items-center border border-[var(--border-color)] bg-[var(--bg-primary)] px-3 py-4 text-center transition-colors hover:border-[var(--gold-primary)]">
+            {benefits.map(({ title, description, Icon }, index) => (
+              <article key={title} className="flex min-h-[138px] flex-col items-center border border-[var(--border-color)] bg-[var(--bg-primary)] px-3 py-4 text-center transition-colors hover:border-[var(--gold-primary)]" data-aos="zoom-in" data-aos-delay={index * 80}>
                 <Icon className="text-xl text-[var(--gold-primary)]" aria-hidden="true" />
                 <h3 className="mt-3 text-[10px] font-bold uppercase tracking-[0.06em]">{title}</h3>
                 <p className="mt-2 text-[10px] leading-relaxed text-[var(--text-secondary)]">{description}</p>
@@ -202,7 +202,7 @@ function Careers() {
       <section id="open-positions" className="scroll-mt-24 border-b border-[var(--border-color)]">
         <div className="mx-auto max-w-[1700px] px-[6%] py-9 sm:px-[5%] lg:px-[3%]">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
-            <div>
+            <div data-aos="fade-up">
               <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Open positions</p>
               <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Find your next opportunity</h2>
             </div>
@@ -309,11 +309,11 @@ function Careers() {
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto grid max-w-[1700px] gap-5 px-[6%] py-6 sm:px-[5%] lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:px-[3%]">
-          <div>
+          <div data-aos="fade-right">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Our hiring process</p>
             <h2 className="mt-1 font-serif text-xl font-bold uppercase">A simple &amp; transparent journey</h2>
           </div>
-          <ol className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <ol className="grid grid-cols-2 gap-4 sm:grid-cols-4" data-aos="fade-left" data-aos-delay="100">
             {processSteps.map(({ number, title, description, Icon }) => (
               <li key={number} className="flex items-center gap-2">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-primary)]"><Icon aria-hidden="true" /></span>
@@ -327,7 +327,7 @@ function Careers() {
       <section id="studio-life" className="scroll-mt-24 border-b border-[var(--border-color)]">
         <div className="mx-auto max-w-[1700px] px-[6%] py-8 sm:px-[5%] lg:px-[3%]">
           <div className="flex flex-wrap items-end justify-between gap-3">
-            <div>
+            <div data-aos="fade-up">
               <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Life at Feather VFX Studio</p>
               <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">A place to create, learn and grow</h2>
             </div>
@@ -340,7 +340,7 @@ function Careers() {
           </p>
           <div className="mt-4 grid h-[150px] grid-cols-2 gap-2 sm:h-[190px] sm:grid-cols-5">
             {galleryImages.map(({ src, alt }, index) => (
-              <div key={src} className={`relative overflow-hidden border border-[var(--border-color)] ${index === 0 ? 'col-span-2 sm:col-span-1' : ''}`}>
+              <div key={src} className={`relative overflow-hidden border border-[var(--border-color)] ${index === 0 ? 'col-span-2 sm:col-span-1' : ''}`} data-aos="zoom-in" data-aos-delay={index * 80}>
                 <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
               </div>
             ))}
@@ -414,7 +414,7 @@ function Careers() {
         <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/70 to-[var(--bg-primary)]/25" />
         <div className="mx-auto flex max-w-[1700px] flex-col justify-between gap-5 px-[6%] py-8 sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
-          <div>
+          <div data-aos="fade-up">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Ready to create something extraordinary?</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Your next chapter starts here.</h2>
             <p className="mt-2 text-sm text-white/80">Explore open positions and become a part of Feather VFX Studio.</p>

@@ -89,7 +89,7 @@ const ProcessSection = () => {
       />
 
       <div className="mx-auto max-w-[1500px]">
-        <header className="mb-7 max-w-3xl sm:mb-9">
+        <header data-aos="fade-up" data-aos-offset="60" className="mb-7 max-w-3xl sm:mb-9">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80">
             Our
           </p>
@@ -139,6 +139,9 @@ const ProcessSection = () => {
                 'md:[&:nth-child(6)]:[grid-area:3/2]',
               ].join(' ')}
               key={title}
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
+              data-aos-offset="40"
             >
               <article className="group relative flex min-h-[7.5rem] items-center gap-3 border border-[rgba(214,160,74,0.42)] bg-[linear-gradient(115deg,rgba(4,10,13,0.94),rgba(6,12,15,0.83))] px-3 py-3 shadow-[0_12px_32px_rgba(0,0,0,0.28)] transition-[border-color,box-shadow,transform] duration-[220ms] hover:-translate-y-[3px] hover:border-[rgba(240,168,88,0.86)] hover:shadow-[0_12px_34px_rgba(0,0,0,0.34),0_0_22px_rgba(240,168,88,0.12)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:min-h-[7.5rem] md:gap-3 after:absolute after:-right-px after:-top-px after:h-4 after:w-4 after:border-r after:border-t after:border-[var(--gold-bright)] after:content-['']">
                 <span className="absolute left-[-0.9rem] top-1/2 z-[2] grid w-8 -translate-y-1/2 aspect-square place-items-center rounded-full border-2 border-[var(--gold-bright)] bg-[#080d10] text-[0.7rem] font-extrabold text-[#ffd581] shadow-[0_0_15px_rgba(240,168,88,0.45)] md:left-[-1rem] md:w-[2.3rem] md:text-[0.85rem]">

@@ -74,7 +74,7 @@ const Services = () => (
         aria-hidden="true"
       />
       <div className="mx-auto max-w-[1400px]">
-        <div className="mx-auto mb-7 max-w-3xl text-center sm:mb-9">
+        <div className="mx-auto mb-7 max-w-3xl text-center sm:mb-9" data-aos="fade-up">
           <p className="text-[9px] font-bold uppercase tracking-[0.36em] text-[#edb444] sm:text-[10px]">
             What we do
           </p>
@@ -96,10 +96,12 @@ const Services = () => (
     </section>
 
       <section aria-label="Our expertise" className="relative border-b border-white/10 bg-[#060a0b]">
-      <div className="mx-auto grid max-w-[1500px] grid-cols-2 px-[5%] py-7 sm:grid-cols-4 sm:py-8 lg:px-[7%]">
+      <div className="mx-auto grid max-w-[1500px] grid-cols-2 px-[5%] py-7 sm:grid-cols-4 sm:py-8 lg:px-[7%]" data-aos="fade-up">
         {expertise.map(({ icon: Icon, title, description }, index) => (
           <article
             key={title}
+            data-aos="zoom-in"
+            data-aos-delay={index * 100}
             className={`flex flex-col items-center px-3 py-3 text-center ${
               index > 0 ? 'sm:border-l sm:border-white/10' : ''
             }`}
@@ -127,7 +129,7 @@ const Services = () => (
       />
       <div className="absolute inset-0 -z-10 bg-[#030607]/90" aria-hidden="true" />
       <div className="mx-auto grid max-w-[1500px] items-center gap-8 px-[6%] py-10 sm:px-[5%] sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-[4%]">
-        <div className="relative min-h-[200px] overflow-hidden border border-white/15 sm:min-h-[280px]">
+        <div className="relative min-h-[200px] overflow-hidden border border-white/15 sm:min-h-[280px]" data-aos="fade-right">
           <img
             src="/images/home.png"
             alt="Artists collaborating on a visual effects production"
@@ -136,7 +138,7 @@ const Services = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" aria-hidden="true" />
         </div>
-        <div>
+        <div data-aos="fade-left" data-aos-delay="100">
           <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-[#edb444] sm:text-[10px]">
             Production support
           </p>
@@ -178,7 +180,7 @@ const Services = () => (
 
     <section aria-labelledby="services-clients-title" className="border-y border-white/10 bg-[#070a0b] px-[5%] py-9 sm:py-11">
       <div className="mx-auto max-w-[1300px]">
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up">
           <p className="text-[9px] font-bold uppercase tracking-[0.34em] text-[#edb444]">
             Trusted by global studios
           </p>

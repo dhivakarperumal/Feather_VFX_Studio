@@ -139,7 +139,7 @@ const FeaturedProjectsSection = () => {
           aria-hidden="true"
         />
         <div className="mx-auto w-full max-w-[1500px]">
-          <header className="flex flex-col items-center text-center">
+          <header className="flex flex-col items-center text-center" data-aos="fade-up" data-aos-offset="60">
             <div className="flex items-center gap-4 text-[var(--text-primary)]">
               <span className="h-px w-14 bg-gradient-to-r from-transparent to-[var(--gold-primary)]" />
               <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)]">Our Work</p>
@@ -152,7 +152,7 @@ const FeaturedProjectsSection = () => {
               Bringing imagination to life through stunning visuals and world-class VFX.
             </p>
 
-            <div className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Filter projects by discipline">
+            <div className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Filter projects by discipline" data-aos="fade-up" data-aos-delay="100" data-aos-offset="60">
               {filters.map((filter) => (
                 <button
                   key={filter}
@@ -222,7 +222,7 @@ const FeaturedProjectsSection = () => {
           </ModalPortal>
         )}
 
-        <div className="mt-7 flex items-center justify-center gap-8">
+        <div className="mt-7 flex items-center justify-center gap-8" data-aos="fade-up" data-aos-offset="60">
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-r from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
           <a
             href="/contact"

@@ -27,7 +27,7 @@ const BrandsSection = () => {
       aria-hidden="true"
     />
     <div className="mx-auto max-w-[1800px]">
-      <div className="mb-10 flex flex-col items-center text-center sm:mb-14">
+      <div className="mb-10 flex flex-col items-center text-center sm:mb-14" data-aos="fade-up" data-aos-offset="60">
         <div className="mb-4 flex items-center gap-3" aria-hidden="true">
           <span className="h-px w-10 bg-gradient-to-r from-transparent to-[var(--gold-primary)]/70 sm:w-12" />
           <span className="h-1.5 w-1.5 rotate-45 border border-[var(--gold-bright)]" />

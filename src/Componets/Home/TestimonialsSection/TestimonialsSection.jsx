@@ -93,7 +93,7 @@ const TestimonialsSection = () => {
 
       <div className="relative mx-auto max-w-[1500px]">
         {/* Section header */}
-        <div className="mb-8 max-w-xl sm:mb-10">
+        <div className="mb-8 max-w-xl sm:mb-10" data-aos="fade-up" data-aos-offset="60">
           <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--text-primary)]/85 sm:text-xs">
             Client stories
             <span className="h-px w-16 bg-gradient-to-r from-[var(--gold-primary)] to-transparent" aria-hidden="true" />

@@ -37,6 +37,8 @@ const PageHeader = ({
         className={`mx-auto w-full max-w-[1700px] px-[6%] py-12 sm:px-[5%] lg:px-[3%] ${
           isLeftAligned ? "text-left" : "text-center"
         }`}
+        data-aos="fade-up"
+        data-aos-duration="900"
       >
         <div className={isLeftAligned ? "max-w-2xl" : "mx-auto max-w-4xl"}>
           {eyebrow && (

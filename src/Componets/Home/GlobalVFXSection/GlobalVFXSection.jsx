@@ -42,7 +42,7 @@ const GlobalVFXSection = () => (
       </div>
 
       <div className="relative z-10 flex items-center px-5 py-8 sm:px-8 lg:-ml-4 lg:py-10 lg:pl-0 lg:pr-[7%]">
-        <div className="w-full">
+        <div className="w-full" data-aos="fade-up" data-aos-offset="60">
           <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.28em] text-[#f0c47e] sm:text-[10px]">
             Global VFX Excellence
             <span className="h-px w-12 bg-[#d6a04a]/80" aria-hidden="true" />
@@ -67,6 +67,9 @@ const GlobalVFXSection = () => (
             {achievements.map(({ icon: Icon, value, label, detail }, index) => (
               <li
                 key={label}
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
+                data-aos-offset="40"
                 className="flex min-h-[64px] items-center gap-2 border border-white/15 bg-black/25 px-2.5 py-2 sm:gap-2.5 sm:px-3"
               >
                 <Icon

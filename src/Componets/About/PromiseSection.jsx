@@ -52,7 +52,7 @@ const PromiseSection = () => (
     <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(230,171,88,0.12),transparent_35%)]" aria-hidden="true" />
 
     <div className="relative z-10 mx-auto max-w-[1500px]">
-      <div className="mb-8 flex items-center gap-4 sm:mb-10">
+      <div data-aos="fade-up" data-aos-offset="60" className="mb-8 flex items-center gap-4 sm:mb-10">
         <span className="block h-px w-14 bg-[var(--gold-primary)] shadow-[0_0_10px_rgba(214,160,74,0.5)] sm:w-20" aria-hidden="true" />
         <h2
           id="promise-heading"
@@ -63,9 +63,12 @@ const PromiseSection = () => (
       </div>
 
       <div className="space-y-5 sm:space-y-6">
-        {promises.map(({ number, title, description, image, Icon }) => (
+        {promises.map(({ number, title, description, image, Icon }, index) => (
           <article
             key={title}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+            data-aos-offset="40"
             className="group relative overflow-hidden border border-[var(--gold-primary)]/80 bg-[linear-gradient(135deg,rgba(5,10,11,0.96),rgba(12,18,19,0.82))] px-3 py-3 shadow-[0_0_0_1px_rgba(214,160,74,0.2),0_12px_30px_rgba(0,0,0,0.32)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-4 lg:px-5"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(240,168,88,0.12),transparent_25%)]" aria-hidden="true" />

@@ -11,7 +11,7 @@ const ServicesSection = () => {
   return (
     <section id="services" aria-label="Our services" className="bg-[#070b0d] py-16">
       <PageContainer>
-        <div className="mb-7 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-7 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between" data-aos="fade-up" data-aos-offset="60">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--gold-bright)]">
               Our Services

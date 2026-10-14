@@ -18,7 +18,7 @@ const HomeIntroSection = () => {
       className="relative isolate overflow-hidden bg-[#05090c] text-white"
     >
       <div className="mx-auto grid min-h-[300px] w-full max-w-[1700px] items-center lg:min-h-[340px] lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="relative z-10 px-5 py-6 sm:px-8 lg:py-8 lg:pl-[8%] lg:pr-6">
+        <div data-aos="fade-right" data-aos-offset="60" className="relative z-10 px-5 py-6 sm:px-8 lg:py-8 lg:pl-[8%] lg:pr-6">
           <div className="max-w-[700px]">
             <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.28em] text-white/80 sm:text-[10px]">
               Your VFX Outsourcing Partner
@@ -64,7 +64,7 @@ const HomeIntroSection = () => {
           </div>
         </div>
 
-        <div className="relative min-h-[220px] overflow-hidden sm:min-h-[280px] lg:h-full">
+        <div data-aos="fade-left" data-aos-delay="100" data-aos-offset="60" className="relative min-h-[220px] overflow-hidden sm:min-h-[280px] lg:h-full">
           <img
             src="/images/home.png"
             alt="Creative VFX work"

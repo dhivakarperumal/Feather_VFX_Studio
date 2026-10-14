@@ -14,7 +14,7 @@ const OurCulture = () => (
 
     <div className="mx-auto max-w-[1500px] overflow-hidden rounded-[18px] border border-[#d6a65d]/40 bg-[#090f12]/80 shadow-[0_0_30px_rgba(214,166,93,0.08)]">
       <div className="grid lg:grid-cols-[1.08fr_1.2fr]">
-        <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+        <div data-aos="fade-right" className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
           <div className="flex items-center gap-3">
             <span className="inline-block h-px w-12 bg-[#d6a65d]" aria-hidden="true" />
             <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#d6a65d]">
@@ -36,8 +36,8 @@ const OurCulture = () => (
           </div>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            {culturePillars.map(({ title, Icon }) => (
-              <div key={title} className="flex items-center gap-3 rounded-full border border-[#d6a65d]/40 bg-[#0d1417]/80 px-3 py-2.5 shadow-[0_0_18px_rgba(214,166,93,0.06)]">
+            {culturePillars.map(({ title, Icon }, index) => (
+              <div key={title} data-aos="fade-up" data-aos-delay={index * 70} data-aos-offset="40" className="flex items-center gap-3 rounded-full border border-[#d6a65d]/40 bg-[#0d1417]/80 px-3 py-2.5 shadow-[0_0_18px_rgba(214,166,93,0.06)]">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d6a65d]/75 bg-[#121d20] text-[#d6a65d]">
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
@@ -49,7 +49,7 @@ const OurCulture = () => (
           </div>
         </div>
 
-        <div className="relative min-h-[440px] overflow-hidden border-t border-[#d6a65d]/30 lg:min-h-[620px] lg:border-l lg:border-t-0">
+        <div data-aos="fade-left" data-aos-delay="100" data-aos-offset="60" className="relative min-h-[440px] overflow-hidden border-t border-[#d6a65d]/30 lg:min-h-[620px] lg:border-l lg:border-t-0">
           <img
             src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
             alt="VFX team working in a high-tech studio"

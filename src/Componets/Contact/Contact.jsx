@@ -163,7 +163,7 @@ const Contact = () => {
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto grid max-w-[1700px] gap-8 px-[5%] py-8 sm:px-[5%] lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-[4%] xl:px-[3%]">
-          <div id="contact-form" className="border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-7">
+          <div id="contact-form" className="border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-7" data-aos="fade-right">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Send us a message</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl">
               Start your <span className="text-[var(--gold-primary)]">project today</span>
@@ -256,7 +256,7 @@ const Contact = () => {
             </form>
           </div>
 
-          <div className="py-1">
+          <div className="py-1" data-aos="fade-left" data-aos-delay="100">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Our studio</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Get in touch</h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -344,7 +344,7 @@ const Contact = () => {
           <img src="/images/heroimages/3.png" alt="Action film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" />
         </div>
-        <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8">
+        <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8" data-aos="fade-left">
           <div className="mx-auto w-full max-w-[850px]">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Collaborate with us</p>
             <h2 className="mt-1 font-serif text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">
@@ -365,15 +365,17 @@ const Contact = () => {
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto grid max-w-[1700px] gap-8 px-[6%] py-10 sm:px-[5%] lg:grid-cols-[1.2fr_0.9fr] lg:gap-12 lg:px-[4%] xl:px-[3%]">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Quick enquiry</p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">How can we help?</h2>
-            <p className="mt-1 text-sm text-[var(--text-secondary)]">Choose a category to get in touch with the right team.</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]" data-aos="fade-up">Quick enquiry</p>
+            <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl" data-aos="fade-up">How can we help?</h2>
+            <p className="mt-1 text-sm text-[var(--text-secondary)]" data-aos="fade-up">Choose a category to get in touch with the right team.</p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {enquiryTypes.map(({ title, description, value, Icon }) => (
+              {enquiryTypes.map(({ title, description, value, Icon }, index) => (
                 <button
                   key={title}
                   type="button"
                   onClick={() => selectEnquiryType(value)}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 80}
                   className="group flex min-h-[76px] items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-secondary)] p-3 text-left transition-colors hover:border-[var(--gold-primary)]"
                 >
                   <Icon className="shrink-0 text-2xl text-[var(--gold-primary)]" aria-hidden="true" />

@@ -90,7 +90,7 @@ const About = () => (
       />
 
       <div className="mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[1.08fr_1fr] lg:gap-14">
-        <div className="group relative min-h-[340px] overflow-hidden border border-[var(--gold-primary)]/70 p-1 sm:min-h-[440px] lg:min-h-[500px]">
+        <div data-aos="fade-right" className="group relative min-h-[340px] overflow-hidden border border-[var(--gold-primary)]/70 p-1 sm:min-h-[440px] lg:min-h-[500px]">
           <span className="pointer-events-none absolute left-0 top-0 z-20 h-12 w-12 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_16px_rgba(240,168,88,0.4)]" aria-hidden="true" />
           <span className="pointer-events-none absolute bottom-0 right-0 z-20 h-12 w-12 border-b-2 border-r-2 border-[var(--gold-primary)]" aria-hidden="true" />
 
@@ -117,7 +117,7 @@ const About = () => (
           </div>
         </div>
 
-        <div>
+        <div data-aos="fade-left" data-aos-delay="100">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
             Our story
           </p>
@@ -138,6 +138,8 @@ const About = () => (
             {studioPillars.map(({ label, Icon }, index) => (
               <li
                 key={label}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
                 className={`flex items-center gap-3 sm:px-4 lg:px-5 ${
                   index > 0 ? 'sm:border-l sm:border-white/15' : 'sm:pl-0'
                 }`}
@@ -166,7 +168,7 @@ const About = () => (
       className="relative overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-white sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
       <div className="mx-auto grid max-w-[1500px] gap-6 lg:grid-cols-[0.95fr_1.25fr_0.75fr]">
-        <div className="border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.025),rgba(5,10,11,0.45))] p-6 sm:p-8">
+        <div data-aos="fade-right" className="border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.025),rgba(5,10,11,0.45))] p-6 sm:p-8">
           <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
             Our values
           </p>
@@ -191,7 +193,7 @@ const About = () => (
           </ul>
         </div>
 
-        <div className="group relative min-h-[360px] overflow-hidden border border-[var(--gold-primary)]/55 lg:min-h-full">
+        <div data-aos="zoom-in" data-aos-delay="100" className="group relative min-h-[360px] overflow-hidden border border-[var(--gold-primary)]/55 lg:min-h-full">
           <img
             src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
             alt="A detailed digital environment created for a cinematic story"
@@ -207,7 +209,7 @@ const About = () => (
           </div>
         </div>
 
-        <aside className="border border-white/15 bg-[rgba(7,13,15,0.82)] p-5 sm:p-6">
+        <aside data-aos="fade-left" data-aos-delay="200" className="border border-white/15 bg-[rgba(7,13,15,0.82)] p-5 sm:p-6">
           <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/70">
             Our journey
           </p>

@@ -85,7 +85,7 @@ function Blog() {
       </section>
 
       <PageContainer className="pb-12 pt-8 sm:pt-10">
-        <div className="blog-category-bar" aria-label="Blog categories">
+        <div className="blog-category-bar" aria-label="Blog categories" data-aos="fade-up">
           {categories.map((category) => (
             <button
               key={category}
@@ -100,7 +100,7 @@ function Blog() {
         </div>
 
         <div className="blog-layout">
-          <div className="blog-feed">
+          <div className="blog-feed" data-aos="fade-up" data-aos-delay="80">
             {visiblePosts.length ? (
               visiblePosts.map((article) => (
               <article key={article.id} className="blog-card">
@@ -132,7 +132,7 @@ function Blog() {
             )}
           </div>
 
-          <aside className="blog-sidebar">
+          <aside className="blog-sidebar" data-aos="fade-left" data-aos-delay="100">
             <div className="blog-panel">
               <div className="blog-panel__header">
                 <div className="blog-panel__title-wrap">
@@ -229,7 +229,7 @@ function Blog() {
           </button>
         </div>
 
-        <section className="blog-callout" aria-label="Stay updated callout">
+        <section className="blog-callout" aria-label="Stay updated callout" data-aos="zoom-in">
           <div className="blog-callout__text">
             <p className="blog-callout__eyebrow">STAY UPDATED</p>
             <h2>WITH OUR LATEST BLOGS</h2>

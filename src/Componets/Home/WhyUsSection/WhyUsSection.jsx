@@ -39,18 +39,18 @@ const WhyUsSection = () => {
       />
 
       <div className="mx-auto max-w-[1500px]">
-        <p className="mx-auto max-w-4xl text-center text-[0.66rem] font-semibold uppercase leading-relaxed tracking-[0.2em] text-[var(--text-primary)]/75 sm:text-xs sm:tracking-[0.25em]">
+        <p data-aos="fade-up" data-aos-offset="60" className="mx-auto max-w-4xl text-center text-[0.66rem] font-semibold uppercase leading-relaxed tracking-[0.2em] text-[var(--text-primary)]/75 sm:text-xs sm:tracking-[0.25em]">
           We offer smooth VFX services with the right amount of{' '}
           <span className="text-[var(--gold-bright)]">passion and innovation</span>, with{' '}
           <span className="text-[var(--gold-bright)]">no compromise in quality.</span>
         </p>
 
-        <h2 className="mx-auto mt-6 max-w-4xl text-center font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
+        <h2 data-aos="fade-up" data-aos-delay="80" data-aos-offset="60" className="mx-auto mt-6 max-w-4xl text-center font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
           Feather makes you feel more
           <span className="mt-1 block text-[var(--gold-bright)]">proud of your business.</span>
         </h2>
 
-        <p className="mx-auto mt-7 max-w-[1000px] text-center text-sm leading-[1.8] text-white/70 sm:text-base">
+        <p data-aos="fade-up" data-aos-delay="160" data-aos-offset="60" className="mx-auto mt-7 max-w-[1000px] text-center text-sm leading-[1.8] text-white/70 sm:text-base">
           Feather is committed to loftier professional standards for your sensitive Data &amp; Information security. We respect and honor the trusting nature inherent in a professional relationship and in all respects and at all times remain rooted therein. The clear mechanisms of privacy are continually updated and restructured to ensure that they fully support the changing business climate and standards. We are not only renowned for our quality of work, but also for maintaining the trust of our customers coupled with business interests and that is what we want to be.
         </p>
 
