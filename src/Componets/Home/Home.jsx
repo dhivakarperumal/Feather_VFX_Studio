@@ -15,8 +15,8 @@ const Home = () => (
     <ServicesSection />
     <GlobalVFXSection />
     <WhyUsSection />
-    <BrandsSection />
     <TestimonialsSection />
+    <BrandsSection />
   </>
 );
 
