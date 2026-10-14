@@ -15,6 +15,7 @@ import {
   WandSparkles,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageHeader from '../../CommonComponents/PageHeader';
 import { services } from '../../data/services';
 
 const expertise = [
@@ -158,47 +159,26 @@ const ServiceCard = ({ service }) => {
 
 const Services = () => (
   <div className="overflow-hidden bg-[#050809] text-white">
-    <section
-      aria-labelledby="services-page-title"
-      className="relative isolate flex min-h-[390px] items-center border-b border-white/10 sm:min-h-[440px] lg:min-h-[500px]"
+    <PageHeader
+      eyebrow="Our expertise"
+      title={
+        <>
+          Ser<span className="text-[var(--gold-primary)]">vices</span>
+        </>
+      }
+      description="We create innovative and complex sequences for high-end television and feature films. VFX is our passion, and we bring pioneering technology and top-notch creativity into play, creating visuals that exceed expectations."
+      background="/images/home.png"
+      align="left"
+      showBreadcrumb={false}
+      className="min-h-[390px] sm:min-h-[440px] lg:min-h-[500px]"
     >
-      <img
-        src="/images/home.png"
-        alt=""
-        fetchPriority="high"
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-[58%_center]"
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#050809_0%,rgba(5,8,9,0.94)_27%,rgba(5,8,9,0.55)_55%,rgba(5,8,9,0.1)_100%),linear-gradient(0deg,rgba(5,8,9,0.5),transparent_50%)]"
-        aria-hidden="true"
-      />
-      <div className="mx-auto w-full max-w-[1700px] px-[6%] py-14 sm:px-[5%] lg:px-[7%]">
-        <div className="max-w-xl">
-          <p className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.35em] text-[#edb444] sm:text-xs">
-            Our expertise <span className="h-px w-12 bg-[#edb444]/70" aria-hidden="true" />
-          </p>
-          <h1
-            id="services-page-title"
-            className="mt-3 font-serif text-5xl font-bold uppercase leading-none tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl"
-          >
-            Ser<span className="text-[#efb64e]">vices</span>
-          </h1>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-white/80 sm:text-base">
-            We create innovative and complex sequences for high-end television and feature films.
-            VFX is our passion, and we bring pioneering technology and top-notch creativity into
-            play, creating visuals that exceed expectations.
-          </p>
-          <Link
-            to="/contact"
-            className="mt-6 inline-flex min-h-10 items-center gap-3 border border-[#e8ae43] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#f3c15c] transition-colors hover:bg-[#e8ae43] hover:text-[#080a0b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3c15c]"
-          >
-            Discuss your project <ArrowRight size={15} aria-hidden="true" />
-          </Link>
-        </div>
-      </div>
-    </section>
-
-  
+      <Link
+        to="/contact"
+        className="mt-6 inline-flex min-h-10 items-center gap-3 border border-[#e8ae43] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#f3c15c] transition-colors hover:bg-[#e8ae43] hover:text-[#080a0b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3c15c]"
+      >
+        Discuss your project <ArrowRight size={15} aria-hidden="true" />
+      </Link>
+    </PageHeader>
 
     <section id="services" aria-labelledby="vfx-services-title" className="relative isolate overflow-hidden bg-[#050809] px-[5%] py-12 sm:py-16">
       <div
