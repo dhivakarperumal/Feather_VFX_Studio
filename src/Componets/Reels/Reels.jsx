@@ -209,7 +209,7 @@ function Reels() {
           )}
         </section>
 
-        <section id="featured-reel" className="featured-reel" aria-labelledby="featured-reel-title">
+        <section id="featured-reel" className="featured-reel" aria-labelledby="featured-reel-title" data-scroll-reveal>
           <div className="featured-reel__heading">
             <div>
               <p className="reels-eyebrow">Featured reel</p>

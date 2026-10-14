@@ -1,19 +1,52 @@
-import { useEffect, useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaPlay } from 'react-icons/fa';
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { FaArrowRight, FaPlay } from 'react-icons/fa';
 import { heroSlides } from '../../../data/heroSlides';
+
+const HeroScene = lazy(() => import('./HeroScene'));
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [previousSlide, setPreviousSlide] = useState(heroSlides.length - 1);
+  const [reducedMotion, setReducedMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  );
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 767px)').matches);
+  const [supportsWebGL, setSupportsWebGL] = useState(false);
 
   useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const viewportPreference = window.matchMedia('(max-width: 767px)');
+    const updateMotion = () => setReducedMotion(motionPreference.matches);
+    const updateViewport = () => setIsMobile(viewportPreference.matches);
+    const supportCheckFrame = window.requestAnimationFrame(() => {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('webgl2') || canvas.getContext('webgl');
+      setSupportsWebGL(Boolean(context));
+      context?.getExtension('WEBGL_lose_context')?.loseContext();
+    });
+    motionPreference.addEventListener('change', updateMotion);
+    viewportPreference.addEventListener('change', updateViewport);
+
+    return () => {
+      window.cancelAnimationFrame(supportCheckFrame);
+      motionPreference.removeEventListener('change', updateMotion);
+      viewportPreference.removeEventListener('change', updateViewport);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return undefined;
+
     const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
+      setPreviousSlide(activeSlide);
+      setActiveSlide((activeSlide + 1) % heroSlides.length);
     }, 6000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [activeSlide, reducedMotion]);
 
   const showSlide = (index) => {
+    setPreviousSlide(activeSlide);
     setActiveSlide((index + heroSlides.length) % heroSlides.length);
   };
 
@@ -26,19 +59,29 @@ const Hero = () => {
         aria-label="Feather VFX Studio"
         className="relative isolate overflow-hidden bg-[var(--bg-primary)]"
       >
-        <div className="absolute inset-0 z-0" aria-hidden="true">
+        <div className="absolute inset-0 z-0" aria-hidden="true" data-parallax>
           {heroSlides.map((item, index) => (
+            (index === activeSlide || index === previousSlide) && (
             <img
-              key={item.image}
+              key={`${item.image}-${index}`}
               src={item.image}
               alt=""
-              fetchPriority={index === 0 ? 'high' : 'auto'}
+              fetchPriority={index === activeSlide ? 'high' : 'auto'}
+              loading={index === activeSlide ? 'eager' : 'lazy'}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
                 activeSlide === index ? 'opacity-100' : 'opacity-0'
               }`}
             />
+            )
           ))}
         </div>
+        {supportsWebGL && (
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-[5] w-full opacity-65 md:w-[72%] md:opacity-85" aria-hidden="true">
+            <Suspense fallback={null}>
+              <HeroScene reducedMotion={reducedMotion} isMobile={isMobile} />
+            </Suspense>
+          </div>
+        )}
         <div
           className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
           aria-hidden="true"
@@ -49,7 +92,7 @@ const Hero = () => {
         />
 
         <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl" data-hero-copy>
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-sm">
               {slide.eyebrow}
             </p>
@@ -69,10 +112,10 @@ const Hero = () => {
                 Explore our work <FaArrowRight aria-hidden="true" />
               </a>
               <a
-                href="/#showreel"
+                href="/reels#featured-reel"
                 className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
+                <span className="showreel-play-icon flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
                   <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
                 </span>
                 Watch showreel
@@ -92,27 +135,10 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* <button
-          type="button"
-          onClick={() => showSlide(activeSlide - 1)}
-          aria-label="Previous hero slide"
-          className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:left-6"
-        >
-          <FaArrowLeft aria-hidden="true" />
-        </button> */}
-        {/* <button
-          type="button"
-          onClick={() => showSlide(activeSlide + 1)}
-          aria-label="Next hero slide"
-          className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:right-6"
-        >
-          <FaArrowRight aria-hidden="true" />
-        </button> */}
-
         <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
           {heroSlides.map((item, index) => (
             <button
-              key={item.image}
+              key={`${item.image}-${index}`}
               type="button"
               onClick={() => showSlide(index)}
               aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}

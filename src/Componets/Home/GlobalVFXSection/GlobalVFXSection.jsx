@@ -19,6 +19,7 @@ const GlobalVFXSection = () => (
           alt="A connected world of visual effects productions"
           className="absolute inset-0 h-full w-full object-cover object-center"
           loading="lazy"
+          data-parallax
         />
         <div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#05090c]/80 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#05090c]"
@@ -31,7 +32,7 @@ const GlobalVFXSection = () => (
       </div>
 
       <div className="relative z-10 flex items-center px-5 py-8 sm:px-8 lg:-ml-4 lg:py-10 lg:pl-0 lg:pr-[7%]">
-        <div className="w-full">
+        <div className="w-full" data-scroll-reveal>
           <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.28em] text-[#f0c47e] sm:text-[10px]">
             Global VFX Excellence
             <span className="h-px w-12 bg-[#d6a04a]/80" aria-hidden="true" />
@@ -56,6 +57,7 @@ const GlobalVFXSection = () => (
             {achievements.map(({ icon: Icon, value, label, detail }) => (
               <li
                 key={label}
+                data-scroll-reveal
                 className="flex min-h-[64px] items-center gap-2 border border-white/15 bg-black/25 px-2.5 py-2 sm:gap-2.5 sm:px-3"
               >
                 <Icon

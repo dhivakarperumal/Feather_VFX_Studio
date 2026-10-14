@@ -5,6 +5,19 @@ const heroImage = (filename) =>
 
 export const heroSlides = [
   {
+    eyebrow: '3D animation | CGI | Visual storytelling',
+    title: 'Worlds beyond',
+    highlight: 'imagination.',
+    description:
+      'From expressive characters to immersive environments, we craft cinematic 3D animation that brings ambitious stories to life.',
+    image: heroImage('2.png'),
+    highlights: [
+      { value: 'DESIGN', label: 'Build every detail' },
+      { value: 'ANIMATE', label: 'Bring stories to life' },
+      { value: 'RENDER', label: 'Deliver the moment' },
+    ],
+  },
+  {
     eyebrow: 'Visual effects | CGI | Post-production',
     title: 'Imagining worlds.',
     highlight: 'Creating reality.',

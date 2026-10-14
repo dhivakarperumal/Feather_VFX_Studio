@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
 
       <div className="relative mx-auto max-w-[1500px]">
         {/* Section header */}
-        <div className="mb-8 max-w-xl sm:mb-10">
+        <div className="mb-8 max-w-xl sm:mb-10" data-scroll-reveal>
           <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--text-primary)]/85 sm:text-xs">
             Client stories
             <span className="h-px w-16 bg-gradient-to-r from-[var(--gold-primary)] to-transparent" aria-hidden="true" />
@@ -96,6 +96,7 @@ const TestimonialsSection = () => {
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {visibleTestimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
               <article
+                data-scroll-reveal
                 key={name}
                 className="group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
                 style={{

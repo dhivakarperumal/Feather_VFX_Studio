@@ -67,7 +67,7 @@ const Projects = ({ homePage = false }) => {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.68)_0%,rgba(4,10,13,0.4)_42%,rgba(4,10,13,0.38)_100%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center">
-        <header className="relative z-40 text-center">
+        <header className="relative z-40 text-center" data-scroll-reveal>
           <div className="mb-2 flex items-center justify-center gap-4 text-[10px] font-bold uppercase tracking-[0.38em] text-[#f3b44e] sm:text-xs">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#d99c42] sm:w-16" />
             Our Work
@@ -115,6 +115,7 @@ const Projects = ({ homePage = false }) => {
         </header>
 
         <section
+          data-scroll-reveal
           className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] items-center justify-center sm:mt-3 sm:h-[clamp(38rem,78vh,54rem)]"
           aria-label="Project image carousel"
           aria-roledescription="carousel"
@@ -135,7 +136,7 @@ const Projects = ({ homePage = false }) => {
                 onClick={() => selectProject(index)}
                 aria-label={`${isActive ? 'Current project' : 'Show project'}: ${project.title}`}
                 aria-current={isActive ? 'true' : undefined}
-                className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${
+                className={`project-card-tilt group absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${
                   isActive
                     ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[#f3b44e] shadow-[0_0_0_1px_rgba(243,180,78,0.35),0_0_38px_rgba(243,180,78,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
                     : distance === 1
@@ -151,11 +152,16 @@ const Projects = ({ homePage = false }) => {
                   key={isActive ? `${project.image}-${activeIndex}` : project.image}
                   src={project.image}
                   alt={isActive ? `${project.title} project artwork` : ''}
-                  className={`h-full w-full object-contain motion-reduce:animate-none ${
+                  className={`project-card-image h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:animate-none ${
                     isActive ? 'animate-project-image-reveal' : ''
                   }`}
                   draggable="false"
                 />
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
+                <span className="pointer-events-none absolute inset-x-4 bottom-4 text-left opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 translate-y-2">
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f3b44e]">{project.category}</span>
+                  <span className="mt-1 block text-sm font-bold text-white sm:text-base">{project.title}</span>
+                </span>
               </button>
             );
           })}

@@ -87,7 +87,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 text-[var(--text-primary)] shadow-lg shadow-black/20 backdrop-blur-md">
       <nav aria-label="Main navigation">
         <PageContainer className="flex min-h-[76px] items-center justify-between gap-6 py-3">
-        <a href="/#home" aria-label="Feather VFX Studio home" className="w-[170px] shrink-0 sm:w-[200px] lg:w-[220px]">
+        <a href="/#home" aria-label="Feather VFX Studio home" className="brand-logo-mark w-[170px] shrink-0 sm:w-[200px] lg:w-[220px]">
           <img
             src="/images/logo.png"
             alt="Feather VFX Studio"

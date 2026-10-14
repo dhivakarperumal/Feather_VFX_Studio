@@ -42,7 +42,7 @@ const WhyUsSection = () => {
           <span className="text-[var(--gold-bright)]">no compromise in quality.</span>
         </p>
 
-        <h2 className="mx-auto mt-6 max-w-4xl text-center font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
+        <h2 data-scroll-reveal className="mx-auto mt-6 max-w-4xl text-center font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
           Feather makes you feel more
           <span className="mt-1 block text-[var(--gold-bright)]">proud of your business.</span>
         </h2>
@@ -55,6 +55,7 @@ const WhyUsSection = () => {
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
+              data-scroll-reveal
               className="group relative flex min-h-[430px] flex-col items-center overflow-hidden px-5 pb-5 pt-3 text-center sm:min-h-[450px] sm:px-7"
               style={{
                 clipPath: 'polygon(0 28px, 28px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)',
