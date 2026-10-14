@@ -53,10 +53,12 @@ const Projects = () => {
   };
 
   const activeProject = projects[activeIndex];
-  const visibleOffsets = Array.from(
-    { length: Math.min(5, projects.length) },
-    (_, index) => index - Math.floor(Math.min(5, projects.length) / 2),
-  );
+  const visibleOffsets = projects.length === 2
+    ? (activeIndex === 0 ? [0, 1] : [-1, 0])
+    : Array.from(
+      { length: Math.min(5, projects.length) },
+      (_, index) => index - Math.floor(Math.min(5, projects.length) / 2),
+    );
 
   return (
     <main className="relative isolate min-h-[min(900px,calc(100vh-80px))] overflow-hidden bg-[#05090c] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12">
@@ -85,7 +87,7 @@ const Projects = () => {
           </p>
 
           <nav
-            className="mx-auto mt-6 flex max-w-[calc(100vw-2rem)] gap-2 overflow-x-auto px-1 pb-2 sm:max-w-full sm:flex-wrap sm:justify-center sm:overflow-visible"
+            className="mx-auto mt-6 flex max-w-full flex-wrap justify-center gap-2 px-1 pb-2"
             aria-label="Filter projects"
           >
             {filters.map((filter) => {
@@ -116,7 +118,6 @@ const Projects = () => {
           className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1320px] items-center justify-center sm:mt-3"
           aria-label="Project image carousel"
           aria-roledescription="carousel"
-          aria-live="polite"
         >
           <div className="pointer-events-none absolute bottom-[6%] left-1/2 h-[13%] w-[76%] -translate-x-1/2 rounded-[50%] bg-[#efa947]/20 blur-3xl" />
           {visibleOffsets.map((offset) => {
@@ -177,10 +178,7 @@ const Projects = () => {
                     {project.title}
                   </span>
                   {isActive && (
-                    <span className="mt-3 inline-flex items-center gap-2 border-b border-[#f3b44e]/60 pb-1 text-[9px] font-bold uppercase tracking-[0.16em] text-white/90 sm:mt-4 sm:text-[10px]">
-                      {project.collection} project
-                      <span className="text-sm text-[#f3b44e]" aria-hidden="true">→</span>
-                    </span>
+                    <span className="mt-3 block h-px w-10 bg-[#f3b44e] sm:mt-4" aria-hidden="true" />
                   )}
                 </span>
               </button>
