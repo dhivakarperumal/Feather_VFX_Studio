@@ -91,8 +91,8 @@ const ProcessSection = () => (
                 'md:[&:nth-child(2)]:[grid-area:1/2]',
                 'md:[&:nth-child(3)]:[grid-area:2/2]',
                 'md:[&:nth-child(4)]:[grid-area:2/1]',
-                'md:[&:nth-child(5)]:[grid-area:3/1]',
-                'md:[&:nth-child(6)]:[grid-area:3/2]',
+                'md:[&:nth-child(5)]:[grid-area:3/2]',
+                'md:[&:nth-child(6)]:[grid-area:3/1]',
               ].join(' ')}
               key={title}
             >
