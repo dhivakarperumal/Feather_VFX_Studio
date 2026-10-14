@@ -5,7 +5,7 @@ import PageContainer from './PageContainer';
 const navLinks = [
   { label: 'HOME', id: 'home' },
   { label: 'ABOUT US', id: 'about-us' },
-  { label: 'PROJECTS', id: 'projects' },
+  { label: 'OUR WORK', id: 'projects' },
   { label: 'SERVICES', id: 'services' },
   { label: 'SHOWREEL', id: 'showreel' },
   { label: 'CAREERS', id: 'careers' },
@@ -25,11 +25,16 @@ const Navbar = () => {
   }, []);
 
   const renderLink = (link, mobile = false) => {
+    const isReelsPath = ['/reels', '/work', '/projects'].includes(pathname);
+    const isFeaturedReelActive =
+      isReelsPath && ['#featured-reel', '#showreel'].includes(activeHash);
     const isPageActive =
       (link.id === 'about-us' && pathname === '/about') ||
       (link.id === 'contact' && pathname === '/contact') ||
         (link.id === 'careers' && pathname === '/careers') ||
-        (link.id === 'blog' && pathname === '/blog');
+        (link.id === 'blog' && pathname === '/blog') ||
+        (link.id === 'projects' && isReelsPath && !isFeaturedReelActive) ||
+        (link.id === 'showreel' && isFeaturedReelActive);
     const isActive = isPageActive || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
 
     return (
@@ -44,6 +49,10 @@ const Navbar = () => {
                 ? '/about'
               : link.id === 'blog'
                 ? '/blog'
+              : link.id === 'projects'
+                ? '/reels'
+              : link.id === 'showreel'
+                ? '/reels#featured-reel'
                 : `/#${link.id}`
         }
         onClick={() => {
