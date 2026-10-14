@@ -48,23 +48,79 @@ const projectDetails = [
   { title: 'Featured Project 22', category: 'Compositing' },
 ];
 
+const imageHeightRatios = [
+  1.427, 1.434, 1.484, 1.48, 1.462, 1.483, 1.371, 1.461, 1.36, 1.5, 1.481,
+  1.5, 1.5, 1.481, 1.493, 1.471, 1.499, 1.481, 1.417, 1.448, 0.518, 0.563,
+];
+
 const projects = projectDetails.map((project, index) => ({
   ...project,
   image: `/images/projects/featured/${index + 1}.${index === 1 ? 'png' : 'jpg'}`,
   orientation: index >= 20 ? 'landscape' : 'portrait',
+  heightRatio: imageHeightRatios[index],
 }));
 
-const orderedProjects = imageOrder.map((imageIndex, position) => {
+const orderedProjects = imageOrder.map((imageIndex) => {
   const project = projects[imageIndex];
 
-  return { ...project, position };
+  return project;
 });
+
+const balanceIntoColumns = (items, columnCount) => {
+  const columns = Array.from({ length: columnCount }, () => []);
+  const columnHeights = Array(columnCount).fill(0);
+
+  items.forEach((project) => {
+    const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
+    columns[shortestColumn].push(project);
+    columnHeights[shortestColumn] += project.heightRatio;
+  });
+
+  return columns;
+};
 
 const FeaturedProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const visibleProjects = activeFilter === 'All'
     ? orderedProjects
     : orderedProjects.filter((project) => project.category === activeFilter);
+  const mobileColumns = balanceIntoColumns(visibleProjects, 2);
+  const desktopColumns = balanceIntoColumns(visibleProjects, 3);
+
+  const renderColumns = (columns) => (
+    <div className="flex items-start gap-2.5 sm:gap-3">
+      {columns.map((column, columnIndex) => (
+        <div key={columnIndex} className="flex min-w-0 flex-1 flex-col gap-2.5 sm:gap-3">
+          {column.map(({ title, category, image }) => (
+            <article
+              key={title}
+              className="group relative w-full overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none"
+            >
+              <img
+                className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
+                src={image}
+                alt={`${title} project artwork`}
+                loading="lazy"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-transparent to-transparent" aria-hidden="true" />
+              <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
+                <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
+                <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
+                  {title}
+                </h3>
+              </div>
+              <span
+                className="absolute bottom-3 right-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)] text-xs text-white transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] max-sm:bottom-2 max-sm:right-2 max-sm:h-8 max-sm:w-8 motion-reduce:transition-none"
+                aria-hidden="true"
+              >
+                <FaArrowRight className="-rotate-45" />
+              </span>
+            </article>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <section
@@ -109,36 +165,8 @@ const FeaturedProjectsSection = () => {
           </div>
         </header>
 
-        <div className="mt-5 columns-2 gap-2.5 sm:columns-3 sm:gap-3">
-          {visibleProjects.map(({ title, category, image, position }) => (
-            <article
-              key={title}
-              className={`group relative mb-2.5 inline-block w-full break-inside-avoid overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] align-top shadow-[0_0_0_1px_rgba(255,255,255,0.035)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--gold-bright)] hover:shadow-[0_0_22px_rgba(214,160,74,0.12)] sm:mb-3 ${
-                position % 5 === 1 ? 'sm:mt-8' : position % 5 === 3 ? 'sm:mt-4' : ''
-              }`}
-            >
-              <img
-                className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
-                src={image}
-                alt={`${title} project artwork`}
-                loading="lazy"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-transparent to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
-                <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
-                <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
-                  {title}
-                </h3>
-              </div>
-              <span
-                className="absolute bottom-3 right-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)] text-xs text-white transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] max-sm:bottom-2 max-sm:right-2 max-sm:h-8 max-sm:w-8 motion-reduce:transition-none"
-                aria-hidden="true"
-              >
-                <FaArrowRight className="-rotate-45" />
-              </span>
-            </article>
-          ))}
-        </div>
+        <div className="mt-5 sm:hidden">{renderColumns(mobileColumns)}</div>
+        <div className="mt-5 hidden sm:block">{renderColumns(desktopColumns)}</div>
 
         <div className="mt-7 flex items-center justify-center gap-8">
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-r from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
