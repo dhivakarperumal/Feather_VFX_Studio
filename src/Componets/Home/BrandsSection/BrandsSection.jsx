@@ -69,13 +69,14 @@ const BrandsSection = () => {
 
       <div className="relative">
         <div
-          ref={carouselRef}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
           onFocus={() => setIsPaused(true)}
           onBlur={(event) => {
             if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
           }}
+          className="relative"
+        >
+        <div
+          ref={carouselRef}
           className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth sm:gap-4 lg:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
         {brands.map(({ name, image, wordmark }, index) => (
@@ -133,6 +134,7 @@ const BrandsSection = () => {
         >
           <ArrowRight size={17} aria-hidden="true" />
         </button>
+        </div>
       </div>
     </div>
   </section>
