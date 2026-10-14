@@ -10,8 +10,8 @@ import TestimonialsSection from './TestimonialsSection/TestimonialsSection';
 const Home = () => (
   <>
     <Hero />
-    <HomeIntroSection />
     <Projects homePage />
+    <HomeIntroSection />
     <ServicesSection />
     <GlobalVFXSection />
     <WhyUsSection />
