@@ -24,6 +24,7 @@ const indiaAddress =
 const ukAddress = '35, Balfour Road, Ilford, Essex IG1 4HP, GB.';
 const ukPhoneNumber = '+44 74 5946 7325';
 const phoneNumber = '+91 86746 85645';
+const infoEmail = 'info@feathervfx.com';
 const enquiryEmail = 'enquiry@feathervfx.com';
 const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(indiaAddress)}&output=embed`;
 
@@ -285,10 +286,15 @@ const Contact = () => {
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaPhoneAlt aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Call us</strong><span className="mt-1 block text-[var(--text-secondary)]">{phoneNumber}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">Mon - Sat · 10:00 AM - 7:00 PM</span></span>
                 </a>
-                <a href={`mailto:${enquiryEmail}`} className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
+                <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaEnvelope aria-hidden="true" /></span>
-                  <span><strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong><span className="mt-1 block text-[var(--text-secondary)]">{enquiryEmail}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span></span>
-                </a>
+                  <span>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong>
+                    <a href={`mailto:${infoEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                    <a href={`mailto:${enquiryEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                    <span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span>
+                  </span>
+                </div>
                 <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaGlobe aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Work with us</strong><span className="mt-1 block text-[var(--text-secondary)]">India | Remote | Worldwide</span></span>

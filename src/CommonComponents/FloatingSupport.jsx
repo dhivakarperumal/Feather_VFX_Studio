@@ -83,12 +83,12 @@ const FloatingSupport = () => {
         {showUserUIWidgets && (
           <a
             className="support-item email"
-            href="mailto:info@feathervfx.com"
-            title="Email info@feathervfx.com"
-            aria-label="Email info@feathervfx.com"
+            href="/contact#contact-form"
+            title="Contact us: info@feathervfx.com"
+            aria-label="Contact us by email at info@feathervfx.com"
           >
             <Mail size={22} />
-            <span className="tooltip">Email info@feathervfx.com</span>
+            <span className="tooltip">Contact us · info@feathervfx.com</span>
           </a>
         )}
 
