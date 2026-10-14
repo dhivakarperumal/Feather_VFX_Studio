@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PageContainer from './PageContainer';
 
 const navLinks = [
-  { label: 'HOME', id: 'home' },
+  { label: 'HOME', id: '' },
   { label: 'ABOUT US', id: 'about-us' },
   { label: 'PROJECTS', id: 'projects' },
   { label: 'SERVICES', id: 'services' },
@@ -38,14 +38,20 @@ const Navbar = () => {
         (link.id === 'blog' && pathname === '/blog') ||
         (link.id === 'projects' && isReelsPath && !isFeaturedReelActive) ||
         (link.id === 'showreel' && isFeaturedReelActive);
-    const isActive = isPageActive || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
+    const isHomeLink = link.id === '';
+    const isActive =
+      isPageActive ||
+      (!isHomeLink && activeHash === `#${link.id}`) ||
+      (isHomeLink && pathname === '/' && !activeHash);
     const serviceHref = pathname === '/' ? '/#services' : '/services';
 
     return (
       <a
         key={link.id}
         href={
-          link.id === 'contact'
+          isHomeLink
+            ? '/'
+            : link.id === 'contact'
             ? '/contact'
             : link.id === 'services'
               ? serviceHref
@@ -66,7 +72,7 @@ const Navbar = () => {
                 : `/#${link.id}`
         }
         onClick={() => {
-          setActiveHash(`#${link.id}`);
+          setActiveHash(link.id ? `#${link.id}` : '');
           setIsMobileMenuOpen(false);
         }}
         aria-current={isActive ? 'page' : undefined}
@@ -88,7 +94,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 text-[var(--text-primary)] shadow-lg shadow-black/20 backdrop-blur-md">
       <nav aria-label="Main navigation">
         <PageContainer className="flex min-h-[76px] items-center justify-between gap-6 py-3">
-        <a href="/#home" aria-label="Feather VFX Studio home" className="w-[170px] shrink-0 sm:w-[200px] lg:w-[220px]">
+        <a href="/" aria-label="Feather VFX Studio home" className="w-[170px] shrink-0 sm:w-[200px] lg:w-[220px]">
           <img
             src="/images/logo.png"
             alt="Feather VFX Studio"
