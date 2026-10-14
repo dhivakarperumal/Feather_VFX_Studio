@@ -34,7 +34,7 @@ const Hero = () => {
               alt=""
               fetchPriority={index === 0 ? 'high' : 'auto'}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-                activeSlide === index ? 'opacity-100' : 'opacity-0'
+                activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
               }`}
             />
           ))}
@@ -49,46 +49,69 @@ const Hero = () => {
         />
 
         <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
-          <div className="max-w-2xl" data-aos="fade-up" data-aos-duration="800">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-sm">
-              {slide.eyebrow}
-            </p>
+          {/* key forces remount on slide change → animations replay */}
+          <div key={activeSlide} className="max-w-2xl">
+
+            {/* Eyebrow — delay 0 */}
+            <div className="hero-reveal-mask mb-5">
+              <p className="hero-reveal hero-reveal-d0 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-sm">
+                {slide.eyebrow}
+              </p>
+            </div>
+
+            {/* Title line 1 — delay 1 */}
             <h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
-              {slide.title}
-              <span className="mt-1 block text-[var(--gold-bright)]">{slide.highlight}</span>
+              <div className="hero-reveal-mask">
+                <span className="hero-reveal hero-reveal-d1 block">{slide.title}</span>
+              </div>
+              {/* Highlight — delay 2 */}
+              <div className="hero-reveal-mask mt-1">
+                <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">{slide.highlight}</span>
+              </div>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--text-primary)]/80 sm:text-lg">
-              {slide.description}
-            </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="/projects"
-                className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
-              >
-                Explore our work <FaArrowRight aria-hidden="true" />
-              </a>
-              <a
-                href="/reels#featured-reel"
-                className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
-                  <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
-                </span>
-                Watch showreel
-              </a>
+            {/* Description — delay 3 */}
+            <div className="hero-reveal-mask mt-6">
+              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-[var(--text-primary)]/80 sm:text-lg">
+                {slide.description}
+              </p>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/20 pt-6">
-              {slide.highlights.map((highlight) => (
-                <div key={highlight.label}>
-                  <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
-                  <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-primary)]/75">
-                    {highlight.label}
-                  </p>
-                </div>
-              ))}
+            {/* Buttons — delay 4 */}
+            <div className="hero-reveal-mask mt-8">
+              <div className="hero-reveal hero-reveal-d4 flex flex-wrap items-center gap-4">
+                <a
+                  href="/projects"
+                  className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                >
+                  Explore our work <FaArrowRight aria-hidden="true" />
+                </a>
+                <a
+                  href="/reels#featured-reel"
+                  className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
+                    <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
+                  </span>
+                  Watch showreel
+                </a>
+              </div>
             </div>
+
+            {/* Stats — delay 5 */}
+            <div className="hero-reveal-mask mt-12">
+              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/20 pt-6">
+                {slide.highlights.map((highlight) => (
+                  <div key={highlight.label}>
+                    <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
+                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-primary)]/75">
+                      {highlight.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 

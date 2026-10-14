@@ -329,6 +329,26 @@ body {
 	}
 }
 
+/* ─── Ken Burns (Hero Cinematic Zoom) ──────────────────────────────────── */
+@keyframes kenBurns {
+	0%   { transform: scale(1)    translate(0,     0); }
+	100% { transform: scale(1.10) translate(-1.5%, -1%); }
+}
+
+@keyframes kenBurns2 {
+	0%   { transform: scale(1)    translate(0,    0); }
+	100% { transform: scale(1.10) translate(1.5%, -1%); }
+}
+
+.hero-ken-burns {
+	animation: kenBurns 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+	will-change: transform;
+}
+
+.hero-ken-burns:nth-child(even) {
+	animation-name: kenBurns2;
+}
+
 .blog-page-shell {
   background: radial-gradient(circle at center top, rgba(214, 160, 74, 0.18), transparent 25%), #050a0b;
   color: var(--text-primary);

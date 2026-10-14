@@ -2,17 +2,17 @@ import {
   ArrowUpRight,
   BadgeCheck,
   Cpu,
-  Eye,
   Heart,
   Lightbulb,
   Play,
   Rocket,
   Settings2,
   Star,
-  Target,
   UsersRound,
 } from 'lucide-react';
 import PageHeader from '../../CommonComponents/PageHeader';
+import OurCulture from './OurCulture';
+import OurMission from './OurMission';
 import ProcessSection from './ProcessSection';
 import PromiseSection from './PromiseSection';
 
@@ -143,64 +143,8 @@ const About = () => (
       </div>
     </section>
 
-    <section
-      aria-labelledby="mission-heading"
-      className="relative isolate overflow-hidden border-y border-white/10 bg-[var(--bg-secondary)] px-[6%] py-10 text-white sm:px-[5%] sm:py-12 lg:px-[3%]"
-    >
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center opacity-30"
-        style={{ backgroundImage: "url('/images/whyusbg.png')" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,10,13,0.88),rgba(4,10,13,0.72),rgba(4,10,13,0.9))]"
-        aria-hidden="true"
-      />
-
-      <div className="mx-auto grid max-w-[1500px] items-center gap-8 lg:grid-cols-[1.15fr_1fr_1fr] lg:gap-10">
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
-            Our mission &amp; vision
-          </p>
-          <h2
-            id="mission-heading"
-            className="mt-3 font-serif text-3xl font-bold uppercase leading-[1.05] text-white sm:text-4xl"
-          >
-            Driving creativity.
-            <span className="block text-[var(--gold-bright)]">Delivering impact.</span>
-          </h2>
-        </div>
-
-        <article className="flex gap-4 border-t border-white/15 pt-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)]">
-            <Target className="h-6 w-6" aria-hidden="true" />
-          </span>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--gold-bright)]">
-              Our mission
-            </h3>
-            <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/75">
-              To create breathtaking visual experiences that inspire, engage and leave a lasting impression.
-            </p>
-            <div className="mt-4 h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
-          </div>
-        </article>
-
-        <article className="flex gap-4 border-t border-white/15 pt-5 lg:border-l lg:pl-6 lg:pt-0">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)]">
-            <Eye className="h-6 w-6" aria-hidden="true" />
-          </span>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--gold-bright)]">
-              Our vision
-            </h3>
-            <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/75">
-              To be a globally recognized VFX studio, known for innovation, creativity and excellence in visual storytelling.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
+    <OurCulture />
+    <OurMission />
 
     <ProcessSection />
     <PromiseSection />
