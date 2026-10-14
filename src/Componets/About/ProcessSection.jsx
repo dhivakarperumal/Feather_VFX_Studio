@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import {
   BadgeCheck,
   Eye,
@@ -46,68 +47,86 @@ const processSteps = [
   },
 ];
 
-const ProcessSection = () => (
-  <section
-    aria-labelledby="about-process-heading"
-    className="relative isolate overflow-hidden border-y border-white/10 bg-[var(--bg-primary)] px-[6%] py-10 text-white sm:px-[5%] sm:py-12 lg:px-[3%] lg:py-10"
-  >
-    <img
-      src="/images/heroimages/1.png"
-      alt=""
-      loading="lazy"
-      className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-40"
-    />
-    <div
-      className="absolute inset-0 -z-10 bg-[linear-gradient(110deg,rgba(3,8,11,0.82),rgba(3,8,11,0.62)_55%,rgba(3,8,11,0.84))]"
-      aria-hidden="true"
-    />
+const ProcessSection = () => {
+  const stepsRef = useRef(null);
+  const [route, setRoute] = useState('');
 
-    <div className="mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-8 md:grid-cols-[minmax(190px,0.6fr)_minmax(0,1.5fr)] lg:grid-cols-[minmax(180px,0.5fr)_minmax(0,2fr)] lg:gap-8">
-      <header className="max-w-[23rem]">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80">
-          Our
-        </p>
-        <h2
-          id="about-process-heading"
-          className="mt-0 font-serif text-4xl font-bold uppercase leading-none text-[var(--gold-bright)] sm:text-5xl lg:text-6xl"
-        >
-          Process
-        </h2>
-        <span
-          className="mt-3 block h-0.5 w-10 bg-[var(--gold-bright)]"
-          aria-hidden="true"
-        />
-        <p className="mt-3 text-xs leading-[1.45] text-white/70 sm:text-sm">
-          From concept to final delivery, we follow a streamlined process to ensure high-quality visual effects with creativity, precision and on-time delivery.
-        </p>
-      </header>
+  useLayoutEffect(() => {
+    const steps = stepsRef.current;
+    if (!steps) return undefined;
 
-      <div className="relative min-w-0">
-        <svg
-          className="absolute inset-0 z-0 hidden h-full w-full overflow-visible [filter:drop-shadow(0_0_5px_rgba(240,168,88,0.55))] md:block"
-          viewBox="0 0 1000 660"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            className="fill-none stroke-[rgba(240,168,88,0.72)] [stroke-width:2] [vector-effect:non-scaling-stroke]"
-            d="M80 160 H850 Q980 160 980 300 Q980 430 850 430 H200 Q80 430 80 560 Q80 700 200 700 H850"
+    const updateRoute = () => {
+      const bounds = steps.getBoundingClientRect();
+      const centers = Array.from(steps.children, (step) => {
+        const card = step.getBoundingClientRect();
+        return `${(card.left + card.width / 2 - bounds.left).toFixed(1)},${(card.top + card.height / 2 - bounds.top).toFixed(1)}`;
+      });
+      setRoute(centers.map((point, index) => `${index === 0 ? 'M' : 'L'}${point}`).join(' '));
+    };
+
+    const observer = new ResizeObserver(updateRoute);
+    observer.observe(steps);
+    Array.from(steps.children).forEach((step) => observer.observe(step));
+    updateRoute();
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      aria-labelledby="about-process-heading"
+      className="relative isolate overflow-hidden border-y border-white/10 bg-[var(--bg-primary)] px-[6%] py-10 text-white sm:px-[5%] sm:py-12 lg:px-[3%] lg:py-14"
+    >
+      <img
+        src="/images/heroimages/1.png"
+        alt=""
+        loading="lazy"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-40"
+      />
+      <div
+        className="absolute inset-0 -z-10 bg-[linear-gradient(110deg,rgba(3,8,11,0.82),rgba(3,8,11,0.62)_55%,rgba(3,8,11,0.84))]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-[1500px]">
+        <header className="mb-7 max-w-3xl sm:mb-9">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80">
+            Our
+          </p>
+          <h2
+            id="about-process-heading"
+            className="mt-1 font-serif text-4xl font-bold uppercase leading-none text-[var(--gold-bright)] sm:text-5xl lg:text-6xl"
+          >
+            Process
+          </h2>
+          <span
+            className="mt-3 block h-0.5 w-10 bg-[var(--gold-bright)]"
+            aria-hidden="true"
           />
-          <path
-            className="fill-none stroke-[#f2b85b] [stroke-dasharray:1_10] [stroke-linecap:round] [stroke-width:4] [vector-effect:non-scaling-stroke]"
-            d="M80 160 H850 Q980 160 980 300 Q980 430 850 430 H200 Q80 430 80 560 Q80 700 200 700 H850"
-          />
-          <g className="fill-[#080d10] stroke-[#ffd581] [stroke-width:2]">
-            <circle cx="80" cy="160" r="9" />
-            <circle cx="850" cy="160" r="9" />
-            <circle cx="980" cy="300" r="9" />
-            <circle cx="200" cy="430" r="9" />
-            <circle cx="80" cy="560" r="9" />
-            <circle cx="200" cy="700" r="9" />
-            <circle cx="850" cy="700" r="9" />
-          </g>
-        </svg>
-        <ol className="relative z-[1] grid list-none grid-cols-1 grid-rows-none gap-4 p-0 md:grid-cols-2 md:grid-rows-[repeat(3,minmax(7rem,auto))] md:gap-x-5 md:gap-y-12 lg:gap-x-[clamp(1.4rem,4vw,4rem)]">
+          <p className="mt-3 max-w-2xl text-xs leading-[1.45] text-white/70 sm:text-sm">
+            From concept to final delivery, we follow a streamlined process to ensure high-quality visual effects with creativity, precision and on-time delivery.
+          </p>
+        </header>
+
+        <div className="relative min-w-0">
+          <svg
+            className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full overflow-visible [filter:drop-shadow(0_0_5px_rgba(240,168,88,0.55))] md:block"
+            aria-hidden="true"
+          >
+            {route && (
+              <>
+                <path
+                  className="fill-none stroke-[rgba(240,168,88,0.72)] [stroke-width:2] [vector-effect:non-scaling-stroke]"
+                  d={route}
+                />
+                <path
+                  className="fill-none stroke-[#f2b85b] [stroke-dasharray:1_10] [stroke-linecap:round] [stroke-width:4] [vector-effect:non-scaling-stroke]"
+                  d={route}
+                />
+              </>
+            )}
+          </svg>
+          <ol ref={stepsRef} className="relative z-[1] grid list-none grid-cols-1 gap-4 p-0 md:grid-cols-2 md:grid-rows-[repeat(3,minmax(7.5rem,auto))] md:gap-x-5 md:gap-y-12 lg:gap-x-[clamp(1.4rem,4vw,4rem)]">
           {processSteps.map(({ title, description, image, Icon }, index) => (
             <li
               className={[
@@ -145,10 +164,11 @@ const ProcessSection = () => (
               </article>
             </li>
           ))}
-        </ol>
+          </ol>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ProcessSection;
