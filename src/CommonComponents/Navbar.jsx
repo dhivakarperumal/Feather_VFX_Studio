@@ -16,12 +16,21 @@ const navLinks = [
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(window.location.hash);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const updateActiveHash = () => setActiveHash(window.location.hash);
     window.addEventListener('hashchange', updateActiveHash);
     return () => window.removeEventListener('hashchange', updateActiveHash);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    // Set initial state in case page loads scrolled
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const renderLink = (link, mobile = false) => {
@@ -91,10 +100,26 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 text-[var(--text-primary)] shadow-lg shadow-black/20 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 text-[var(--text-primary)] transition-all duration-300 ${
+        isScrolled
+          ? 'border-b border-[var(--gold-primary)]/20 bg-[var(--bg-primary)]/98 shadow-xl shadow-black/40 backdrop-blur-xl'
+          : 'border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 shadow-lg shadow-black/20 backdrop-blur-md'
+      }`}
+    >
       <nav aria-label="Main navigation">
-        <PageContainer className="flex min-h-[76px] items-center justify-between gap-6 py-3">
-        <a href="/" aria-label="Feather VFX Studio home" className="w-[170px] shrink-0 sm:w-[200px] lg:w-[220px]">
+        <PageContainer
+          className={`flex items-center justify-between gap-6 transition-all duration-300 ${
+            isScrolled ? 'min-h-[56px] py-1.5' : 'min-h-[76px] py-3'
+          }`}
+        >
+        <a
+          href="/"
+          aria-label="Feather VFX Studio home"
+          className={`shrink-0 transition-all duration-300 ${
+            isScrolled ? 'w-[140px] sm:w-[160px] lg:w-[185px]' : 'w-[170px] sm:w-[200px] lg:w-[220px]'
+          }`}
+        >
           <img
             src="/images/logo.png"
             alt="Feather VFX Studio"
