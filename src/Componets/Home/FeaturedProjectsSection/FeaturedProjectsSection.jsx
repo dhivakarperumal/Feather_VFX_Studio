@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../../CommonComponents/ModalPortal';
 
-const filters = ['All', 'VFX & CGI', 'Compositing', 'Environments', 'Color Grading'];
-
-const imageOrder = [0, 20, 6, 1, 7, 2, 21, 8, 3, 9, 4, 10, 5, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+const filters = ['All', 'Featured', 'Commercials', 'Episodes'];
 
 const projectDetails = [
   {
@@ -51,21 +49,45 @@ const projectDetails = [
 
 const imageHeightRatios = [
   1.427, 1.434, 1.484, 1.48, 1.462, 1.483, 1.371, 1.461, 1.36, 1.5, 1.481,
-  1.5, 1.5, 1.481, 1.493, 1.471, 1.499, 1.481, 1.417, 1.448, 0.518, 0.563,
+  1.541, 1.5, 1.481, 1.493, 1.471, 1.499, 1.481, 1.417, 1.448, 0.518, 0.563,
 ];
 
-const projects = projectDetails.map((project, index) => ({
+const featuredProjects = projectDetails.map((project, index) => ({
   ...project,
   image: `/images/projects/featured/${index + 1}.${index === 1 ? 'png' : 'jpg'}`,
-  orientation: index >= 20 ? 'landscape' : 'portrait',
+  collection: 'Featured',
+  orientation: imageHeightRatios[index] < 1 ? 'landscape' : 'portrait',
   heightRatio: imageHeightRatios[index],
 }));
 
-const orderedProjects = imageOrder.map((imageIndex) => {
-  const project = projects[imageIndex];
+const commercialFiles = [
+  ['1.png', 0.559], ['2.png', 0.56], ['3.png', 0.417], ['4.png', 0.558],
+  ['5.png', 0.562], ['6.jpg', 0.563], ['7.png', 0.565], ['8.png', 0.559],
+  ['9.jpg', 0.563], ['10.jpg', 0.563], ['11.jpg', 0.563], ['12.png', 0.563],
+  ['13.jpg', 0.563], ['14.jpg', 0.562], ['15.jpg', 0.562], ['16.jpg', 0.562],
+  ['17.jpg', 0.562], ['19.jpg', 0.563], ['20.jpg', 0.562], ['21.jpg', 0.562],
+];
 
-  return project;
-});
+const commercialProjects = commercialFiles.map(([file, heightRatio]) => ({
+  title: `Commercial Project ${file.split('.')[0]}`,
+  image: `/images/projects/commercials/${file}`,
+  collection: 'Commercials',
+  orientation: 'landscape',
+  heightRatio,
+}));
+
+const episodeProjects = [
+  { file: '1.jpg', heightRatio: 1.502 },
+  { file: '2.jpg', heightRatio: 1.5 },
+].map(({ file, heightRatio }) => ({
+  title: `Episode ${file.split('.')[0]}`,
+  image: `/images/projects/episodes/${file}`,
+  collection: 'Episodes',
+  orientation: 'portrait',
+  heightRatio,
+}));
+
+const projects = [...featuredProjects, ...commercialProjects, ...episodeProjects];
 
 const balanceIntoColumns = (items, columnCount) => {
   const columns = Array.from({ length: columnCount }, () => []);
@@ -84,8 +106,8 @@ const FeaturedProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState(null);
   const visibleProjects = activeFilter === 'All'
-    ? orderedProjects
-    : orderedProjects.filter((project) => project.category === activeFilter);
+    ? projects
+    : projects.filter((project) => project.collection === activeFilter);
   const portraitProjects = visibleProjects.filter((project) => project.orientation === 'portrait');
   const landscapeProjects = visibleProjects.filter((project) => project.orientation === 'landscape');
   const mobileColumns = balanceIntoColumns(portraitProjects, 2);
