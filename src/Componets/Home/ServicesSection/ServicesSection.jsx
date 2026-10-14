@@ -13,7 +13,7 @@ const serviceIcons = {
 
 const ServicesSection = () => {
   return (
-    <section aria-label="Our services" className="bg-[#070b0d] py-16">
+    <section id="services" aria-label="Our services" className="bg-[#070b0d] py-16">
       <PageContainer>
         <div className="mb-7 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -26,7 +26,7 @@ const ServicesSection = () => {
           </div>
 
           <Link
-            to="/services"
+            to="/#services"
             className="inline-flex items-center self-start gap-3 border border-[var(--gold-primary)] bg-transparent px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:self-auto"
           >
             View all services <FaArrowRight aria-hidden="true" />
@@ -60,7 +60,7 @@ const ServicesSection = () => {
                 </p>
 
                 <a
-                  href="/services"
+                  href="/#services"
                   className="mt-7 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--gold-bright)] transition-opacity hover:opacity-90"
                 >
                   Learn more <FaArrowRight className="text-[10px]" aria-hidden="true" />

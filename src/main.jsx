@@ -12,6 +12,7 @@ import About from './Componets/About/About.jsx'
 import FeaturedProjectsSection from './Componets/Home/FeaturedProjectsSection/FeaturedProjectsSection.jsx'
 import Blog from './Componets/Blog/Blog.jsx'
 import Reels from './Componets/Reels/Reels.jsx'
+import Sitemap from './Componets/Sitemap/Sitemap.jsx'
 
 
 
@@ -37,10 +38,10 @@ function AppRoot() {
           <Route path="contactus" element={<Navigate to="/contact" replace />} />
           <Route path="careers" element={<Careers />} />
           <Route path="blog" element={<Blog />} />
-         
+          <Route path="sitemap" element={<Sitemap />} />
+          <Route path="sitemap.xml" element={<Navigate to="/sitemap" replace />} />
           <Route path="reels" element={<Reels />} />
           <Route path="work" element={<Reels />} />
-          <Route path="projects" element={<Reels />} />
         </Route>
       </Routes>
     </BrowserRouter>

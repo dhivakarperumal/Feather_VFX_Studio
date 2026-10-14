@@ -47,7 +47,7 @@ const Navbar = () => {
           link.id === 'contact'
             ? '/contact'
             : link.id === 'services'
-              ? '/services'
+              ? '/#services'
             : link.id === 'process'
               ? '/services#process'
             : link.id === 'careers'
