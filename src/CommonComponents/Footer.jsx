@@ -4,7 +4,7 @@ import PageContainer from "./PageContainer";
 const Footer = () => {
   const quickLinks = [
     { name: "Home", path: "/#home" },
-    { name: "About Us", path: "/#about-us" },
+    { name: "About Us", path: "/about" },
     { name: "Projects", path: "/#projects" },
     { name: "Blog", path: "/#blog" },
     { name: "Careers", path: "/careers" },

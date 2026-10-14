@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaPlay } from 'react-icons/fa';
-import { heroSlides, heroCapabilities } from '../../../data/heroSlides';
+import { heroSlides } from '../../../data/heroSlides';
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -92,22 +92,22 @@ const Hero = () => {
           </div>
         </div>
 
-        <button
+        {/* <button
           type="button"
           onClick={() => showSlide(activeSlide - 1)}
           aria-label="Previous hero slide"
           className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:left-6"
         >
           <FaArrowLeft aria-hidden="true" />
-        </button>
-        <button
+        </button> */}
+        {/* <button
           type="button"
           onClick={() => showSlide(activeSlide + 1)}
           aria-label="Next hero slide"
           className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:right-6"
         >
           <FaArrowRight aria-hidden="true" />
-        </button>
+        </button> */}
 
         <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
           {heroSlides.map((item, index) => (
@@ -127,26 +127,6 @@ const Hero = () => {
         </div>
       </section>
 
-      <section
-        aria-label="Our capabilities"
-        className="border-y border-[var(--border-color)] bg-[var(--bg-secondary)]"
-      >
-        <div className="mx-auto grid max-w-[1700px] grid-cols-2 divide-x divide-[var(--border-color)] px-[6%] sm:px-[5%] lg:grid-cols-4 lg:px-[3%]">
-          {heroCapabilities.map(({ title, subtitle, Icon }) => (
-            <div key={title} className="flex items-center gap-3 px-3 py-6 sm:gap-4 sm:px-6">
-              <Icon className="shrink-0 text-2xl text-[var(--gold-primary)] sm:text-3xl" aria-hidden="true" />
-              <div>
-                <h2 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--text-primary)] sm:text-xs">
-                  {title}
-                </h2>
-                <p className="mt-1 text-[9px] uppercase tracking-[0.08em] text-[var(--text-secondary)] sm:text-[10px]">
-                  {subtitle}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
