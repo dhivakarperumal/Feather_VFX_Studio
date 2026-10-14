@@ -133,7 +133,6 @@ const Contact = () => {
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
         showBreadcrumb={false}
-        className="min-h-[330px] sm:min-h-[370px]"
       >
         <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
           <div className="flex items-center gap-2.5">
