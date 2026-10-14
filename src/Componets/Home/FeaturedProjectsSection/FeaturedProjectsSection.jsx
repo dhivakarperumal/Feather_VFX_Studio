@@ -84,40 +84,48 @@ const FeaturedProjectsSection = () => {
   const visibleProjects = activeFilter === 'All'
     ? orderedProjects
     : orderedProjects.filter((project) => project.category === activeFilter);
-  const mobileColumns = balanceIntoColumns(visibleProjects, 2);
-  const desktopColumns = balanceIntoColumns(visibleProjects, 3);
+  const portraitProjects = visibleProjects.filter((project) => project.orientation === 'portrait');
+  const landscapeProjects = visibleProjects.filter((project) => project.orientation === 'landscape');
+  const mobileColumns = balanceIntoColumns(portraitProjects, 2);
+  const desktopColumns = balanceIntoColumns(portraitProjects, 3);
+
+  const renderProjectCard = ({ title, category, image, heightRatio }, landscape = false) => (
+    <article
+      key={title}
+      style={{ aspectRatio: `${1 / heightRatio}` }}
+      className={`group relative w-full overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none ${
+        landscape ? '' : 'flex-1 basis-auto'
+      }`}
+    >
+      <img
+        className={`absolute inset-0 h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none ${
+          landscape ? 'p-1 sm:p-2' : ''
+        }`}
+        src={image}
+        alt={`${title} project artwork`}
+        loading="lazy"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-transparent to-transparent" aria-hidden="true" />
+      <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
+        <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
+        <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
+          {title}
+        </h3>
+      </div>
+      <span
+        className="absolute bottom-3 right-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)] text-xs text-white transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] max-sm:bottom-2 max-sm:right-2 max-sm:h-8 max-sm:w-8 motion-reduce:transition-none"
+        aria-hidden="true"
+      >
+        <FaArrowRight className="-rotate-45" />
+      </span>
+    </article>
+  );
 
   const renderColumns = (columns) => (
     <div className="grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
       {columns.map((column, columnIndex) => (
         <div key={columnIndex} className="flex h-full min-w-0 flex-col gap-2.5 sm:gap-3">
-          {column.map(({ title, category, image, heightRatio }) => (
-            <article
-              key={title}
-              style={{ aspectRatio: `${1 / heightRatio}` }}
-              className="group relative w-full flex-1 basis-auto overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none"
-            >
-              <img
-                className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
-                src={image}
-                alt={`${title} project artwork`}
-                loading="lazy"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-transparent to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
-                <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
-                <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
-                  {title}
-                </h3>
-              </div>
-              <span
-                className="absolute bottom-3 right-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)] text-xs text-white transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] max-sm:bottom-2 max-sm:right-2 max-sm:h-8 max-sm:w-8 motion-reduce:transition-none"
-                aria-hidden="true"
-              >
-                <FaArrowRight className="-rotate-45" />
-              </span>
-            </article>
-          ))}
+          {column.map((project) => renderProjectCard(project))}
         </div>
       ))}
     </div>
@@ -168,6 +176,11 @@ const FeaturedProjectsSection = () => {
 
         <div className="mt-5 sm:hidden">{renderColumns(mobileColumns)}</div>
         <div className="mt-5 hidden sm:block">{renderColumns(desktopColumns)}</div>
+        {landscapeProjects.length > 0 && (
+          <div className="mt-2.5 grid grid-cols-1 gap-2.5 sm:mt-3 sm:grid-cols-2 sm:gap-3">
+            {landscapeProjects.map((project) => renderProjectCard(project, true))}
+          </div>
+        )}
 
         <div className="mt-7 flex items-center justify-center gap-8">
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-r from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
