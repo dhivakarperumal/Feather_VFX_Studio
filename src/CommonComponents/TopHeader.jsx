@@ -12,9 +12,8 @@ import PageContainer from './PageContainer';
 const socialLinks = [
   { name: 'Facebook', href: 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', Icon: FaFacebookF },
   // { name: 'Instagram', href: 'https://www.instagram.com/', Icon: FaInstagram },
-  { name: 'Twitter', href: 'https://x.com/feathervfx', Icon: FaXTwitter },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/feather-vfx-studio/', Icon: FaLinkedinIn },
-  
+  { name: 'Twitter', href: 'https://x.com/feathervfx', Icon: FaXTwitter },
 ];
 
 const TopHeader = () => (
