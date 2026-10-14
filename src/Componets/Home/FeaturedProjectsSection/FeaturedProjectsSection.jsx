@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
+import ModalPortal from '../../../CommonComponents/ModalPortal';
 
 const filters = ['All', 'VFX & CGI', 'Compositing', 'Environments', 'Color Grading'];
 
@@ -81,6 +82,7 @@ const balanceIntoColumns = (items, columnCount) => {
 
 const FeaturedProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const visibleProjects = activeFilter === 'All'
     ? orderedProjects
     : orderedProjects.filter((project) => project.category === activeFilter);
@@ -89,7 +91,30 @@ const FeaturedProjectsSection = () => {
   const mobileColumns = balanceIntoColumns(portraitProjects, 2);
   const desktopColumns = balanceIntoColumns(portraitProjects, 3);
 
-  const renderProjectCard = ({ title, category, image, heightRatio }, landscape = false) => (
+  useEffect(() => {
+    if (selectedIndex === null) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSelectedIndex(null);
+      if (event.key === 'ArrowRight') {
+        setSelectedIndex((current) => (current + 1) % visibleProjects.length);
+      }
+      if (event.key === 'ArrowLeft') {
+        setSelectedIndex((current) => (current - 1 + visibleProjects.length) % visibleProjects.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIndex, visibleProjects.length]);
+
+  const renderProjectCard = ({ title, image, heightRatio }, landscape = false) => (
     <article
       key={title}
       style={{ aspectRatio: `${1 / heightRatio}` }}
@@ -97,27 +122,21 @@ const FeaturedProjectsSection = () => {
         landscape ? '' : 'flex-1 basis-auto'
       }`}
     >
-      <img
-        className={`absolute inset-0 h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none ${
-          landscape ? 'p-1 sm:p-2' : ''
-        }`}
-        src={image}
-        alt={`${title} project artwork`}
-        loading="lazy"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-transparent to-transparent" aria-hidden="true" />
-      <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
-        <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
-        <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
-          {title}
-        </h3>
-      </div>
-      <span
-        className="absolute bottom-3 right-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)] text-xs text-white transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)] max-sm:bottom-2 max-sm:right-2 max-sm:h-8 max-sm:w-8 motion-reduce:transition-none"
-        aria-hidden="true"
+      <button
+        type="button"
+        className="absolute inset-0 block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--gold-bright)]"
+        aria-label={`View ${title} image full screen`}
+        onClick={() => setSelectedIndex(visibleProjects.findIndex((project) => project.image === image))}
       >
-        <FaArrowRight className="-rotate-45" />
-      </span>
+        <img
+          className={`h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none ${
+            landscape ? 'p-1 sm:p-2' : ''
+          }`}
+          src={image}
+          alt={`${title} project artwork`}
+          loading="lazy"
+        />
+      </button>
     </article>
   );
 
@@ -180,6 +199,49 @@ const FeaturedProjectsSection = () => {
           <div className="mt-2.5 grid grid-cols-1 gap-2.5 sm:mt-3 sm:grid-cols-2 sm:gap-3">
             {landscapeProjects.map((project) => renderProjectCard(project, true))}
           </div>
+        )}
+        {selectedIndex !== null && visibleProjects[selectedIndex] && (
+          <ModalPortal>
+            <div
+              className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/95 p-3 backdrop-blur-sm sm:p-8"
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Project image ${selectedIndex + 1} of ${visibleProjects.length}`}
+              onClick={(event) => {
+                if (event.target === event.currentTarget) setSelectedIndex(null);
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedIndex(null)}
+                className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-xl text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-7 sm:top-7"
+                aria-label="Close image viewer"
+              >
+                <FaTimes />
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedIndex((selectedIndex - 1 + visibleProjects.length) % visibleProjects.length)}
+                className="absolute left-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:left-6 sm:h-14 sm:w-14"
+                aria-label="View previous image"
+              >
+                <FaArrowLeft />
+              </button>
+              <img
+                src={visibleProjects[selectedIndex].image}
+                alt={`${visibleProjects[selectedIndex].title} project artwork`}
+                className="max-h-[calc(100vh-2rem)] max-w-[calc(100vw-6rem)] select-none object-contain sm:max-h-[calc(100vh-4rem)] sm:max-w-[calc(100vw-12rem)]"
+              />
+              <button
+                type="button"
+                onClick={() => setSelectedIndex((selectedIndex + 1) % visibleProjects.length)}
+                className="absolute right-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-6 sm:h-14 sm:w-14"
+                aria-label="View next image"
+              >
+                <FaArrowRight />
+              </button>
+            </div>
+          </ModalPortal>
         )}
 
         <div className="mt-7 flex items-center justify-center gap-8">
