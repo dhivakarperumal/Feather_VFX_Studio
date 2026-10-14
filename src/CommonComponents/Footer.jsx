@@ -31,11 +31,11 @@ const Footer = () => {
   return (
     <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <PageContainer className="py-16">
-        {/* We use a responsive grid that will naturally wrap items to the next row */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-[1.15fr_0.65fr_0.8fr_1.1fr_1fr] lg:gap-10">
+        {/* Stagger-revealed columns grid */}
+        <div ref={columnsRef} className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-[1.15fr_0.65fr_0.8fr_1.1fr_1fr] lg:gap-10">
           
           {/* 1. Logo & Info */}
-          <div className="space-y-6" data-aos="fade-up" data-aos-delay="0">
+          <div className="stagger-child space-y-6">
             <div className="w-[220px] max-w-full">
               <img 
                 src="/images/logo.png" 
@@ -54,13 +54,13 @@ const Footer = () => {
                 <FaLinkedinIn size={16} />
               </a>
               <a href="https://x.com/feathervfx" target="_blank" rel="noreferrer" aria-label="X" className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-                <FaXTwitter  size={16} />
+                <FaXTwitter size={16} />
               </a>
             </nav>
           </div>
 
-           {/* 3. Quick Links */}
-          <div data-aos="fade-up" data-aos-delay="100">
+          {/* 2. Quick Links */}
+          <div className="stagger-child">
             <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Quick Links</h3>
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
@@ -77,8 +77,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 2. Our Services */}
-          <div data-aos="fade-up" data-aos-delay="200">
+          {/* 3. Our Services */}
+          <div className="stagger-child">
             <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Our Services</h3>
             <ul className="space-y-4">
               {ourServices.map((item, index) => (
@@ -92,10 +92,8 @@ const Footer = () => {
             </ul>
           </div>
 
-         
-
           {/* 4. Connect With Us */}
-          <div data-aos="fade-up" data-aos-delay="300">
+          <div className="stagger-child">
             <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Connect With Us</h3>
             <div className="space-y-5">
               <div className="flex items-center">
@@ -129,16 +127,13 @@ const Footer = () => {
                 <p className="text-[var(--text-secondary)] text-[15px] leading-relaxed">{studioAddress}</p>
               </div>
             </div>
-
           </div>
 
-         
           {/* 5. Google Map */}
-          <div data-aos="fade-up" data-aos-delay="400">
+          <div className="stagger-child">
             <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Google Map</h3>
             
-             <div className="mb-8">
-              
+            <div className="mb-8">
               <form
                 action="mailto:enquiry@feathervfx.com"
                 method="post"
@@ -157,7 +152,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="shrink-0 rounded-r-md bg-[var(--gold-primary)] px-3 py-3 text-sm font-semibold text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                  className="btn-shimmer shrink-0 rounded-r-md bg-[var(--gold-primary)] px-3 py-3 text-sm font-semibold text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
                 >
                   Subscribe
                 </button>
@@ -178,16 +173,13 @@ const Footer = () => {
                 href={mapUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="footer-map-button mt-3 inline-flex items-center gap-2 self-start rounded-md px-4 py-2 font-semibold transition-colors"
+                className="btn-shimmer footer-map-button mt-3 inline-flex items-center gap-2 self-start rounded-md px-4 py-2 font-semibold transition-colors"
               >
                 View on Google Maps <span aria-hidden="true">→</span>
               </a>
             </div>
-
-           
           </div>
 
-          
         </div>
       </PageContainer>
 
