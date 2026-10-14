@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import TopHeader from "./CommonComponents/TopHeader";
@@ -16,8 +16,14 @@ function App() {
   const [loading] = useState(false);
   const location = useLocation();
   const [isNavigating, setIsNavigating] = useState(false);
+  const previousPathname = useRef(location.pathname);
 
   useEffect(() => {
+    if (previousPathname.current === location.pathname) {
+      return undefined;
+    }
+
+    previousPathname.current = location.pathname;
     setIsNavigating(true);
     const timer = setTimeout(() => {
       setIsNavigating(false);

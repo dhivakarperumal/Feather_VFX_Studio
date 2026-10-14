@@ -198,20 +198,32 @@ body {
 	color: var(--bg-primary);
 }
 
-/* Page Navigation Transition Animations */
+/* Cinematic route transition: fade in while lifting into place. */
 .page-transition {
-	animation: pageFadeSlide 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+	animation: pageFadeLift 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
 	will-change: opacity, transform;
 }
 
-@keyframes pageFadeSlide {
+@keyframes pageFadeLift {
 	0% {
 		opacity: 0;
-		transform: translateY(16px);
+		transform: translateY(18px) scale(0.99);
 	}
 	100% {
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateY(0) scale(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.page-transition {
+		animation: none;
+		will-change: auto;
+	}
+
+	.route-progress-bar {
+		animation: none;
+		opacity: 0;
 	}
 }
 
