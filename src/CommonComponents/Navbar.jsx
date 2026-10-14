@@ -109,7 +109,7 @@ const Navbar = () => {
         <a
           href="/contact"
           onClick={() => setActiveHash('#contact')}
-          className="hidden shrink-0 items-center gap-2 border border-[var(--gold-primary)] px-5 py-2.5 text-[11px] font-semibold tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] xl:flex"
+          className="btn-shimmer hidden shrink-0 items-center gap-2 border border-[var(--gold-primary)] px-5 py-2.5 text-[11px] font-semibold tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] xl:flex"
         >
           LET&apos;S TALK
           <span aria-hidden="true">→</span>
@@ -145,7 +145,7 @@ const Navbar = () => {
               setActiveHash('#contact');
               setIsMobileMenuOpen(false);
             }}
-            className="mt-5 flex items-center justify-center gap-2 border border-[var(--gold-primary)] px-5 py-3 text-xs font-semibold tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]"
+            className="btn-shimmer mt-5 flex items-center justify-center gap-2 border border-[var(--gold-primary)] px-5 py-3 text-xs font-semibold tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]"
           >
             LET&apos;S TALK <span aria-hidden="true">→</span>
           </a>

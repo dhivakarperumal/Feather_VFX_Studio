@@ -51,7 +51,7 @@ const HomeIntroSection = () => (
 
           <Link
             to="/contact"
-            className="mt-4 inline-flex min-h-8 items-center gap-3 rounded-sm border border-[#e4a43c] bg-[#0a0f12]/80 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[#f5bd59] transition-colors hover:bg-[#e4a43c] hover:text-[#090b0c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0a858] sm:text-[10px]"
+            className="btn-shimmer mt-4 inline-flex min-h-8 items-center gap-3 rounded-sm border border-[#e4a43c] bg-[#0a0f12]/80 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-[#f5bd59] transition-colors hover:bg-[#e4a43c] hover:text-[#090b0c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0a858] sm:text-[10px]"
           >
             Let&apos;s bring your vision to life
             <span className="text-base" aria-hidden="true">→</span>

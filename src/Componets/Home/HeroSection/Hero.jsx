@@ -82,7 +82,7 @@ const Hero = () => {
               <div className="hero-reveal hero-reveal-d4 flex flex-wrap items-center gap-4">
                 <a
                   href="/projects"
-                  className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                  className="btn-shimmer inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
                 >
                   Explore our work <FaArrowRight aria-hidden="true" />
                 </a>
