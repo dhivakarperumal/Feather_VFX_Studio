@@ -3,7 +3,9 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const filters = ['All', 'VFX & CGI', 'Compositing', 'Environments', 'Color Grading'];
 
-const projects = [
+const imageOrder = [0, 20, 6, 1, 7, 2, 21, 8, 3, 9, 4, 10, 5, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+
+const projectDetails = [
   {
     title: 'Spider-Man: Far From Home',
     category: 'VFX & CGI',
@@ -44,17 +46,25 @@ const projects = [
   { title: 'Featured Project 20', category: 'Environments' },
   { title: 'Featured Project 21', category: 'Color Grading' },
   { title: 'Featured Project 22', category: 'Compositing' },
-].map((project, index) => ({
+];
+
+const projects = projectDetails.map((project, index) => ({
   ...project,
   image: `/images/projects/featured/${index + 1}.${index === 1 ? 'png' : 'jpg'}`,
   orientation: index >= 20 ? 'landscape' : 'portrait',
 }));
 
+const orderedProjects = imageOrder.map((imageIndex, position) => {
+  const project = projects[imageIndex];
+
+  return { ...project, position };
+});
+
 const FeaturedProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const visibleProjects = activeFilter === 'All'
-    ? projects
-    : projects.filter((project) => project.category === activeFilter);
+    ? orderedProjects
+    : orderedProjects.filter((project) => project.category === activeFilter);
 
   return (
     <section
@@ -99,23 +109,21 @@ const FeaturedProjectsSection = () => {
           </div>
         </header>
 
-        <div className="mt-5 grid auto-rows-[5rem] grid-flow-dense grid-cols-2 gap-2.5 sm:auto-rows-[6rem] sm:grid-cols-3 lg:auto-rows-[7rem] lg:grid-cols-4 max-sm:gap-2">
-          {visibleProjects.map(({ title, category, image, orientation }) => (
+        <div className="mt-5 columns-2 gap-2.5 sm:columns-3 sm:gap-3">
+          {visibleProjects.map(({ title, category, image, position }) => (
             <article
               key={title}
-              className={`group relative overflow-hidden rounded-md border border-[var(--gold-primary)]/75 bg-[#080d0f] shadow-[0_0_0_1px_rgba(255,255,255,0.035)] ${
-                orientation === 'portrait'
-                  ? 'row-span-3 lg:row-span-4'
-                  : 'col-span-2 row-span-2 lg:row-span-3'
+              className={`group relative mb-2.5 inline-block w-full break-inside-avoid overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] align-top shadow-[0_0_0_1px_rgba(255,255,255,0.035)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--gold-bright)] hover:shadow-[0_0_22px_rgba(214,160,74,0.12)] sm:mb-3 ${
+                position % 5 === 1 ? 'sm:mt-8' : position % 5 === 3 ? 'sm:mt-4' : ''
               }`}
             >
               <img
-                className="absolute inset-0 h-full w-full object-contain object-center transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
+                className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
                 src={image}
                 alt={`${title} project artwork`}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050a0b]/85 via-transparent to-transparent" aria-hidden="true" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-transparent to-transparent" aria-hidden="true" />
               <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
                 <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
                 <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
