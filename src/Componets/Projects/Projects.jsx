@@ -60,13 +60,11 @@ const Projects = ({ homePage = false }) => {
     >
       <img
         src="/images/project.png"
-        className="pointer-events-none absolute inset-0 z-0 h-full w-full scale-110 object-cover opacity-55 blur-xl transition-opacity duration-700"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
         alt=""
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,9,12,0.48)_0%,rgba(4,9,12,0.28)_42%,rgba(4,9,12,0.58)_100%)]" />
-      <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_47%,rgba(211,142,48,0.12),transparent_48%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-32 bg-[linear-gradient(180deg,transparent,rgba(226,147,54,0.11))]" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.6)_0%,rgba(4,10,13,0.3)_42%,rgba(4,10,13,0.28)_100%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center">
         <header className="relative z-40 text-center">
