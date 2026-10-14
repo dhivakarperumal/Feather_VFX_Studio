@@ -83,14 +83,14 @@ const TestimonialsSection = () => {
 
         <div className="relative">
           {/* Prev button */}
-          <button
+          {/* <button
             type="button"
             onClick={showPrevious}
             aria-label="Previous testimonials"
             className="absolute -left-3 top-1/2 z-20 hidden h-12 w-12 -translate-x-full -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 bg-[rgba(3,9,12,0.8)] text-white shadow-[0_0_16px_rgba(214,160,74,0.16)] transition-all hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:flex"
           >
             <ChevronLeft className="h-6 w-6" aria-hidden="true" />
-          </button>
+          </button> */}
 
           {/* Cards grid */}
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -187,14 +187,14 @@ const TestimonialsSection = () => {
           </div>
 
           {/* Next button */}
-          <button
+          {/* <button
             type="button"
             onClick={showNext}
             aria-label="Next testimonials"
             className="absolute -right-3 top-1/2 z-20 hidden h-12 w-12 translate-x-full -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 bg-[rgba(3,9,12,0.8)] text-white shadow-[0_0_16px_rgba(214,160,74,0.16)] transition-all hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:flex"
           >
             <ChevronRight className="h-6 w-6" aria-hidden="true" />
-          </button>
+          </button> */}
         </div>
 
         {/* Dot indicators */}
