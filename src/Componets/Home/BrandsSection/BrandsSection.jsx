@@ -65,7 +65,7 @@ const BrandsSection = () => {
               pauseOnMouseEnter: false,
             }}
             aria-label="Selected studio brands"
-            className="!overflow-visible"
+            className="overflow-hidden"
           >
             {brands.map(({ name, image, wordmark }, index) => (
               <SwiperSlide key={name}>
@@ -105,22 +105,22 @@ const BrandsSection = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        <button
+        {/* <button
           type="button"
           onClick={() => carouselRef.current?.slidePrev()}
           aria-label="Previous brand"
           className="absolute -left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-left-4 sm:h-10 sm:w-10"
         >
           <ArrowLeft size={17} aria-hidden="true" />
-        </button>
-        <button
+        </button> */}
+        {/* <button
           type="button"
           onClick={() => carouselRef.current?.slideNext()}
           aria-label="Next brand"
           className="absolute -right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-right-4 sm:h-10 sm:w-10"
         >
           <ArrowRight size={17} aria-hidden="true" />
-        </button>
+        </button> */}
         </div>
       </div>
     </div>
