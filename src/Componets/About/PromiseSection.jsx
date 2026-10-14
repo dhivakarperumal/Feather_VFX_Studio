@@ -56,42 +56,42 @@ const PromiseSection = () => (
         <span className="block h-px w-14 bg-[var(--gold-primary)] shadow-[0_0_10px_rgba(214,160,74,0.5)] sm:w-20" aria-hidden="true" />
         <h2
           id="promise-heading"
-          className="font-serif text-4xl font-bold capitalize leading-none tracking-[-0.03em] text-white sm:text-5xl lg:text-[5.1rem]"
+          className="font-serif text-[clamp(2.8rem,4vw,5.5rem)] font-bold capitalize leading-[0.9] tracking-[-0.04em] text-white"
         >
           We Keep <span className="text-[var(--gold-bright)]">our word</span>
         </h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-5 sm:space-y-6">
         {promises.map(({ number, title, description, image, Icon }) => (
           <article
             key={title}
-            className="group relative overflow-hidden border border-[var(--gold-primary)]/80 bg-[linear-gradient(135deg,rgba(5,10,11,0.96),rgba(12,18,19,0.82))] px-4 py-4 shadow-[0_0_0_1px_rgba(214,160,74,0.2),0_12px_30px_rgba(0,0,0,0.32)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-5 lg:px-6"
+            className="group relative overflow-hidden border border-[var(--gold-primary)]/80 bg-[linear-gradient(135deg,rgba(5,10,11,0.96),rgba(12,18,19,0.82))] px-3 py-3 shadow-[0_0_0_1px_rgba(214,160,74,0.2),0_12px_30px_rgba(0,0,0,0.32)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-4 lg:px-5"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(240,168,88,0.12),transparent_25%)]" aria-hidden="true" />
-            <div className="relative grid items-center gap-4 md:grid-cols-[86px_96px_minmax(0,1.25fr)_minmax(200px,0.66fr)] md:gap-5 lg:grid-cols-[90px_110px_minmax(0,1.1fr)_minmax(210px,0.52fr)]">
+            <div className="relative grid items-center gap-3 md:grid-cols-[82px_92px_minmax(0,1.2fr)_minmax(220px,0.7fr)] md:gap-4 lg:grid-cols-[90px_110px_minmax(0,1.15fr)_minmax(230px,0.68fr)]">
               <div
-                className="text-[clamp(2.5rem,5vw,4.7rem)] font-bold leading-none tracking-[-0.05em] text-[var(--gold-bright)]"
+                className="text-[clamp(2.4rem,4vw,4.6rem)] font-bold leading-[0.85] tracking-[-0.06em] text-[var(--gold-bright)]"
                 aria-label={`${number} ${title}`}
               >
                 {number}
               </div>
 
-              <div className="mx-auto flex h-[5.25rem] w-[5.25rem] items-center justify-center rounded-full border-[3px] border-[var(--gold-primary)] bg-[rgba(12,18,19,0.95)] text-[var(--gold-bright)] shadow-[0_0_20px_rgba(214,160,74,0.26)] sm:h-[5.6rem] sm:w-[5.6rem]">
-                <Icon className="h-10 w-10 stroke-[1.8]" aria-hidden="true" />
+              <div className="mx-auto flex h-[5rem] w-[5rem] items-center justify-center rounded-full border-[3px] border-[var(--gold-primary)] bg-[rgba(12,18,19,0.95)] text-[var(--gold-bright)] shadow-[0_0_20px_rgba(214,160,74,0.26)] sm:h-[5.5rem] sm:w-[5.5rem]">
+                <Icon className="h-9 w-9 stroke-[1.8]" aria-hidden="true" />
               </div>
 
               <div className="min-w-0">
-                <h3 className="font-sans text-[clamp(1.2rem,2vw,2.3rem)] font-bold uppercase leading-none tracking-[0.02em] text-white">
+                <h3 className="font-serif text-[clamp(1.4rem,2vw,2.2rem)] font-bold uppercase leading-[0.95] tracking-[0.02em] text-white">
                   {title}
                 </h3>
-                <p className="mt-2 max-w-[48rem] text-sm leading-[1.65] text-white/72 sm:text-base">
+                <p className="mt-2 max-w-[44rem] text-sm leading-[1.7] text-white/72 sm:text-[0.9rem] lg:text-[1rem]">
                   {description}
                 </p>
               </div>
 
-              <div className="relative h-[7.25rem] overflow-hidden border border-[var(--gold-primary)]/60 bg-[#0b1113] shadow-[ inset_0_0_25px_rgba(214,160,74,0.1)] sm:h-[8rem]">
-                <img src={image} alt="" loading="lazy" className="h-full w-full object-cover grayscale-[0.25] contrast-125" />
+              <div className="relative h-[7rem] overflow-hidden border border-[var(--gold-primary)]/60 bg-[#0b1113] shadow-[inset_0_0_25px_rgba(214,160,74,0.08)] sm:h-[8rem]">
+                <img src={image} alt="" loading="lazy" className="h-full w-full object-cover grayscale-[0.18] contrast-125" />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,11,0.18),rgba(2,8,11,0.68))]" aria-hidden="true" />
                 <div className="absolute inset-x-2 bottom-2 flex items-center justify-end text-[var(--gold-bright)]">
                   <BadgeCheck className="h-4 w-4" aria-hidden="true" />
