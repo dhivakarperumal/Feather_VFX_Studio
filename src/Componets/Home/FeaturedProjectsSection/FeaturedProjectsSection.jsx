@@ -7,36 +7,49 @@ const projects = [
   {
     title: 'Spider-Man: Far From Home',
     category: 'VFX & CGI',
-    image: '/images/projects/featured/1.jpg',
     layout: 'lg:row-span-2',
   },
   {
     title: 'Fast & Furious Presents: Hobbs & Shaw',
     category: 'Compositing',
-    image: '/images/projects/featured/2.png',
     layout: 'lg:col-span-2',
   },
   {
     title: 'Ant-Man and the Wasp',
     category: 'VFX & CGI',
-    image: '/images/projects/featured/3.jpg',
   },
   {
     title: 'The Fate of the Furious',
     category: 'Compositing',
-    image: '/images/projects/featured/4.jpg',
   },
   {
     title: 'Captain Marvel',
     category: 'Environments',
-    image: '/images/projects/featured/5.jpg',
   },
   {
     title: 'Mission: Impossible – Fallout',
     category: 'Color Grading',
-    image: '/images/projects/featured/6.jpg',
   },
-];
+  { title: 'Deadpool 2', category: 'VFX & CGI' },
+  { title: 'Rampage', category: 'Environments' },
+  { title: 'Truth and Justice', category: 'Color Grading' },
+  { title: 'G.I. Joe: Retaliation', category: 'Compositing' },
+  { title: 'Constantine', category: 'VFX & CGI' },
+  { title: 'Chronicle', category: 'Environments' },
+  { title: 'The Predator', category: 'Color Grading' },
+  { title: 'Wonder Woman', category: 'Compositing' },
+  { title: 'Featured Project 15', category: 'VFX & CGI' },
+  { title: 'Featured Project 16', category: 'Environments' },
+  { title: 'Featured Project 17', category: 'Color Grading' },
+  { title: 'Featured Project 18', category: 'Compositing' },
+  { title: 'Featured Project 19', category: 'VFX & CGI' },
+  { title: 'Featured Project 20', category: 'Environments' },
+  { title: 'Featured Project 21', category: 'Color Grading' },
+  { title: 'Featured Project 22', category: 'Compositing' },
+].map((project, index) => ({
+  ...project,
+  image: `/images/projects/featured/${index + 1}.${index === 1 ? 'png' : 'jpg'}`,
+}));
 
 const FeaturedProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
