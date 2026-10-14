@@ -72,7 +72,7 @@ const Projects = () => {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_47%,rgba(211,142,48,0.16),transparent_48%)]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,rgba(226,147,54,0.11))]" />
 
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center">
+      <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center">
         <header className="relative z-40 text-center">
           <div className="mb-2 flex items-center justify-center gap-4 text-[10px] font-bold uppercase tracking-[0.38em] text-[#f3b44e] sm:text-xs">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#d99c42] sm:w-16" />
@@ -115,7 +115,7 @@ const Projects = () => {
         </header>
 
         <section
-          className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1320px] items-center justify-center sm:mt-3"
+          className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] items-center justify-center sm:mt-3 sm:h-[clamp(38rem,78vh,54rem)]"
           aria-label="Project image carousel"
           aria-roledescription="carousel"
         >
@@ -126,7 +126,7 @@ const Projects = () => {
             const isActive = offset === 0;
             const distance = Math.abs(offset);
             const isLandscape = project.orientation === 'landscape';
-            const position = offset === 0 ? 0 : Math.sign(offset) * (distance === 1 ? 24 : 40);
+            const position = offset === 0 ? 0 : Math.sign(offset) * (distance === 1 ? 26 : 40);
             const rotation = offset === 0 ? 0 : offset * 2.2;
 
             return (
@@ -138,10 +138,10 @@ const Projects = () => {
                 aria-current={isActive ? 'true' : undefined}
                 className={`absolute top-1/2 overflow-hidden rounded-xl border bg-[#090b0d] text-left shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${
                   isActive
-                    ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[#f3b44e] shadow-[0_0_0_1px_rgba(243,180,78,0.35),0_0_38px_rgba(243,180,78,0.3),0_30px_90px_rgba(0,0,0,0.75)]'
+                    ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[#f3b44e] shadow-[0_0_0_1px_rgba(243,180,78,0.35),0_0_38px_rgba(243,180,78,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
                     : distance === 1
-                      ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[#dda54d]/70 opacity-95'
-                      : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[#dda54d]/45 opacity-75'
+                      ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[#dda54d]/70 opacity-95 sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
+                      : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[#dda54d]/45 opacity-75 sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
                 }`}
                 style={{
                   left: `calc(50% + ${position}%)`,
@@ -203,7 +203,7 @@ const Projects = () => {
           </button>
         </section>
 
-        <div className="-mt-4 flex items-center justify-center gap-2 sm:-mt-5">
+        <div className="-mt-4 flex items-center justify-center gap-2 sm:mt-5">
           {visibleOffsets.map((offset) => {
             const index = (activeIndex + offset + projects.length) % projects.length;
             const isActive = offset === 0;
