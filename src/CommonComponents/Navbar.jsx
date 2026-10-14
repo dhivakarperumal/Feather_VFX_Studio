@@ -28,7 +28,8 @@ const Navbar = () => {
     const isPageActive =
       (link.id === 'about-us' && pathname === '/about') ||
       (link.id === 'contact' && pathname === '/contact') ||
-      (link.id === 'careers' && pathname === '/careers');
+        (link.id === 'careers' && pathname === '/careers') ||
+        (link.id === 'blog' && pathname === '/blog');
     const isActive = isPageActive || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
 
     return (
@@ -41,7 +42,9 @@ const Navbar = () => {
               ? '/careers'
               : link.id === 'about-us'
                 ? '/about'
-              : `/#${link.id}`
+              : link.id === 'blog'
+                ? '/blog'
+                : `/#${link.id}`
         }
         onClick={() => {
           setActiveHash(`#${link.id}`);
