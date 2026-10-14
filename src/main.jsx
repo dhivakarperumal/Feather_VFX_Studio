@@ -11,6 +11,7 @@ import Careers from './Componets/Careers/Careers.jsx'
 import About from './Componets/About/About.jsx'
 import Blog from './Componets/Blog/Blog.jsx'
 import Reels from './Componets/Reels/Reels.jsx'
+import Services from './Componets/Services/Services.jsx'
 
 
 function AppRoot() {
@@ -34,6 +35,7 @@ function AppRoot() {
           <Route path="contactus" element={<Navigate to="/contact" replace />} />
           <Route path="careers" element={<Careers />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="services" element={<Services />} />
           <Route path="reels" element={<Reels />} />
           <Route path="work" element={<Reels />} />
           <Route path="projects" element={<Reels />} />

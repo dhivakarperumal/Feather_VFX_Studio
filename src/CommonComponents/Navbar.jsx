@@ -5,8 +5,9 @@ import PageContainer from './PageContainer';
 const navLinks = [
   { label: 'HOME', id: 'home' },
   { label: 'ABOUT US', id: 'about-us' },
-  { label: 'OUR WORK', id: 'projects' },
   { label: 'SERVICES', id: 'services' },
+  { label: 'OUR WORK', id: 'projects' },
+  { label: 'PROCESS', id: 'process' },
   { label: 'SHOWREEL', id: 'showreel' },
   { label: 'CAREERS', id: 'careers' },
   { label: 'BLOG', id: 'blog' },
@@ -30,6 +31,8 @@ const Navbar = () => {
       isReelsPath && ['#featured-reel', '#showreel'].includes(activeHash);
     const isPageActive =
       (link.id === 'about-us' && pathname === '/about') ||
+      (link.id === 'services' && pathname === '/services' && activeHash !== '#process') ||
+      (link.id === 'process' && pathname === '/services' && activeHash === '#process') ||
       (link.id === 'contact' && pathname === '/contact') ||
         (link.id === 'careers' && pathname === '/careers') ||
         (link.id === 'blog' && pathname === '/blog') ||
@@ -43,6 +46,10 @@ const Navbar = () => {
         href={
           link.id === 'contact'
             ? '/contact'
+            : link.id === 'services'
+              ? '/services'
+            : link.id === 'process'
+              ? '/services#process'
             : link.id === 'careers'
               ? '/careers'
               : link.id === 'about-us'
