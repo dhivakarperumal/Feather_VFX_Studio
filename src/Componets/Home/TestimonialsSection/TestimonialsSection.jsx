@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { Quote, Star } from 'lucide-react';
 
 const testimonials = [
@@ -26,49 +29,49 @@ const testimonials = [
     avatar: '/images/heroimages/2.png',
     avatarPosition: 'center top',
   },
+  {
+    quote:
+      'Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.',
+    name: 'Meera Nair',
+    role: 'Film Director',
+    avatar: '/images/heroimages/1.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.',
+    name: 'Rohan Desai',
+    role: 'Ad Film Maker',
+    avatar: '/images/heroimages/2.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.',
+    name: 'Sneha Pillai',
+    role: 'OTT Content Head',
+    avatar: '/images/heroimages/3.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.',
+    name: 'Vikram Sood',
+    role: 'Brand Manager',
+    avatar: '/images/heroimages/1.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.',
+    name: 'Ananya Bose',
+    role: 'Cinematographer',
+    avatar: '/images/heroimages/2.png',
+    avatarPosition: 'center top',
+  },
 ];
 
-const AUTOPLAY_INTERVAL = 4000;
-
 const TestimonialsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const isPausedRef = useRef(false);
-  const timeoutRef = useRef(null);
-
-  const goToNext = useCallback(() => {
-    setAnimating(true);
-    setTimeout(() => {
-      setActiveIndex((current) => (current + 1) % testimonials.length);
-      setAnimating(false);
-    }, 300);
-  }, []);
-
-  const scheduleNext = useCallback(() => {
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      if (!isPausedRef.current) goToNext();
-      scheduleNext();
-    }, AUTOPLAY_INTERVAL);
-  }, [goToNext]);
-
-  useEffect(() => {
-    scheduleNext();
-    return () => clearTimeout(timeoutRef.current);
-  }, [scheduleNext]);
-
-  const handleDotClick = (index) => {
-    clearTimeout(timeoutRef.current);
-    setAnimating(true);
-    setTimeout(() => {
-      setActiveIndex(index);
-      setAnimating(false);
-    }, 300);
-    scheduleNext();
-  };
-
-  const testimonial = testimonials[activeIndex];
-
   return (
     <section
       aria-labelledby="testimonials-heading"
@@ -108,123 +111,132 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Cards — single card shown at a time, fades on transition */}
-          <div
-            className="relative min-h-[280px]"
-            onMouseEnter={() => { isPausedRef.current = true; }}
-            onMouseLeave={() => { isPausedRef.current = false; }}
-          >
-            <article
-              className={`group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)] ${
-                animating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
-              }`}
-              style={{
-                clipPath:
-                  'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
-                transition: 'opacity 0.3s ease, transform 0.3s ease, border-color 0.3s, box-shadow 0.3s',
-              }}
-            >
-              {/* Subtle hover inner glow */}
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--gold-primary)]/[0.04] via-transparent to-[var(--gold-primary)]/[0.07] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                aria-hidden="true"
-              />
+        {/* Swiper slider — 3 cards visible, auto-slides one by one */}
+        <style>{`
+          .testimonials-swiper .swiper-pagination-bullet {
+            width: 20px;
+            height: 6px;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.3);
+            opacity: 1;
+            transition: width 0.3s, background 0.3s, box-shadow 0.3s;
+          }
+          .testimonials-swiper .swiper-pagination-bullet-active {
+            width: 28px;
+            background: var(--gold-bright);
+            box-shadow: 0 0 9px rgba(240,168,88,0.65);
+          }
+          .testimonials-swiper .swiper-pagination {
+            position: relative;
+            margin-top: 28px;
+          }
+        `}</style>
 
-              {/* Corner accents */}
-              <span
-                className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_14px_rgba(240,168,88,0.55)]"
-                aria-hidden="true"
-              />
-              <span
-                className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[3px_3px_14px_rgba(240,168,88,0.55)]"
-                aria-hidden="true"
-              />
-
-              <div className="relative z-10 flex flex-col gap-5 p-5 sm:p-6">
-                {/* Avatar + Stars row */}
-                <div className="flex items-center gap-4">
-                  {/* Circular avatar with gold ring */}
-                  <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
-                    <div
-                      className="pointer-events-none absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
-                      aria-hidden="true"
-                    />
-                    <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_18px_rgba(240,168,88,0.45)]">
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        style={{ objectPosition: testimonial.avatarPosition }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Stars */}
-                  <div
-                    className="flex gap-[3px] text-[var(--gold-bright)]"
-                    aria-label="5 out of 5 stars"
-                  >
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <Star
-                        key={i}
-                        className="h-[15px] w-[15px] fill-current drop-shadow-[0_0_4px_rgba(240,168,88,0.7)] sm:h-[17px] sm:w-[17px]"
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Quote text */}
-                <div className="relative pl-7">
-                  <Quote
-                    className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/55 text-[var(--gold-primary)]/55"
-                    aria-hidden="true"
-                  />
-                  <p className="text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{testimonial.quote}</p>
-                  <Quote
-                    className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/30 text-[var(--gold-primary)]/30"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* Divider */}
+        <Swiper
+          className="testimonials-swiper"
+          modules={[Autoplay, Pagination]}
+          slidesPerView={1}
+          spaceBetween={20}
+          loop={true}
+          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+          }}
+        >
+          {testimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
+            <SwiperSlide key={name}>
+              <article
+                className="group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
+                style={{
+                  clipPath:
+                    'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
+                }}
+              >
+                {/* Subtle hover inner glow */}
                 <div
-                  className="h-px w-full bg-gradient-to-r from-[var(--gold-primary)]/45 via-[var(--gold-primary)]/20 to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--gold-primary)]/[0.04] via-transparent to-[var(--gold-primary)]/[0.07] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   aria-hidden="true"
                 />
 
-                {/* Name + Role */}
-                <div className="pl-1">
-                  <h3 className="font-serif text-lg font-semibold uppercase tracking-[0.02em] text-white sm:text-xl">
-                    {testimonial.name}
-                  </h3>
-                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]/80">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
+                {/* Corner accents */}
+                <span
+                  className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_14px_rgba(240,168,88,0.55)]"
+                  aria-hidden="true"
+                />
+                <span
+                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[3px_3px_14px_rgba(240,168,88,0.55)]"
+                  aria-hidden="true"
+                />
 
-        {/* Dot indicators */}
-        <div className="mt-7 flex justify-center gap-2" aria-label="Choose testimonial">
-          {testimonials.map(({ name }, index) => (
-            <button
-              key={name}
-              type="button"
-              onClick={() => handleDotClick(index)}
-              aria-label={`Show testimonial by ${name}`}
-              aria-current={activeIndex === index ? 'true' : undefined}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                activeIndex === index
-                  ? 'w-7 bg-[var(--gold-bright)] shadow-[0_0_9px_rgba(240,168,88,0.65)]'
-                  : 'w-5 bg-white/30 hover:bg-white/60'
-              }`}
-            />
+                <div className="relative z-10 flex flex-col gap-5 p-5 sm:p-6">
+                  {/* Avatar + Stars row */}
+                  <div className="flex items-center gap-4">
+                    {/* Circular avatar with gold ring */}
+                    <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
+                      <div
+                        className="pointer-events-none absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
+                        aria-hidden="true"
+                      />
+                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_18px_rgba(240,168,88,0.45)]">
+                        <img
+                          src={avatar}
+                          alt={name}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          style={{ objectPosition: avatarPosition }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Stars */}
+                    <div
+                      className="flex gap-[3px] text-[var(--gold-bright)]"
+                      aria-label="5 out of 5 stars"
+                    >
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <Star
+                          key={i}
+                          className="h-[15px] w-[15px] fill-current drop-shadow-[0_0_4px_rgba(240,168,88,0.7)] sm:h-[17px] sm:w-[17px]"
+                          aria-hidden="true"
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Quote text */}
+                  <div className="relative pl-7">
+                    <Quote
+                      className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/55 text-[var(--gold-primary)]/55"
+                      aria-hidden="true"
+                    />
+                    <p className="text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
+                    <Quote
+                      className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/30 text-[var(--gold-primary)]/30"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  {/* Divider */}
+                  <div
+                    className="h-px w-full bg-gradient-to-r from-[var(--gold-primary)]/45 via-[var(--gold-primary)]/20 to-transparent"
+                    aria-hidden="true"
+                  />
+
+                  {/* Name + Role */}
+                  <div className="pl-1">
+                    <h3 className="font-serif text-lg font-semibold uppercase tracking-[0.02em] text-white sm:text-xl">
+                      {name}
+                    </h3>
+                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]/80">
+                      {role}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
