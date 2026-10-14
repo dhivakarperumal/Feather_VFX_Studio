@@ -14,7 +14,7 @@ const PageHeader = ({
 
   return (
     <div
-      className={`relative isolate flex min-h-[500px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-[var(--text-primary)] ${className}`}
+      className={`relative isolate flex min-h-[380px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-[var(--text-primary)] ${className}`}
     >
       <img
         src={background}

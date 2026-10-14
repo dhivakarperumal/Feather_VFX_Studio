@@ -263,7 +263,7 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  min-height: 500px;
+  min-height: 380px;
   border: 1px solid rgba(214, 160, 74, 0.15);
   background:
     linear-gradient(90deg, rgba(2, 6, 8, 0.82) 0%, rgba(2, 6, 8, 0.62) 38%, rgba(2, 6, 8, 0.36) 100%),
@@ -277,9 +277,9 @@ body {
   justify-content: space-between;
   align-items: end;
   width: min(100%, 1700px);
-  min-height: 500px;
+  min-height: 380px;
   margin: 0 auto;
-  padding: 3.4rem 2.8rem 2.1rem;
+  padding: 2.5rem 2.8rem 1.8rem;
 }
 
 .blog-hero__copy {
@@ -799,7 +799,7 @@ body {
 
 @media (max-width: 780px) {
   .blog-hero__content {
-    min-height: 340px;
+    min-height: 320px;
     padding: 2rem 1.25rem 1.3rem;
   }
 
