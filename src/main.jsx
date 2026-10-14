@@ -12,6 +12,7 @@ import About from './Componets/About/About.jsx'
 import FeaturedProjectsSection from './Componets/Home/FeaturedProjectsSection/FeaturedProjectsSection.jsx'
 import Blog from './Componets/Blog/Blog.jsx'
 import Reels from './Componets/Reels/Reels.jsx'
+import ServicesRoute from './Componets/Services/ServicesRoute.jsx'
 
 
 
@@ -32,6 +33,7 @@ function AppRoot() {
           <Route index element={<Home />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="about" element={<About />} />
+          <Route path="services" element={<ServicesRoute />} />
           <Route path="projects" element={<FeaturedProjectsSection />} />
           <Route path="contact" element={<Contact />} />
           <Route path="contactus" element={<Navigate to="/contact" replace />} />
