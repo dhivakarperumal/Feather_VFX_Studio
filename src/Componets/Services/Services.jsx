@@ -221,6 +221,33 @@ const Services = () => (
       </div>
     </section>
 
+    <section id="services" aria-labelledby="vfx-services-title" className="relative isolate overflow-hidden bg-[#050809] px-[5%] py-12 sm:py-16">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_35%,rgba(191,128,31,0.09),transparent_62%)]"
+        aria-hidden="true"
+      />
+      <div className="mx-auto max-w-[1400px]">
+        <div className="mx-auto mb-7 max-w-3xl text-center sm:mb-9">
+          <p className="text-[9px] font-bold uppercase tracking-[0.36em] text-[#edb444] sm:text-[10px]">
+            What we do
+          </p>
+          <h2 id="vfx-services-title" className="mt-1 font-serif text-3xl font-bold uppercase sm:text-4xl">
+            Our VFX <span className="text-[#efb64e]">services</span>
+          </h2>
+          <p className="mt-2 text-xs leading-relaxed text-white/65 sm:text-sm">
+            From clean-up to complex compositing, we offer end-to-end VFX services for feature
+            films, TV series, commercials, and more.
+          </p>
+        </div>
+
+        <div className="grid items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {orderedServices.map((service) => (
+            <ServiceCard key={service.title} service={service} />
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="production-support-title" className="relative isolate overflow-hidden border-b border-white/10">
       <img
         src="/images/home1.png"
@@ -275,33 +302,6 @@ const Services = () => (
               </p>
             </article>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" aria-labelledby="vfx-services-title" className="relative isolate overflow-hidden bg-[#050809] px-[5%] py-12 sm:py-16">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_35%,rgba(191,128,31,0.09),transparent_62%)]"
-        aria-hidden="true"
-      />
-      <div className="mx-auto max-w-[1400px]">
-        <div className="mx-auto mb-7 max-w-3xl text-center sm:mb-9">
-          <p className="text-[9px] font-bold uppercase tracking-[0.36em] text-[#edb444] sm:text-[10px]">
-            What we do
-          </p>
-          <h2 id="vfx-services-title" className="mt-1 font-serif text-3xl font-bold uppercase sm:text-4xl">
-            Our VFX <span className="text-[#efb64e]">services</span>
-          </h2>
-          <p className="mt-2 text-xs leading-relaxed text-white/65 sm:text-sm">
-            From clean-up to complex compositing, we offer end-to-end VFX services for feature
-            films, TV series, commercials, and more.
-          </p>
-        </div>
-
-        <div className="grid items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {orderedServices.map((service) => (
-            <ServiceCard key={service.title} service={service} />
-          ))}
         </div>
       </div>
     </section>
