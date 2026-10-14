@@ -32,18 +32,15 @@ const serviceDetails = {
   },
 };
 
-const reversedComparisonServices = ['Rotoscoping', 'Matchmove', 'Cosmetic VFX'];
-
 const VFXServiceCard = ({ service }) => {
   const [comparisonPosition, setComparisonPosition] = useState(50);
   const details = serviceDetails[service.title];
   const Icon = details.icon;
   const outputImage = service.image.replace('_IN.jpg', '_OUT.jpg').replace('-IN.jpg', '-OUT.jpg');
-  const reverseComparison = reversedComparisonServices.includes(service.title);
-  const firstImage = reverseComparison ? outputImage : service.image;
-  const secondImage = reverseComparison ? service.image : outputImage;
-  const firstLabel = reverseComparison ? 'OUT' : 'IN';
-  const secondLabel = reverseComparison ? 'IN' : 'OUT';
+  const firstImage = service.image;
+  const secondImage = outputImage;
+  const firstLabel = 'IN';
+  const secondLabel = 'OUT';
 
   return (
     <article className="group flex h-full flex-col overflow-hidden border border-[#b8852f]/45 bg-[#080b0c]/95 transition-colors duration-300 hover:border-[#e8b14f]/80">
