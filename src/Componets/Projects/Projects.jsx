@@ -58,17 +58,18 @@ const Projects = ({ homePage = false }) => {
         homePage ? '' : 'min-h-[min(900px,calc(100vh-80px))]'
       }`}
     >
-      <div
+      <img
         key={activeProject.image}
-        className="pointer-events-none absolute inset-0 -z-20 scale-110 animate-project-image-reveal bg-cover bg-center opacity-25 blur-2xl motion-reduce:animate-none"
-        style={{ backgroundImage: `url("${activeProject.image}")` }}
+        src={activeProject.image}
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full scale-110 object-cover opacity-35 blur-2xl transition-opacity duration-700"
+        alt=""
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(4,9,12,0.84)_0%,rgba(4,9,12,0.57)_40%,rgba(4,9,12,0.85)_100%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_47%,rgba(211,142,48,0.16),transparent_48%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,rgba(226,147,54,0.11))]" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,9,12,0.62)_0%,rgba(4,9,12,0.42)_42%,rgba(4,9,12,0.72)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_50%_47%,rgba(211,142,48,0.12),transparent_48%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-32 bg-[linear-gradient(180deg,transparent,rgba(226,147,54,0.11))]" />
 
-      <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center">
         <header className="relative z-40 text-center">
           <div className="mb-2 flex items-center justify-center gap-4 text-[10px] font-bold uppercase tracking-[0.38em] text-[#f3b44e] sm:text-xs">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#d99c42] sm:w-16" />
