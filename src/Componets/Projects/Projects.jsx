@@ -138,7 +138,6 @@ const Projects = ({ homePage = false }) => {
             const project = projects[index];
             const isActive = offset === 0;
             const distance = Math.abs(offset);
-            const isLandscape = project.orientation === 'landscape';
             const position = offset === 0 ? 0 : Math.sign(offset) * (distance === 1 ? 26 : 40);
             const rotation = offset === 0 ? 0 : offset * 2.2;
 
@@ -165,9 +164,9 @@ const Projects = ({ homePage = false }) => {
                   key={isActive ? `${project.image}-${activeIndex}` : project.image}
                   src={project.image}
                   alt={isActive ? `${project.title} project artwork` : ''}
-                  className={`h-full w-full ${
-                    isLandscape ? 'object-contain' : 'object-cover'
-                  } motion-reduce:animate-none ${isActive ? 'animate-project-image-reveal' : ''}`}
+                  className={`h-full w-full object-contain motion-reduce:animate-none ${
+                    isActive ? 'animate-project-image-reveal' : ''
+                  }`}
                   draggable="false"
                 />
               </button>
