@@ -43,7 +43,7 @@ const Navbar = () => {
       isPageActive ||
       (!isHomeLink && activeHash === `#${link.id}`) ||
       (isHomeLink && pathname === '/' && !activeHash);
-    const serviceHref = pathname === '/' ? '/#services' : '/services';
+    const serviceHref = pathname === '/' ? '/services' : '/services';
 
     return (
       <a
