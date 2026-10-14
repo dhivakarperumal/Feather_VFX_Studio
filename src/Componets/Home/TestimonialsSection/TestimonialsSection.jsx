@@ -146,9 +146,9 @@ const TestimonialsSection = () => {
           }}
         >
           {testimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
-            <SwiperSlide key={name}>
+            <SwiperSlide key={name} className="h-auto">
               <article
-                className="group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
+                className="group relative flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
                 style={{
                   clipPath:
                     'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
@@ -170,7 +170,7 @@ const TestimonialsSection = () => {
                   aria-hidden="true"
                 />
 
-                <div className="relative z-10 flex flex-col gap-5 p-5 sm:p-6">
+                <div className="relative z-10 flex h-full flex-col gap-5 p-5 sm:p-6">
                   {/* Avatar + Stars row */}
                   <div className="flex items-center gap-4">
                     {/* Circular avatar with gold ring */}
@@ -205,12 +205,12 @@ const TestimonialsSection = () => {
                   </div>
 
                   {/* Quote text */}
-                  <div className="relative pl-7">
+                  <div className="relative flex-1 pl-7">
                     <Quote
                       className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/55 text-[var(--gold-primary)]/55"
                       aria-hidden="true"
                     />
-                    <p className="text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
+                    <p className="line-clamp-4 text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
                     <Quote
                       className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/30 text-[var(--gold-primary)]/30"
                       aria-hidden="true"
