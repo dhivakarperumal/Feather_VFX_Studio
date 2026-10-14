@@ -105,10 +105,10 @@ const ServiceCard = ({ service, index }) => {
           />
         </div>
         <span className="pointer-events-none absolute bottom-2 left-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/85">
-          Source
+          IN
         </span>
         <span className="pointer-events-none absolute bottom-2 right-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-[#f2c56e]">
-          Output
+          OUT
         </span>
         <span
           className="service-comparison__divider pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.7)]"
