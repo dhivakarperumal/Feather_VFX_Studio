@@ -21,8 +21,6 @@ const filters = projectData.filters;
 const Projects = ({ homePage = false }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
 
   const projects = useMemo(
     () => activeFilter === 'All'
@@ -45,15 +43,7 @@ const Projects = ({ homePage = false }) => {
   };
 
   useEffect(() => {
-    if (
-      !homePage ||
-      isHovered ||
-      isFocused ||
-      projects.length < 2 ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
-      return undefined;
-    }
+    if (!homePage || projects.length < 2) return undefined;
 
     const intervalId = window.setInterval(() => {
       if (!document.hidden) {
@@ -62,7 +52,7 @@ const Projects = ({ homePage = false }) => {
     }, 5000);
 
     return () => window.clearInterval(intervalId);
-  }, [homePage, isHovered, isFocused, projects.length]);
+  }, [homePage, projects.length]);
 
   const activeProject = projects[activeIndex];
   const visibleOffsets = projects.length === 2
@@ -76,12 +66,6 @@ const Projects = ({ homePage = false }) => {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocusCapture={() => setIsFocused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setIsFocused(false);
-      }}
       className={`relative isolate overflow-hidden bg-[#05090c] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12 ${
         homePage ? '' : 'min-h-[min(900px,calc(100vh-80px))]'
       }`}
