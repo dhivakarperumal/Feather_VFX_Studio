@@ -1,42 +1,27 @@
 import { useMemo, useState } from 'react';
 import {
-  Grid2X2,
-  Layers3,
-  Mountain,
-  Palette,
+  BriefcaseBusiness,
+  Clapperboard,
   Star,
-  Video,
 } from 'lucide-react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import projectData from '../../data/projects.json';
 
 const categoryIcons = {
-  All: Grid2X2,
-  'VFX & CGI': Video,
-  Compositing: Layers3,
-  Environments: Mountain,
-  'Color Grading': Palette,
+  Commercials: BriefcaseBusiness,
+  Episodes: Clapperboard,
   Featured: Star,
 };
 
-const categories = [...new Set(projectData.projects.map((project) => project.category).filter(Boolean))];
-const filters = [
-  'All',
-  ...categories,
-  ...projectData.filters.filter((filter) => filter !== 'All' && !categories.includes(filter)),
-];
+const filters = projectData.filters.filter((filter) => filter !== 'All');
 
 const Projects = ({ homePage = false }) => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('Featured');
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = useMemo(
-    () => activeFilter === 'All'
-      ? projectData.projects
-      : projectData.projects.filter((project) => (
-        project.category === activeFilter || project.collection === activeFilter
-      )),
+    () => projectData.projects.filter((project) => project.collection === activeFilter),
     [activeFilter],
   );
 
@@ -104,7 +89,7 @@ const Projects = ({ homePage = false }) => {
             aria-label="Filter projects"
           >
             {filters.map((filter) => {
-              const Icon = categoryIcons[filter] || Layers3;
+              const Icon = categoryIcons[filter] || Star;
               const isActive = activeFilter === filter;
 
               return (
