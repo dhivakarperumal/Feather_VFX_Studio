@@ -97,6 +97,8 @@ const FeaturedProjectsSection = () => {
         title={
           <>
             Featured <span className="text-[var(--gold-primary)]">Projects</span>
+            <br />
+            <span className="text-[var(--text-primary)]">CGI &amp; 3D Animation</span>
           </>
         }
         description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
