@@ -10,32 +10,32 @@ import {
 const processSteps = [
   {
     title: 'Bid package',
-    description: 'Share the shot details and creative brief so we can prepare a clear, tailored bid.',
+    description: 'Give us the intermediary record of the shot with a brief portrayal.',
     Icon: FileText,
   },
   {
     title: 'Idea',
-    description: 'We review your footage, discuss your goals, and provide a quote and delivery schedule.',
+    description: 'We will review the shots, understand your project needs and requirements, and provide quote and delivery schedules for you.',
     Icon: Lightbulb,
   },
   {
     title: 'Execution',
-    description: 'Our artists begin work on your shots once the scope and schedule are approved.',
+    description: 'Our creative visual effects artists will continue with the process when you confirm the quote and delivery schedule.',
     Icon: Eye,
   },
   {
     title: 'Delivery',
-    description: 'We deliver finished shots on the agreed schedule, ready for your review.',
+    description: 'We will deliver the shots on time as planned.',
     Icon: Truck,
   },
   {
     title: 'Approval',
-    description: 'Review the work and share feedback so we can make any agreed refinements.',
+    description: 'You check the work done & accept (or) provide the feedback; we will issue the invoice upon approval of the deliverable.',
     Icon: ThumbsUp,
   },
   {
     title: 'Completion',
-    description: 'Once approved, we wrap up the project and provide the final deliverables.',
+    description: 'Closure of the project; we build confidence through excellence of the job and delivery on time.',
     Icon: BadgeCheck,
   },
 ];
@@ -58,22 +58,12 @@ const ProcessSection = () => (
 
     <div className="mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-8 md:grid-cols-[minmax(190px,0.6fr)_minmax(0,1.5fr)] lg:grid-cols-[minmax(220px,0.72fr)_minmax(0,2fr)] lg:gap-[clamp(2rem,4vw,4.5rem)]">
       <header className="max-w-[23rem]">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
-          Our
-        </p>
         <h2
           id="about-process-heading"
           className="mt-1 font-serif text-4xl font-bold uppercase leading-tight text-[var(--gold-bright)] sm:text-5xl lg:text-6xl"
         >
-          Process
+          Our Process
         </h2>
-        <span
-          className="mt-[0.7rem] block h-0.5 w-14 bg-[var(--gold-bright)] shadow-[0_0_12px_rgba(240,168,88,0.45)]"
-          aria-hidden="true"
-        />
-        <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70 sm:text-base">
-          From concept to final delivery, we follow a streamlined process to ensure high-quality visual effects with creativity, precision and on-time delivery.
-        </p>
       </header>
 
       <div className="relative min-w-0">
