@@ -88,16 +88,17 @@ const FeaturedProjectsSection = () => {
   const desktopColumns = balanceIntoColumns(visibleProjects, 3);
 
   const renderColumns = (columns) => (
-    <div className="flex items-start gap-2.5 sm:gap-3">
+    <div className="grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
       {columns.map((column, columnIndex) => (
-        <div key={columnIndex} className="flex min-w-0 flex-1 flex-col gap-2.5 sm:gap-3">
-          {column.map(({ title, category, image }) => (
+        <div key={columnIndex} className="flex h-full min-w-0 flex-col gap-2.5 sm:gap-3">
+          {column.map(({ title, category, image, heightRatio }) => (
             <article
               key={title}
-              className="group relative w-full overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none"
+              style={{ aspectRatio: `${1 / heightRatio}` }}
+              className="group relative w-full flex-1 basis-auto overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none"
             >
               <img
-                className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
+                className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
                 src={image}
                 alt={`${title} project artwork`}
                 loading="lazy"
