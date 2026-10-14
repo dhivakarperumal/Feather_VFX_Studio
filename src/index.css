@@ -4,7 +4,7 @@
 @theme {
 	--font-sans: "Roboto Condensed", sans-serif;
 	--animate-hero-page-turn: hero-page-turn 850ms cubic-bezier(0.22, 1, 0.36, 1);
-	--animate-project-image-reveal: project-image-reveal 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+	--animate-project-image-reveal: project-image-reveal 760ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 	--animate-project-caption-reveal: project-caption-reveal 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
 
 	@keyframes hero-page-turn {
@@ -25,11 +25,17 @@
 
 		@keyframes project-image-reveal {
 			0% {
-				opacity: 0.55;
-				transform: scale(0.94) translateY(12px);
+				opacity: 0;
+				filter: blur(8px);
+				transform: scale(1.06) translateY(8px);
+			}
+			65% {
+				opacity: 0.9;
+				filter: blur(1px);
 			}
 			100% {
 				opacity: 1;
+				filter: blur(0);
 				transform: scale(1) translateY(0);
 			}
 		}

@@ -107,10 +107,12 @@ const Projects = () => {
                 }`}
               >
                 <img
-                  key={`${project.image}-${activeIndex}`}
+                  key={isActive ? `${project.image}-${activeIndex}` : project.image}
                   src={project.image}
                   alt={isActive ? `${project.title} project artwork` : ''}
-                  className="h-full w-full animate-project-image-reveal object-contain motion-reduce:animate-none"
+                  className={`h-full w-full object-contain motion-reduce:animate-none ${
+                    isActive ? 'animate-project-image-reveal' : ''
+                  }`}
                   draggable="false"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/5" aria-hidden="true" />
