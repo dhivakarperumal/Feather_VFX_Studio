@@ -19,11 +19,14 @@ import { FaClapperboard, FaFilm, FaHandshake, FaXTwitter } from 'react-icons/fa6
 import { sendEmailJsForm } from '../../utils/emailJs';
 import PageHeader from '../../CommonComponents/PageHeader';
 
-const studioAddress =
+const indiaAddress =
   '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
+const ukAddress = '35, Balfour Road, Ilford, Essex IG1 4HP, GB.';
+const ukPhoneNumber = '+44 74 5946 7325';
 const phoneNumber = '+91 86746 85645';
+const infoEmail = 'info@feathervfx.com';
 const enquiryEmail = 'enquiry@feathervfx.com';
-const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(studioAddress)}&output=embed`;
+const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(indiaAddress)}&output=embed`;
 
 const enquiryTypes = [
   { title: 'Film & Series', description: 'VFX and post-production support', value: 'Film & Series', Icon: FaClapperboard },
@@ -133,7 +136,6 @@ const Contact = () => {
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
         showBreadcrumb={false}
-        className="min-h-[330px] sm:min-h-[370px]"
       >
         <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
           <div className="flex items-center gap-2.5">
@@ -190,6 +192,15 @@ const Contact = () => {
                 <option>Compositing</option>
                 <option>Rotoscope / Paint-Prep</option>
               </select>
+              <label className="sr-only" htmlFor="contact-subject">Subject</label>
+              <input
+                id="contact-subject"
+                name="subject"
+                required
+                maxLength={150}
+                placeholder="Subject *"
+                className="contact-field"
+              />
               <label className="sr-only" htmlFor="contact-message">Tell us about your project</label>
               <textarea
                 id="contact-message"
@@ -247,22 +258,43 @@ const Contact = () => {
             <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_0.95fr]">
               <div className="space-y-4">
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(studioAddress)}`}
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indiaAddress)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaMapMarkerAlt aria-hidden="true" /></span>
-                  <span><strong className="block font-semibold text-[var(--gold-primary)]">Our location</strong><span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{studioAddress}</span></span>
+                  <span>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
+                    <span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
+                  </span>
+                </a>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaMapMarkerAlt aria-hidden="true" /></span>
+                  <span>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">UK · Representation</strong>
+                    <span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
+                    <span className="mt-1 block text-[var(--text-secondary)]">{ukPhoneNumber}</span>
+                  </span>
                 </a>
                 <a href="tel:+918674685645" className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaPhoneAlt aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Call us</strong><span className="mt-1 block text-[var(--text-secondary)]">{phoneNumber}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">Mon - Sat · 10:00 AM - 7:00 PM</span></span>
                 </a>
-                <a href={`mailto:${enquiryEmail}`} className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
+                <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaEnvelope aria-hidden="true" /></span>
-                  <span><strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong><span className="mt-1 block text-[var(--text-secondary)]">{enquiryEmail}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span></span>
-                </a>
+                  <span>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong>
+                    <a href={`mailto:${infoEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                    <a href={`mailto:${enquiryEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                    <span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span>
+                  </span>
+                </div>
                 <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaGlobe aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Work with us</strong><span className="mt-1 block text-[var(--text-secondary)]">India | Remote | Worldwide</span></span>
@@ -287,7 +319,7 @@ const Contact = () => {
 
               <div className="h-[320px] overflow-hidden border border-[var(--border-color)] sm:h-[400px] lg:h-[460px]">
                 <iframe
-                  title={`Map showing Feather VFX Studio at ${studioAddress}`}
+                  title={`Map showing Feather VFX Studio at ${indiaAddress}`}
                   src={mapUrl}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

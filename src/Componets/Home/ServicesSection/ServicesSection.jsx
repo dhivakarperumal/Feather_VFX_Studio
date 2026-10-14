@@ -1,32 +1,14 @@
+import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { FaClapperboard, FaCube, FaLayerGroup, FaWandMagicSparkles } from 'react-icons/fa6';
+import { services } from '../../../data/services';
 
-const services = [
-  {
-    title: 'VFX & CGI',
-    description: 'From concept to final shot, we create stunning visual effects and photoreal CGI.',
-    image: '/images/services/COS_OUT.jpg',
-    icon: FaWandMagicSparkles,
-  },
-  {
-    title: 'COMPOSITING',
-    description: 'Seamless integration of real and digital elements for flawless, cinematic results.',
-    image: '/images/services/COMP_OUT.jpg',
-    icon: FaLayerGroup,
-  },
-  {
-    title: '3D ENVIRONMENTS',
-    description: 'Detailed, immersive worlds crafted with precision and creative vision.',
-    image: '/images/services/MM_OUT.jpg',
-    icon: FaCube,
-  },
-  {
-    title: 'COLOR & FINISHING',
-    description: 'Bring your story to life with professional color grading and finishing.',
-    image: '/images/services/PP-OUT.jpg',
-    icon: FaClapperboard,
-  },
-];
+const serviceIcons = {
+  WandSparkles: FaWandMagicSparkles,
+  Layers3: FaLayerGroup,
+  Box: FaCube,
+  Camera: FaClapperboard,
+};
 
 const ServicesSection = () => {
   return (
@@ -42,16 +24,18 @@ const ServicesSection = () => {
             </h2>
           </div>
 
-          <button
-            type="button"
+          <Link
+            to="/services"
             className="inline-flex items-center self-start gap-3 border border-[var(--gold-primary)] bg-transparent px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:self-auto"
           >
             View all services <FaArrowRight aria-hidden="true" />
-          </button>
+          </Link>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-4">
-          {services.map(({ title, description, image, icon: Icon }) => (
+          {services.slice(0, 4).map(({ title, description, image, icon }) => {
+            const Icon = serviceIcons[icon];
+            return (
             <article
               key={title}
               className="group relative min-h-[430px] overflow-hidden border border-white/10 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.04)]"
@@ -75,14 +59,15 @@ const ServicesSection = () => {
                 </p>
 
                 <a
-                  href="/#services"
+                  href="/services"
                   className="mt-7 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--gold-bright)] transition-opacity hover:opacity-90"
                 >
                   Learn more <FaArrowRight className="text-[10px]" aria-hidden="true" />
                 </a>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

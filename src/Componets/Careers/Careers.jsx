@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   FaArrowRight,
   FaChartLine,
@@ -11,16 +11,13 @@ import {
   FaUsers,
 } from 'react-icons/fa';
 import {
-  FaClapperboard,
-  FaCube,
-  FaFilm,
-  FaLayerGroup,
   FaLaptop,
-  FaWandMagicSparkles,
 } from 'react-icons/fa6';
 import TeamReviewsSlider from './TeamReviewsSlider';
 import { sendEmailJsForm } from '../../utils/emailJs';
+import ModalPortal from '../../CommonComponents/ModalPortal';
 import PageHeader from '../../CommonComponents/PageHeader';
+import { careerJobs } from '../../data/careerJobs';
 
 const benefits = [
   { title: 'Creative freedom', description: 'Bring your ideas to life and explore new possibilities.', Icon: FaLightbulb },
@@ -29,15 +26,6 @@ const benefits = [
   { title: 'Cutting-edge technology', description: 'Access the latest tools and pipelines.', Icon: FaLaptop },
   { title: 'Global opportunities', description: 'Work on international projects for top brands and studios.', Icon: FaGlobe },
   { title: 'Work-life balance', description: 'Because creativity thrives in a healthy mind.', Icon: FaHeart },
-];
-
-const roles = [
-  { title: 'VFX Compositor', department: 'VFX', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/1.png', Icon: FaLayerGroup },
-  { title: '3D Environment Artist', department: '3D', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/5.png', Icon: FaCube },
-  { title: 'CG Character Artist', department: 'Character', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/4.png', Icon: FaWandMagicSparkles },
-  { title: 'Colorist', department: 'Post-Production', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/2.png', Icon: FaFilm },
-  { title: 'Virtual Production Artist', department: 'Virtual Production', type: 'Contract', location: 'Chennai, India', image: '/images/heroimages/3.png', Icon: FaClapperboard },
-  { title: 'Pipeline TD', department: 'Pipeline', type: 'Full-time', location: 'Chennai, India', image: '/images/heroimages/2.png', Icon: FaLaptop },
 ];
 
 const processSteps = [
@@ -63,11 +51,52 @@ function Careers() {
   const [selectedRole, setSelectedRole] = useState('');
   const [isSendingApplication, setIsSendingApplication] = useState(false);
   const [applicationStatus, setApplicationStatus] = useState(null);
-  const [resumeError, setResumeError] = useState('');
+
+  useEffect(() => {
+    if (!selectedRole) return undefined;
+
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const originalStyles = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+      paddingRight: body.style.paddingRight,
+    };
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+
+    return () => {
+      Object.entries(originalStyles).forEach(([property, value]) => {
+        body.style[property] = value;
+      });
+      window.scrollTo(0, scrollY);
+    };
+  }, [selectedRole]);
+
+  useEffect(() => {
+    if (!selectedRole || isSendingApplication) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSelectedRole('');
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedRole, isSendingApplication]);
 
   const filteredRoles = useMemo(() => {
     const query = search.trim().toLowerCase();
-    return roles.filter((role) => (
+    return careerJobs.filter((role) => (
       (!query || `${role.title} ${role.department} ${role.type} ${role.location}`.toLowerCase().includes(query))
       && (!department || role.department === department)
       && (!location || role.location === location)
@@ -78,12 +107,11 @@ function Careers() {
   const startApplication = (roleTitle) => {
     setSelectedRole(roleTitle);
     setApplicationStatus(null);
-    setResumeError('');
   };
 
   const submitApplication = async (event) => {
     event.preventDefault();
-    if (isSendingApplication || resumeError) return;
+    if (isSendingApplication) return;
 
     const form = event.currentTarget;
     setIsSendingApplication(true);
@@ -118,7 +146,7 @@ function Careers() {
         background="/images/heroimages/2.png"
         align="left"
         showBreadcrumb={false}
-        className="min-h-[430px] sm:min-h-[500px] lg:min-h-[540px]"
+        className="min-h-[380px]"
       >
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
@@ -188,44 +216,68 @@ function Careers() {
                 <span className="sr-only">Filter by department</span>
                 <select value={department} onChange={(event) => setDepartment(event.target.value)} className="career-filter w-full xl:w-36">
                   <option value="">All departments</option>
-                  {[...new Set(roles.map((role) => role.department))].map((item) => <option key={item}>{item}</option>)}
+                  {[...new Set(careerJobs.map((role) => role.department))].map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
               <label>
                 <span className="sr-only">Filter by location</span>
                 <select value={location} onChange={(event) => setLocation(event.target.value)} className="career-filter w-full xl:w-36">
                   <option value="">All locations</option>
-                  {[...new Set(roles.map((role) => role.location))].map((item) => <option key={item}>{item}</option>)}
+                  {[...new Set(careerJobs.map((role) => role.location))].map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
               <label>
                 <span className="sr-only">Filter by employment type</span>
                 <select value={type} onChange={(event) => setType(event.target.value)} className="career-filter w-full xl:w-32">
                   <option value="">All types</option>
-                  {[...new Set(roles.map((role) => role.type))].map((item) => <option key={item}>{item}</option>)}
+                  {[...new Set(careerJobs.map((role) => role.type))].map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
             </div>
           </div>
 
           <div className="mt-5 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="space-y-2">
-              {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon }) => (
-                <button key={title} type="button" onClick={() => startApplication(title)} className="group flex min-h-[64px] w-full items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-secondary)] p-2 text-left transition-colors hover:border-[var(--gold-primary)]">
-                  <img src={image} alt="" loading="lazy" className="h-12 w-20 shrink-0 object-cover sm:w-28" />
-                  <div className="min-w-0 flex-1">
-                    <h3 className="truncate text-xs font-bold">{title}</h3>
-                    <div className="mt-1 flex flex-wrap gap-1.5">
-                      <span className="rounded-sm border border-[var(--border-color)] px-1.5 py-0.5 text-[9px] text-[var(--text-secondary)]">{team}</span>
-                      <span className="rounded-sm border border-[var(--border-color)] px-1.5 py-0.5 text-[9px] text-[var(--text-secondary)]">{contract}</span>
+            <div className="space-y-4">
+              {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon, responsibilities, qualifications }) => (
+                <article key={title} className="overflow-hidden border border-[var(--border-color)] bg-[var(--bg-secondary)]">
+                  <div className="grid sm:grid-cols-[120px_minmax(0,1fr)]">
+                    <div className="relative hidden min-h-full sm:block">
+                      <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/35">
+                        <Icon className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <div className="flex flex-wrap items-start justify-between gap-3">
+                        <div>
+                          <h3 className="font-serif text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{title}</h3>
+                          <div className="mt-2 flex flex-wrap gap-2 text-[10px] text-[var(--text-secondary)]">
+                            <span className="border border-[var(--border-color)] px-2 py-1">{team}</span>
+                            <span className="border border-[var(--border-color)] px-2 py-1">{contract}</span>
+                            <span className="inline-flex items-center gap-1 border border-[var(--border-color)] px-2 py-1"><FaMapMarkerAlt className="text-[var(--gold-primary)]" aria-hidden="true" />{place}</span>
+                          </div>
+                        </div>
+                        <button type="button" onClick={() => startApplication(title)} className="inline-flex shrink-0 items-center gap-2 bg-[var(--gold-primary)] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
+                          Apply now <FaChevronRight aria-hidden="true" />
+                        </button>
+                      </div>
+                      <div className="mt-4 grid gap-4 md:grid-cols-2">
+                        <div>
+                          <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--text-primary)]">Responsibilities</h4>
+                          <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[var(--text-secondary)]">
+                            {responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--text-primary)]">Qualifications</h4>
+                          <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[var(--text-secondary)]">
+                            {qualifications.map((qualification) => <li key={qualification}>{qualification}</li>)}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <span className="hidden items-center gap-1.5 text-[9px] text-[var(--text-secondary)] sm:flex"><FaMapMarkerAlt className="text-[var(--gold-primary)]" aria-hidden="true" />{place}</span>
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-primary)] transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)]" aria-label={`Apply for ${title}`}>
-                    <Icon className="text-xs sm:hidden" aria-hidden="true" />
-                    <FaChevronRight className="hidden text-[10px] sm:block" aria-hidden="true" />
-                  </span>
-                </button>
+                </article>
               )) : (
                 <div className="border border-[var(--border-color)] p-6 text-sm text-[var(--text-secondary)]">
                   No roles match those filters. Try a different search or check back soon.
@@ -299,76 +351,63 @@ function Careers() {
       <TeamReviewsSlider />
 
       {selectedRole && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-sm"
-          onClick={(event) => {
-            if (event.target === event.currentTarget && !isSendingApplication) setSelectedRole('');
-          }}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape' && !isSendingApplication) setSelectedRole('');
-          }}
-          role="presentation"
-        >
-          <section role="dialog" aria-modal="true" aria-labelledby="career-application-title" className="my-auto w-full max-w-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 shadow-2xl sm:p-7">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Careers at Feather VFX</p>
-                <h2 id="career-application-title" className="mt-1 font-serif text-2xl font-bold uppercase">
-                  Apply: <span className="text-[var(--gold-primary)]">{selectedRole}</span>
-                </h2>
+        <ModalPortal>
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-contain bg-black/80 p-4 backdrop-blur-sm"
+            onClick={(event) => {
+              if (event.target === event.currentTarget && !isSendingApplication) setSelectedRole('');
+            }}
+            role="presentation"
+          >
+            <section role="dialog" aria-modal="true" aria-labelledby="career-application-title" className="my-auto max-h-[calc(100vh-2rem)] max-h-[calc(100dvh-2rem)] w-full max-w-xl overflow-y-auto border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 shadow-2xl sm:p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Careers at Feather VFX</p>
+                  <h2 id="career-application-title" className="mt-1 font-serif text-2xl font-bold uppercase">
+                    Apply: <span className="text-[var(--gold-primary)]">{selectedRole}</span>
+                  </h2>
+                </div>
+                <button type="button" onClick={() => setSelectedRole('')} disabled={isSendingApplication} aria-label="Close application form" className="text-2xl text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-primary)] disabled:opacity-50">×</button>
               </div>
-              <button type="button" onClick={() => setSelectedRole('')} disabled={isSendingApplication} aria-label="Close application form" className="text-2xl text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-primary)] disabled:opacity-50">×</button>
-            </div>
-            <form className="mt-5 space-y-3" onSubmit={submitApplication}>
-              <input type="hidden" name="role" value={selectedRole} />
-              <div className="grid gap-3 sm:grid-cols-2">
-                <label className="sr-only" htmlFor="career-applicant-name">Full name</label>
-                <input id="career-applicant-name" name="name" required autoComplete="name" placeholder="Full name *" className="contact-field" />
-                <label className="sr-only" htmlFor="career-applicant-email">Email</label>
-                <input id="career-applicant-email" name="email" required type="email" autoComplete="email" placeholder="Email *" className="contact-field" />
-              </div>
-              <label className="sr-only" htmlFor="career-applicant-phone">Phone number</label>
-              <input id="career-applicant-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" className="contact-field" />
-              <label className="sr-only" htmlFor="career-portfolio">Portfolio or showreel link</label>
-              <input id="career-portfolio" name="portfolio_url" type="url" placeholder="Portfolio / showreel link" className="contact-field" />
-              <label className="sr-only" htmlFor="career-experience">Relevant experience</label>
-              <textarea id="career-experience" name="experience" rows="3" placeholder="Tell us about your relevant experience" className="contact-field resize-y" />
-              <label className="block text-xs text-[var(--text-secondary)]" htmlFor="career-resume">
-                Resume (PDF, max 10 MB) *
-              </label>
-              <input
-                id="career-resume"
-                name="resume"
-                type="file"
-                accept=".pdf,application/pdf"
-                required
-                onChange={(event) => {
-                  const file = event.target.files?.[0];
-                  if (file && file.size > 10 * 1024 * 1024) {
-                    event.target.value = '';
-                    setResumeError('Resume file must be smaller than 10 MB.');
-                    return;
-                  }
-                  setResumeError('');
-                }}
-                className="career-filter w-full file:mr-3 file:border-0 file:bg-[var(--gold-primary)] file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[var(--bg-primary)]"
-              />
-              {resumeError && <p role="alert" className="text-xs text-red-400">{resumeError}</p>}
-              <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
-                Configure the Careers EmailJS template with a form file attachment named <code>resume</code>.
-              </p>
-              {applicationStatus && (
-                <p role={applicationStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${applicationStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
-                  {applicationStatus.message}
+              <form className="mt-5 space-y-3" onSubmit={submitApplication}>
+                <input type="hidden" name="role" value={selectedRole} />
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="sr-only" htmlFor="career-applicant-name">Full name</label>
+                  <input id="career-applicant-name" name="name" required autoComplete="name" placeholder="Full name *" className="contact-field" />
+                  <label className="sr-only" htmlFor="career-applicant-email">Email</label>
+                  <input id="career-applicant-email" name="email" required type="email" autoComplete="email" placeholder="Email *" className="contact-field" />
+                </div>
+                <label className="sr-only" htmlFor="career-applicant-phone">Phone number</label>
+                <input id="career-applicant-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone number" className="contact-field" />
+                <label className="sr-only" htmlFor="career-portfolio">Portfolio or showreel link</label>
+                <input id="career-portfolio" name="portfolio_url" type="url" placeholder="Portfolio / showreel link" className="contact-field" />
+                <label className="sr-only" htmlFor="career-experience">Relevant experience</label>
+                <textarea id="career-experience" name="experience" rows="3" placeholder="Tell us about your relevant experience" className="contact-field resize-y" />
+                <label className="sr-only" htmlFor="career-resume-url">Resume link</label>
+                <input
+                  id="career-resume-url"
+                  name="resume_url"
+                  type="url"
+                  required
+                  placeholder="Resume link (Google Drive, Dropbox, etc.) *"
+                  className="contact-field"
+                />
+                <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
+                  Add the resume link to your Careers EmailJS template using <code>{'{{resume_url}}'}</code>. Make sure the link can be opened by our hiring team.
                 </p>
-              )}
-              <button type="submit" disabled={isSendingApplication || Boolean(resumeError)} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
-                {isSendingApplication ? 'Sending application...' : 'Submit application'}
-                {!isSendingApplication && <FaArrowRight aria-hidden="true" />}
-              </button>
-            </form>
-          </section>
-        </div>
+                {applicationStatus && (
+                  <p role={applicationStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${applicationStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
+                    {applicationStatus.message}
+                  </p>
+                )}
+                <button type="submit" disabled={isSendingApplication} className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60">
+                  {isSendingApplication ? 'Sending application...' : 'Submit application'}
+                  {!isSendingApplication && <FaArrowRight aria-hidden="true" />}
+                </button>
+              </form>
+            </section>
+          </div>
+        </ModalPortal>
       )}
 
       <section className="relative isolate overflow-hidden">
