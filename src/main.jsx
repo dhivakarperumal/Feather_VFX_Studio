@@ -9,6 +9,9 @@ import Home from './Componets/Home/Home.jsx'
 import Contact from './Componets/Contact/Contact.jsx'
 import Careers from './Componets/Careers/Careers.jsx'
 import About from './Componets/About/About.jsx'
+import Blog from './Componets/Blog/Blog.jsx'
+import Reels from './Componets/Reels/Reels.jsx'
+
 
 
 function AppRoot() {
@@ -31,7 +34,11 @@ function AppRoot() {
           <Route path="contact" element={<Contact />} />
           <Route path="contactus" element={<Navigate to="/contact" replace />} />
           <Route path="careers" element={<Careers />} />
-          
+          <Route path="blog" element={<Blog />} />
+         
+          <Route path="reels" element={<Reels />} />
+          <Route path="work" element={<Reels />} />
+          <Route path="projects" element={<Reels />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiArrowUp } from "react-icons/fi";
-import ChatBot from "./ChatBot";
 import "./FloatingSupport.css";
 
 const FloatingSupport = () => {
@@ -21,11 +20,8 @@ const FloatingSupport = () => {
   // User UI pages: any page outside /admin and /employee panels (even if an admin/employee is logged in browsing the site)
   const isUserUIPage = !isAdmin && !isEmployee;
 
-  // 1. WhatsApp, Call, and ScrollNavigator are visible on all User UI pages (including Home, About, Services, Contact, Login, etc.)
+  // WhatsApp, email, and scroll-to-top are shown on public pages.
   const showUserUIWidgets = isUserUIPage;
-
-  // Chat is intentionally hidden for this site version.
-  const showChatBot = false;
 
   // Scroll detection for Scroll-to-Top button
   const checkScroll = useCallback(() => {
@@ -54,23 +50,17 @@ const FloatingSupport = () => {
     document.body.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // If neither should show on this route, render nothing
-  if (!showUserUIWidgets && !showChatBot) {
+  if (!showUserUIWidgets) {
     return null;
   }
 
   const whatsappNumber = "+91 84380 18090"; // Company WhatsApp number (+91 95972 93504)
-  const phoneNumber = "++91 84380 18090";   // Company Call line (+91 95972 93504)
 
   const handleWhatsApp = () => {
     window.open(
       `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Q-Techx Solutions, I need some help!")}`,
       "_blank"
     );
-  };
-
-  const handleCall = () => {
-    window.location.href = `tel:${phoneNumber}`;
   };
 
   return (
@@ -89,16 +79,17 @@ const FloatingSupport = () => {
           </div>
         )}
 
-        {/* Call button - visible on all user UI pages */}
+        {/* Email button - visible on all user UI pages */}
         {showUserUIWidgets && (
-          <div
-            className="support-item call"
-            onClick={handleCall}
-            title="Call Us (+91 84380 18090)"
+          <a
+            className="support-item email"
+            href="/contact#contact-form"
+            title="Contact us: info@feathervfx.com"
+            aria-label="Contact us by email at info@feathervfx.com"
           >
-            <Phone size={22} />
-            <span className="tooltip">📞 Call (+91 84380 18090)</span>
-          </div>
+            <Mail size={22} />
+            <span className="tooltip">Contact us · info@feathervfx.com</span>
+          </a>
         )}
 
         {/* ScrollNavigator (Scroll-To-Top) button - placed below the Call button */}
