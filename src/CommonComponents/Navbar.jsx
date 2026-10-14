@@ -39,6 +39,7 @@ const Navbar = () => {
         (link.id === 'projects' && isReelsPath && !isFeaturedReelActive) ||
         (link.id === 'showreel' && isFeaturedReelActive);
     const isActive = isPageActive || activeHash === `#${link.id}` || (!activeHash && pathname === '/' && link.id === 'home');
+    const serviceHref = pathname === '/' ? '/#services' : '/services';
 
     return (
       <a
@@ -47,7 +48,7 @@ const Navbar = () => {
           link.id === 'contact'
             ? '/contact'
             : link.id === 'services'
-              ? '/#services'
+              ? serviceHref
             : link.id === 'process'
               ? '/services#process'
             : link.id === 'careers'
