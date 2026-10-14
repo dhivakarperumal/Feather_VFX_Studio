@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Clapperboard,
   Gem,
   Globe2,
@@ -72,6 +75,7 @@ const serviceOrder = ['Rotoscoping', 'Paint & Prep', 'Cosmetic VFX', 'Matchmove'
 const orderedServices = serviceOrder.map((title) => services.find((service) => service.title === title));
 
 const ServiceCard = ({ service, index }) => {
+  const [comparisonPosition, setComparisonPosition] = useState(50);
   const details = serviceDetails[service.title];
   const Icon = details.icon;
   const outputImage = service.image.replace('_IN.jpg', '_OUT.jpg').replace('-IN.jpg', '-OUT.jpg');
@@ -82,35 +86,52 @@ const ServiceCard = ({ service, index }) => {
         index === services.length - 1 ? 'lg:col-span-2 lg:grid-cols-[1.15fr_0.85fr]' : ''
       } sm:grid-cols-[0.9fr_1.1fr]`}
     >
-      <div className="relative grid min-h-[190px] grid-cols-2 overflow-hidden sm:min-h-[210px]">
-        <div className="relative overflow-hidden">
-          <img
-            src={service.image}
-            alt={`${service.title} source footage`}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-          <span className="absolute bottom-2 left-2 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/85">
-            Source
-          </span>
-        </div>
-        <div className="relative overflow-hidden border-l border-[#e9b451]">
+      <div className="service-comparison relative min-h-[190px] overflow-hidden sm:min-h-[210px]">
+        <img
+          src={service.image}
+          alt={`${service.title} source footage`}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ clipPath: `inset(0 0 0 ${comparisonPosition}%)` }}
+        >
           <img
             src={outputImage}
             alt={`${service.title} output`}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <span className="absolute bottom-2 right-2 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-[#f2c56e]">
-            Output
-          </span>
         </div>
+        <span className="pointer-events-none absolute bottom-2 left-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/85">
+          Source
+        </span>
+        <span className="pointer-events-none absolute bottom-2 right-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-[#f2c56e]">
+          Output
+        </span>
         <span
-          className="pointer-events-none absolute left-1/2 top-1/2 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#f2c56e] bg-black/80 text-[#f2c56e]"
+          className="service-comparison__divider pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.7)]"
+          style={{ left: `${comparisonPosition}%` }}
           aria-hidden="true"
         >
-          <ArrowRight size={15} />
+          <span className="absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white bg-black/75 text-white shadow-lg">
+            <span className="flex items-center">
+              <ChevronLeft size={14} />
+              <ChevronRight size={14} />
+            </span>
+          </span>
         </span>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={comparisonPosition}
+          onChange={(event) => setComparisonPosition(Number(event.target.value))}
+          aria-label={`Compare source and output for ${service.title}`}
+          aria-valuetext={`${comparisonPosition}% source, ${100 - comparisonPosition}% output`}
+          className="service-comparison__range absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
+        />
       </div>
 
       <div className="flex flex-col justify-center px-4 py-5 sm:px-5 lg:px-6">

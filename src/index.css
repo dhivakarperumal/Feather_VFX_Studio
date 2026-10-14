@@ -72,6 +72,46 @@ body {
 	font-family: "Roboto Condensed", sans-serif;
 }
 
+.service-comparison {
+	isolation: isolate;
+	touch-action: pan-y;
+}
+
+.service-comparison__range {
+	appearance: none;
+	margin: 0;
+	background: transparent;
+}
+
+.service-comparison__range::-webkit-slider-runnable-track {
+	height: 100%;
+	background: transparent;
+}
+
+.service-comparison__range::-webkit-slider-thumb {
+	width: 1px;
+	height: 100%;
+	appearance: none;
+	background: transparent;
+}
+
+.service-comparison__range::-moz-range-track {
+	height: 100%;
+	background: transparent;
+}
+
+.service-comparison__range::-moz-range-thumb {
+	width: 1px;
+	height: 100%;
+	border: 0;
+	background: transparent;
+}
+
+.service-comparison:has(.service-comparison__range:focus-visible) {
+	outline: 2px solid #f2c56e;
+	outline-offset: 2px;
+}
+
 .contact-field {
 	width: 100%;
 	border: 1px solid var(--border-color);
