@@ -335,11 +335,11 @@ const Contact = () => {
 
       <section className="grid border-b border-[var(--border-color)] lg:min-h-[190px] lg:grid-cols-2">
         <div className="relative min-h-[190px] overflow-hidden">
-          <img src="/images/heroimages/2.png" alt="Film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+          <img src="/images/heroimages/3.png" alt="Action film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" />
         </div>
         <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8">
-          <div>
+          <div className="mx-auto w-full max-w-[850px]">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Collaborate with us</p>
             <h2 className="mt-1 font-serif text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">
               Turning ideas

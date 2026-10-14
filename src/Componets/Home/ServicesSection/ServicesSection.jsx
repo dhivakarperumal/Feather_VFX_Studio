@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import { FaClapperboard, FaCube, FaLayerGroup, FaWandMagicSparkles } from 'react-icons/fa6';
+import PageContainer from '../../../CommonComponents/PageContainer';
 import { services } from '../../../data/services';
 
 const serviceIcons = {
@@ -12,8 +13,8 @@ const serviceIcons = {
 
 const ServicesSection = () => {
   return (
-    <section aria-label="Our services" className="bg-[#070b0d] px-[6%] py-16 sm:px-[5%] lg:px-[3%]">
-      <div className="mx-auto max-w-[1700px]">
+    <section aria-label="Our services" className="bg-[#070b0d] py-16">
+      <PageContainer>
         <div className="mb-7 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--gold-bright)]">
@@ -69,7 +70,7 @@ const ServicesSection = () => {
             );
           })}
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 };
