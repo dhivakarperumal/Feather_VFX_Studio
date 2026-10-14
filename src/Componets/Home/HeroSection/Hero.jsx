@@ -63,13 +63,13 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="/#projects"
+                href="/projects"
                 className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
               >
                 Explore our work <FaArrowRight aria-hidden="true" />
               </a>
               <a
-                href="/#showreel"
+                href="/reels#featured-reel"
                 className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
