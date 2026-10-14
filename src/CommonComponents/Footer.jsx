@@ -1,8 +1,11 @@
 import { FaFacebookF, FaTwitter, FaAngleRight, FaMapMarkerAlt, FaInstagram, FaEnvelope, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import PageContainer from "./PageContainer";
 import { FaXTwitter } from "react-icons/fa6";
+import { useStaggerReveal } from "../utils/useScrollReveal";
 
 const Footer = () => {
+  const columnsRef = useStaggerReveal(110);
+
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },

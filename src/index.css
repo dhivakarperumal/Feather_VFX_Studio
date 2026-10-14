@@ -424,6 +424,34 @@ body {
 	.btn-shimmer::after { display: none; }
 }
 
+/* ─── Scroll-Triggered Stagger Reveal ──────────────────────────────────── */
+/*
+   1. Add `stagger-child` to each item you want to animate.
+   2. Attach the containerRef from useStaggerReveal() to their parent.
+   When the parent enters the viewport, `.is-visible` is added to each child
+   in sequence — the JS hook sets their individual `transition-delay`.
+*/
+.stagger-child {
+	opacity: 0;
+	transform: translateY(28px);
+	transition:
+		opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+		transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-child.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.stagger-child {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
 .blog-page-shell {
   background: radial-gradient(circle at center top, rgba(214, 160, 74, 0.18), transparent 25%), #050a0b;
   color: var(--text-primary);

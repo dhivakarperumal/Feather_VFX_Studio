@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { FaHandPeace, FaHeadphones, FaPlay } from 'react-icons/fa';
+import { useStaggerReveal } from '../../../utils/useScrollReveal';
 
 const features = [
   {
@@ -23,6 +24,8 @@ const features = [
 ];
 
 const WhyUsSection = () => {
+  const cardsRef = useStaggerReveal(100);
+
   return (
     <section className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-16 text-[var(--text-primary)] sm:px-[5%] sm:py-20 lg:px-[3%] lg:py-24">
       <div
@@ -51,11 +54,12 @@ const WhyUsSection = () => {
           Feather is committed to loftier professional standards for your sensitive Data &amp; Information security. We respect and honor the trusting nature inherent in a professional relationship and in all respects and at all times remain rooted therein. The clear mechanisms of privacy are continually updated and restructured to ensure that they fully support the changing business climate and standards. We are not only renowned for our quality of work, but also for maintaining the trust of our customers coupled with business interests and that is what we want to be.
         </p>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3 lg:mt-12 lg:gap-6">
+        {/* Cards grid — stagger-child on each card */}
+        <div ref={cardsRef} className="mt-10 grid gap-5 md:grid-cols-3 lg:mt-12 lg:gap-6">
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
-              className="group relative flex min-h-[400px] flex-col items-center overflow-hidden px-5 pb-5 pt-3 text-center sm:min-h-[420px] sm:px-7"
+              className="stagger-child group relative flex min-h-[400px] flex-col items-center overflow-hidden px-5 pb-5 pt-3 text-center sm:min-h-[420px] sm:px-7"
               style={{
                 clipPath: 'polygon(0 28px, 28px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)',
                 backgroundColor: 'rgba(3, 9, 12, 0.72)',
@@ -112,3 +116,4 @@ const WhyUsSection = () => {
 };
 
 export default WhyUsSection;
+
