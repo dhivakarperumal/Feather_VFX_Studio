@@ -50,7 +50,16 @@ const About = () => (
       background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
       align="left"
       showBreadcrumb={false}
-    />
+      className="min-h-[380px]"
+    >
+      <a
+        href="#about-us"
+        className="mt-6 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+      >
+        Learn more
+        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+      </a>
+    </PageHeader>
     <section
       id="about-us"
       aria-labelledby="about-heading"
