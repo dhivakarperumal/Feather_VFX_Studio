@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   FaArrowRight,
   FaCheckCircle,
@@ -69,11 +70,18 @@ const faqs = [
 ];
 
 const Contact = () => {
+  const location = useLocation();
   const [projectType, setProjectType] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [fileError, setFileError] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [formStatus, setFormStatus] = useState(null);
+
+  useEffect(() => {
+    if (location.pathname !== '/contact' || location.hash !== '#contact-form') return;
+
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location.hash, location.pathname]);
 
   const handleFilesChange = (event) => {
     const files = Array.from(event.target.files || []);

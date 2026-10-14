@@ -67,6 +67,21 @@ const FloatingSupport = () => {
     <>
       {/* Floating button container – fixed to bottom right */}
       <div className="floating-support-container">
+        {/* Email button - visible on all user UI pages */}
+        {showUserUIWidgets && (
+          <a
+            className="support-item email"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=info%40feathervfx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Contact us: info@feathervfx.com"
+            aria-label="Contact us by email at info@feathervfx.com"
+          >
+            <Mail size={22} />
+            <span className="tooltip">Contact us · info@feathervfx.com</span>
+          </a>
+        )}
+
         {/* WhatsApp button - visible on all user UI pages */}
         {showUserUIWidgets && (
           <div
@@ -77,19 +92,6 @@ const FloatingSupport = () => {
             <FaWhatsapp size={26} />
             <span className="tooltip">🟢 WhatsApp (+91 84380 18090)</span>
           </div>
-        )}
-
-        {/* Email button - visible on all user UI pages */}
-        {showUserUIWidgets && (
-          <a
-            className="support-item email"
-            href="/contact#contact-form"
-            title="Contact us: info@feathervfx.com"
-            aria-label="Contact us by email at info@feathervfx.com"
-          >
-            <Mail size={22} />
-            <span className="tooltip">Contact us · info@feathervfx.com</span>
-          </a>
         )}
 
         {/* ScrollNavigator (Scroll-To-Top) button - placed below the Call button */}
