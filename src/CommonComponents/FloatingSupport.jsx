@@ -54,7 +54,7 @@ const FloatingSupport = () => {
     return null;
   }
 
-  const whatsappNumber = "+91 84380 18090"; // Company WhatsApp number (+91 95972 93504)
+  const whatsappNumber = "447459467325";
 
   const handleWhatsApp = () => {
     window.open(
@@ -87,10 +87,10 @@ const FloatingSupport = () => {
           <div
             className="support-item whatsapp"
             onClick={handleWhatsApp}
-            title="WhatsApp (+91 84380 18090)"
+            title="WhatsApp (+44 74 5946 7325)"
           >
             <FaWhatsapp size={26} />
-            <span className="tooltip">🟢 WhatsApp (+91 84380 18090)</span>
+            <span className="tooltip">🟢 WhatsApp (+44 74 5946 7325)</span>
           </div>
         )}
 

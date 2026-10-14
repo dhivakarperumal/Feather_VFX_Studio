@@ -24,7 +24,7 @@ const indiaAddress =
   '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
 const ukAddress = '35, Balfour Road, Ilford, Essex IG1 4HP, GB.';
 const ukPhoneNumber = '+44 74 5946 7325';
-const phoneNumber = '+91 86746 85645';
+const phoneNumber = ukPhoneNumber;
 const infoEmail = 'info@feathervfx.com';
 const enquiryEmail = 'enquiry@feathervfx.com';
 const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(indiaAddress)}&output=embed`;
@@ -290,7 +290,7 @@ const Contact = () => {
                     <span className="mt-1 block text-[var(--text-secondary)]">{ukPhoneNumber}</span>
                   </span>
                 </a>
-                <a href="tel:+918674685645" className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
+                <a href="tel:+447459467325" className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaPhoneAlt aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Call us</strong><span className="mt-1 block text-[var(--text-secondary)]">{phoneNumber}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">Mon - Sat · 10:00 AM - 7:00 PM</span></span>
                 </a>

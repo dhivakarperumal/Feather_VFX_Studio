@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaPlay } from 'react-icons/fa';
-import { heroSlides } from '../../../data/heroSlides';
+import { heroCapabilities, heroSlides } from '../../../data/heroSlides';
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -127,6 +127,29 @@ const Hero = () => {
         </div>
       </section>
 
+      <section className="relative z-20 border-t border-white/10 bg-[var(--bg-primary)]/95 backdrop-blur-[2px]">
+        <div className="mx-auto grid max-w-[1700px] grid-cols-1 gap-0 sm:grid-cols-2 xl:grid-cols-4">
+          {heroCapabilities.map(({ title, subtitle, Icon }) => (
+            <div
+              key={title}
+              className="group flex items-center justify-center gap-4 border border-white/10 px-6 py-7 text-left md:px-8 md:py-8 xl:border-r xl:last:border-r-0"
+            >
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/3 text-[var(--text-primary)]/80 transition-colors duration-200 group-hover:border-[var(--gold-primary)] group-hover:text-[var(--gold-bright)]">
+                <Icon className="h-8 w-8" aria-hidden="true" />
+              </div>
+
+              <div className="min-w-0">
+                <p className="text-[0.8rem] font-bold uppercase tracking-[0.18em] text-[var(--text-primary)] sm:text-[0.85rem]">
+                  {title}
+                </p>
+                <p className="mt-2 text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[var(--text-primary)]/65 sm:text-[0.62rem]">
+                  {subtitle}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

@@ -22,13 +22,13 @@ const TopHeader = () => (
     <PageContainer className="grid min-h-[26px] grid-cols-[1fr_auto] items-center gap-4 sm:gap-6 lg:grid-cols-[1fr_auto_1fr]">
       <div className="flex min-w-0 items-center gap-4 text-[10px] sm:gap-7 sm:text-xs">
         <a
-          href="tel:+918674685645"
+          href="tel:+447459467325"
           className="flex shrink-0 items-center gap-2 whitespace-nowrap transition-opacity hover:opacity-70"
         >
           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white">
             <FaPhoneAlt aria-hidden="true" />
           </span>
-          <span>+91 86746 85645</span>
+          <span>+44 74 5946 7325</span>
         </a>
         <a
           href="mailto:info@feathervfx.com"
