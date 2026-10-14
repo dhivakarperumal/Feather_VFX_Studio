@@ -96,9 +96,7 @@ const FeaturedProjectsSection = () => {
         eyebrow="Our Projects"
         title={
           <>
-            Featured
-            <br />
-            <span className="text-[var(--gold-primary)]">Projects</span>
+            Featured <span className="text-[var(--gold-primary)]">Projects</span>
           </>
         }
         description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
