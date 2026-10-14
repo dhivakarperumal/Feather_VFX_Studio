@@ -59,8 +59,7 @@ const Projects = ({ homePage = false }) => {
       }`}
     >
       <img
-        key={activeProject.image}
-        src={activeProject.image}
+        src="/images/project.png"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full scale-110 object-cover opacity-55 blur-xl transition-opacity duration-700"
         alt=""
         aria-hidden="true"
