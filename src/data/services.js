@@ -108,3 +108,21 @@ export const serviceProcessSteps = [
     icon: 'Send',
   },
 ];
+
+export const serviceComparisons = [
+  {
+    title: 'Compositing',
+    before: '/images/services/COMP_IN.jpg',
+    after: '/images/services/COMP_OUT.jpg',
+  },
+  {
+    title: 'Cosmetic fixes',
+    before: '/images/services/COS_IN.jpg',
+    after: '/images/services/COS_OUT.jpg',
+  },
+  {
+    title: 'Matchmove',
+    before: '/images/services/MM_IN.jpg',
+    after: '/images/services/MM_OUT.jpg',
+  },
+];

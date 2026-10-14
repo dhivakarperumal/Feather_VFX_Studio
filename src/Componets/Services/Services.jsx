@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   ArrowDownRight,
   ArrowRight,
@@ -25,6 +26,7 @@ import PageContainer from '../../CommonComponents/PageContainer';
 import {
   serviceAdvantages,
   serviceBenefits,
+  serviceComparisons,
   serviceIndustries,
   serviceProcessSteps,
   services,
@@ -52,7 +54,12 @@ const serviceIcons = {
   WandSparkles,
 };
 
-const Services = () => (
+const Services = () => {
+  const [activeComparison, setActiveComparison] = useState(0);
+  const [comparisonPosition, setComparisonPosition] = useState(50);
+  const comparison = serviceComparisons[activeComparison];
+
+  return (
   <div className="services-page">
     <section className="services-hero">
       <div className="services-hero__overlay" aria-hidden="true" />
@@ -126,6 +133,52 @@ const Services = () => (
             </article>
             );
           })}
+        </div>
+      </PageContainer>
+    </section>
+
+    <section className="services-comparison" aria-labelledby="services-comparison-title">
+      <PageContainer>
+        <div className="services-section-heading">
+          <div>
+            <p className="services-eyebrow">The difference is in the details</p>
+            <h2 id="services-comparison-title">Before &amp; after</h2>
+          </div>
+          <p>Drag the slider to see how our artists transform every frame.</p>
+        </div>
+        <div className="services-comparison__tabs" role="group" aria-label="Choose a VFX comparison">
+          {serviceComparisons.map(({ title }, index) => (
+            <button
+              type="button"
+              key={title}
+              className={activeComparison === index ? 'active' : ''}
+              aria-pressed={activeComparison === index}
+              onClick={() => {
+                setActiveComparison(index);
+                setComparisonPosition(50);
+              }}
+            >
+              {title}
+            </button>
+          ))}
+        </div>
+        <div className="services-comparison__frame" style={{ '--comparison-position': `${comparisonPosition}%` }}>
+          <img className="services-comparison__after" src={comparison.after} alt={`${comparison.title} completed result`} />
+          <img className="services-comparison__before" src={comparison.before} alt="" aria-hidden="true" />
+          <span className="services-comparison__label services-comparison__label--before">Before</span>
+          <span className="services-comparison__label services-comparison__label--after">After</span>
+          <span className="services-comparison__divider" aria-hidden="true">
+            <span><ArrowRight size={16} aria-hidden="true" /></span>
+          </span>
+          <input
+            className="services-comparison__input"
+            type="range"
+            min="0"
+            max="100"
+            value={comparisonPosition}
+            onChange={(event) => setComparisonPosition(Number(event.target.value))}
+            aria-label={`Reveal before and after ${comparison.title} work`}
+          />
         </div>
       </PageContainer>
     </section>
@@ -207,5 +260,6 @@ const Services = () => (
     </section>
   </div>
 );
+};
 
 export default Services;
