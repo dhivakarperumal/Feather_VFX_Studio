@@ -75,6 +75,9 @@ const Projects = ({ homePage = false }) => {
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
         alt=""
         aria-hidden="true"
+        loading={homePage ? 'lazy' : 'eager'}
+        fetchPriority="low"
+        decoding="async"
       />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.68)_0%,rgba(4,10,13,0.4)_42%,rgba(4,10,13,0.38)_100%)]" />
 
@@ -163,6 +166,9 @@ const Projects = ({ homePage = false }) => {
                   key={isActive ? `${project.image}-${activeIndex}` : project.image}
                   src={project.image}
                   alt={isActive ? `${project.title} project artwork` : ''}
+                  loading={isActive ? 'eager' : 'lazy'}
+                  fetchPriority={isActive ? 'high' : 'low'}
+                  decoding="async"
                   className={`h-full w-full object-contain motion-reduce:animate-none ${
                     isActive ? 'animate-project-image-reveal' : ''
                   }`}

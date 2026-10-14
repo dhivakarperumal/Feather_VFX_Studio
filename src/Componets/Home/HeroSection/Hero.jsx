@@ -4,17 +4,40 @@ import { heroCapabilities, heroSlides } from '../../../data/heroSlides';
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [previousSlide, setPreviousSlide] = useState(null);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    const preloadedImage = new window.Image();
+    preloadedImage.fetchPriority = 'low';
+    preloadedImage.decoding = 'async';
+    preloadedImage.src = heroSlides[(activeSlide + 1) % heroSlides.length].image;
+  }, [activeSlide]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setPreviousSlide(activeSlide);
+      setActiveSlide((activeSlide + 1) % heroSlides.length);
     }, 6000);
 
-    return () => window.clearInterval(timer);
-  }, []);
+    return () => window.clearTimeout(timer);
+  }, [activeSlide]);
+
+  useEffect(() => {
+    if (previousSlide === null) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setPreviousSlide((current) => current === previousSlide ? null : current);
+    }, 1000);
+
+    return () => window.clearTimeout(timer);
+  }, [previousSlide]);
 
   const showSlide = (index) => {
-    setActiveSlide((index + heroSlides.length) % heroSlides.length);
+    const nextSlide = (index + heroSlides.length) % heroSlides.length;
+    if (nextSlide === activeSlide) return;
+
+    setPreviousSlide(activeSlide);
+    setActiveSlide(nextSlide);
   };
 
   const slide = heroSlides[activeSlide];
@@ -27,17 +50,26 @@ const Hero = () => {
         className="relative isolate overflow-hidden bg-[var(--bg-primary)]"
       >
         <div className="absolute inset-0 z-0" aria-hidden="true">
-          {heroSlides.map((item, index) => (
-            <img
-              key={item.image}
-              src={item.image}
-              alt=""
-              fetchPriority={index === 0 ? 'high' : 'auto'}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-                activeSlide === index ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
-          ))}
+          {[previousSlide, activeSlide]
+            .filter((index) => index !== null)
+            .map((index) => {
+              const item = heroSlides[index];
+              const isActive = index === activeSlide;
+
+              return (
+                <img
+                  key={item.image}
+                  src={item.image}
+                  alt=""
+                  loading="eager"
+                  fetchPriority={isActive ? 'high' : 'auto'}
+                  decoding="async"
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                    isActive ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              );
+            })}
         </div>
         <div
           className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
