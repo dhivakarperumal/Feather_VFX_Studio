@@ -79,7 +79,7 @@ const Projects = ({ homePage = false }) => {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.68)_0%,rgba(4,10,13,0.4)_42%,rgba(4,10,13,0.38)_100%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center">
-        <header className="relative z-40 text-center">
+        <header data-aos="fade-up" data-aos-offset="60" className="relative z-40 text-center">
           <div className="mb-2 flex items-center justify-center gap-4 text-[10px] font-bold uppercase tracking-[0.38em] text-[#f3b44e] sm:text-xs">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#d99c42] sm:w-16" />
             Our Work
@@ -190,7 +190,7 @@ const Projects = ({ homePage = false }) => {
           </button>
         </section>
 
-        <div className="-mt-4 flex items-center justify-center gap-2 sm:mt-5">
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="40" className="-mt-4 flex items-center justify-center gap-2 sm:mt-5">
           {visibleOffsets.map((offset) => {
             const index = (activeIndex + offset + projects.length) % projects.length;
             const isActive = offset === 0;
@@ -215,6 +215,9 @@ const Projects = ({ homePage = false }) => {
         {homePage && (
           <Link
             to="/projects"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-offset="40"
             className="mt-7 inline-flex items-center gap-2 rounded-full border border-[#f3b44e]/70 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:border-[#f3b44e] hover:bg-[#f3b44e] hover:text-[#17120b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e]"
           >
             View all projects
