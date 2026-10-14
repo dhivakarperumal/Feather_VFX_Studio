@@ -309,11 +309,11 @@ function Careers() {
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto grid max-w-[1700px] gap-5 px-[6%] py-6 sm:px-[5%] lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:px-[3%]">
-          <div data-aos="fade-right">
+          <div data-aos="fade-up">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Our hiring process</p>
             <h2 className="mt-1 font-serif text-xl font-bold uppercase">A simple &amp; transparent journey</h2>
           </div>
-          <ol className="grid grid-cols-2 gap-4 sm:grid-cols-4" data-aos="fade-left" data-aos-delay="100">
+          <ol className="grid grid-cols-2 gap-4 sm:grid-cols-4" data-aos="fade-up" data-aos-delay="100">
             {processSteps.map(({ number, title, description, Icon }) => (
               <li key={number} className="flex items-center gap-2">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-primary)]"><Icon aria-hidden="true" /></span>
