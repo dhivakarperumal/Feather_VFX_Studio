@@ -102,26 +102,26 @@ const FeaturedProjectsSection = () => {
         </header>
 
         <div className={`mt-5 grid grid-cols-3 gap-2.5 max-sm:grid-cols-2 max-sm:gap-2 ${
-          isFeaturedLayout ? 'lg:grid-cols-4 lg:grid-rows-[repeat(2,minmax(13rem,16rem))]' : ''
+          isFeaturedLayout ? 'lg:grid-cols-4 lg:grid-rows-[repeat(2,minmax(24rem,28rem))]' : ''
         }`}>
           {visibleProjects.map(({ title, category, image, layout = '' }) => (
             <article
               key={title}
-              className={`group relative min-h-[17rem] overflow-hidden rounded-md border border-[var(--gold-primary)]/75 bg-[#101719] shadow-[0_0_0_1px_rgba(255,255,255,0.035)] max-sm:min-h-56 ${
+              className={`group relative min-h-[24rem] overflow-hidden rounded-md border border-[var(--gold-primary)]/75 bg-[#080d0f] shadow-[0_0_0_1px_rgba(255,255,255,0.035)] ${
                 isFeaturedLayout ? layout : ''
               } ${
-                isFeaturedLayout && layout === 'lg:row-span-2' ? 'max-sm:col-span-2 max-sm:min-h-[23rem]' : ''
+                isFeaturedLayout && layout === 'lg:row-span-2' ? 'max-sm:col-span-2 max-sm:min-h-[32rem]' : ''
               } ${
-                isFeaturedLayout && layout === 'lg:col-span-2' ? 'max-sm:col-span-2 max-sm:min-h-[15rem]' : ''
+                isFeaturedLayout && layout === 'lg:col-span-2' ? 'max-sm:col-span-2 max-sm:min-h-[24rem]' : ''
               }`}
             >
               <img
-                className="absolute inset-0 h-full w-full object-cover object-[center_35%] transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
+                className="absolute inset-0 h-full w-full object-contain object-center transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none"
                 src={image}
                 alt={`${title} project artwork`}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050a0b]/90 via-[#050a0b]/15 to-transparent transition-colors group-hover:bg-black/10" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050a0b]/85 via-transparent to-transparent" aria-hidden="true" />
               <div className="absolute bottom-4 left-4 right-14 z-10 max-sm:bottom-3 max-sm:left-3">
                 <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--gold-bright)]">{category}</p>
                 <h3 className="mt-1 font-serif text-base font-medium uppercase leading-tight text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.65)] max-sm:text-sm">
