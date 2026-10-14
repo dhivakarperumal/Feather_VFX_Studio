@@ -8,6 +8,7 @@ import {
   Video,
 } from 'lucide-react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import projectData from '../../data/projects.json';
 
 const categoryIcons = {
@@ -26,7 +27,7 @@ const filters = [
   ...projectData.filters.filter((filter) => filter !== 'All' && !categories.includes(filter)),
 ];
 
-const Projects = () => {
+const Projects = ({ homePage = false }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -61,7 +62,13 @@ const Projects = () => {
     );
 
   return (
-    <main className="relative isolate min-h-[min(900px,calc(100vh-80px))] overflow-hidden bg-[#05090c] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12">
+    <section
+      id="projects"
+      aria-labelledby="projects-title"
+      className={`relative isolate overflow-hidden bg-[#05090c] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12 ${
+        homePage ? '' : 'min-h-[min(900px,calc(100vh-80px))]'
+      }`}
+    >
       <div
         key={activeProject.image}
         className="pointer-events-none absolute inset-0 -z-20 scale-110 animate-project-image-reveal bg-cover bg-center opacity-25 blur-2xl motion-reduce:animate-none"
@@ -79,9 +86,15 @@ const Projects = () => {
             Our Work
             <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#d99c42] sm:w-16" />
           </div>
-          <h1 className="font-serif text-[clamp(2rem,5.2vw,4.5rem)] font-bold uppercase leading-none tracking-[0.035em]">
-            Featured <span className="text-[#efa947]">Projects</span>
-          </h1>
+          {homePage ? (
+            <h2 id="projects-title" className="font-serif text-[clamp(2rem,5.2vw,4.5rem)] font-bold uppercase leading-none tracking-[0.035em]">
+              Featured <span className="text-[#efa947]">Projects</span>
+            </h2>
+          ) : (
+            <h1 id="projects-title" className="font-serif text-[clamp(2rem,5.2vw,4.5rem)] font-bold uppercase leading-none tracking-[0.035em]">
+              Featured <span className="text-[#efa947]">Projects</span>
+            </h1>
+          )}
           <p className="mt-3 text-xs text-white/75 sm:text-sm">
             Bringing imagination to life through stunning visuals and world-class VFX.
           </p>
@@ -201,8 +214,17 @@ const Projects = () => {
             {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
           </span>
         </div>
+        {homePage && (
+          <Link
+            to="/projects"
+            className="mt-7 inline-flex items-center gap-2 rounded-full border border-[#f3b44e]/70 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:border-[#f3b44e] hover:bg-[#f3b44e] hover:text-[#17120b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e]"
+          >
+            View all projects
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
       </div>
-    </main>
+    </section>
   );
 };
 
