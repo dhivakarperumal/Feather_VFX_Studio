@@ -9,7 +9,7 @@ import Home from './Componets/Home/Home.jsx'
 import Contact from './Componets/Contact/Contact.jsx'
 import Careers from './Componets/Careers/Careers.jsx'
 import About from './Componets/About/About.jsx'
-import Projects from './Componets/Projects/Projects.jsx'
+import FeaturedProjectsSection from './Componets/Home/FeaturedProjectsSection/FeaturedProjectsSection.jsx'
 
 
 function AppRoot() {
@@ -29,7 +29,7 @@ function AppRoot() {
           <Route index element={<Home />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
+          <Route path="projects" element={<FeaturedProjectsSection />} />
           <Route path="contact" element={<Contact />} />
           <Route path="contactus" element={<Navigate to="/contact" replace />} />
           <Route path="careers" element={<Careers />} />
