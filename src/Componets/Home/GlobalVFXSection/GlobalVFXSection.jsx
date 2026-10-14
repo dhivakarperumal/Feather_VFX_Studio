@@ -1,4 +1,5 @@
 import { Clapperboard, Globe, Trophy, UsersRound } from 'lucide-react';
+import { useCountUp } from '../../../utils/useCountUp';
 
 const achievements = [
   { icon: Globe, value: '10+', label: 'Countries', detail: 'Served' },
@@ -6,6 +7,16 @@ const achievements = [
   { icon: Clapperboard, value: '100+', label: 'Projects', detail: 'Completed' },
   { icon: Trophy, value: '', label: 'Clients', detail: 'Worldwide' },
 ];
+
+/* Small wrapper so each stat gets its own hook instance */
+const CountUpStat = ({ value, delay = 0 }) => {
+  const { ref, display } = useCountUp(value, 1800, delay);
+  return (
+    <span ref={ref} className="block font-serif text-lg font-bold leading-none text-white sm:text-xl">
+      {display}
+    </span>
+  );
+};
 
 const GlobalVFXSection = () => (
   <section
@@ -53,7 +64,7 @@ const GlobalVFXSection = () => (
           </p>
 
           <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-5">
-            {achievements.map(({ icon: Icon, value, label, detail }) => (
+            {achievements.map(({ icon: Icon, value, label, detail }, index) => (
               <li
                 key={label}
                 className="flex min-h-[64px] items-center gap-2 border border-white/15 bg-black/25 px-2.5 py-2 sm:gap-2.5 sm:px-3"
@@ -64,11 +75,7 @@ const GlobalVFXSection = () => (
                   aria-hidden="true"
                 />
                 <span className="min-w-0">
-                  {value && (
-                    <span className="block font-serif text-lg font-bold leading-none text-white sm:text-xl">
-                      {value}
-                    </span>
-                  )}
+                  {value && <CountUpStat value={value} delay={index * 120} />}
                   <span className="mt-1 block text-[8px] font-bold uppercase leading-tight tracking-[0.11em] text-white/85 sm:text-[9px]">
                     {label}
                     {detail && <span className="block">{detail}</span>}

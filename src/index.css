@@ -349,6 +349,43 @@ body {
 	animation-name: kenBurns2;
 }
 
+/* ─── Hero Text Line Reveal (Film-Credits Slide-Up) ───────────────────── */
+@keyframes heroLineReveal {
+	0% {
+		opacity: 0;
+		transform: translateY(105%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* The mask: clips overflow so the child slides UP into view */
+.hero-reveal-mask {
+	overflow: hidden;
+}
+
+/* The animated child */
+.hero-reveal {
+	animation: heroLineReveal 750ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Staggered delays for each line */
+.hero-reveal-d0 { animation-delay:  60ms; }
+.hero-reveal-d1 { animation-delay: 180ms; }
+.hero-reveal-d2 { animation-delay: 300ms; }
+.hero-reveal-d3 { animation-delay: 420ms; }
+.hero-reveal-d4 { animation-delay: 540ms; }
+.hero-reveal-d5 { animation-delay: 660ms; }
+
+/* Honour reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	.hero-reveal {
+		animation: none;
+	}
+}
+
 .blog-page-shell {
   background: radial-gradient(circle at center top, rgba(214, 160, 74, 0.18), transparent 25%), #050a0b;
   color: var(--text-primary);

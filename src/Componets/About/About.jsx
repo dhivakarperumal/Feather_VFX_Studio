@@ -11,6 +11,18 @@ import {
   UsersRound,
 } from 'lucide-react';
 import PageHeader from '../../CommonComponents/PageHeader';
+import { useCountUp } from '../../utils/useCountUp';
+
+/* Animated count-up stat — each gets its own hook instance */
+const CountUpStat = ({ value, delay = 0 }) => {
+  const { ref, display } = useCountUp(value, 1800, delay);
+  return (
+    <dt ref={ref} className="font-serif text-3xl font-bold text-[var(--gold-bright)] sm:text-4xl">
+      {display}
+    </dt>
+  );
+};
+
 import OurCulture from './OurCulture';
 import OurMission from './OurMission';
 import ProcessSection from './ProcessSection';
@@ -203,11 +215,9 @@ const About = () => (
             In numbers
           </h2>
           <dl className="mt-4 divide-y divide-white/10">
-            {studioStats.map(({ value, label }) => (
+            {studioStats.map(({ value, label }, index) => (
               <div key={label} className="flex items-center justify-between gap-3 py-3">
-                <dt className="font-serif text-3xl font-bold text-[var(--gold-bright)] sm:text-4xl">
-                  {value}
-                </dt>
+                <CountUpStat value={value} delay={index * 150} />
                 <dd className="max-w-[120px] text-right text-[9px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/70">
                   {label}
                 </dd>
