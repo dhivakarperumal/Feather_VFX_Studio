@@ -163,7 +163,7 @@ const Contact = () => {
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto grid max-w-[1700px] gap-8 px-[5%] py-8 sm:px-[5%] lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-[4%] xl:px-[3%]">
-          <div id="contact-form" className="border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-7" data-aos="fade-right">
+          <div id="contact-form" className="border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-7" data-aos="fade-up">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Send us a message</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl">
               Start your <span className="text-[var(--gold-primary)]">project today</span>
@@ -256,7 +256,7 @@ const Contact = () => {
             </form>
           </div>
 
-          <div className="py-1" data-aos="fade-left" data-aos-delay="100">
+          <div className="py-1" data-aos="fade-up" data-aos-delay="100">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Our studio</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Get in touch</h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -344,7 +344,7 @@ const Contact = () => {
           <img src="/images/heroimages/3.png" alt="Action film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" />
         </div>
-        <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8" data-aos="fade-left">
+        <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8" data-aos="fade-up">
           <div className="mx-auto w-full max-w-[850px]">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Collaborate with us</p>
             <h2 className="mt-1 font-serif text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">

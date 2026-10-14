@@ -132,7 +132,7 @@ function Blog() {
             )}
           </div>
 
-          <aside className="blog-sidebar" data-aos="fade-left" data-aos-delay="100">
+          <aside className="blog-sidebar" data-aos="fade-up" data-aos-delay="100">
             <div className="blog-panel">
               <div className="blog-panel__header">
                 <div className="blog-panel__title-wrap">
