@@ -4,6 +4,8 @@
 @theme {
 	--font-sans: "Roboto Condensed", sans-serif;
 	--animate-hero-page-turn: hero-page-turn 850ms cubic-bezier(0.22, 1, 0.36, 1);
+	--animate-project-image-reveal: project-image-reveal 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+	--animate-project-caption-reveal: project-caption-reveal 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
 
 	@keyframes hero-page-turn {
 		0% {
@@ -19,6 +21,28 @@
 			opacity: 1;
 			transform: perspective(1200px) rotateY(0) translateX(0);
 			transform-origin: left center;
+		}
+
+		@keyframes project-image-reveal {
+			0% {
+				opacity: 0.55;
+				transform: scale(0.94) translateY(12px);
+			}
+			100% {
+				opacity: 1;
+				transform: scale(1) translateY(0);
+			}
+		}
+
+		@keyframes project-caption-reveal {
+			0% {
+				opacity: 0;
+				transform: translateY(9px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 	}
 }

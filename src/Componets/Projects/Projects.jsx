@@ -98,18 +98,19 @@ const Projects = () => {
                       ? 'z-30 h-[56%] w-[90%] -translate-x-1/2 -translate-y-1/2 opacity-100 sm:h-[66%] sm:w-[68%]'
                       : 'z-30 h-[84%] w-[56%] -translate-x-1/2 -translate-y-1/2 opacity-100 sm:w-[34%]'
                     : offset === -1
-                      ? `z-20 h-[69%] w-[48%] -translate-x-[90%] -translate-y-1/2 -rotate-3 opacity-100 sm:w-[31%] sm:-translate-x-[85%] ${isLandscape ? 'sm:-translate-x-[135%]' : ''}`
+                      ? `z-20 h-[76%] w-[48%] -translate-x-[90%] -translate-y-1/2 -rotate-3 opacity-100 sm:w-[31%] sm:-translate-x-[85%] ${isLandscape ? 'sm:-translate-x-[135%]' : ''}`
                       : offset === 1
-                        ? `z-20 h-[69%] w-[48%] -translate-x-[10%] -translate-y-1/2 rotate-3 opacity-100 sm:w-[31%] sm:-translate-x-[15%] ${isLandscape ? 'sm:translate-x-[35%]' : ''}`
+                        ? `z-20 h-[76%] w-[48%] -translate-x-[10%] -translate-y-1/2 rotate-3 opacity-100 sm:w-[31%] sm:-translate-x-[15%] ${isLandscape ? 'sm:translate-x-[35%]' : ''}`
                         : offset < 0
-                          ? 'z-10 h-[56%] w-[42%] -translate-x-[160%] -translate-y-1/2 -rotate-6 opacity-55 sm:w-[27%] sm:-translate-x-[160%]'
-                          : 'z-10 h-[56%] w-[42%] translate-x-[60%] -translate-y-1/2 rotate-6 opacity-55 sm:w-[27%] sm:translate-x-[60%]'
+                          ? 'z-10 h-[63%] w-[42%] -translate-x-[160%] -translate-y-1/2 -rotate-6 opacity-55 sm:w-[27%] sm:-translate-x-[160%]'
+                          : 'z-10 h-[63%] w-[42%] translate-x-[60%] -translate-y-1/2 rotate-6 opacity-55 sm:w-[27%] sm:translate-x-[60%]'
                 }`}
               >
                 <img
+                  key={`${project.image}-${activeIndex}`}
                   src={project.image}
                   alt={isActive ? `${project.title} project artwork` : ''}
-                  className="h-full w-full object-contain"
+                  className="h-full w-full animate-project-image-reveal object-contain motion-reduce:animate-none"
                   draggable="false"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/5" aria-hidden="true" />
@@ -127,11 +128,11 @@ const Projects = () => {
           >
             <FaArrowLeft />
           </button>
-          <div className="min-w-0 text-center">
+          <div key={activeIndex} className="min-w-0 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#a57c3b]">
               {projects[activeIndex].collection}
             </p>
-            <h2 className="mt-1 max-w-[70vw] truncate font-serif text-xl font-semibold sm:max-w-xl sm:text-3xl">
+            <h2 className="mt-1 max-w-[70vw] animate-project-caption-reveal truncate font-serif text-xl font-semibold sm:max-w-xl sm:text-3xl motion-reduce:animate-none">
               {projects[activeIndex].title}
             </h2>
             <p className="mt-1.5 text-[10px] font-medium tracking-[0.15em] text-black/45">
