@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import {
   BriefcaseBusiness,
   Clapperboard,
+  Grid2X2,
   Star,
 } from 'lucide-react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -9,19 +10,22 @@ import { Link } from 'react-router-dom';
 import projectData from '../../data/projects.json';
 
 const categoryIcons = {
+  All: Grid2X2,
   Commercials: BriefcaseBusiness,
   Episodes: Clapperboard,
   Featured: Star,
 };
 
-const filters = projectData.filters.filter((filter) => filter !== 'All');
+const filters = projectData.filters;
 
 const Projects = ({ homePage = false }) => {
-  const [activeFilter, setActiveFilter] = useState('Featured');
+  const [activeFilter, setActiveFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = useMemo(
-    () => projectData.projects.filter((project) => project.collection === activeFilter),
+    () => activeFilter === 'All'
+      ? projectData.projects
+      : projectData.projects.filter((project) => project.collection === activeFilter),
     [activeFilter],
   );
 
