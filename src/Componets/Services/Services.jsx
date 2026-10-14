@@ -14,6 +14,7 @@ import {
   Layers3,
   Lightbulb,
   Monitor,
+  MoveHorizontal,
   PawPrint,
   Play,
   Send,
@@ -29,6 +30,7 @@ import {
   serviceComparisons,
   serviceIndustries,
   serviceProcessSteps,
+  serviceProjectScales,
   services,
 } from '../../data/services';
 import './services.css';
@@ -55,9 +57,9 @@ const serviceIcons = {
 };
 
 const Services = () => {
-  const [activeComparison, setActiveComparison] = useState(0);
-  const [comparisonPosition, setComparisonPosition] = useState(50);
-  const comparison = serviceComparisons[activeComparison];
+  const [comparisonPositions, setComparisonPositions] = useState(
+    () => Object.fromEntries(serviceComparisons.map(({ title }) => [title, 50])),
+  );
 
   return (
   <div className="services-page">
@@ -137,48 +139,66 @@ const Services = () => {
       </PageContainer>
     </section>
 
-    <section className="services-comparison" aria-labelledby="services-comparison-title">
+    <section className="services-project-scales" aria-labelledby="services-project-scales-title">
       <PageContainer>
-        <div className="services-section-heading">
-          <div>
-            <p className="services-eyebrow">The difference is in the details</p>
-            <h2 id="services-comparison-title">Before &amp; after</h2>
-          </div>
-          <p>Drag the slider to see how our artists transform every frame.</p>
-        </div>
-        <div className="services-comparison__tabs" role="group" aria-label="Choose a VFX comparison">
-          {serviceComparisons.map(({ title }, index) => (
-            <button
-              type="button"
-              key={title}
-              className={activeComparison === index ? 'active' : ''}
-              aria-pressed={activeComparison === index}
-              onClick={() => {
-                setActiveComparison(index);
-                setComparisonPosition(50);
-              }}
-            >
-              {title}
-            </button>
+        <h2 id="services-project-scales-title">Jobs of All Sizes</h2>
+        <div className="services-project-scales__grid">
+          {serviceProjectScales.map(({ title, description }) => (
+            <article className="services-project-scales__card" key={title}>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
           ))}
         </div>
-        <div className="services-comparison__frame" style={{ '--comparison-position': `${comparisonPosition}%` }}>
-          <img className="services-comparison__after" src={comparison.after} alt={`${comparison.title} completed result`} />
-          <img className="services-comparison__before" src={comparison.before} alt="" aria-hidden="true" />
-          <span className="services-comparison__label services-comparison__label--before">Before</span>
-          <span className="services-comparison__label services-comparison__label--after">After</span>
-          <span className="services-comparison__divider" aria-hidden="true">
-            <span><ArrowRight size={16} aria-hidden="true" /></span>
-          </span>
-          <input
-            className="services-comparison__input"
-            type="range"
-            min="0"
-            max="100"
-            value={comparisonPosition}
-            onChange={(event) => setComparisonPosition(Number(event.target.value))}
-            aria-label={`Reveal before and after ${comparison.title} work`}
-          />
+      </PageContainer>
+    </section>
+
+    <section className="services-comparison" aria-labelledby="services-comparison-title">
+      <PageContainer>
+        <div className="services-comparison__heading">
+          <p className="services-eyebrow">Our work in action</p>
+          <h2 id="services-comparison-title">From raw plate <span>to final frame.</span></h2>
+          <p>Explore the craft behind each service. Drag any divider to compare the original plate with the finished result.</p>
+        </div>
+        <div className="services-comparison__list">
+          {serviceComparisons.map(({ title, before, after, details }, index) => {
+            const position = comparisonPositions[title];
+            return (
+              <article className="services-comparison__row" key={title}>
+                <div
+                  className="services-comparison__frame"
+                  style={{ '--comparison-position': `${position}%` }}
+                >
+                  <img className="services-comparison__after" src={after} alt={`${title} finished result`} />
+                  <img className="services-comparison__before" src={before} alt="" aria-hidden="true" />
+                  <span className="services-comparison__label services-comparison__label--before">Before</span>
+                  <span className="services-comparison__label services-comparison__label--after">After</span>
+                  <span className="services-comparison__divider" aria-hidden="true">
+                    <span><MoveHorizontal size={17} aria-hidden="true" /></span>
+                  </span>
+                  <input
+                    className="services-comparison__input"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={position}
+                    onChange={(event) => {
+                      const value = Number(event.target.value);
+                      setComparisonPositions((current) => ({ ...current, [title]: value }));
+                    }}
+                    aria-label={`Reveal before and after ${title} work`}
+                  />
+                </div>
+                <div className="services-comparison__details">
+                  <p className="services-comparison__number">0{index + 1} / 0{serviceComparisons.length}</p>
+                  <h3>{title}</h3>
+                  <ul>
+                    {details.map((detail) => <li key={detail}>{detail}</li>)}
+                  </ul>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </PageContainer>
     </section>

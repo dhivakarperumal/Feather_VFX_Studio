@@ -111,18 +111,59 @@ export const serviceProcessSteps = [
 
 export const serviceComparisons = [
   {
-    title: 'Compositing',
-    before: '/images/services/COMP_IN.jpg',
-    after: '/images/services/COMP_OUT.jpg',
+    title: 'Rotoscope',
+    before: '/images/services/ROTO_IN.jpg',
+    after: '/images/services/ROTO_OUT.jpg',
+    details: ['VFX Roto', 'Stereo Roto', 'Green/Blue Keying', 'Matt Extraction'],
+  },
+  {
+    title: 'Paint-Prep',
+    before: '/images/services/PP-IN.jpg',
+    after: '/images/services/PP-OUT.jpg',
+    details: [
+      'Wire Removals',
+      'Rig Removals',
+      'Camera/Reflection Removals',
+      'Crew/Object Removals',
+      'Clean plate Creation',
+      'Dust/Scratch Removals',
+    ],
   },
   {
     title: 'Cosmetic fixes',
     before: '/images/services/COS_IN.jpg',
     after: '/images/services/COS_OUT.jpg',
+    details: [
+      'Tattoo Clean-ups',
+      'Wrinkles / Crow’s feet Clean-ups',
+      'Beard / Hair Removals',
+      'Acne scars/Age spots removal',
+      'Digital Beauty makeup',
+    ],
   },
   {
     title: 'Matchmove',
     before: '/images/services/MM_IN.jpg',
     after: '/images/services/MM_OUT.jpg',
+    details: ['Camera Tracking', 'Object/Layout Tracking', '2D Tracking'],
+  },
+  {
+    title: 'Compositing',
+    before: '/images/services/COMP_IN.jpg',
+    after: '/images/services/COMP_OUT.jpg',
+    details: ['Crowd Duplication', 'Monitor Screen Comp', 'Mobile Screen Comp', 'Set Extension'],
+  },
+];
+
+export const serviceProjectScales = [
+  {
+    title: 'Big Jobs',
+    description:
+      "Whether you're a large VFX studio or a boutique, we help you take on bigger projects without the overhead. We'll handle the heavy lifting so you can focus on the creative. Think of us as your virtual production partner. Go ahead—punch above your weight.",
+  },
+  {
+    title: 'Small Jobs',
+    description:
+      "With our customized pipelines, small projects are just as manageable as large ones. We can turn work around rapidly—often overnight—without ever sacrificing quality for time. No project is too small.",
   },
 ];
