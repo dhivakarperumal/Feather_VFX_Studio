@@ -74,7 +74,7 @@ const clients = [
 const serviceOrder = ['Rotoscoping', 'Paint & Prep', 'Cosmetic VFX', 'Matchmove', 'Compositing'];
 const orderedServices = serviceOrder.map((title) => services.find((service) => service.title === title));
 
-const ServiceCard = ({ service, index }) => {
+const ServiceCard = ({ service }) => {
   const [comparisonPosition, setComparisonPosition] = useState(50);
   const details = serviceDetails[service.title];
   const Icon = details.icon;
@@ -86,12 +86,8 @@ const ServiceCard = ({ service, index }) => {
   const secondLabel = reverseComparison ? 'IN' : 'OUT';
 
   return (
-    <article
-      className={`group grid overflow-hidden border border-[#b8852f]/45 bg-[#080b0c]/95 transition-colors duration-300 hover:border-[#e8b14f]/80 ${
-        index === services.length - 1 ? 'lg:col-span-2 lg:grid-cols-[1.15fr_0.85fr]' : ''
-      } sm:grid-cols-[0.9fr_1.1fr]`}
-    >
-      <div className="service-comparison relative min-h-[190px] overflow-hidden sm:min-h-[210px]">
+    <article className="group flex h-full flex-col overflow-hidden border border-[#b8852f]/45 bg-[#080b0c]/95 transition-colors duration-300 hover:border-[#e8b14f]/80">
+      <div className="service-comparison relative aspect-[16/10] min-h-[190px] shrink-0 overflow-hidden sm:min-h-[210px]">
         <img
           src={firstImage}
           alt={`${service.title} ${firstLabel} image`}
@@ -139,7 +135,7 @@ const ServiceCard = ({ service, index }) => {
         />
       </div>
 
-      <div className="flex flex-col justify-center px-4 py-5 sm:px-5 lg:px-6">
+      <div className="flex flex-1 flex-col px-4 py-5 sm:px-5 lg:px-6">
         <div className="flex items-center gap-3">
           <Icon className="h-5 w-5 shrink-0 text-[#efb64e]" strokeWidth={1.7} aria-hidden="true" />
           <h3 className="font-serif text-lg font-bold uppercase leading-tight text-white sm:text-xl">
@@ -302,9 +298,9 @@ const Services = () => (
           </p>
         </div>
 
-        <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
-          {orderedServices.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
+        <div className="grid items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {orderedServices.map((service) => (
+            <ServiceCard key={service.title} service={service} />
           ))}
         </div>
       </div>
