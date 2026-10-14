@@ -69,15 +69,118 @@ const sitemapGroups = [
       { label: 'Get in Touch', to: '/contact' },
     ],
   },
-  {
-    title: 'Global Locations',
-    Icon: Globe2,
-    image: '/images/background/bg_14.jpg',
-    links: [
-      { label: 'Chennai, India', to: '/contact' },
-      { label: 'Ilford, United Kingdom', to: '/contact' },
-    ],
-  },
+];
+
+const globalLocations = [
+  ['Argentina', 'argentina'],
+  ['Australia', 'australia'],
+  ['Austria', 'austria'],
+  ['Belgium', 'belgium'],
+  ['Brazil', 'brazil'],
+  ['Bulgaria', 'bulgaria'],
+  ['Canada', 'canada'],
+  ['Czech Republic', 'czech-republic'],
+  ['Denmark', 'denmark'],
+  ['Finland', 'finland'],
+  ['France', 'france'],
+  ['Germany', 'germany'],
+  ['Greece', 'greece'],
+  ['Greenland', 'greenland'],
+  ['Hungary', 'hungary'],
+  ['Iceland', 'iceland'],
+  ['Ireland', 'ireland'],
+  ['Italy', 'italy'],
+  ['Mexico', 'mexico'],
+  ['Netherlands', 'netherlands'],
+  ['New Zealand', 'new-zealand'],
+  ['Norway', 'norway'],
+  ['Poland', 'poland'],
+  ['Portugal', 'portugal'],
+  ['Romania', 'romania'],
+  ['Spain', 'spain'],
+  ['Sweden', 'sweden'],
+  ['Switzerland', 'switzerland'],
+  ['Turkey', 'turkey'],
+  ['Ukraine', 'ukraine'],
+  ['United Kingdom', 'united-kingdom'],
+  ['United States', 'united-states'],
+  ['London', 'london'],
+  ['Brighton', 'brighton'],
+  ['Bristol', 'bristol'],
+  ['Cambridge', 'cambridge'],
+  ['Guildford', 'guildford'],
+  ['Liverpool', 'liverpool'],
+  ['Manchester', 'manchester'],
+  ['Nottingham', 'nottingham'],
+  ['Glasgow', 'glasgow'],
+  ['Birmingham', 'birmingham%C2%A0'],
+  ['Atlanta', 'atlanta'],
+  ['Austin', 'austin'],
+  ['Baltimore', 'baltimore'],
+  ['Bellevue', 'bellevue'],
+  ['Boston', 'boston'],
+  ['Brisbane', 'brisbane'],
+  ['Brooklyn', 'brooklyn'],
+  ['Burbank', 'burbank'],
+  ['Chicago', 'chicago'],
+  ['Culver City', 'culver-city'],
+  ['Denver', 'denver'],
+  ['Las Vegas', 'las-vegas'],
+  ['Los Angeles', 'los-angeles'],
+  ['Miami', 'miami'],
+  ['New York City', 'new-york-city'],
+  ['Orlando', 'orlando'],
+  ['Pittsburgh', 'pittsburgh'],
+  ['San Diego', 'san-diego'],
+  ['San Francisco', 'san-francisco'],
+  ['Santa Monica', 'santa-monica'],
+  ['Seattle', 'seattle'],
+  ['Angoulême', 'angoul%C3%AAme'],
+  ['Lyon', 'lyon'],
+  ['Paris', 'paris'],
+  ['Vancouver', 'vancouver'],
+  ['Halifax', 'halifax'],
+  ['Ottawa', 'ottawa'],
+  ['St Catharines', 'st-catharines'],
+  ['Toronto', 'toronto'],
+  ['Montreal', 'montreal'],
+  ['Québec', 'qu%C3%A9bec'],
+  ['Quebec City', 'quebec-city'],
+  ['Barcelona', 'barcelona'],
+  ['Madrid', 'madrid'],
+  ['Valencia', 'valencia'],
+  ['Gdansk', 'gdansk'],
+  ['Krakow', 'krakow'],
+  ['Warsaw', 'warsaw'],
+  ['Rzeszów', 'rzesz%C3%B3w'],
+  ['Wrocław', 'wroc%C5%82aw'],
+  ['Berlin', 'berlin'],
+  ['Munich', 'munich'],
+  ['Cologne', 'cologne'],
+  ['Düsseldorf', 'd%C3%BCsseldorf'],
+  ['Frankfurt', 'frankfurt'],
+  ['Hamburg', 'hamburg'],
+  ['Ludwigsburg', 'ludwigsburg'],
+  ['Stuttgart', 'stuttgart'],
+  ['Guadalajara', 'guadalajara'],
+  ['Mexicali', 'mexicali'],
+  ['Mexico City', 'mexico-city'],
+  ['Toluca', 'toluca'],
+  ['Tuxtla Gutierrez', 'tuxtla-gutierrez'],
+  ['Adelaide', 'adelaide'],
+  ['Melbourne', 'melbourne'],
+  ['Sydney', 'sydney'],
+  ['Belfast', 'belfast'],
+  ['Dublin', 'dublin'],
+  ['Galway', 'galway'],
+  ['Kilkenny', 'kilkenny'],
+  ['Gothenburgh', 'gothenburgh'],
+  ['Malmö', 'malm%C3%B6'],
+  ['Stockholm', 'stockholm'],
+  ['Budapest', 'budapest'],
+  ['Auckland', 'auckland'],
+  ['Dunedin', 'dunedin'],
+  ['Wellington', 'wellington'],
 ];
 
 const Sitemap = () => (
@@ -152,6 +255,46 @@ const Sitemap = () => (
             </section>
           ))}
         </div>
+
+        <section
+          aria-labelledby="global-locations-heading"
+          className="relative isolate mt-5 overflow-hidden border border-white/15 bg-[#071013] p-5 sm:p-7"
+        >
+          <img
+            src="/images/background/bg_14.jpg"
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
+          />
+          <div
+            className="absolute inset-0 -z-10 bg-gradient-to-r from-[#03090c]/95 via-[#03090c]/90 to-[#03090c]/75"
+            aria-hidden="true"
+          />
+          <div className="mb-5 flex items-center gap-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)]">
+              <Globe2 size={20} aria-hidden="true" />
+            </span>
+            <div>
+              <h3 id="global-locations-heading" className="font-serif text-lg font-semibold uppercase">
+                Global <span className="text-[var(--gold-bright)]">Locations</span>
+              </h3>
+              <p className="mt-1 text-xs text-white/60">{globalLocations.length} countries and cities</p>
+            </div>
+          </div>
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {globalLocations.map(([label, slug]) => (
+              <li key={slug}>
+                <a
+                  href={`https://feathervfx.com/${slug}`}
+                  className="inline-flex items-start gap-2 text-xs text-white/75 transition-colors hover:text-[var(--gold-bright)]"
+                >
+                  <span className="text-[var(--gold-primary)]" aria-hidden="true">›</span>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </main>
   </>

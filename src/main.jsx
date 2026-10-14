@@ -5,7 +5,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './index.css'
 import App from './App.jsx'
-import Home from './Componets/Home/Home.jsx'
+import SiteHome from './Componets/SiteHome/SiteHome.jsx'
 import Contact from './Componets/Contact/Contact.jsx'
 import Careers from './Componets/Careers/Careers.jsx'
 import About from './Componets/About/About.jsx'
@@ -30,7 +30,7 @@ function AppRoot() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
+          <Route index element={<SiteHome />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="about" element={<About />} />
           <Route path="projects" element={<FeaturedProjectsSection />} />
