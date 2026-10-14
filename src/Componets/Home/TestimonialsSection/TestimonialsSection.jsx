@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Quote, Star } from 'lucide-react';
 
 const testimonials = [
   {
@@ -26,22 +28,49 @@ const testimonials = [
     avatar: '/images/heroimages/2.png',
     avatarPosition: 'center top',
   },
+  {
+    quote:
+      'Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.',
+    name: 'Meera Nair',
+    role: 'Film Director',
+    avatar: '/images/heroimages/1.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.',
+    name: 'Rohan Desai',
+    role: 'Ad Film Maker',
+    avatar: '/images/heroimages/2.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.',
+    name: 'Sneha Pillai',
+    role: 'OTT Content Head',
+    avatar: '/images/heroimages/3.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.',
+    name: 'Vikram Sood',
+    role: 'Brand Manager',
+    avatar: '/images/heroimages/1.png',
+    avatarPosition: 'center top',
+  },
+  {
+    quote:
+      'Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.',
+    name: 'Ananya Bose',
+    role: 'Cinematographer',
+    avatar: '/images/heroimages/2.png',
+    avatarPosition: 'center top',
+  },
 ];
 
 const TestimonialsSection = () => {
-  const [firstTestimonial, setFirstTestimonial] = useState(0);
-  const visibleTestimonials = testimonials.map(
-    (_, index) => testimonials[(firstTestimonial + index) % testimonials.length],
-  );
-
-  const showPrevious = () => {
-    setFirstTestimonial((current) => (current - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const showNext = () => {
-    setFirstTestimonial((current) => (current + 1) % testimonials.length);
-  };
-
   return (
     <section
       aria-labelledby="testimonials-heading"
@@ -81,23 +110,32 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Prev button */}
-          <button
-            type="button"
-            onClick={showPrevious}
-            aria-label="Previous testimonials"
-            className="absolute -left-3 top-1/2 z-20 hidden h-12 w-12 -translate-x-full -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 bg-[rgba(3,9,12,0.8)] text-white shadow-[0_0_16px_rgba(214,160,74,0.16)] transition-all hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:flex"
-          >
-            <ChevronLeft className="h-6 w-6" aria-hidden="true" />
-          </button>
+        {/* Swiper slider — 3 cards visible, auto-slides one by one */}
+        <style>{`
+          .testimonials-swiper .swiper-wrapper {
+            align-items: stretch;
+          }
+          .testimonials-swiper .swiper-slide {
+            height: auto;
+          }
+        `}</style>
 
-          {/* Cards grid */}
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {visibleTestimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
+        <Swiper
+          className="testimonials-swiper"
+          modules={[Autoplay]}
+          slidesPerView={1}
+          spaceBetween={20}
+          loop={true}
+          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          breakpoints={{
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+          }}
+        >
+          {testimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
+            <SwiperSlide key={name}>
               <article
-                key={name}
-                className="group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
+                className="group relative flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
                 style={{
                   clipPath:
                     'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
@@ -119,7 +157,7 @@ const TestimonialsSection = () => {
                   aria-hidden="true"
                 />
 
-                <div className="relative z-10 flex flex-col gap-5 p-5 sm:p-6">
+                <div className="relative z-10 flex h-full flex-col gap-5 p-5 sm:p-6">
                   {/* Avatar + Stars row */}
                   <div className="flex items-center gap-4">
                     {/* Circular avatar with gold ring */}
@@ -154,12 +192,12 @@ const TestimonialsSection = () => {
                   </div>
 
                   {/* Quote text */}
-                  <div className="relative pl-7">
+                  <div className="relative flex-1 pl-7">
                     <Quote
                       className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/55 text-[var(--gold-primary)]/55"
                       aria-hidden="true"
                     />
-                    <p className="text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
+                    <p className="line-clamp-4 text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
                     <Quote
                       className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/30 text-[var(--gold-primary)]/30"
                       aria-hidden="true"
@@ -183,37 +221,9 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
               </article>
-            ))}
-          </div>
-
-          {/* Next button */}
-          <button
-            type="button"
-            onClick={showNext}
-            aria-label="Next testimonials"
-            className="absolute -right-3 top-1/2 z-20 hidden h-12 w-12 translate-x-full -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 bg-[rgba(3,9,12,0.8)] text-white shadow-[0_0_16px_rgba(214,160,74,0.16)] transition-all hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:flex"
-          >
-            <ChevronRight className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-
-        {/* Dot indicators */}
-        <div className="mt-7 flex justify-center gap-2" aria-label="Choose testimonial set">
-          {testimonials.map(({ name }, index) => (
-            <button
-              key={name}
-              type="button"
-              onClick={() => setFirstTestimonial(index)}
-              aria-label={`Show testimonials starting with ${name}`}
-              aria-current={firstTestimonial === index ? 'true' : undefined}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                firstTestimonial === index
-                  ? 'w-7 bg-[var(--gold-bright)] shadow-[0_0_9px_rgba(240,168,88,0.65)]'
-                  : 'w-5 bg-white/30 hover:bg-white/60'
-              }`}
-            />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
