@@ -13,22 +13,7 @@ const HomeIntroSection = () => (
     aria-labelledby="home-intro-title"
     className="relative isolate overflow-hidden bg-[#05090c] px-4 py-12 text-white sm:px-8 sm:py-16 lg:px-[6%] lg:py-20"
   >
-    <img
-      src="/images/home.png"
-      alt=""
-      aria-hidden="true"
-      className="absolute inset-0 -z-20 h-full w-full object-cover object-[62%_center]"
-    />
-    <div
-      className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,7,10,0.96)_0%,rgba(3,7,10,0.88)_32%,rgba(3,7,10,0.58)_53%,rgba(3,7,10,0.08)_100%)]"
-      aria-hidden="true"
-    />
-    <div
-      className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(3,7,10,0.22),transparent_24%,transparent_76%,rgba(3,7,10,0.38))]"
-      aria-hidden="true"
-    />
-
-    <div className="mx-auto w-full max-w-[1500px]">
+    <div className="mx-auto grid w-full max-w-[1500px] items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div className="max-w-[650px]">
         <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.3em] text-white/80 sm:text-[10px]">
           Your VFX Outsourcing Partner
@@ -68,6 +53,17 @@ const HomeIntroSection = () => (
           Let&apos;s bring your vision to life
           <span className="text-base" aria-hidden="true">→</span>
         </Link>
+      </div>
+
+      <div className="relative lg:justify-self-end">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,10,12,0.18),rgba(7,10,12,0.08),rgba(7,10,12,0.28))]" aria-hidden="true" />
+          <img
+            src="/images/home.png"
+            alt="Creative VFX work"
+            className="h-[320px] w-full object-cover object-center sm:h-[420px] lg:h-[520px]"
+          />
+        </div>
       </div>
     </div>
   </section>
