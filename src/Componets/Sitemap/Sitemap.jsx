@@ -191,8 +191,17 @@ const Sitemap = () => (
       description="Find your way around Feather VFX Studio."
       background="/images/heroimages/3.png"
       align="left"
-    />
-    <main className="relative isolate overflow-hidden bg-[#05090b] px-[5%] py-12 text-white sm:py-16 lg:px-[4%]">
+      showBreadcrumb={false}
+    >
+      <a
+        href="#sitemap-links"
+        className="mt-5 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+      >
+        Explore site
+        <span aria-hidden="true">↓</span>
+      </a>
+    </PageHeader>
+    <main id="sitemap-links" className="scroll-mt-24 relative isolate overflow-hidden bg-[#05090b] px-[5%] py-12 text-white sm:py-16 lg:px-[4%]">
       <div
         className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,10,11,0.3),#05090b_85%),url('/images/background/bg_14.jpg')] bg-cover bg-center opacity-30"
         aria-hidden="true"
