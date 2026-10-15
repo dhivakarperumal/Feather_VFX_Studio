@@ -1,4 +1,4 @@
-import { Award, CircleDollarSign, Image as ImageIcon, UsersRound } from 'lucide-react';
+import { Award, CircleDollarSign, UsersRound } from 'lucide-react';
 
 const benefits = [
   {
@@ -10,7 +10,8 @@ const benefits = [
     description:
       'We focus on delivering precise, consistent visual effects that meet the agreed project specifications. Every shot receives careful attention to detail and quality control.',
     Icon: Award,
-    imageLabel: 'Visual effects quality image',
+    image: '/images/highqualitywork.png',
+    imageAlt: 'High-quality visual effects work displayed on a studio monitor',
   },
   {
     title: (
@@ -21,7 +22,8 @@ const benefits = [
     description:
       'We understand the demands of production schedules and the importance of clear communication. Our team works closely with clients to manage feedback, coordinate deliveries, and support project deadlines.',
     Icon: UsersRound,
-    imageLabel: 'Project collaboration image',
+    image: '/images/responsiveprojectsupport.png',
+    imageAlt: 'VFX artists collaborating on a project',
   },
   {
     title: (
@@ -32,23 +34,10 @@ const benefits = [
     description:
       'We provide flexible VFX outsourcing solutions designed to meet different production requirements and budgets without compromising on quality.',
     Icon: CircleDollarSign,
-    imageLabel: 'Cost-effective production image',
+    image: '/images/cost-effective.png',
+    imageAlt: 'Cost-effective production planning',
   },
 ];
-
-const ImagePlaceholder = ({ label, className = '' }) => (
-  <div
-    role="img"
-    aria-label={`${label} placeholder`}
-    className={`relative isolate flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_72%_35%,rgba(240,168,88,0.3),transparent_24%),radial-gradient(ellipse_at_45%_80%,rgba(40,76,89,0.55),transparent_46%),linear-gradient(135deg,#10191c,#050809_62%,#1b1208)] ${className}`}
-  >
-    <div className="absolute inset-0 -z-10 opacity-50 [background-image:linear-gradient(135deg,transparent_40%,rgba(255,255,255,0.07)_41%,transparent_42%),linear-gradient(25deg,transparent_45%,rgba(214,160,74,0.12)_46%,transparent_47%)]" aria-hidden="true" />
-    <div className="flex flex-col items-center gap-2 text-center text-[var(--gold-bright)]/75">
-      <ImageIcon className="h-8 w-8 stroke-[1.2]" aria-hidden="true" />
-      <span className="text-[9px] font-semibold uppercase tracking-[0.18em]">Image placeholder</span>
-    </div>
-  </div>
-);
 
 const QualitySecuritySection = () => (
   <section
@@ -81,25 +70,34 @@ const QualitySecuritySection = () => (
         </div>
 
         <div data-aos="fade-left" data-aos-delay="100">
-          <ImagePlaceholder
-            label="Studio workstation"
-            className="min-h-[220px] border border-[var(--gold-primary)]/50 sm:min-h-[290px] lg:min-h-[330px]"
-          />
+          <div className="relative min-h-[220px] overflow-hidden border border-[var(--gold-primary)]/50 sm:min-h-[290px] lg:min-h-[330px]">
+            <img
+              src="/images/mainimage.png"
+              alt="VFX artist working at a studio workstation"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#05090b]/30" aria-hidden="true" />
+          </div>
         </div>
       </div>
 
       <div className="mt-7 grid gap-4 md:grid-cols-3 lg:mt-8 lg:gap-5">
-        {benefits.map(({ title, description, Icon, imageLabel }, index) => (
+        {benefits.map(({ title, description, Icon, image, imageAlt }, index) => (
           <article
-            key={imageLabel}
+            key={image}
             data-aos="fade-up"
             data-aos-delay={index * 90}
             className="group relative overflow-hidden border border-[var(--gold-primary)]/55 bg-[linear-gradient(150deg,rgba(9,15,17,0.98),rgba(3,7,8,0.98))] shadow-[0_12px_32px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-1"
           >
-            <ImagePlaceholder
-              label={imageLabel}
-              className="h-[150px] border-b border-[var(--gold-primary)]/35 transition-transform duration-500 group-hover:scale-[1.02] sm:h-[170px]"
-            />
+            <div className="h-[150px] overflow-hidden border-b border-[var(--gold-primary)]/35 sm:h-[170px]">
+              <img
+                src={image}
+                alt={imageAlt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                loading="lazy"
+              />
+            </div>
             <div className="relative px-4 pb-5 sm:px-5">
               <span className="-mt-7 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[var(--gold-primary)] bg-[#070b0d] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(214,160,74,0.2)]">
                 <Icon className="h-7 w-7" strokeWidth={1.7} aria-hidden="true" />
