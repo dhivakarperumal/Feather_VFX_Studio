@@ -10,6 +10,7 @@ import {
   FaPhoneAlt,
   FaQuestionCircle,
   FaShieldAlt,
+  FaTimes,
   FaUpload,
   FaFacebookF,
   FaInstagram,
@@ -19,6 +20,7 @@ import {
 import { FaClapperboard, FaFilm, FaHandshake, FaXTwitter } from 'react-icons/fa6';
 import { sendEmailJsForm } from '../../utils/emailJs';
 import PageHeader from '../../CommonComponents/PageHeader';
+import ModalPortal from '../../CommonComponents/ModalPortal';
 
 const indiaAddress =
   '18/09, Valasaravakkam, Chennai – 600087, Tamil Nadu, India.';
@@ -84,6 +86,17 @@ const Contact = () => {
 
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [location.hash, location.pathname]);
+
+  useEffect(() => {
+    if (formStatus?.type !== 'success') return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setFormStatus(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [formStatus]);
 
   const handleFilesChange = (event) => {
     const files = Array.from(event.target.files || []);
@@ -176,19 +189,19 @@ const Contact = () => {
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="space-y-1.5">
                   <label className="block text-xs font-medium" htmlFor="contact-name">Your name <span className="text-red-500" aria-hidden="true">*</span></label>
-                  <input id="contact-name" name="name" autoComplete="name" required className="contact-field" />
+                  <input id="contact-name" name="name" autoComplete="name" required placeholder="Enter your name" className="contact-field" />
                 </div>
                 <div className="space-y-1.5">
                   <label className="block text-xs font-medium" htmlFor="contact-email">Your email <span className="text-red-500" aria-hidden="true">*</span></label>
-                  <input id="contact-email" name="email" type="email" autoComplete="email" required className="contact-field" />
+                  <input id="contact-email" name="email" type="email" autoComplete="email" required placeholder="name@example.com" className="contact-field" />
                 </div>
                 <div className="space-y-1.5">
                   <label className="block text-xs font-medium" htmlFor="contact-phone">Phone number</label>
-                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className="contact-field" />
+                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="+44 74 5946 7325" className="contact-field" />
                 </div>
                 <div className="space-y-1.5">
                   <label className="block text-xs font-medium" htmlFor="contact-company">Company / studio</label>
-                  <input id="contact-company" name="company" autoComplete="organization" className="contact-field" />
+                  <input id="contact-company" name="company" autoComplete="organization" placeholder="Company / studio name" className="contact-field" />
                 </div>
               </div>
               <div className="space-y-1.5">
@@ -217,6 +230,7 @@ const Contact = () => {
                   name="subject"
                   required
                   maxLength={150}
+                  placeholder="Enter a subject"
                   className="contact-field"
                 />
               </div>
@@ -254,8 +268,8 @@ const Contact = () => {
               <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
                 Your message and selected reference files will be sent through EmailJS.
               </p>
-              {formStatus && (
-                <p role={formStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${formStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
+              {formStatus?.type === 'error' && (
+                <p role="alert" className="text-xs text-red-400">
                   {formStatus.message}
                 </p>
               )}
@@ -441,6 +455,50 @@ const Contact = () => {
           </ul>
         </div>
       </section>
+
+      {formStatus?.type === 'success' && (
+        <ModalPortal>
+            <div
+              className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+              onClick={() => setFormStatus(null)}
+            >
+              <section
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="contact-success-title"
+                aria-describedby="contact-success-message"
+                className="relative w-full max-w-md border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] p-7 text-center shadow-2xl sm:p-9"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  onClick={() => setFormStatus(null)}
+                  aria-label="Close success message"
+                  className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  <FaTimes aria-hidden="true" />
+                </button>
+                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10">
+                  <FaCheckCircle className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
+                </span>
+                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)]">Inquiry sent</p>
+                <h2 id="contact-success-title" className="mt-2 font-serif text-2xl font-bold uppercase sm:text-3xl">
+                  Thank you!
+                </h2>
+                <p id="contact-success-message" className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+                  Your inquiry was sent successfully. Our team will get back to you within 24 hours.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFormStatus(null)}
+                  className="mt-6 inline-flex items-center gap-2 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                >
+                  Done <FaArrowRight aria-hidden="true" />
+                </button>
+              </section>
+            </div>
+        </ModalPortal>
+      )}
     </div>
   );
 };
