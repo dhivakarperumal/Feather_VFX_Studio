@@ -21,7 +21,7 @@ const CountUpStat = ({ value, delay = 0 }) => {
 const GlobalVFXSection = () => (
   <section
     aria-labelledby="global-vfx-title"
-    className="relative isolate overflow-hidden border-y border-white/10 bg-[#05090c] text-white"
+    className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]"
   >
     <div className="mx-auto grid w-full max-w-[1700px] items-stretch lg:min-h-[360px] lg:grid-cols-[1.05fr_0.95fr]">
       <div className="relative min-h-[230px] overflow-hidden sm:min-h-[300px] lg:min-h-[360px]">
@@ -32,34 +32,34 @@ const GlobalVFXSection = () => (
           loading="lazy"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#05090c]/80 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#05090c]"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--bg-secondary)]/80 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[var(--bg-secondary)]"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#05090c]/50 to-transparent lg:hidden"
+          className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[var(--bg-secondary)]/50 to-transparent lg:hidden"
           aria-hidden="true"
         />
       </div>
 
       <div className="relative z-10 flex items-center px-5 py-8 sm:px-8 lg:-ml-4 lg:py-10 lg:pl-0 lg:pr-[7%]">
         <div className="w-full" data-aos="fade-up" data-aos-offset="60">
-          <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.28em] text-[#f0c47e] sm:text-[10px]">
+          <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)] sm:text-[10px]">
             Global VFX Excellence
-            <span className="h-px w-12 bg-[#d6a04a]/80" aria-hidden="true" />
+            <span className="h-px w-12 bg-[var(--gold-primary)]/80" aria-hidden="true" />
           </p>
 
           <h2
             id="global-vfx-title"
-            className="mt-3 max-w-[650px] font-serif text-2xl font-bold uppercase leading-[1.06] tracking-[0.01em] text-white sm:text-3xl lg:text-[2.15rem]"
+            className="mt-3 max-w-[650px] font-serif text-2xl font-bold uppercase leading-[1.06] tracking-[0.01em] text-[var(--text-primary)] sm:text-3xl lg:text-[2.15rem]"
           >
-            Feather VFX - Your Global {' '}
-            <span className="text-[#f0a858]">VFX Partner</span>
+            Feather VFX - Your Global{' '}
+            <span className="text-[var(--gold-bright)]">VFX Partner</span>
           </h2>
 
-          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-white/75 sm:text-sm">
+          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-sm">
             Feather VFX provides high-quality visual effects services for feature films, television series, and other visual media. We offer flexible, cost-effective solutions tailored to the needs of production companies and VFX studios.
           </p>
-          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-white/75 sm:text-sm">
+          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-sm">
             Our team combines creativity, technical expertise, and professionalism to support projects of varying sizes and complexity. We focus on consistent quality, efficient workflows, and reliable delivery.
           </p>
           <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-5">
@@ -69,16 +69,16 @@ const GlobalVFXSection = () => (
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
                 data-aos-offset="40"
-                className="flex min-h-[64px] items-center gap-2 border border-white/15 bg-black/25 px-2.5 py-2 sm:gap-2.5 sm:px-3"
+                className="flex min-h-[64px] items-center gap-2 border border-[var(--border-color)] bg-[var(--bg-primary)] px-2.5 py-2 sm:gap-2.5 sm:px-3"
               >
                 <Icon
-                  className="h-6 w-6 shrink-0 text-[#f0b552] sm:h-7 sm:w-7"
+                  className="h-6 w-6 shrink-0 text-[var(--gold-bright)] sm:h-7 sm:w-7"
                   strokeWidth={1.7}
                   aria-hidden="true"
                 />
                 <span className="min-w-0">
                   {value && <CountUpStat value={value} delay={index * 120} />}
-                  <span className="mt-1 block text-[8px] font-bold uppercase leading-tight tracking-[0.11em] text-white/85 sm:text-[9px]">
+                  <span className="mt-1 block text-[8px] font-bold uppercase leading-tight tracking-[0.11em] text-[var(--text-secondary)] sm:text-[9px]">
                     {label}
                     {detail && <span className="block">{detail}</span>}
                   </span>

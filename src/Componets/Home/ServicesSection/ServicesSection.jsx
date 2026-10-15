@@ -9,14 +9,14 @@ import { services } from '../../../data/services';
 
 const ServicesSection = () => {
   return (
-    <section id="services" aria-label="Our services" className="bg-[#070b0d] py-16">
+    <section id="services" aria-label="Our services" className="bg-[var(--bg-primary)] py-16">
       <PageContainer>
         <div className="mb-7 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between" data-aos="fade-up" data-aos-offset="60">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--gold-bright)]">
               Our Services
             </p>
-            <h2 className="mt-4 max-w-[900px] text-4xl font-bold uppercase leading-[0.95] tracking-[-0.05em] text-white sm:text-5xl lg:text-[4rem]">
+            <h2 className="mt-4 max-w-[900px] text-4xl font-bold uppercase leading-[0.95] tracking-[-0.05em] text-[var(--text-primary)] sm:text-5xl lg:text-[4rem]">
               End-to-end VFX Solutions
             </h2>
           </div>

@@ -20,10 +20,10 @@ const BrandsSection = () => {
     aria-label="Selected studio brands"
     role="region"
     aria-roledescription="carousel"
-    className="relative isolate overflow-hidden border-y border-white/[0.06] bg-[#05090a] px-[5%] py-16 sm:py-20 lg:px-[3%] lg:py-24"
+    className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] px-[5%] py-16 sm:py-20 lg:px-[3%] lg:py-24"
   >
     <div
-      className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_15%,rgba(214,160,74,0.09),transparent_48%)]"
+      className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_15%,rgba(184,134,11,0.06),transparent_48%)]"
       aria-hidden="true"
     />
     <div className="mx-auto max-w-[1800px]">
@@ -36,10 +36,10 @@ const BrandsSection = () => {
         <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[var(--gold-bright)] sm:text-xs">
           Trusted by
         </p>
-        <h2 className="mt-3 font-serif text-[clamp(2rem,4.5vw,4rem)] font-bold uppercase leading-[1.05] tracking-[0.025em] text-white">
+        <h2 className="mt-3 font-serif text-[clamp(2rem,4.5vw,4rem)] font-bold uppercase leading-[1.05] tracking-[0.025em] text-[var(--text-primary)]">
           Studios &amp; <span className="text-[var(--gold-bright)]">storytellers</span>
         </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base">
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
           Proud to collaborate with studios and networks shaping stories for audiences everywhere.
         </p>
       </div>
@@ -73,17 +73,17 @@ const BrandsSection = () => {
                   role="group"
                   aria-roledescription="slide"
                   aria-label={`${index + 1} of ${brands.length}: ${name}`}
-                  className="group relative flex min-h-[112px] items-center justify-center overflow-hidden border border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.035),rgba(7,12,13,0.7))] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:px-5"
+                  className="group relative flex min-h-[112px] items-center justify-center overflow-hidden border border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:px-5"
                 >
-                  <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l border-t border-[var(--gold-primary)]/55" aria-hidden="true" />
-                  <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[var(--gold-primary)]/55" aria-hidden="true" />
+                  <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l border-t border-[var(--gold-primary)]/40" aria-hidden="true" />
+                  <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[var(--gold-primary)]/40" aria-hidden="true" />
                   {wordmark ? (
                     <span
                       role="img"
                       aria-label={name}
-                      className="relative z-10 flex items-center font-sans text-4xl font-bold uppercase leading-none tracking-[-0.08em] text-[var(--gold-bright)] transition-colors group-hover:text-white sm:text-5xl"
+                      className="relative z-10 flex items-center font-sans text-4xl font-bold uppercase leading-none tracking-[-0.08em] text-[var(--gold-bright)] transition-colors group-hover:text-[var(--gold-primary)] sm:text-5xl"
                     >
-                      HB<span className="relative">O<span className="absolute inset-[30%] rounded-full border-2 border-[#05090a]" /></span>
+                      HB<span className="relative">O<span className="absolute inset-[30%] rounded-full border-2 border-[var(--bg-primary)]" /></span>
                     </span>
                   ) : (
                     <img
@@ -92,11 +92,11 @@ const BrandsSection = () => {
                       loading="lazy"
                       className={`relative z-10 object-contain transition duration-300 ${
                         name === '20th Century Fox'
-                          ? 'max-h-24 max-w-[210px] opacity-100'
+                          ? 'max-h-24 max-w-[210px] opacity-80'
                           : `max-h-12 max-w-[150px] sm:max-h-14 lg:max-w-[180px] ${
                             name === 'Netflix'
-                              ? 'opacity-100'
-                              : 'opacity-70 grayscale brightness-0 invert group-hover:opacity-100 [mix-blend-mode:screen]'
+                              ? 'opacity-90'
+                              : 'opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0'
                           }`
                       }`}
                     />
@@ -105,22 +105,6 @@ const BrandsSection = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        {/* <button
-          type="button"
-          onClick={() => carouselRef.current?.slidePrev()}
-          aria-label="Previous brand"
-          className="absolute -left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-left-4 sm:h-10 sm:w-10"
-        >
-          <ArrowLeft size={17} aria-hidden="true" />
-        </button> */}
-        {/* <button
-          type="button"
-          onClick={() => carouselRef.current?.slideNext()}
-          aria-label="Next brand"
-          className="absolute -right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--gold-primary)]/60 bg-[#080d0f] text-[var(--gold-bright)] shadow-lg transition-colors hover:bg-[var(--gold-primary)] hover:text-[#080d0f] sm:-right-4 sm:h-10 sm:w-10"
-        >
-          <ArrowRight size={17} aria-hidden="true" />
-        </button> */}
         </div>
       </div>
     </div>

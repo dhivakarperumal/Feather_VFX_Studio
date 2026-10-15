@@ -58,7 +58,7 @@ const FeaturedProjectsSection = () => {
     <article
       key={title}
       style={{ aspectRatio: `${1 / heightRatio}` }}
-      className={`group relative w-full overflow-hidden rounded-md border border-[var(--gold-primary)]/65 bg-[#080d0f] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none ${
+      className={`group relative w-full overflow-hidden rounded-md border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none ${
         landscape ? '' : 'flex-1 basis-auto'
       }`}
     >
@@ -132,10 +132,10 @@ const FeaturedProjectsSection = () => {
       <section
         id="projects"
         aria-labelledby="featured-projects-title"
-        className="relative isolate overflow-hidden bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,160,74,0.11),transparent_46%),#050a0b] px-[3%] py-16 sm:py-20 lg:py-14"
+        className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] py-16 sm:py-20 lg:py-14"
       >
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,10,11,0.45),#050a0b_90%),url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%] opacity-25"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-10 bg-[url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%]"
           aria-hidden="true"
         />
         <div className="mx-auto w-full max-w-[1500px]">
@@ -148,7 +148,7 @@ const FeaturedProjectsSection = () => {
             <h2 id="featured-projects-title" className="mt-2 font-serif text-4xl font-bold uppercase leading-none text-[var(--text-primary)] sm:text-5xl lg:text-7xl">
               Featured <span className="text-[var(--gold-bright)]">Projects</span>
             </h2>
-            <p className="mt-3 text-sm text-[var(--text-primary)]/75">
+            <p className="mt-3 text-sm text-[var(--text-secondary)]">
               Bringing imagination to life through stunning visuals and world-class VFX.
             </p>
 
@@ -162,7 +162,7 @@ const FeaturedProjectsSection = () => {
                   className={`min-h-8 cursor-pointer rounded-full border px-4 py-1.5 text-[11px] transition-colors focus-visible:border-[var(--gold-primary)] focus-visible:text-[var(--gold-bright)] ${
                     activeFilter === filter
                       ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
-                      : 'border-white/25 bg-black/50 text-white/85 hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)]'
+                      : 'border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)]'
                   }`}
                 >
                   {filter}
