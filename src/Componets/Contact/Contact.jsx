@@ -27,6 +27,8 @@ const ukPhoneNumber = '+44 74 5946 7325';
 const phoneNumber = ukPhoneNumber;
 const infoEmail = 'info@feathervfx.com';
 const enquiryEmail = 'enquiry@feathervfx.com';
+const gmailComposeUrl = (email) =>
+  `https://mail.google.com/mail/u/0/?fs=1&to=${encodeURIComponent(email)}&tf=cm`;
 const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(indiaAddress)}&output=embed`;
 
 const enquiryTypes = [
@@ -310,8 +312,8 @@ const Contact = () => {
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaEnvelope aria-hidden="true" /></span>
                   <span>
                     <strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong>
-                    <a href={`mailto:${infoEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
-                    <a href={`mailto:${enquiryEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                    <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                    <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
                     <span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span>
                   </span>
                 </div>

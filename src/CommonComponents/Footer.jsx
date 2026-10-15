@@ -108,7 +108,7 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
                   <FaEnvelope className="text-[var(--gold-primary)] text-sm" />
                 </div>
-                <a href="mailto:info@feathervfx.com" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
+                <a href="https://mail.google.com/mail/u/0/?fs=1&to=info%40feathervfx.com&tf=cm" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
                   info@feathervfx.com
                 </a>
               </div>
@@ -116,7 +116,7 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-full bg-[var(--bg-primary)] flex items-center justify-center mr-4 shrink-0">
                   <FaEnvelope className="text-[var(--gold-primary)] text-sm" />
                 </div>
-                <a href="mailto:enquiry@feathervfx.com" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
+                <a href="https://mail.google.com/mail/u/0/?fs=1&to=enquiry%40feathervfx.com&tf=cm" target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] text-[15px] hover:text-[var(--gold-bright)] transition-colors">
                   enquiry@feathervfx.com
                 </a>
               </div>
