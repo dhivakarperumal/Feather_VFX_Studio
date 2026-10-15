@@ -125,20 +125,24 @@ const ComparisonRow = ({ service }) => {
         />
       </div>
 
-      <div className="flex min-h-[190px] flex-col justify-center bg-[#080d0f] px-6 py-6 sm:px-8 md:min-h-[220px]">
-        <Icon className="mb-3 h-7 w-7 text-[#efb64e]" strokeWidth={1.35} aria-hidden="true" />
-        <h3 className="font-serif text-2xl font-bold uppercase leading-tight tracking-wide text-white sm:text-3xl">
-          {service.title}
-        </h3>
-        <span className="mt-2 mb-4 block h-[2px] w-10 bg-[#efb64e]" aria-hidden="true" />
-        <ul className="flex flex-col gap-2">
-          {points.map((point) => (
-            <li key={point} className="flex items-start gap-2.5 text-xs leading-snug text-white/80 sm:text-sm">
-              <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#efb64e]" aria-hidden="true" />
-              {point}
-            </li>
-          ))}
-        </ul>
+      <div className="flex min-h-[190px] items-start gap-5 bg-[#080d0f] px-6 py-6 sm:px-8 md:min-h-[220px]">
+        <div className="mt-1 shrink-0">
+          <Icon className="h-9 w-9 text-[#efb64e]" strokeWidth={1.35} aria-hidden="true" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-serif text-2xl font-bold uppercase leading-tight tracking-wide text-white sm:text-3xl">
+            {service.title}
+          </h3>
+          <span className="mt-2 mb-4 block h-[2px] w-10 bg-[#efb64e]" aria-hidden="true" />
+          <ul className="flex flex-col gap-2.5">
+            {points.map((point) => (
+              <li key={point} className="flex items-start gap-2.5 text-sm leading-snug text-white/80 sm:text-base">
+                <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#efb64e]" aria-hidden="true" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </article>
   );
