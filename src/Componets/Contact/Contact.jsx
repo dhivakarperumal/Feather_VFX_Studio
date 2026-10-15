@@ -21,8 +21,8 @@ import { sendEmailJsForm } from '../../utils/emailJs';
 import PageHeader from '../../CommonComponents/PageHeader';
 
 const indiaAddress =
-  '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
-const ukAddress = '35, Balfour Road, Ilford, Essex IG1 4HP, GB.';
+  '18/09, Valasaravakkam, Chennai – 600087, Tamil Nadu, India.';
+const ukAddress = '35 Balfour Road, Ilford, Essex, IG1 4HP, United Kingdom.';
 const ukPhoneNumber = '+44 74 5946 7325';
 const phoneNumber = ukPhoneNumber;
 const infoEmail = 'info@feathervfx.com';
@@ -132,17 +132,15 @@ const Contact = () => {
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
-        eyebrow="Contact us"
+        eyebrow="Contact Us"
         title={
           <>
-            Let&apos;s create
+            Let&apos;s Bring Your
             <br />
-            something
-            <br />
-            <span className="text-[var(--gold-primary)]">extraordinary</span>
+            <span className="text-[var(--gold-primary)]">Vision to Life</span>
           </>
         }
-        description="Have a project in mind? We'd love to hear from you. Get in touch and let's bring your vision to life."
+        description="Have a project in mind or need professional VFX outsourcing support? We'd love to hear from you. Get in touch with our team to discuss your requirements, request a demonstration, or explore how our visual effects services can support your next production."
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
         showBreadcrumb={false}
@@ -177,11 +175,11 @@ const Contact = () => {
             <form className="mt-5 space-y-3" onSubmit={handleSubmit}>
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-medium" htmlFor="contact-name">Your name <span aria-hidden="true">*</span></label>
+                  <label className="block text-xs font-medium" htmlFor="contact-name">Your name <span className="text-red-500" aria-hidden="true">*</span></label>
                   <input id="contact-name" name="name" autoComplete="name" required className="contact-field" />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-medium" htmlFor="contact-email">Your email <span aria-hidden="true">*</span></label>
+                  <label className="block text-xs font-medium" htmlFor="contact-email">Your email <span className="text-red-500" aria-hidden="true">*</span></label>
                   <input id="contact-email" name="email" type="email" autoComplete="email" required className="contact-field" />
                 </div>
                 <div className="space-y-1.5">
@@ -213,7 +211,7 @@ const Contact = () => {
                 </select>
               </div>
               <div className="space-y-1.5">
-                <label className="block text-xs font-medium" htmlFor="contact-subject">Subject <span aria-hidden="true">*</span></label>
+                <label className="block text-xs font-medium" htmlFor="contact-subject">Subject <span className="text-red-500" aria-hidden="true">*</span></label>
                 <input
                   id="contact-subject"
                   name="subject"
@@ -223,7 +221,7 @@ const Contact = () => {
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="block text-xs font-medium" htmlFor="contact-message">Tell us about your project <span aria-hidden="true">*</span></label>
+                <label className="block text-xs font-medium" htmlFor="contact-message">Tell us about your project <span className="text-red-500" aria-hidden="true">*</span></label>
                 <textarea
                   id="contact-message"
                   name="message"
@@ -274,7 +272,7 @@ const Contact = () => {
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Our studio</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Get in touch</h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
-              Visit our studio, call us or drop us an email. We&apos;re always open to new ideas, collaborations and exciting projects.
+              Tell us about your project, timeline, and requirements. Our team will be happy to discuss the right VFX solution for your production.
             </p>
 
             <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_0.95fr]">
@@ -287,23 +285,29 @@ const Contact = () => {
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaMapMarkerAlt aria-hidden="true" /></span>
                   <span>
-                    <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">India</strong>
+                    <span className="mt-0.5 block text-xs text-[var(--text-secondary)]">Production Facility</span>
                     <span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
                   </span>
                 </a>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
-                >
+                <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaMapMarkerAlt aria-hidden="true" /></span>
                   <span>
-                    <strong className="block font-semibold text-[var(--gold-primary)]">UK · Representation</strong>
-                    <span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
-                    <span className="mt-1 block text-[var(--text-secondary)]">{ukPhoneNumber}</span>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom</strong>
+                    <span className="mt-0.5 block text-xs text-[var(--text-secondary)]">Representation</span>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block leading-relaxed text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]"
+                    >
+                      {ukAddress}
+                    </a>
+                    <a href="tel:+447459467325" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">
+                      {ukPhoneNumber}
+                    </a>
                   </span>
-                </a>
+                </div>
                 <a href="tel:+447459467325" className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaPhoneAlt aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Call us</strong><span className="mt-1 block text-[var(--text-secondary)]">{phoneNumber}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">Mon - Sat · 10:00 AM - 7:00 PM</span></span>
@@ -311,7 +315,7 @@ const Contact = () => {
                 <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaEnvelope aria-hidden="true" /></span>
                   <span>
-                    <strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">Email Us</strong>
                     <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
                     <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
                     <span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span>
