@@ -13,7 +13,7 @@ const promises = [
     number: '02',
     title: 'We are satisfactory',
     description:
-      "That's what drives us day by day. Because at Feather VFX we understand that creating the best image goes much further than delivering our best work to the best VFX studios in the world.",
+      "We believe successful partnerships are built on understanding client requirements, maintaining consistent quality, and responding effectively to feedback.",
     image: '/images/heroimages/2.png',
     Icon: ShieldCheck,
   },
@@ -21,7 +21,7 @@ const promises = [
     number: '03',
     title: 'We are experienced',
     description:
-      'Feather Staff is a team of over 50 creative minds and acts as a partner to US, Canada, UK, Asia Pacific and European production companies.',
+      'Our team combines technical skills, artistic expertise, and a collaborative approach to support projects of varying sizes and complexity.',
     image: '/images/heroimages/3.png',
     Icon: UsersRound,
   },
@@ -73,7 +73,7 @@ const PromiseSection = () => (
                 <h3 className="font-serif text-[clamp(1.4rem,2vw,2.2rem)] font-bold uppercase leading-[0.95] tracking-[0.02em] text-[var(--text-primary)]">
                   {title}
                 </h3>
-                <p className="mt-2 max-w-[44rem] text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[0.9rem] lg:text-[1rem]">
+                <p className="mt-2 max-w-[44rem] text-justify text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[0.9rem] lg:text-[1rem]">
                   {description}
                 </p>
               </div>
