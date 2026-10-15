@@ -155,7 +155,7 @@ const Services = () => (
       title={<>Our <span className="text-[var(--gold-primary)]">Services</span></>}
       description="We create innovative, complex visual effects for high-end television and feature films."
       background="/images/home.png"
-      align="center"
+      align="left"
       className="min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]"
     >
       <Link
@@ -204,7 +204,7 @@ const Services = () => (
                   <span className="mt-0.5 block h-px w-10 bg-[#bd8735]" aria-hidden="true" />
                 </div>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
+              <p className="text-xs text-justify leading-relaxed text-white/70 sm:text-sm">
                 Whether you&apos;re a large VFX studio or a boutique production company, we help you take on ambitious projects with confidence. Our experienced team handles complex VFX tasks, allowing you to focus on creativity, storytelling, and production. Think of us as an extension of your team, providing reliable support whenever you need it.
               </p>
             </article>
@@ -220,7 +220,7 @@ const Services = () => (
                   <span className="mt-0.5 block h-px w-10 bg-[#bd8735]" aria-hidden="true" />
                 </div>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
+              <p className="text-xs text-justify leading-relaxed text-white/70 sm:text-sm">
                 Our flexible workflows and customized pipelines make projects of every size easy to manage. We work efficiently to deliver high-quality results within tight deadlines, often with overnight turnaround when required. No project is too small, and quality is never compromised.
               </p>
             </article>
