@@ -76,8 +76,8 @@ const ComparisonRow = ({ service }) => {
   const secondImage = reverseComparison ? service.image : outputImage;
 
   return (
-    <article className="group grid overflow-hidden rounded-sm border border-[#b8852f]/55 bg-[#080d0f] transition-colors duration-300 hover:border-[#efb64e] md:grid-cols-2">
-      <div className="service-comparison relative aspect-[16/9] min-h-[190px] overflow-hidden md:aspect-auto md:min-h-[220px]">
+    <article className="group grid h-[460px] overflow-hidden rounded-sm border border-[#b8852f]/55 bg-[#080d0f] transition-colors duration-300 hover:border-[#efb64e] md:h-[300px] md:grid-cols-2">
+      <div className="service-comparison relative h-full overflow-hidden">
         <img
           src={firstImage}
           alt={`${service.title} before`}
@@ -125,7 +125,7 @@ const ComparisonRow = ({ service }) => {
         />
       </div>
 
-      <div className="flex min-h-[190px] items-start gap-5 bg-[#080d0f] px-6 py-6 sm:px-8 md:min-h-[220px]">
+      <div className="flex h-full items-start gap-5 bg-[#080d0f] px-6 py-6 sm:px-8">
         <div className="mt-1 shrink-0">
           <Icon className="h-9 w-9 text-[#efb64e]" strokeWidth={1.35} aria-hidden="true" />
         </div>
@@ -188,7 +188,7 @@ const Services = () => (
           <div className="mb-4 flex items-center gap-4">
             <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#9b6c2d]" aria-hidden="true" />
             <h2 id="production-size-title" className="font-serif text-xl font-bold uppercase sm:text-2xl">
-              Jobs of all <span className="text-[#efb64e]">sizes</span>
+              Projects of All <span className="text-[#efb64e]">Sizes</span>
             </h2>
             <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#9b6c2d]" aria-hidden="true" />
           </div>
@@ -276,12 +276,12 @@ const Services = () => (
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050809] via-[#050809]/90 to-[#050809]/65" aria-hidden="true" />
           <div className="flex flex-col gap-5 px-5 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-8">
             <div className="max-w-2xl">
-              <p className="text-[9px] font-bold uppercase tracking-[0.34em] text-[#edb444]">Let&apos;s create</p>
+              <p className="text-[9px] font-bold uppercase tracking-[0.34em] text-[#edb444]">Let&apos;s </p>
               <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">
-                Extraordinary <span className="text-[#efb64e]">together</span>
+                Work <span className="text-[#efb64e]">Together</span>
               </h2>
               <p className="mt-2 text-xs leading-relaxed text-white/70 sm:text-sm">
-                Partner with Feather VFX Studio for world-class visual effects and creative production support.
+                Have a project in mind? Get in touch with our team to discuss your requirements and discover how our VFX expertise can support your production.
               </p>
             </div>
             <Link
