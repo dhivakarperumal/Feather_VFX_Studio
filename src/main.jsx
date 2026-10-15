@@ -59,7 +59,7 @@ function AppRoot() {
           <Route path="blog" element={<Blog />} />
           <Route path="sitemap" element={<Sitemap />} />
           <Route path="sitemap.xml" element={<Navigate to="/sitemap" replace />} />
-          <Route path="reels" element={<Reels />} />
+          <Route path="showreel" element={<Reels />} />
           <Route path="work" element={<Reels />} />
         </Route>
       </Routes>

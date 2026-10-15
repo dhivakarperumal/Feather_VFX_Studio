@@ -19,7 +19,7 @@ const sitemapGroups = [
       { label: 'About Us', to: '/about' },
       { label: 'Projects', to: '/projects' },
       { label: 'Services', to: '/services' },
-      { label: 'Showreel', to: '/reels#featured-reel' },
+      { label: 'Showreel', to: '/showreel' },
       { label: 'Careers', to: '/careers' },
       { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },

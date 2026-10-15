@@ -127,7 +127,7 @@ const About = () => (
               <span className="block pl-8">Reality</span>
             </p>
             <a
-              href="/reels#featured-reel"
+              href="/showreel"
               className="mt-7 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-[var(--gold-bright)] sm:mt-9"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 transition-colors hover:border-[var(--gold-bright)]">

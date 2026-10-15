@@ -108,7 +108,7 @@ const FeaturedProjectsSection = () => {
         className="min-h-[420px]"
       >
         <Link
-          to="/reels#featured-reel"
+          to="/showreel"
           className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
         >
           Explore Projects
@@ -117,7 +117,7 @@ const FeaturedProjectsSection = () => {
           </span>
         </Link>
         <Link
-          to="/reels#featured-reel"
+          to="/showreel"
           className="mt-5 flex w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0"
         >
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/80 bg-black/30 transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">

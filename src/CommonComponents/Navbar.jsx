@@ -77,7 +77,7 @@ const Navbar = () => {
               : link.id === 'projects'
                 ? '/reels'
               : link.id === 'showreel'
-                ? '/reels#featured-reel'
+                ? '/showreel'
                 : `/#${link.id}`
         }
         onClick={() => {

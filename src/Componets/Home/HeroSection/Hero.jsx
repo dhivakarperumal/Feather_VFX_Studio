@@ -87,7 +87,7 @@ const Hero = () => {
                   Explore our work <FaArrowRight aria-hidden="true" />
                 </a>
                 <a
-                  href="/reels#featured-reel"
+                  href="/showreel"
                   className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
