@@ -125,34 +125,20 @@ const ComparisonRow = ({ service }) => {
         />
       </div>
 
-      <div className="relative isolate flex min-h-[190px] items-center overflow-hidden px-5 py-6 sm:px-7 md:min-h-[220px]">
-        <img
-          src={outputImage}
-          alt=""
-          loading="lazy"
-          className="absolute inset-y-0 right-0 -z-20 h-full w-[58%] object-cover opacity-[0.13] transition-opacity duration-300 group-hover:opacity-[0.2]"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#080d0f] via-[#080d0f]/90 to-[#080d0f]/50" aria-hidden="true" />
-        <div className="w-full">
-          <div className="flex items-center gap-4">
-            <Icon className="h-8 w-8 shrink-0 text-[#efb64e]" strokeWidth={1.35} aria-hidden="true" />
-            <h3 className="font-serif text-xl font-bold uppercase leading-tight text-white sm:text-2xl">
-              {service.title}
-            </h3>
-            <span className="hidden h-px w-12 bg-[#bd8735] sm:block" aria-hidden="true" />
-          </div>
-          <p className="mt-3 max-w-lg text-xs leading-relaxed text-white/65 sm:text-sm">
-            {service.description}
-          </p>
-          <ul className="mt-4 grid gap-x-4 gap-y-2 sm:grid-cols-2">
-            {points.map((point) => (
-              <li key={point} className="flex items-start gap-2 text-xs leading-snug text-white/80">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#efb64e]" aria-hidden="true" />
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="flex min-h-[190px] flex-col justify-center bg-[#080d0f] px-6 py-6 sm:px-8 md:min-h-[220px]">
+        <Icon className="mb-3 h-7 w-7 text-[#efb64e]" strokeWidth={1.35} aria-hidden="true" />
+        <h3 className="font-serif text-2xl font-bold uppercase leading-tight tracking-wide text-white sm:text-3xl">
+          {service.title}
+        </h3>
+        <span className="mt-2 mb-4 block h-[2px] w-10 bg-[#efb64e]" aria-hidden="true" />
+        <ul className="flex flex-col gap-2">
+          {points.map((point) => (
+            <li key={point} className="flex items-start gap-2.5 text-xs leading-snug text-white/80 sm:text-sm">
+              <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#efb64e]" aria-hidden="true" />
+              {point}
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   );
