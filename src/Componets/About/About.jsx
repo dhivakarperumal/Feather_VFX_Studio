@@ -68,6 +68,8 @@ const physicalSecurityFeatures = [
   { label: 'No mobile devices in production areas', Icon: Check },
 ];
 
+const securityPartners = ['MPAA', 'Paramount', 'FOX', 'HBO', 'NBCUniversal', 'NETFLIX'];
+
 const About = () => (
   <>
     <PageHeader
@@ -280,7 +282,8 @@ const About = () => (
       </div>
 
       <div className="border-y border-[var(--gold-primary)]/25 bg-[linear-gradient(90deg,rgba(9,15,17,0.97),rgba(5,10,11,0.9))]">
-        <div className="mx-auto grid max-w-[1500px] items-center gap-8 px-[6%] py-9 sm:px-[5%] sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 lg:px-[3%]">
+        <div className="mx-auto max-w-[1500px] px-[6%] py-8 sm:px-[5%] sm:py-10 lg:px-[3%]">
+          <div className="grid items-center gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
           <div className="group relative min-h-[250px] overflow-hidden border border-[var(--gold-primary)]/45 sm:min-h-[320px]" data-aos="fade-right">
             <img
               src="/images/physicalsecurity.png"
@@ -296,24 +299,49 @@ const About = () => (
               Physical security
               <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
             </p>
-            <h3 className="mt-3 font-serif text-3xl font-bold uppercase leading-tight text-white sm:text-4xl">
-              Security at every entry point.
-            </h3>
-            <p className="mt-4 text-sm leading-[1.8] text-white/70">
-              Controlled access, CCTV monitoring and on-site security help protect our production areas. Personal mobile devices are not permitted in restricted production spaces.
+            <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-white/75">
+              Door access controls and CCTV are monitored around the clock, with on-site security for studio entrances, production areas and data centers. Mobile phones and electronic storage devices are prohibited in the production network.
             </p>
 
-            <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <ul className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
               {physicalSecurityFeatures.map(({ label, Icon }, index) => (
                 <li
                   key={label}
                   data-aos="zoom-in"
                   data-aos-delay={index * 70}
-                  className="flex min-h-[104px] flex-col items-center justify-center gap-2 border border-[var(--gold-primary)]/40 bg-black/35 px-2 py-3 text-center"
+                  className="flex min-h-[94px] flex-col items-center justify-center gap-2 border border-[var(--gold-primary)]/40 bg-black/35 px-2 py-2.5 text-center"
                 >
                   <Icon className="h-6 w-6 text-[var(--gold-bright)]" aria-hidden="true" />
                   <span className="text-[9px] font-semibold leading-[1.4] text-white/85 sm:text-[10px]">
                     {label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          </div>
+
+          <div className="mt-8 grid items-center gap-6 border-t border-[var(--gold-primary)]/20 pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
+            <div data-aos="fade-right">
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
+                Security features
+                <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+              </p>
+              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-white/75">
+                We take the security and confidentiality of every project seriously. Our content-security practices follow Motion Picture Association (MPA) guidance, supporting the safe handling of production content for our clients.
+              </p>
+            </div>
+
+            <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3" aria-label="Organizations referenced in our content-security practices">
+              {securityPartners.map((partner, index) => (
+                <li
+                  key={partner}
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 60}
+                  className="flex min-h-[72px] items-center justify-center border border-[var(--gold-primary)]/35 bg-black/45 px-3 py-3 text-center font-bold tracking-[0.08em] text-white/90 shadow-[inset_0_0_18px_rgba(214,160,74,0.04)]"
+                >
+                  <span className={partner === 'NETFLIX' ? 'text-red-500' : 'text-sm sm:text-base'}>
+                    {partner}
                   </span>
                 </li>
               ))}
