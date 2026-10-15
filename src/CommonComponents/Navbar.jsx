@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   const renderLink = (link, mobile = false) => {
-    const isReelsPath = ['/reels', '/work', '/projects'].includes(pathname);
+    const isReelsPath = ['/reels', '/work', '/projects', '/showreel'].includes(pathname);
     const isFeaturedReelActive =
       isReelsPath && ['#featured-reel', '#showreel'].includes(activeHash);
     const isPageActive =
@@ -45,8 +45,8 @@ const Navbar = () => {
       (link.id === 'contact' && pathname === '/contact') ||
         (link.id === 'careers' && pathname === '/careers') ||
         (link.id === 'blog' && pathname === '/blog') ||
-        (link.id === 'projects' && isReelsPath && !isFeaturedReelActive) ||
-        (link.id === 'showreel' && isFeaturedReelActive);
+        (link.id === 'projects' && isReelsPath && !isFeaturedReelActive && pathname !== '/showreel') ||
+        (link.id === 'showreel' && (isFeaturedReelActive || pathname === '/showreel'));
     const isHomeLink = link.id === '';
     const isActive =
       isPageActive ||
