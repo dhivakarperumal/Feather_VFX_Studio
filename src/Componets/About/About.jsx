@@ -1,12 +1,17 @@
 import {
   ArrowUpRight,
   BadgeCheck,
+  Camera,
+  Check,
   Cpu,
   Heart,
   Lightbulb,
+  LockKeyhole,
   Play,
   Rocket,
+  ServerCog,
   Settings2,
+  ShieldCheck,
   Star,
   UsersRound,
 } from 'lucide-react';
@@ -47,6 +52,20 @@ const studioStats = [
   { value: '50+', label: 'Projects completed' },
   { value: '25+', label: 'Happy clients' },
   { value: '10+', label: 'Awards & recognitions' },
+];
+
+const securityCommitments = [
+  { label: 'Professional standards', Icon: BadgeCheck },
+  { label: 'Data & information security', Icon: ShieldCheck },
+  { label: 'Trusted relationships', Icon: UsersRound },
+  { label: 'Continuous improvement', Icon: Settings2 },
+];
+
+const physicalSecurityFeatures = [
+  { label: 'CCTV surveillance', Icon: Camera },
+  { label: '24/7 on-site security', Icon: ShieldCheck },
+  { label: 'Access-controlled entry', Icon: LockKeyhole },
+  { label: 'No mobile devices in production areas', Icon: Check },
 ];
 
 const About = () => (
@@ -153,6 +172,151 @@ const About = () => (
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="security-heading"
+      className="relative isolate overflow-hidden border-y border-[var(--gold-primary)]/30 bg-[#050a0b] text-white"
+    >
+      <div className="relative isolate overflow-hidden border-b border-[var(--gold-primary)]/35">
+        <img
+          src="/images/offerbanner.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-left opacity-25"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,8,9,0.95),rgba(3,8,9,0.83)_58%,rgba(3,8,9,0.94))]"
+          aria-hidden="true"
+        />
+
+        <div className="mx-auto grid max-w-[1500px] gap-9 px-[6%] py-12 sm:px-[5%] sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-[3%] lg:py-20">
+          <div data-aos="fade-right">
+            <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--gold-bright)]">
+              <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+              Trust & quality
+            </p>
+            <h2
+              id="security-heading"
+              className="mt-4 max-w-3xl font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl"
+            >
+              Feather makes you feel more{' '}
+              <span className="text-[var(--gold-bright)]">proud of your business.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-white/75 sm:text-base">
+              We offer smooth VFX services with the right amount of passion and innovation, with no compromise in quality.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:gap-4" aria-label="Our commitments">
+            {securityCommitments.map(({ label, Icon }, index) => (
+              <li
+                key={label}
+                data-aos="fade-up"
+                data-aos-delay={index * 70}
+                className="flex flex-col items-center gap-3 border border-[var(--gold-primary)]/35 bg-black/35 px-2 py-4 text-center sm:px-3 sm:py-5"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(214,160,74,0.18)]">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <span className="text-[9px] font-semibold uppercase leading-relaxed tracking-[0.1em] text-white/85 sm:text-[10px]">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mx-auto grid max-w-[1500px] items-center gap-7 px-[6%] py-9 sm:px-[5%] sm:py-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12 lg:px-[3%]">
+        <div
+          data-aos="fade-right"
+          className="relative overflow-hidden border border-[var(--gold-primary)]/40 bg-[radial-gradient(circle_at_center,rgba(214,160,74,0.12),transparent_58%),#080e10] p-7 sm:p-9"
+        >
+          <span className="absolute -right-6 -top-8 text-[var(--gold-primary)]/10" aria-hidden="true">
+            <ShieldCheck className="h-40 w-40" strokeWidth={1} />
+          </span>
+          <div className="relative">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
+              Our commitment
+            </p>
+            <h3 className="mt-3 font-serif text-2xl font-bold uppercase leading-tight text-white sm:text-3xl">
+              Your content deserves careful protection.
+            </h3>
+            <p className="mt-4 text-sm leading-[1.8] text-white/70">
+              We respect the trust placed in us and take care to protect sensitive production data. Our security practices are regularly reviewed and updated to support changing business needs and standards.
+            </p>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" className="grid items-center gap-6 sm:grid-cols-[0.85fr_1.15fr] sm:gap-8">
+          <div>
+            <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
+              Industry standard
+              <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+            </p>
+            <p className="mt-4 text-sm leading-[1.8] text-white/70">
+              Our content-security practices follow Motion Picture Association (MPA) guidance and are designed to safeguard media throughout production and delivery.
+            </p>
+            <div className="mt-5 flex items-center gap-3 border border-[var(--gold-primary)]/45 bg-black/35 p-3">
+              <ServerCog className="h-8 w-8 shrink-0 text-[var(--gold-bright)]" aria-hidden="true" />
+              <p className="text-xs leading-relaxed text-white/75">
+                A <span className="font-bold text-[var(--gold-bright)]">100 Mbps</span> secondary connection helps support service continuity.
+              </p>
+            </div>
+          </div>
+          <div className="group relative min-h-[220px] overflow-hidden border border-[var(--gold-primary)]/40 sm:min-h-[260px]">
+            <img
+              src="/images/industry.png"
+              alt="Secure server room supporting protected production data"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03090c]/65 via-transparent to-transparent" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
+
+      <div className="border-y border-[var(--gold-primary)]/25 bg-[linear-gradient(90deg,rgba(9,15,17,0.97),rgba(5,10,11,0.9))]">
+        <div className="mx-auto grid max-w-[1500px] items-center gap-8 px-[6%] py-9 sm:px-[5%] sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 lg:px-[3%]">
+          <div className="group relative min-h-[250px] overflow-hidden border border-[var(--gold-primary)]/45 sm:min-h-[320px]" data-aos="fade-right">
+            <img
+              src="/images/physicalsecurity.png"
+              alt="Controlled-entry security system at a studio facility"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-black/20" aria-hidden="true" />
+          </div>
+
+          <div data-aos="fade-left">
+            <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
+              Physical security
+              <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+            </p>
+            <h3 className="mt-3 font-serif text-3xl font-bold uppercase leading-tight text-white sm:text-4xl">
+              Security at every entry point.
+            </h3>
+            <p className="mt-4 text-sm leading-[1.8] text-white/70">
+              Controlled access, CCTV monitoring and on-site security help protect our production areas. Personal mobile devices are not permitted in restricted production spaces.
+            </p>
+
+            <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {physicalSecurityFeatures.map(({ label, Icon }) => (
+                <li
+                  key={label}
+                  className="flex min-h-[104px] flex-col items-center justify-center gap-2 border border-[var(--gold-primary)]/40 bg-black/35 px-2 py-3 text-center"
+                >
+                  <Icon className="h-6 w-6 text-[var(--gold-bright)]" aria-hidden="true" />
+                  <span className="text-[9px] font-semibold leading-[1.4] text-white/85 sm:text-[10px]">
+                    {label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
