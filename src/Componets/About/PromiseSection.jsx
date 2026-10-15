@@ -56,7 +56,7 @@ const PromiseSection = () => (
         <span className="block h-px w-14 bg-[var(--gold-primary)] shadow-[0_0_10px_rgba(214,160,74,0.5)] sm:w-20" aria-hidden="true" />
         <h2
           id="promise-heading"
-          className="font-serif text-[clamp(2.8rem,4vw,5.5rem)] font-bold capitalize leading-[0.9] tracking-[-0.04em] text-white"
+          className="font-serif text-[clamp(1.4rem,2vw,2.75rem)] font-bold capitalize leading-[0.9] tracking-[-0.04em] text-white"
         >
           We Keep <span className="text-[var(--gold-bright)]">our word</span>
         </h2>

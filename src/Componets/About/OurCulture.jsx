@@ -22,7 +22,7 @@ const OurCulture = () => (
             </span>
           </div>
 
-          <h2 className="mt-4 font-serif text-5xl font-bold uppercase leading-[0.96] tracking-[-0.04em] text-white sm:text-6xl lg:text-[5rem] lg:leading-[0.9]">
+          <h2 className="mt-4 font-serif text-2xl font-bold uppercase leading-[0.96] tracking-[-0.04em] text-white sm:text-[1.875rem] lg:text-[2.5rem] lg:leading-[0.9]">
             Our <span className="text-[#d6a65d]">Culture</span>
           </h2>
 

@@ -142,7 +142,7 @@ const About = () => (
           </p>
           <h2
             id="about-heading"
-            className="mt-3 max-w-2xl font-serif text-4xl font-bold uppercase leading-[0.98] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl"
+            className="mt-3 max-w-2xl font-serif text-[1.125rem] font-bold uppercase leading-[0.98] tracking-[-0.025em] text-white sm:text-2xl lg:text-[1.875rem]"
           >
             From imagination
             <span className="block text-[var(--gold-bright)]">to reality</span>

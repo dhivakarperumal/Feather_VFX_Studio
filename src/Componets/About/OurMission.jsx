@@ -38,7 +38,7 @@ const OurMission = () => (
         </div>
       </div>
 
-      <h2 data-aos="fade-up" data-aos-delay="80" data-aos-offset="60" className="mt-4 text-center font-serif text-5xl font-bold uppercase leading-[0.96] tracking-[-0.04em] text-white sm:text-6xl lg:text-[5rem]">
+      <h2 data-aos="fade-up" data-aos-delay="80" data-aos-offset="60" className="mt-4 text-center font-serif text-2xl font-bold uppercase leading-[0.96] tracking-[-0.04em] text-white sm:text-[1.875rem] lg:text-[2.5rem]">
         Our <span className="text-[#d6a65d]">Mission</span>
       </h2>
 

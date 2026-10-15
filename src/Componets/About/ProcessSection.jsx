@@ -95,7 +95,7 @@ const ProcessSection = () => {
           </p>
           <h2
             id="about-process-heading"
-            className="mt-1 font-serif text-4xl font-bold uppercase leading-none text-[var(--gold-bright)] sm:text-5xl lg:text-6xl"
+            className="mt-1 font-serif text-[1.125rem] font-bold uppercase leading-none text-[var(--gold-bright)] sm:text-2xl lg:text-[1.875rem]"
           >
             Process
           </h2>
