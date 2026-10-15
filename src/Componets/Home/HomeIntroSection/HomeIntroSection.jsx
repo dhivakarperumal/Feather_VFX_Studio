@@ -30,13 +30,11 @@ const HomeIntroSection = () => {
               className="mt-2 font-serif text-xl font-bold uppercase leading-[1.02] tracking-[0.02em] text-white drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)] sm:text-2xl lg:text-[2.25rem]"
             >
               Give your vision a{' '}
-              <span className="mt-1 block text-[#f0a858]">new dimension with us!</span>
+              <span className="mt-1 block text-[#f0a858]">new dimension with Feather VFX!</span>
             </h2>
 
-            <p className="mt-3 max-w-[620px] text-[11px] leading-relaxed text-white/80 sm:text-xs">
-              VFX is our delight; we bring pioneering technology and top-notch creativity into play,
-              creating visuals that exceed your expectations. With great attention to detail, we make
-              every effort to bring your ideas to life and help you enjoy the distinct VFX effect.
+            <p className="mt-3 max-w-[620px] text-[11px] text-justify leading-relaxed text-white/80 sm:text-xs">
+              We combine advanced technology, artistic expertise, and attention to detail to deliver high-quality visual effects for film and television. Share your vision with us, and our team will work closely with you to bring it to life.
             </p>
 
             {/* Highlight icons — stagger in one by one */}

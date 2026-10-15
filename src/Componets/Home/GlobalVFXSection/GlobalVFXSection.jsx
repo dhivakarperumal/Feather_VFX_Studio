@@ -52,17 +52,16 @@ const GlobalVFXSection = () => (
             id="global-vfx-title"
             className="mt-3 max-w-[650px] font-serif text-2xl font-bold uppercase leading-[1.06] tracking-[0.01em] text-white sm:text-3xl lg:text-[2.15rem]"
           >
-            Feather VFX - A Leading VFX Outsourcing Provider{' '}
-            <span className="text-[#f0a858]">Globally</span>
+            Feather VFX - Your Global {' '}
+            <span className="text-[#f0a858]">VFX Partner</span>
           </h2>
 
-          <p className="mt-4 max-w-[660px] text-[12px] leading-relaxed text-white/75 sm:text-sm">
-            Feather VFX Studio delivers high-quality visual effects for feature films and television
-            series. With a flexible, cost-effective international service and a team of 60 VFX
-            artists, we partner with production companies in the US, Canada, and the UK to bring
-            ambitious creative visions to life.
+          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-white/75 sm:text-sm">
+            Feather VFX provides high-quality visual effects services for feature films, television series, and other visual media. We offer flexible, cost-effective solutions tailored to the needs of production companies and VFX studios.
           </p>
-
+          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-white/75 sm:text-sm">
+            Our team combines creativity, technical expertise, and professionalism to support projects of varying sizes and complexity. We focus on consistent quality, efficient workflows, and reliable delivery.
+          </p>
           <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-5">
             {achievements.map(({ icon: Icon, value, label, detail }, index) => (
               <li

@@ -66,9 +66,8 @@ const Projects = ({ homePage = false }) => {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className={`relative isolate overflow-hidden bg-[#05090c] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12 ${
-        homePage ? '' : 'min-h-[min(900px,calc(100vh-80px))]'
-      }`}
+      className={`relative isolate overflow-hidden bg-[#05090c] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12 ${homePage ? '' : 'min-h-[min(900px,calc(100vh-80px))]'
+        }`}
     >
       <img
         src="/images/project.png"
@@ -95,7 +94,7 @@ const Projects = ({ homePage = false }) => {
             </h1>
           )}
           <p className="mt-3 text-xs text-white/75 sm:text-sm">
-            Bringing imagination to life through stunning visuals and world-class VFX.
+            Explore a selection of our previous work and discover how our visual effects expertise can support your next production. From detailed shot work to complex visual sequences, we are committed to delivering results that meet your creative requirements.
           </p>
 
           <nav
@@ -112,11 +111,10 @@ const Projects = ({ homePage = false }) => {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => changeFilter(filter)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-[11px] font-medium transition-all duration-300 sm:px-4 ${
-                    isActive
+                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-[11px] font-medium transition-all duration-300 sm:px-4 ${isActive
                       ? 'border-[#f3b44e] bg-[#f3b44e] text-[#17120b] shadow-[0_0_24px_rgba(243,180,78,0.3)]'
                       : 'border-white/25 bg-black/35 text-white/85 hover:border-[#f3b44e]/80 hover:bg-white/10 hover:text-white'
-                  }`}
+                    }`}
                 >
                   <Icon size={14} strokeWidth={2.2} aria-hidden="true" />
                   {filter}
@@ -147,13 +145,12 @@ const Projects = ({ homePage = false }) => {
                 onClick={() => selectProject(index)}
                 aria-label={`${isActive ? 'Current project' : 'Show project'}: ${project.title}`}
                 aria-current={isActive ? 'true' : undefined}
-                className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${
-                  isActive
+                className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f3b44e] sm:rounded-2xl ${isActive
                     ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[#f3b44e] shadow-[0_0_0_1px_rgba(243,180,78,0.35),0_0_38px_rgba(243,180,78,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
                     : distance === 1
                       ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[#f3b44e]/90 opacity-95 shadow-[0_0_18px_rgba(243,180,78,0.16),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
                       : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[#f3b44e]/75 opacity-90 shadow-[0_0_14px_rgba(243,180,78,0.12),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
-                }`}
+                  }`}
                 style={{
                   left: `calc(50% + ${position}%)`,
                   transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${isActive ? 1 : distance === 1 ? 0.9 : 0.78})`,
@@ -163,9 +160,8 @@ const Projects = ({ homePage = false }) => {
                   key={isActive ? `${project.image}-${activeIndex}` : project.image}
                   src={project.image}
                   alt={isActive ? `${project.title} project artwork` : ''}
-                  className={`h-full w-full object-contain motion-reduce:animate-none ${
-                    isActive ? 'animate-project-image-reveal' : ''
-                  }`}
+                  className={`h-full w-full object-contain motion-reduce:animate-none ${isActive ? 'animate-project-image-reveal' : ''
+                    }`}
                   draggable="false"
                 />
               </button>
@@ -202,9 +198,8 @@ const Projects = ({ homePage = false }) => {
                 onClick={() => selectProject(index)}
                 aria-label={`Show project ${index + 1}: ${projects[index].title}`}
                 aria-current={isActive ? 'true' : undefined}
-                className={`h-1 rounded-full transition-all duration-300 ${
-                  isActive ? 'w-7 bg-[#f3b44e]' : 'w-5 bg-white/35 hover:bg-white/70'
-                }`}
+                className={`h-1 rounded-full transition-all duration-300 ${isActive ? 'w-7 bg-[#f3b44e]' : 'w-5 bg-white/35 hover:bg-white/70'
+                  }`}
               />
             );
           })}
