@@ -304,9 +304,11 @@ const About = () => (
             </p>
 
             <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {physicalSecurityFeatures.map(({ label, Icon }) => (
+              {physicalSecurityFeatures.map(({ label, Icon }, index) => (
                 <li
                   key={label}
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 70}
                   className="flex min-h-[104px] flex-col items-center justify-center gap-2 border border-[var(--gold-primary)]/40 bg-black/35 px-2 py-3 text-center"
                 >
                   <Icon className="h-6 w-6 text-[var(--gold-bright)]" aria-hidden="true" />
