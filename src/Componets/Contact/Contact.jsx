@@ -174,50 +174,62 @@ const Contact = () => {
 
             <form className="mt-5 space-y-3" onSubmit={handleSubmit}>
               <div className="grid gap-3 sm:grid-cols-2">
-                <label className="sr-only" htmlFor="contact-name">Your name</label>
-                <input id="contact-name" name="name" autoComplete="name" required placeholder="Your Name *" className="contact-field" />
-                <label className="sr-only" htmlFor="contact-email">Your email</label>
-                <input id="contact-email" name="email" type="email" autoComplete="email" required placeholder="Your Email *" className="contact-field" />
-                <label className="sr-only" htmlFor="contact-phone">Phone number</label>
-                <input id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone Number" className="contact-field" />
-                <label className="sr-only" htmlFor="contact-company">Company or studio</label>
-                <input id="contact-company" name="company" autoComplete="organization" placeholder="Company / Studio" className="contact-field" />
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-name">Your name <span aria-hidden="true">*</span></label>
+                  <input id="contact-name" name="name" autoComplete="name" required className="contact-field" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-email">Your email <span aria-hidden="true">*</span></label>
+                  <input id="contact-email" name="email" type="email" autoComplete="email" required className="contact-field" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-phone">Phone number</label>
+                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className="contact-field" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-company">Company / studio</label>
+                  <input id="contact-company" name="company" autoComplete="organization" className="contact-field" />
+                </div>
               </div>
-              <label className="sr-only" htmlFor="contact-project-type">Project type</label>
-              <select
-                id="contact-project-type"
-                name="project_type"
-                value={projectType}
-                onChange={(event) => setProjectType(event.target.value)}
-                className="contact-field"
-              >
-                <option value="">Project Type</option>
-                <option>Film &amp; Series</option>
-                <option>Commercial</option>
-                <option>Partnership</option>
-                <option>General enquiry</option>
-                <option>VFX &amp; CGI</option>
-                <option>Compositing</option>
-                <option>Rotoscope / Paint-Prep</option>
-              </select>
-              <label className="sr-only" htmlFor="contact-subject">Subject</label>
-              <input
-                id="contact-subject"
-                name="subject"
-                required
-                maxLength={150}
-                placeholder="Subject *"
-                className="contact-field"
-              />
-              <label className="sr-only" htmlFor="contact-message">Tell us about your project</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                required
-                rows="4"
-                placeholder="Tell us about your project *"
-                className="contact-field resize-y"
-              />
+              <div className="space-y-1.5">
+                <label className="block text-xs font-medium" htmlFor="contact-project-type">Project type</label>
+                <select
+                  id="contact-project-type"
+                  name="project_type"
+                  value={projectType}
+                  onChange={(event) => setProjectType(event.target.value)}
+                  className="contact-field"
+                >
+                  <option value="">Select project type</option>
+                  <option>Film &amp; Series</option>
+                  <option>Commercial</option>
+                  <option>Partnership</option>
+                  <option>General enquiry</option>
+                  <option>VFX &amp; CGI</option>
+                  <option>Compositing</option>
+                  <option>Rotoscope / Paint-Prep</option>
+                </select>
+              </div>
+              <div className="space-y-1.5">
+                <label className="block text-xs font-medium" htmlFor="contact-subject">Subject <span aria-hidden="true">*</span></label>
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  required
+                  maxLength={150}
+                  className="contact-field"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="block text-xs font-medium" htmlFor="contact-message">Tell us about your project <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows="4"
+                  className="contact-field resize-y"
+                />
+              </div>
 
               <label className="flex min-h-[66px] cursor-pointer items-center justify-center gap-3 border border-dashed border-[var(--border-color)] px-4 py-3 text-center transition-colors hover:border-[var(--gold-primary)]">
                 <FaUpload className="shrink-0 text-lg text-[var(--gold-primary)]" aria-hidden="true" />
