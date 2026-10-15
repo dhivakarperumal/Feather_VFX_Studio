@@ -71,7 +71,7 @@ const FloatingSupport = () => {
         {showUserUIWidgets && (
           <a
             className="support-item email"
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=info%40feathervfx.com"
+            href="https://mail.google.com/mail/u/0/?fs=1&to=info%40feathervfx.com&tf=cm"
             target="_blank"
             rel="noopener noreferrer"
             title="Contact us: info@feathervfx.com"
