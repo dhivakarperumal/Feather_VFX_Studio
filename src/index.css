@@ -1130,7 +1130,9 @@ body {
   align-items: center;
   margin-top: 0.8rem;
   color: var(--text-secondary);
-  font-size: 0.68rem;$4  letter-spacing: 0.08em;$6  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .showreel-page__breadcrumb a {
@@ -1207,7 +1209,7 @@ body {
 .showreel-card {
   min-width: 0;
   border: 1px solid var(--border-color);
-  border-radius: 0.65rem;$4  background: var(--bg-primary);
+  border-radius: 0.65rem;  background: var(--bg-primary);
   padding: clamp(0.85rem, 2vw, 1.25rem);
   box-shadow: 0 10px 32px rgba(25, 34, 40, 0.055);
   transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
@@ -1233,7 +1235,7 @@ body {
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid var(--border-color);
-  border-radius: 50%;$4  background: var(--bg-secondary);$6  color: var(--gold-primary);
+  border-radius: 50%;  background: var(--bg-secondary);  color: var(--gold-primary);
   font-size: 0.72rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -1300,7 +1302,7 @@ body {
 .showreel-card__player {
   overflow: hidden;
   border: 1px solid var(--border-color);
-  border-radius: 0.4rem;$4  background: var(--bg-secondary);
+  border-radius: 0.4rem; background: var(--bg-secondary);
 }
 
 .showreel-card__player video {
@@ -1663,7 +1665,7 @@ body {
   height: 36px;
   place-items: center;
   border: 1px solid var(--border-color);
-  background: var(--bg-secondary);$4  color: var(--gold-primary);
+  background: var(--bg-secondary);  color: var(--gold-primary);
   transform: translate(-50%, -50%);
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
