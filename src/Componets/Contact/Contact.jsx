@@ -241,7 +241,7 @@ const Contact = () => {
                   name="message"
                   required
                   rows="4"
-                  placeholder="Project Details"
+                  placeholder="Tell us about your project *"
                   className="contact-field resize-y"
                 />
               </div>
