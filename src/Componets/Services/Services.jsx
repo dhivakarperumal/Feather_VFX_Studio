@@ -18,23 +18,41 @@ import { services } from '../../data/services';
 const serviceDetails = {
   Rotoscoping: {
     icon: ScanLine,
-    points: ['VFX roto', 'Green / blue screen', 'Clean plate creation', 'Multi-shade mattes'],
+    points: ['VFX Roto', 'Stereo Roto', 'Green/Blue Screen Keying', 'Matte Extraction'],
   },
   'Paint & Prep': {
     icon: WandSparkles,
-    points: ['Wire & rig removals', 'Camera set-up removals', 'Object removals', 'Dust & scratch removal'],
+    points: [
+      'Wire Removal',
+      'Rig Removal',
+      'Camera and Reflection Removal',
+      'Object Removal',
+      'Clean Plate Creation',
+      'Dust and Scratch Removal',
+    ],
   },
   'Cosmetic VFX': {
     icon: Sparkles,
-    points: ['Skin & facial clean-up', 'Wrinkle & crew clean-up', 'Skin imperfection removal', 'Digital makeup'],
+    points: [
+      'Tattoo Cleanup',
+      "Wrinkle and Crow's Feet Cleanup",
+      'Beard and Hair Removal',
+      'Acne Scar and Age Spot Removal',
+      'Digital Beauty Makeup',
+    ],
   },
   Matchmove: {
     icon: Camera,
-    points: ['Camera tracking', 'Object / surface tracking', '2D tracking', '3D tracking'],
+    points: ['Camera Tracking', 'Object and Layout Tracking', '2D Tracking'],
   },
   Compositing: {
     icon: Layers3,
-    points: ['Channel optimisation', 'Multi-layer composites', 'Match, color & grain', '2D / 3D compositing'],
+    points: [
+      'Crowd Duplication',
+      'Monitor Screen Compositing',
+      'Mobile Screen Compositing',
+      'Set Extensions',
+    ],
   },
 };
 
@@ -185,27 +203,36 @@ const Services = () => (
             <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#9b6c2d]" aria-hidden="true" />
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            <article className="group relative isolate flex min-h-[205px] items-end overflow-hidden rounded-sm border border-[#b8852f]/55 p-5 transition-colors hover:border-[#efb64e] sm:p-7">
-              <img src="/images/home1.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[68%_center] transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050809]/95 via-[#050809]/75 to-[#050809]/25" aria-hidden="true" />
-              <div className="max-w-lg">
-                <Clapperboard className="mb-3 h-7 w-7 text-[#efb64e]" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Large Projects</h3>
-                <p className="mt-2 text-justify max-w-md text-xs leading-relaxed text-white/75 sm:text-sm">
-                  Whether you're a large VFX studio or a boutique production company, we help you take on ambitious projects with confidence. Our experienced team handles complex VFX tasks, allowing you to focus on creativity, storytelling, and production. Think of us as an extension of your team, providing reliable support whenever you need it.
-                </p>
+            {/* Large Projects Card */}
+            <article className="group flex flex-col rounded-sm border border-[#b8852f]/55 bg-[#080d0f] p-6 transition-colors duration-300 hover:border-[#efb64e] sm:p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-[#b8852f]/40 bg-[#efb64e]/10">
+                  <Clapperboard className="h-5 w-5 text-[#efb64e]" strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Large Projects</h3>
+                  <span className="mt-0.5 block h-px w-10 bg-[#bd8735]" aria-hidden="true" />
+                </div>
               </div>
+              <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
+                Whether you&apos;re a large VFX studio or a boutique production company, we help you take on ambitious projects with confidence. Our experienced team handles complex VFX tasks, allowing you to focus on creativity, storytelling, and production. Think of us as an extension of your team, providing reliable support whenever you need it.
+              </p>
             </article>
-            <article className="group relative isolate flex min-h-[205px] items-end overflow-hidden rounded-sm border border-[#b8852f]/55 p-5 transition-colors hover:border-[#efb64e] sm:p-7">
-              <img src="/images/home.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center] transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050809]/95 via-[#050809]/75 to-[#050809]/25" aria-hidden="true" />
-              <div className="max-w-lg">
-                <UsersRound className="mb-3 h-7 w-7 text-[#efb64e]" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Small Projects</h3>
-                <p className="mt-2 text-justify max-w-md text-xs leading-relaxed text-white/75 sm:text-sm">
-                  Our flexible workflows and customized pipelines make projects of every size easy to manage. We work efficiently to deliver high-quality results within tight deadlines, often with overnight turnaround when required. No project is too small, and quality is never compromised.
-                </p>
+
+            {/* Small Projects Card */}
+            <article className="group flex flex-col rounded-sm border border-[#b8852f]/55 bg-[#080d0f] p-6 transition-colors duration-300 hover:border-[#efb64e] sm:p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-[#b8852f]/40 bg-[#efb64e]/10">
+                  <UsersRound className="h-5 w-5 text-[#efb64e]" strokeWidth={1.5} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Small Projects</h3>
+                  <span className="mt-0.5 block h-px w-10 bg-[#bd8735]" aria-hidden="true" />
+                </div>
               </div>
+              <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
+                Our flexible workflows and customized pipelines make projects of every size easy to manage. We work efficiently to deliver high-quality results within tight deadlines, often with overnight turnaround when required. No project is too small, and quality is never compromised.
+              </p>
             </article>
           </div>
         </section>
