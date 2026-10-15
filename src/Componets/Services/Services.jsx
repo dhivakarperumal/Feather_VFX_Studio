@@ -172,8 +172,7 @@ const Services = () => (
             Creative VFX for <span className="text-[#efb64e]">every production</span>
           </h2>
           <p className="mt-2 text-xs leading-relaxed text-white/65 sm:text-sm">
-            We are a global creative production collective, bringing thoughtful craft and reliable
-            support to projects of every scale.
+            We are a global creative production company specializing in high-quality visual effects for feature films and television.
           </p>
         </header>
 
@@ -191,10 +190,9 @@ const Services = () => (
               <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050809]/95 via-[#050809]/75 to-[#050809]/25" aria-hidden="true" />
               <div className="max-w-lg">
                 <Clapperboard className="mb-3 h-7 w-7 text-[#efb64e]" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Big jobs</h3>
-                <p className="mt-2 max-w-md text-xs leading-relaxed text-white/75 sm:text-sm">
-                  For ambitious, complex productions, our experienced artists and producers work
-                  as an extension of your team, with a dependable pipeline built to scale.
+                <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Large Projects</h3>
+                <p className="mt-2 text-justify max-w-md text-xs leading-relaxed text-white/75 sm:text-sm">
+                  Whether you're a large VFX studio or a boutique production company, we help you take on ambitious projects with confidence. Our experienced team handles complex VFX tasks, allowing you to focus on creativity, storytelling, and production. Think of us as an extension of your team, providing reliable support whenever you need it.
                 </p>
               </div>
             </article>
@@ -203,10 +201,9 @@ const Services = () => (
               <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050809]/95 via-[#050809]/75 to-[#050809]/25" aria-hidden="true" />
               <div className="max-w-lg">
                 <UsersRound className="mb-3 h-7 w-7 text-[#efb64e]" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Small jobs</h3>
-                <p className="mt-2 max-w-md text-xs leading-relaxed text-white/75 sm:text-sm">
-                  Focused shot work gets the same care and creative attention. No project is too
-                  small when the details matter and the deadline counts.
+                <h3 className="font-serif text-xl font-bold text-white sm:text-2xl">Small Projects</h3>
+                <p className="mt-2 text-justify max-w-md text-xs leading-relaxed text-white/75 sm:text-sm">
+                  Our flexible workflows and customized pipelines make projects of every size easy to manage. We work efficiently to deliver high-quality results within tight deadlines, often with overnight turnaround when required. No project is too small, and quality is never compromised.
                 </p>
               </div>
             </article>
