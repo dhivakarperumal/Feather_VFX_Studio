@@ -201,17 +201,13 @@ const Sitemap = () => (
         <span aria-hidden="true">↓</span>
       </a>
     </PageHeader>
-    <main id="sitemap-links" className="scroll-mt-24 relative isolate overflow-hidden bg-[#05090b] px-[5%] py-12 text-white sm:py-16 lg:px-[4%]">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,10,11,0.3),#05090b_85%),url('/images/background/bg_14.jpg')] bg-cover bg-center opacity-30"
-        aria-hidden="true"
-      />
+    <main id="sitemap-links" className="scroll-mt-24 relative isolate overflow-hidden bg-[var(--bg-primary)] px-[5%] py-12 text-[var(--text-primary)] sm:py-16 lg:px-[4%]">
       <div className="mx-auto max-w-[1500px]">
         <header className="mb-8 max-w-2xl">
           <h2 className="font-serif text-3xl font-bold uppercase sm:text-4xl">
             Explore our <span className="text-[var(--gold-bright)]">website</span>
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-white/70">
+          <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
             Find everything you need about Feather VFX Studio. Browse our work, services, team, and more.
           </p>
           <div className="mt-4 h-px w-12 bg-[var(--gold-primary)]" aria-hidden="true" />
@@ -222,16 +218,16 @@ const Sitemap = () => (
             <section
               key={title}
               aria-label={title}
-              className="group relative isolate min-h-[190px] overflow-hidden border border-white/15 bg-[#071013]"
+              className="group relative isolate min-h-[190px] overflow-hidden border border-[var(--border-color)] bg-[var(--bg-secondary)]"
             >
               <img
                 src={image}
                 alt=""
                 loading="lazy"
-                className="absolute inset-0 -z-20 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 -z-20 h-full w-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-105"
               />
               <div
-                className="absolute inset-0 -z-10 bg-gradient-to-r from-[#03090c]/95 via-[#03090c]/85 to-[#03090c]/45"
+                className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-secondary)]/95 via-[var(--bg-secondary)]/85 to-[var(--bg-secondary)]/50"
                 aria-hidden="true"
               />
               <div className="flex gap-4 p-4 sm:p-5">
@@ -239,7 +235,7 @@ const Sitemap = () => (
                   <Icon size={20} aria-hidden="true" />
                 </span>
                 <div className="min-w-0">
-                  <h3 className="font-serif text-lg font-semibold uppercase">
+                  <h3 className="font-serif text-lg font-semibold uppercase text-[var(--text-primary)]">
                     {title.split(' ').map((part, index) => (
                       <span key={`${part}-${index}`} className={index === title.split(' ').length - 1 ? 'text-[var(--gold-bright)]' : ''}>
                         {index > 0 ? ' ' : ''}{part}
@@ -251,7 +247,7 @@ const Sitemap = () => (
                       <li key={label}>
                         <Link
                           to={to}
-                          className="inline-flex items-center gap-2 text-xs text-white/75 transition-colors hover:text-[var(--gold-bright)]"
+                          className="inline-flex items-center gap-2 text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]"
                         >
                           <span className="text-[var(--gold-primary)]" aria-hidden="true">›</span>
                           {label}
@@ -267,27 +263,17 @@ const Sitemap = () => (
 
         <section
           aria-labelledby="global-locations-heading"
-          className="relative isolate mt-5 overflow-hidden border border-white/15 bg-[#071013] p-5 sm:p-7"
+          className="relative isolate mt-5 overflow-hidden border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 sm:p-7"
         >
-          <img
-            src="/images/background/bg_14.jpg"
-            alt=""
-            loading="lazy"
-            className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
-          />
-          <div
-            className="absolute inset-0 -z-10 bg-gradient-to-r from-[#03090c]/95 via-[#03090c]/90 to-[#03090c]/75"
-            aria-hidden="true"
-          />
           <div className="mb-5 flex items-center gap-4">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)]">
               <Globe2 size={20} aria-hidden="true" />
             </span>
             <div>
-              <h3 id="global-locations-heading" className="font-serif text-lg font-semibold uppercase">
+              <h3 id="global-locations-heading" className="font-serif text-lg font-semibold uppercase text-[var(--text-primary)]">
                 Global <span className="text-[var(--gold-bright)]">Locations</span>
               </h3>
-              <p className="mt-1 text-xs text-white/60">{globalLocations.length} countries and cities</p>
+              <p className="mt-1 text-xs text-[var(--text-secondary)]">{globalLocations.length} countries and cities</p>
             </div>
           </div>
           <ul className="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -295,7 +281,7 @@ const Sitemap = () => (
               <li key={slug}>
                 <a
                   href={`https://feathervfx.com/${slug}`}
-                  className="inline-flex items-start gap-2 text-xs text-white/75 transition-colors hover:text-[var(--gold-bright)]"
+                  className="inline-flex items-start gap-2 text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]"
                 >
                   <span className="text-[var(--gold-primary)]" aria-hidden="true">›</span>
                   {label}

@@ -12,7 +12,7 @@ const achievements = [
 const CountUpStat = ({ value, delay = 0 }) => {
   const { ref, display } = useCountUp(value, 1800, delay);
   return (
-    <span ref={ref} className="block font-serif text-lg font-bold leading-none text-white sm:text-xl">
+    <span ref={ref} className="block font-serif text-lg font-bold leading-none text-[var(--text-primary)] sm:text-xl">
       {display}
     </span>
   );

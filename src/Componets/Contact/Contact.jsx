@@ -148,15 +148,15 @@ const Contact = () => {
         <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
           <div className="flex items-center gap-2.5">
             <FaHeadphones className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-            <span><strong className="block font-semibold">Quick response</strong><span className="text-white/65">Within 24 hours</span></span>
+            <span><strong className="block font-semibold">Quick response</strong><span className="text-[var(--text-secondary)]">Within 24 hours</span></span>
           </div>
           <div className="flex items-center gap-2.5">
             <FaShieldAlt className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-            <span><strong className="block font-semibold">Confidential</strong><span className="text-white/65">Project details stay safe</span></span>
+            <span><strong className="block font-semibold">Confidential</strong><span className="text-[var(--text-secondary)]">Project details stay safe</span></span>
           </div>
           <div className="flex items-center gap-2.5">
             <FaGlobe className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-            <span><strong className="block font-semibold">Global collaboration</strong><span className="text-white/65">Work from anywhere</span></span>
+            <span><strong className="block font-semibold">Global collaboration</strong><span className="text-[var(--text-secondary)]">Work from anywhere</span></span>
           </div>
         </div>
       </PageHeader>

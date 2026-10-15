@@ -118,14 +118,14 @@ const FeaturedProjectsSection = () => {
         </Link>
         <Link
           to="/showreel"
-          className="mt-5 flex w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0"
+          className="mt-5 flex w-fit items-center gap-3 text-left text-[var(--text-primary)] md:absolute md:bottom-8 md:right-[5%] md:mt-0"
         >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/80 bg-black/30 transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
             <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
           </span>
           <span className="flex flex-col gap-1">
             <span className="text-[9px] font-bold uppercase tracking-[0.16em]">Featured reel</span>
-            <span className="text-[9px] uppercase tracking-[0.12em] text-white/70">Play video</span>
+            <span className="text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">Play video</span>
           </span>
         </Link>
       </PageHeader>
@@ -181,7 +181,7 @@ const FeaturedProjectsSection = () => {
         {selectedIndex !== null && visibleProjects[selectedIndex] && (
           <ModalPortal>
             <div
-              className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/95 p-3 backdrop-blur-sm sm:p-8"
+              className="fixed inset-0 z-[999999] flex items-center justify-center bg-[rgba(0,0,0,0.95)] p-3 backdrop-blur-sm sm:p-8"
               role="dialog"
               aria-modal="true"
               aria-label={`Project image ${selectedIndex + 1} of ${visibleProjects.length}`}
@@ -226,7 +226,7 @@ const FeaturedProjectsSection = () => {
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-r from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
           <a
             href="/contact"
-            className="btn-shimmer inline-flex min-h-11 items-center gap-2.5 border border-[var(--gold-primary)] px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] focus-visible:bg-[var(--gold-primary)] focus-visible:text-[var(--bg-primary)] motion-reduce:transition-none"
+            className="btn-shimmer inline-flex min-h-11 items-center gap-2.5 border border-[var(--gold-primary)] px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--text-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] focus-visible:bg-[var(--gold-primary)] focus-visible:text-[var(--bg-primary)] motion-reduce:transition-none"
           >
             Start a project <FaArrowRight aria-hidden="true" />
           </a>

@@ -64,7 +64,7 @@ const VFXServiceCard = ({ service }) => {
   const secondLabel = 'OUTPUT';
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden border border-[#b8852f]/45 bg-[#080b0c]/95 transition-colors duration-300 hover:border-[#e8b14f]/80">
+    <article className="group flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)]/80">
       <div className="service-comparison relative aspect-[16/10] min-h-[190px] shrink-0 overflow-hidden sm:min-h-[210px]">
         <img
           src={firstImage}
@@ -115,16 +115,16 @@ const VFXServiceCard = ({ service }) => {
 
       <div className="flex flex-1 flex-col px-4 py-5 sm:px-5 lg:px-6">
         <div className="flex items-center gap-3">
-          <Icon className="h-5 w-5 shrink-0 text-[#efb64e]" strokeWidth={1.7} aria-hidden="true" />
-          <h3 className="font-serif text-lg font-bold uppercase leading-tight text-white sm:text-xl">
+          <Icon className="h-5 w-5 shrink-0 text-[var(--gold-bright)]" strokeWidth={1.7} aria-hidden="true" />
+          <h3 className="font-serif text-lg font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-xl">
             {service.title}
           </h3>
         </div>
-        <p className="mt-2 text-xs leading-relaxed text-white/65">{service.description}</p>
+        <p className="mt-2 text-xs leading-relaxed text-[var(--text-secondary)]">{service.description}</p>
         <ul className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5">
           {details.points.map((point) => (
-            <li key={point} className="flex items-start gap-1.5 text-[10px] leading-snug text-white/80">
-              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-[#e6ad47]" aria-hidden="true" />
+            <li key={point} className="flex items-start gap-1.5 text-[10px] leading-snug text-[var(--text-secondary)]">
+              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-[var(--gold-primary)]" aria-hidden="true" />
               {point}
             </li>
           ))}
