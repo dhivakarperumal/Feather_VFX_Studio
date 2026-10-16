@@ -14,9 +14,14 @@ import Loader from "./CommonComponents/Loader";
 
 function App() {
   const [loading] = useState(false);
+  const [theme, setTheme] = useState("light");
   const location = useLocation();
   const [isNavigating, setIsNavigating] = useState(false);
   const previousPathname = useRef(location.pathname);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   useEffect(() => {
     if (previousPathname.current === location.pathname) {
@@ -39,7 +44,12 @@ function App() {
     <section className="relative min-h-screen flex flex-col">
       {isNavigating && <div className="route-progress-bar" aria-hidden="true" />}
       <TopHeader />
-      <Navbar />
+      <Navbar
+        theme={theme}
+        onToggleTheme={() =>
+          setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"))
+        }
+      />
       <div className="print:hidden">
         <ScrollToTop />
       </div>

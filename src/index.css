@@ -64,6 +64,16 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
+:root[data-theme="dark"] {
+  --bg-primary: #111418;
+  --bg-secondary: #1b2026;
+  --gold-primary: #d4a72c;
+  --gold-bright: #f0c14b;
+  --text-primary: #f2f4f5;
+  --text-secondary: #aab2bb;
+  --border-color: #343b43;
+}
+
 
 body {
 	background: var(--bg-primary);
@@ -115,7 +125,7 @@ body {
 	width: 100%;
 	border: 1px solid var(--border-color);
 	border-radius: 0.25rem;
-	background: #ffffff;
+	background: var(--bg-secondary);
 	padding: 0.7rem 0.8rem;
 	color: var(--text-primary);
 	font: inherit;
@@ -135,14 +145,14 @@ body {
 }
 
 .contact-field option {
-	background: #ffffff;
+	background: var(--bg-secondary);
 	color: var(--text-primary);
 }
 
 .career-filter {
 	border: 1px solid var(--border-color);
 	border-radius: 0.2rem;
-	background: #ffffff;
+	background: var(--bg-secondary);
 	padding: 0.65rem 0.75rem;
 	color: var(--text-primary);
 	font: inherit;
@@ -156,7 +166,7 @@ body {
 }
 
 .career-filter option {
-	background: #ffffff;
+	background: var(--bg-secondary);
 	color: var(--text-primary);
 }
 
