@@ -101,7 +101,7 @@ function ShowreelPage() {
   }, [selectedReel, shouldPlay]);
 
   return (
-    <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
+    <div className="overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
         eyebrow="Feather VFX Studio"
         title="Our Showreel"
@@ -150,11 +150,11 @@ function ShowreelPage() {
               Our Expertise
             </p>
 
-            <h2 className="mt-0.5 font-serif text-3xl font-bold leading-tight text-[#17191b] sm:text-4xl">
+            <h2 className="mt-0.5 font-serif text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
               Showreels
             </h2>
 
-            <p className="mt-1 text-xs leading-relaxed text-[#60656a] sm:text-[13px]">
+            <p className="mt-1 text-xs leading-relaxed text-[var(--text-secondary)] sm:text-[13px]">
               Explore our specialised showreels showcasing the key
               areas of our VFX expertise.
             </p>
@@ -164,7 +164,7 @@ function ShowreelPage() {
             {showreels.map(({ id, title, description, image, Icon }) => (
               <article
                 key={id}
-                className="showreel-expertise-card group relative isolate flex min-h-[190px] flex-col overflow-hidden rounded-xl border border-[#eadfce] bg-white p-4 shadow-[0_5px_16px_rgba(54,39,15,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_26px_rgba(54,39,15,0.13)]"
+                className="showreel-expertise-card group relative isolate flex min-h-[190px] flex-col overflow-hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-4 shadow-[0_5px_16px_rgba(54,39,15,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_26px_rgba(54,39,15,0.13)]"
               >
                 <img
                   src={image}
@@ -176,28 +176,28 @@ function ShowreelPage() {
 
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/90 to-white/35"
+                  className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-secondary)] via-[var(--bg-secondary)]/90 to-[var(--bg-secondary)]/35"
                 />
 
-                <div className="mb-2 flex h-[47px] w-[47px] items-center justify-center rounded-full border-[1.5px] border-[#d58a0b] text-[#c77a00] transition-all duration-300 group-hover:bg-[#c77a00] group-hover:text-white">
+                <div className="mb-2 flex h-[47px] w-[47px] items-center justify-center rounded-full border-[1.5px] border-[var(--gold-primary)] text-[var(--gold-primary)] transition-all duration-300 group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)]">
                   <Icon size={23} strokeWidth={1.7} />
                 </div>
 
-                <h3 className="font-serif text-lg font-bold leading-tight text-[#202124]">
+                <h3 className="font-serif text-lg font-bold leading-tight text-[var(--text-primary)]">
                   {title}
                 </h3>
 
-                <p className="mt-1.5 text-xs leading-[1.5] text-[#62666a]">
+                <p className="mt-1.5 text-xs leading-[1.5] text-[var(--text-secondary)]">
                   {description}
                 </p>
 
                 <button
                   type="button"
                   onClick={() => selectReel(showreels.find((reel) => reel.id === id))}
-                  className="mt-auto inline-flex w-fit items-center gap-2 pt-4 text-[11px] font-semibold text-[#bd7300] transition-colors hover:text-[#8f5400] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd7300]"
+                  className="mt-auto inline-flex w-fit items-center gap-2 pt-4 text-[11px] font-semibold text-[var(--gold-primary)] transition-colors hover:text-[var(--gold-bright)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)]"
                   aria-label={`Play ${title} in the main showreel player`}
                 >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current transition-colors group-hover:bg-[#c77a00] group-hover:text-white">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current transition-colors group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--bg-primary)]">
                     <Play size={11} fill="currentColor" />
                   </span>
 
@@ -216,28 +216,28 @@ function ShowreelPage() {
 
       {/* CONTACT CTA */}
       <section className="px-[4%] pb-5 pt-1">
-        <div className="relative mx-auto flex max-w-[1700px] flex-col items-center justify-center gap-4 overflow-hidden rounded-2xl border border-[#f0d7a9] bg-gradient-to-r from-[#f7e6c8] via-[#fff9ee] to-[#f1d9b4] px-5 py-6 text-center sm:min-h-[118px] sm:flex-row sm:gap-8 sm:px-10 sm:py-4">
+        <div className="showreel-contact-cta relative mx-auto flex max-w-[1700px] flex-col items-center justify-center gap-4 overflow-hidden rounded-2xl px-5 py-6 text-center sm:min-h-[118px] sm:flex-row sm:gap-8 sm:px-10 sm:py-4">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -left-10 -top-12 hidden h-56 w-56 rounded-full border-[14px] border-[#c77a00]/10 sm:block"
+            className="pointer-events-none absolute -left-10 -top-12 hidden h-56 w-56 rounded-full border-[14px] border-[var(--gold-primary)]/10 sm:block"
           />
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-10 -top-12 hidden h-56 w-56 rounded-full border-[14px] border-[#c77a00]/10 sm:block"
+            className="pointer-events-none absolute -right-10 -top-12 hidden h-56 w-56 rounded-full border-[14px] border-[var(--gold-primary)]/10 sm:block"
           />
 
           <div className="relative">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#b86c00]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gold-primary)]">
               Let&apos;s Create Together
             </p>
 
-            <h2 className="mt-1 font-serif text-2xl font-bold leading-tight text-[#202124] sm:text-3xl">
-              Have a <span className="text-[#c77a00]">project</span>{' '}
+            <h2 className="mt-1 font-serif text-2xl font-bold leading-tight text-[var(--text-primary)] sm:text-3xl">
+              Have a <span className="text-[var(--gold-bright)]">project</span>{' '}
               in mind?
             </h2>
 
-            <p className="mt-1 text-xs text-[#5c6064]">
+            <p className="mt-1 text-xs text-[var(--text-secondary)]">
               Contact us to discuss how we can support your next
               production.
             </p>
@@ -245,7 +245,7 @@ function ShowreelPage() {
 
           <Link
             to="/contact"
-            className="relative inline-flex shrink-0 items-center gap-2 rounded-full bg-[#c77a00] px-6 py-3 text-xs font-semibold text-white shadow-md shadow-[#9b5d00]/20 transition-all hover:-translate-y-0.5 hover:bg-[#a96500] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a96500]"
+            className="relative inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--gold-primary)] px-6 py-3 text-xs font-semibold text-[var(--bg-primary)] shadow-md shadow-[#9b5d00]/20 transition-all hover:-translate-y-0.5 hover:bg-[var(--gold-bright)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)]"
           >
             Discuss Your Project
             <ArrowRight size={15} />

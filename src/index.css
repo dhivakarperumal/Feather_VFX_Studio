@@ -61,6 +61,7 @@
   --text-primary: #141414;
   --text-secondary: #555f65;
   --border-color: #d0d4d6;
+  color-scheme: light;
   font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -72,6 +73,7 @@
   --text-primary: #f2f4f5;
   --text-secondary: #aab2bb;
   --border-color: #343b43;
+  color-scheme: dark;
 }
 
 
@@ -206,6 +208,11 @@ body {
 .footer-map-button:hover {
 	background-color: var(--gold-primary);
 	color: var(--bg-primary);
+}
+
+.showreel-contact-cta {
+	border: 1px solid color-mix(in srgb, var(--gold-primary) 35%, var(--border-color));
+	background: linear-gradient(90deg, var(--bg-secondary), var(--bg-primary), var(--bg-secondary));
 }
 
 /* Cinematic route transition: fade in while lifting into place. */

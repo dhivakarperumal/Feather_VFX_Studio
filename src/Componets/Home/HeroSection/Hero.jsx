@@ -33,9 +33,8 @@ const Hero = () => {
               src={item.image}
               alt=""
               fetchPriority={index === 0 ? 'high' : 'auto'}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-                activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
-              }`}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
+                }`}
             />
           ))}
         </div>
@@ -53,25 +52,25 @@ const Hero = () => {
             </div>
 
             {/* Title line 1 — delay 1 */}
-           
-<h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
-  <div className="hero-reveal-mask">
-    <span className="hero-reveal hero-reveal-d1 block">
-      Your VFX
-    </span>
-  </div>
 
-  <div className="hero-reveal-mask mt-1">
-    <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
-      Outsourcing Partner
-    </span>
-  </div>
-</h1>
+            <h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
+              <div className="hero-reveal-mask">
+                <span className="hero-reveal hero-reveal-d1 block">
+                  Your VFX
+                </span>
+              </div>
+
+              <div className="hero-reveal-mask mt-1">
+                <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
+                  Outsourcing Partner
+                </span>
+              </div>
+            </h1>
 
 
             {/* Description — delay 3 */}
             <div className="hero-reveal-mask mt-6">
-              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-[var(--text-primary)]/80 sm:text-lg">
+              <p className="hero-reveal hero-reveal-d3 max-w-xl text-sm leading-relaxed text-[var(--text-primary)]/80 sm:text-lg">
                 {slide.description}
               </p>
             </div>
@@ -139,11 +138,10 @@ const Hero = () => {
               onClick={() => showSlide(index)}
               aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}
               aria-current={activeSlide === index ? 'true' : undefined}
-              className={`h-2 rounded-full transition-all ${
-                activeSlide === index
+              className={`h-2 rounded-full transition-all ${activeSlide === index
                   ? 'w-8 bg-[var(--gold-primary)]'
                   : 'w-2 bg-white/60 hover:bg-white'
-              }`}
+                }`}
             />
           ))}
         </div>

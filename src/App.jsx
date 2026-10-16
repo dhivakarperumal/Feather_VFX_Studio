@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import TopHeader from "./CommonComponents/TopHeader";
@@ -14,13 +14,16 @@ import Loader from "./CommonComponents/Loader";
 
 function App() {
   const [loading] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() =>
+    window.localStorage.getItem("site-theme") === "dark" ? "dark" : "light"
+  );
   const location = useLocation();
   const [isNavigating, setIsNavigating] = useState(false);
   const previousPathname = useRef(location.pathname);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("site-theme", theme);
   }, [theme]);
 
   useEffect(() => {
