@@ -142,11 +142,11 @@ function Careers() {
         align="left"
       >
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
+          <a href="#open-positions" className="inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             View open positions <FaArrowRight aria-hidden="true" />
           </a>
-          <a href="#studio-life" className="inline-flex items-center gap-3 px-2 py-2 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[var(--gold-primary)]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 text-sm">▶</span>
+          <a href="#studio-life" className="inline-flex min-h-11 items-center gap-3 border border-white/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[var(--gold-bright)] hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:border-[var(--gold-bright)] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-current text-sm">▶</span>
             Watch our studio
           </a>
         </div>
