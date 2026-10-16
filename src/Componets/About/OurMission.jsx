@@ -56,13 +56,13 @@ const OurMission = () => (
 
         <div data-aos="fade-left" data-aos-delay="100" data-aos-offset="60" className="space-y-6 text-[15px] leading-[1.9] text-[var(--text-secondary)] sm:text-base">
           <p>
-            Our highly efficient, multidisciplinary entrepreneurial professionals are critical to our business. It allows Feather VFX Studio to advance as a successful, benchmark business firm focusing on VFX activities and also development focusing mainly in USA, Canada, UK, European Countries and Asia Pacific. With our value-added services, best suited service packages, highly capable capabilities and our market experience, we stand unique among other competitors in this category.
+           Our mission is to deliver exceptional visual effects services through creativity, technical excellence, and efficient workflows.
           </p>
           <p>
-            This allows Feather VFX Studio to switch from a successful business standard to one of the big VFX operations such as Rotoscopy, Paint, Compositing, Matchmove and Animation.
+            Our multidisciplinary team provides a comprehensive range of services, including Rotoscoping, Paint and Prep, Compositing, Matchmove, and Animation. We work with production companies and VFX studios to provide flexible solutions tailored to their project requirements.
           </p>
           <p>
-            Feather VFX Studio encourages personal and professional growth, consumer orientation, collaboration and creativity without losing sight of our dedication to sustainability. At the same time, by providing solutions that can fill the digital divide, we provide our clients with technical innovation and social and human advances.
+           We encourage professional growth, collaboration, innovation, and responsible business practices. By combining artistic talent with technical expertise, we aim to build lasting partnerships and deliver value to every client.
           </p>
         </div>
       </div>

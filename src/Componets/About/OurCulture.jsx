@@ -25,10 +25,10 @@ const OurCulture = () => (
 
           <div className="mt-6 space-y-5 text-sm leading-[1.9] text-[var(--text-secondary)] sm:text-base">
             <p>
-              VFX is our delight; we bring pioneering technology and top-notch creativity into play creating visuals that exceed your expectations. With great attention to detail, we make every effort to bring your fruits to fruition. You just have to say your dream and we'll be competently working on it and helping you enjoy the distinct VFX effect.
+              Visual effects are our passion. We combine advanced technology with creative expertise to produce visuals that bring stories to life. With a strong focus on detail, collaboration, and continuous improvement, we work closely with our clients to turn their creative visions into reality.
             </p>
             <p>
-              Commitment is the key to our excellence and with high-end technological infrastructure available, we always have the drive to reach international standards. Quality is our drive to perform, with a keen eye on the project throughout its span; commitment, excellence, communication and outstanding delivery are etched into our DNA.
+              Our culture is built on quality, commitment, transparency, and timely delivery. We strive to maintain high professional standards while fostering creativity, teamwork, and long-term client relationships.
             </p>
           </div>
 
