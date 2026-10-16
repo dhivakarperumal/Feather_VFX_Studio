@@ -72,7 +72,7 @@ const PromiseSection = () => (
                 aria-hidden="true"
               />
               {/* Centered number overlay */}
-              <span className="absolute inset-0 flex items-center justify-center font-serif text-[clamp(3rem,6vw,5rem)] font-bold leading-none tracking-[-0.06em] text-[var(--gold-bright)] drop-shadow-lg">
+              <span className="absolute inset-0 flex items-center justify-center font-serif text-[clamp(3rem,6vw,5rem)] font-bold leading-none tracking-[-0.06em] text-white drop-shadow-lg">
                 {number}
               </span>
             </div>
