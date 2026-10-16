@@ -71,13 +71,13 @@ const Hero = () => {
             </div>
 
             {/* Title line 1 — delay 1 */}
-           
-<h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-  <div className="hero-reveal-mask">
-    <span className="hero-reveal hero-reveal-d1 block">
-      Your VFX
-    </span>
-  </div>
+
+            <h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-6xl">
+              <div className="hero-reveal-mask">
+                <span className="hero-reveal hero-reveal-d1 block">
+                  Your VFX
+                </span>
+              </div>
 
               <div className="hero-reveal-mask mt-1">
                 <span className="hero-reveal hero-reveal-d2 block whitespace-nowrap text-[var(--gold-bright)]">
@@ -158,8 +158,8 @@ const Hero = () => {
               aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}
               aria-current={activeSlide === index ? 'true' : undefined}
               className={`h-2 rounded-full transition-all ${activeSlide === index
-                  ? 'w-8 bg-[var(--gold-primary)]'
-                  : 'w-2 bg-white/60 hover:bg-white'
+                ? 'w-8 bg-[var(--gold-primary)]'
+                : 'w-2 bg-white/60 hover:bg-white'
                 }`}
             />
           ))}
