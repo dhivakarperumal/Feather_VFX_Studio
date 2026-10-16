@@ -68,7 +68,14 @@ const physicalSecurityFeatures = [
   { label: 'No mobile devices in production areas', Icon: Check },
 ];
 
-const securityPartners = ['MPAA', 'Paramount', 'FOX', 'HBO', 'NBCUniversal', 'NETFLIX'];
+const securityPartners = [
+  { name: 'MPAA' },
+  { name: 'Paramount', src: '/images/logo/logo_3.png' },
+  { name: 'FOX', src: '/images/logo/logo_fox.png' },
+  { name: 'HBO', src: '/images/logo/logo_4.png' },
+  { name: 'NBCUniversal', src: '/images/logo/logo_1.png' },
+  { name: 'Netflix', src: '/images/logo/logo_5.png' },
+];
 
 const studioPhotos = [
   {
@@ -399,16 +406,23 @@ const About = () => (
             </div>
 
             <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3" aria-label="Organizations referenced in our content-security practices">
-              {securityPartners.map((partner, index) => (
+              {securityPartners.map(({ name, src }, index) => (
                 <li
-                  key={partner}
+                  key={name}
                   data-aos="zoom-in"
                   data-aos-delay={index * 60}
-                  className="flex min-h-[72px] items-center justify-center border border-[var(--border-color)] bg-[var(--bg-secondary)] px-3 py-3 text-center font-bold tracking-[0.08em] text-[var(--text-primary)]"
+                  className="flex min-h-[72px] items-center justify-center border border-[#E2E4E1] bg-white px-3 py-3 text-center font-bold tracking-[0.08em] text-[#17191B]"
                 >
-                  <span className={partner === 'NETFLIX' ? 'text-red-600 text-sm sm:text-base' : 'text-sm sm:text-base'}>
-                    {partner}
-                  </span>
+                  {src ? (
+                    <img
+                      src={src}
+                      alt={name}
+                      loading="lazy"
+                      className="max-h-12 w-full object-contain"
+                    />
+                  ) : (
+                    <span className="text-sm sm:text-base">{name}</span>
+                  )}
                 </li>
               ))}
             </ul>

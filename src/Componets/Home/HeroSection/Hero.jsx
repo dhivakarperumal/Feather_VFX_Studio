@@ -39,14 +39,7 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div
-          className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]/15"
-          aria-hidden="true"
-        />
+        <div className="home-hero-copy-overlay" aria-hidden="true" />
 
         <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
