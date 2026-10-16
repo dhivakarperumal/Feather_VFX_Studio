@@ -100,7 +100,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
           </Link>
           <Link
             to="/showreel"
-            className="mt-5 flex w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0"
+            className="mt-5 hidden w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0 md:flex"
           >
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/40 bg-black/35 transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
               <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
