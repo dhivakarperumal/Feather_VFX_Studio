@@ -314,7 +314,7 @@ const About = () => (
           </div>
           </div>
 
-          <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
+          {/* <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div data-aos="fade-right">
               <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
                 Security features
@@ -339,7 +339,7 @@ const About = () => (
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
