@@ -54,6 +54,7 @@ function Blog() {
   return (
     <div className="blog-page-shell">
       <section className="blog-hero" aria-label="Blog hero section">
+        <div className="cinematic-copy-overlay" aria-hidden="true" />
         <div className="blog-hero__content">
           <div className="blog-hero__copy">
             <p className="blog-hero__eyebrow">OUR BLOG</p>

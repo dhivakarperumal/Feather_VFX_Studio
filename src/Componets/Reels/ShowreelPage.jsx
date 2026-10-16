@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { ArrowRight, Box, Layers3, Paintbrush, Play, ScanFace } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageContainer from '../../CommonComponents/PageContainer';
+import PageHeader from '../../CommonComponents/PageHeader';
 
 const showreels = [
   {
@@ -49,41 +50,19 @@ function ShowreelPage() {
 
   return (
     <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
-      <section className="relative isolate min-h-[370px]">
-        <img
-          src="/images/heroimages/Dragon Over the Sunset Kingdom.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#fffdfa] via-[#fffdfa]/95 to-[#fffdfa]/15" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#fffdfa] via-transparent to-white/10" />
-
-        <PageContainer className="relative flex min-h-[370px] items-center py-10 sm:py-12">
-          <div className="max-w-xl">
-            <nav aria-label="Breadcrumb" className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#858585]">
-              <Link className="transition-colors hover:text-[#c77a00]" to="/">Home</Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-[#c77a00]">Showreel</span>
-            </nav>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#c77a00]">
-              Feather VFX Studio
-            </p>
-            <h1 className="font-serif text-4xl font-bold leading-[1.05] text-[#17191b] sm:text-5xl lg:text-6xl">
-              Our Showreel
-            </h1>
-            <p className="mt-1 font-serif text-xl font-semibold leading-tight text-[#c77a00] sm:text-2xl lg:text-3xl">
-              Bringing Creative Visions to Life
-            </p>
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-[#52565a]">
-              Explore the Feather VFX showreel and discover our expertise in visual effects for film and television. From seamless compositing and detailed paint and prep to precise rotoscoping and camera tracking, our team delivers high-quality visuals with creativity and attention to detail.
-            </p>
-            <p className="mt-3 text-xs font-semibold text-[#26292c]">
-              Watch our work. Discover our capabilities. Imagine the possibilities.
-            </p>
-          </div>
-        </PageContainer>
-      </section>
+      <PageHeader
+        eyebrow="Feather VFX Studio"
+        title="Our Showreel"
+        background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
+        description="Explore the Feather VFX showreel and discover our expertise in visual effects for film and television. From seamless compositing and detailed paint and prep to precise rotoscoping and camera tracking, our team delivers high-quality visuals with creativity and attention to detail."
+        align="left"
+        showBreadcrumb={false}
+        className="min-h-[370px]"
+      >
+        <p className="mt-3 text-xs font-semibold text-[var(--text-primary)]">
+          Bringing Creative Visions to Life. Watch our work. Discover our capabilities. Imagine the possibilities.
+        </p>
+      </PageHeader>
 
       <section className="relative z-10 -mt-8 pb-10 sm:-mt-12">
         <PageContainer>
