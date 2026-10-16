@@ -191,7 +191,6 @@ const Sitemap = () => (
       description="Find your way around Feather VFX Studio."
       background="/images/heroimages/3.png"
       align="left"
-      showBreadcrumb={false}
     >
       <a
         href="#sitemap-links"

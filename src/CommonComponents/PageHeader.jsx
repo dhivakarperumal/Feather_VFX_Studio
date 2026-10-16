@@ -7,6 +7,8 @@ const PageHeader = ({
   description,
   align = "center",
   showBreadcrumb = true,
+  breadcrumbLabel,
+  titleSize = "text-3xl sm:text-4xl md:text-5xl",
   className = "",
   children,
 }) => {
@@ -14,7 +16,7 @@ const PageHeader = ({
 
   return (
     <div
-      className={`relative isolate flex min-h-[380px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-[var(--text-primary)] ${className}`}
+      className={`relative isolate flex min-h-[250px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-white ${className}`}
     >
       <img
         src={background}
@@ -23,7 +25,7 @@ const PageHeader = ({
       />
       <div className="cinematic-copy-overlay" aria-hidden="true" />
       <div
-        className={`relative z-20 mx-auto w-full max-w-[1700px] px-[6%] py-12 sm:px-[5%] lg:px-[3%] ${
+        className={`relative z-20 mx-auto w-full max-w-[1700px] px-[6%] py-6 sm:px-[5%] lg:px-[3%] ${
           isLeftAligned ? "text-left" : "text-center"
         }`}
         data-aos="fade-up"
@@ -31,26 +33,28 @@ const PageHeader = ({
       >
         <div className={isLeftAligned ? "max-w-2xl" : "mx-auto max-w-4xl"}>
           {eyebrow && (
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)] sm:text-xs">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
               {eyebrow}
             </p>
           )}
-          <h1 className="font-serif text-3xl font-bold uppercase leading-[1.02] sm:text-4xl md:text-5xl">
-            {title}
-          </h1>
+          {title && (
+            <h1 className={`font-serif ${titleSize} font-bold uppercase leading-[1.02] text-white`}>
+              {title}
+            </h1>
+          )}
           {description && (
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
               {description}
             </p>
           )}
           {showBreadcrumb && (
-            <nav aria-label="Breadcrumb" className={`mt-4 flex items-center gap-2 text-xs text-[var(--text-secondary)] sm:text-sm ${isLeftAligned ? "justify-start" : "justify-center"}`}>
-              <Link to="/" className="transition-colors hover:text-[var(--gold-primary)]">
+            <nav aria-label="Breadcrumb" className={`mt-4 flex items-center gap-2 text-xs text-white/75 sm:text-sm ${isLeftAligned ? "justify-start" : "justify-center"}`}>
+              <Link to="/" className="transition-colors hover:text-[var(--gold-bright)]">
                 Home
               </Link>
               <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-[var(--text-primary)]">
-                {typeof title === "string" ? title : eyebrow}
+              <span aria-current="page" className="text-white">
+                {breadcrumbLabel || (typeof title === "string" ? title : eyebrow)}
               </span>
             </nav>
           )}

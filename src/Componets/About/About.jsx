@@ -104,18 +104,10 @@ const About = () => (
   <>
     <PageHeader
       eyebrow="About Feather VFX Studio"
-      title={
-        <>
-          Imagining worlds.
-          <br />
-          <span className="text-[var(--gold-primary)]">Creating reality.</span>
-        </>
-      }
-      description="Meet the creative team bringing bold ideas to life through visual effects and post-production."
+      title="About Us"
+      titleSize="text-2xl sm:text-3xl md:text-4xl"
       background="/images/heroimages/3.png"
       align="left"
-      showBreadcrumb={false}
-      className="min-h-[380px]"
     >
       <a
         href="#about-us"

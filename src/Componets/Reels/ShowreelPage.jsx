@@ -104,16 +104,20 @@ function ShowreelPage() {
     <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
       <PageHeader
         eyebrow="Feather VFX Studio"
-        title="Our Showreel"
+        title={<>Our <span className="text-[#E5A544]">Showreel</span></>}
+        titleSize="text-2xl sm:text-3xl md:text-4xl"
+        breadcrumbLabel="Showreel"
         background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
-        description="Explore the Feather VFX showreel and discover our expertise in visual effects for film and television. From seamless compositing and detailed paint and prep to precise rotoscoping and camera tracking, our team delivers high-quality visuals with creativity and attention to detail."
         align="left"
-        showBreadcrumb={false}
-        className="min-h-[370px]"
       >
-        <p className="mt-3 text-xs font-semibold text-[var(--text-primary)]">
-          Bringing Creative Visions to Life. Watch our work. Discover our capabilities. Imagine the possibilities.
-        </p>
+        <button
+          type="button"
+          onClick={() => selectReel(selectedReel)}
+          className="mt-5 inline-flex min-h-11 items-center gap-3 bg-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#17191b] transition-colors hover:bg-[var(--gold-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          <Play size={14} fill="currentColor" aria-hidden="true" />
+          Play showreel
+        </button>
       </PageHeader>
 
       {/* MAIN VIDEO PLAYER */}

@@ -83,18 +83,10 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
       {!homePage && (
         <PageHeader
           eyebrow="Our Projects"
-          title={
-            <>
-              Featured <span className="text-[var(--gold-primary)]">Projects</span>
-              <br />
-              <span className="text-[var(--text-primary)]">CGI &amp; 3D Animation</span>
-            </>
-          }
-          description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
+          title="Projects"
+          titleSize="text-2xl sm:text-3xl md:text-4xl"
           background="/images/project.png"
           align="left"
-          showBreadcrumb={false}
-          className="min-h-[420px]"
         >
           <Link
             to="/showreel"
@@ -107,14 +99,14 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
           </Link>
           <Link
             to="/showreel"
-            className="mt-5 flex w-fit items-center gap-3 text-left text-[var(--text-primary)] md:absolute md:bottom-8 md:right-[5%] md:mt-0"
+            className="mt-5 flex w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0"
           >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/40 bg-black/35 transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
               <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
             </span>
             <span className="flex flex-col gap-1">
               <span className="text-[9px] font-bold uppercase tracking-[0.16em]">Featured reel</span>
-              <span className="text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">Play video</span>
+              <span className="text-[9px] uppercase tracking-[0.12em] text-white/75">Play video</span>
             </span>
           </Link>
         </PageHeader>

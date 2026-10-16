@@ -135,18 +135,11 @@ function Careers() {
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
         eyebrow="Careers at Feather VFX"
-        title={
-          <>
-            Create worlds
-            <br />
-            <span className="text-[var(--gold-primary)]">with us</span>
-          </>
-        }
-        description="Be part of a passionate team that transforms imagination into breathtaking visual experiences. Join us and work on films, series, commercials, and next-gen virtual content."
+        title="Careers"
+        titleSize="text-2xl sm:text-3xl md:text-4xl"
+        breadcrumbLabel="Careers"
         background="/images/heroimages/2.png"
         align="left"
-        showBreadcrumb={false}
-        className="min-h-[380px]"
       >
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
@@ -156,19 +149,6 @@ function Careers() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 text-sm">▶</span>
             Watch our studio
           </a>
-        </div>
-        <div className="mt-7 grid max-w-[570px] grid-cols-2 gap-y-4 border-t border-[var(--border-color)] pt-4 sm:grid-cols-4">
-          {[
-            ['50+', 'Creative talents'],
-            ['25+', 'Global projects'],
-            ['10+', 'Years of excellence'],
-            ['∞', 'New possibilities'],
-          ].map(([value, label]) => (
-            <div key={label} className="border-l border-[var(--border-color)] pl-3 first:border-0 first:pl-0">
-              <p className="font-serif text-2xl text-[var(--gold-primary)]">{value}</p>
-              <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-[var(--text-secondary)]">{label}</p>
-            </div>
-          ))}
         </div>
       </PageHeader>
 
