@@ -375,7 +375,7 @@ const Contact = () => {
       <section className="grid border-b border-[var(--border-color)] lg:min-h-[190px] lg:grid-cols-2">
         <div className="relative min-h-[190px] overflow-hidden">
           <img src="/images/heroimages/3.png" alt="Action film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" />
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" /> */}
         </div>
         <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8" data-aos="fade-up">
           <div className="mx-auto w-full max-w-[850px]">
@@ -439,11 +439,11 @@ const Contact = () => {
 
       <section className="relative isolate overflow-hidden border-b border-[var(--border-color)]">
         <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_56%]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/25" />
+        {/* <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/25" /> */}
         <div className="mx-auto flex max-w-[1700px] flex-col justify-between gap-6 px-[6%] py-8 sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Ready to create something extraordinary?</p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Let&apos;s bring your vision to life.</h2>
+            <p className="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Ready to create something extraordinary?</p>
+            <h2 className="mt-1 font-serif text-2xl font-bold uppercase text-white sm:text-3xl">Let&apos;s bring your vision to life.</h2>
             <a href="#contact-form" className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
               Start a conversation <FaArrowRight aria-hidden="true" />
             </a>
