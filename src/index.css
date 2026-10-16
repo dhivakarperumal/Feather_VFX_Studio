@@ -91,6 +91,10 @@
   opacity: 0.4;
 }
 
+:root[data-theme="dark"] .brand-logo-backplate {
+  background-color: #fff;
+}
+
 body {
   background: var(--bg-primary);
   color: var(--text-primary);

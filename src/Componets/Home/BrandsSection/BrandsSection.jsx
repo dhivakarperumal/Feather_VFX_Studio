@@ -86,20 +86,24 @@ const BrandsSection = () => {
                       HB<span className="relative">O<span className="absolute inset-[30%] rounded-full border-2 border-[var(--bg-primary)]" /></span>
                     </span>
                   ) : (
-                    <img
-                      src={image}
-                      alt={name}
-                      loading="lazy"
-                      className={`relative z-10 object-contain transition duration-300 ${
-                        name === '20th Century Fox'
-                          ? 'max-h-24 max-w-[210px] opacity-80'
-                          : `max-h-12 max-w-[150px] sm:max-h-14 lg:max-w-[180px] ${
-                            name === 'Netflix'
-                              ? 'opacity-90'
-                              : 'opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0'
-                          }`
+                    <span
+                      className={`relative z-10 flex items-center justify-center ${
+                        ['NBCUniversal', 'Paramount'].includes(name)
+                          ? 'brand-logo-backplate rounded-md px-2 py-1'
+                          : ''
                       }`}
-                    />
+                    >
+                      <img
+                        src={image}
+                        alt={name}
+                        loading="lazy"
+                        className={
+                          name === '20th Century Fox'
+                            ? 'max-h-24 max-w-[210px] object-contain'
+                            : 'max-h-12 max-w-[150px] object-contain sm:max-h-14 lg:max-w-[180px]'
+                        }
+                      />
+                    </span>
                   )}
                 </div>
               </SwiperSlide>
