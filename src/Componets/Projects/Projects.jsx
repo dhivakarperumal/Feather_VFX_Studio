@@ -5,8 +5,9 @@ import {
   Grid2X2,
   Star,
 } from 'lucide-react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ModalPortal from '../../CommonComponents/ModalPortal';
 import projectData from '../../data/projects.json';
 
 const categoryIcons = {
@@ -17,10 +18,12 @@ const categoryIcons = {
 };
 
 const filters = projectData.filters;
+const homePageSize = 6;
 
 const Projects = ({ homePage = false }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const projects = useMemo(
     () => activeFilter === 'All'
@@ -32,10 +35,21 @@ const Projects = ({ homePage = false }) => {
   const changeFilter = (filter) => {
     setActiveFilter(filter);
     setActiveIndex(0);
+    setSelectedIndex(null);
   };
+
+  const pageCount = Math.ceil(projects.length / homePageSize);
+  const homePageProjects = projects.slice(
+    activeIndex * homePageSize,
+    (activeIndex + 1) * homePageSize,
+  );
 
   const move = (direction) => {
     setActiveIndex((current) => (current + direction + projects.length) % projects.length);
+  };
+
+  const moveHomePage = (direction) => {
+    setActiveIndex((current) => Math.max(0, Math.min(pageCount - 1, current + direction)));
   };
 
   const selectProject = (index) => {
@@ -43,18 +57,28 @@ const Projects = ({ homePage = false }) => {
   };
 
   useEffect(() => {
-    if (!homePage || projects.length < 2) return undefined;
+    if (selectedIndex === null) return undefined;
 
-    const intervalId = window.setInterval(() => {
-      if (!document.hidden) {
-        setActiveIndex((current) => (current + 1) % projects.length);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSelectedIndex(null);
+      if (event.key === 'ArrowRight') {
+        setSelectedIndex((current) => (current + 1) % projects.length);
       }
-    }, 5000);
+      if (event.key === 'ArrowLeft') {
+        setSelectedIndex((current) => (current - 1 + projects.length) % projects.length);
+      }
+    };
 
-    return () => window.clearInterval(intervalId);
-  }, [homePage, projects.length]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIndex, projects.length]);
 
-  const activeProject = projects[activeIndex];
   const visibleOffsets = projects.length === 2
     ? (activeIndex === 0 ? [0, 1] : [-1, 0])
     : Array.from(
@@ -124,89 +148,206 @@ const Projects = ({ homePage = false }) => {
           </nav>
         </header>
 
-        <section
-          className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] items-center justify-center sm:mt-3 sm:h-[clamp(38rem,78vh,54rem)]"
-          aria-label="Project image carousel"
-          aria-roledescription="carousel"
-        >
-          <div className="pointer-events-none absolute bottom-[6%] left-1/2 h-[13%] w-[76%] -translate-x-1/2 rounded-[50%] bg-[var(--gold-primary)]/15 blur-3xl" />
-          {visibleOffsets.map((offset) => {
-            const index = (activeIndex + offset + projects.length) % projects.length;
-            const project = projects[index];
-            const isActive = offset === 0;
-            const distance = Math.abs(offset);
-            const position = offset === 0 ? 0 : Math.sign(offset) * (distance === 1 ? 26 : 40);
-            const rotation = offset === 0 ? 0 : offset * 2.2;
+        {homePage ? (
+          <>
+            <section
+              className="mt-1 grid h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] grid-cols-2 grid-rows-3 gap-2.5 sm:mt-3 sm:grid-cols-3 sm:grid-rows-2 sm:gap-3"
+              aria-label="Featured project gallery"
+            >
+              {homePageProjects.map((project) => (
+                <article
+                  key={project.image}
+                  className="group relative min-h-0 min-w-0 overflow-hidden rounded-md border border-[var(--gold-primary)]/50 bg-[#090b0d]/75 transition-colors duration-300 hover:border-[var(--gold-bright)]"
+                >
+                  <button
+                    type="button"
+                    className="absolute inset-0 block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--gold-bright)]"
+                    aria-label={`View ${project.title} image full screen`}
+                    onClick={() => setSelectedIndex(projects.findIndex(({ image }) => image === project.image))}
+                  >
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project artwork`}
+                      className="h-full w-full object-contain p-1 transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none sm:p-2"
+                      loading="lazy"
+                    />
+                  </button>
+                </article>
+              ))}
+            </section>
 
-            return (
+            {selectedIndex !== null && projects[selectedIndex] && (
+              <ModalPortal>
+                <div
+                  className="fixed inset-0 z-[999999] flex items-center justify-center bg-[rgba(0,0,0,0.95)] p-3 backdrop-blur-sm sm:p-8"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label={`Project image ${selectedIndex + 1} of ${projects.length}`}
+                  onClick={(event) => {
+                    if (event.target === event.currentTarget) setSelectedIndex(null);
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setSelectedIndex(null)}
+                    className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-xl text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-7 sm:top-7"
+                    aria-label="Close image viewer"
+                  >
+                    <FaTimes />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedIndex((selectedIndex - 1 + projects.length) % projects.length)}
+                    className="absolute left-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:left-6 sm:h-14 sm:w-14"
+                    aria-label="View previous image"
+                  >
+                    <FaArrowLeft />
+                  </button>
+                  <img
+                    src={projects[selectedIndex].image}
+                    alt={`${projects[selectedIndex].title} project artwork`}
+                    className="max-h-[calc(100vh-2rem)] max-w-[calc(100vw-6rem)] select-none object-contain sm:max-h-[calc(100vh-4rem)] sm:max-w-[calc(100vw-12rem)]"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setSelectedIndex((selectedIndex + 1) % projects.length)}
+                    className="absolute right-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-6 sm:h-14 sm:w-14"
+                    aria-label="View next image"
+                  >
+                    <FaArrowRight />
+                  </button>
+                </div>
+              </ModalPortal>
+            )}
+
+            <nav
+              className="mt-5 flex flex-wrap items-center justify-center gap-2"
+              aria-label="Project pages"
+            >
               <button
-                key={`${project.image}-${offset}`}
                 type="button"
-                onClick={() => selectProject(index)}
-                aria-label={`${isActive ? 'Current project' : 'Show project'}: ${project.title}`}
-                aria-current={isActive ? 'true' : undefined}
-                className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)] sm:rounded-2xl ${isActive
-                    ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[var(--gold-primary)] shadow-[0_0_0_1px_rgba(184,134,11,0.35),0_0_38px_rgba(184,134,11,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
-                    : distance === 1
-                      ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[var(--gold-primary)]/90 opacity-95 shadow-[0_0_18px_rgba(184,134,11,0.16),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
-                      : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[var(--gold-primary)]/75 opacity-90 shadow-[0_0_14px_rgba(184,134,11,0.12),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
-                  }`}
-                style={{
-                  left: `calc(50% + ${position}%)`,
-                  transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${isActive ? 1 : distance === 1 ? 0.9 : 0.78})`,
-                }}
+                onClick={() => moveHomePage(-1)}
+                disabled={activeIndex === 0}
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/25 text-white transition enabled:hover:border-[var(--gold-primary)] enabled:hover:bg-[var(--gold-primary)] disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Previous project page"
               >
-                <img
-                  key={isActive ? `${project.image}-${activeIndex}` : project.image}
-                  src={project.image}
-                  alt={isActive ? `${project.title} project artwork` : ''}
-                  className={`h-full w-full object-contain motion-reduce:animate-none ${isActive ? 'animate-project-image-reveal' : ''
-                    }`}
-                  draggable="false"
-                />
+                <FaArrowLeft aria-hidden="true" />
               </button>
-            );
-          })}
-
-          <button
-            type="button"
-            onClick={() => move(-1)}
-            className="absolute left-0 top-1/2 z-40 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[var(--gold-primary)]/70 bg-black/65 text-lg text-white shadow-lg backdrop-blur transition hover:scale-110 hover:bg-[var(--gold-primary)] hover:text-white sm:left-2 sm:h-12 sm:w-12"
-            aria-label="Previous project"
-          >
-            <FaArrowLeft />
-          </button>
-          <button
-            type="button"
-            onClick={() => move(1)}
-            className="absolute right-0 top-1/2 z-40 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[var(--gold-primary)]/70 bg-black/65 text-lg text-white shadow-lg backdrop-blur transition hover:scale-110 hover:bg-[var(--gold-primary)] hover:text-white sm:right-2 sm:h-12 sm:w-12"
-            aria-label="Next project"
-          >
-            <FaArrowRight />
-          </button>
-        </section>
-
-        <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="40" className="-mt-4 flex items-center justify-center gap-2 sm:mt-5">
-          {visibleOffsets.map((offset) => {
-            const index = (activeIndex + offset + projects.length) % projects.length;
-            const isActive = offset === 0;
-
-            return (
-              <button
-                key={`indicator-${offset}`}
-                type="button"
-                onClick={() => selectProject(index)}
-                aria-label={`Show project ${index + 1}: ${projects[index].title}`}
-                aria-current={isActive ? 'true' : undefined}
-                className={`h-1 rounded-full transition-all duration-300 ${isActive ? 'w-7 bg-[var(--gold-primary)]' : 'w-5 bg-white/35 hover:bg-white/70'
+              {Array.from({ length: pageCount }, (_, pageIndex) => (
+                <button
+                  key={`page-${pageIndex}`}
+                  type="button"
+                  onClick={() => setActiveIndex(pageIndex)}
+                  aria-label={`Show project page ${pageIndex + 1}`}
+                  aria-current={activeIndex === pageIndex ? 'page' : undefined}
+                  className={`grid h-9 min-w-9 place-items-center rounded-full border px-2 text-xs font-semibold transition ${
+                    activeIndex === pageIndex
+                      ? 'border-[var(--gold-primary)] bg-[var(--gold-primary)] text-white'
+                      : 'border-white/25 text-white/80 hover:border-[var(--gold-primary)] hover:text-white'
                   }`}
-              />
-            );
-          })}
-          <span className="ml-3 text-[10px] font-semibold tracking-[0.18em] text-white/55">
-            {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-          </span>
-        </div>
+                >
+                  {pageIndex + 1}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => moveHomePage(1)}
+                disabled={activeIndex >= pageCount - 1}
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/25 text-white transition enabled:hover:border-[var(--gold-primary)] enabled:hover:bg-[var(--gold-primary)] disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Next project page"
+              >
+                <FaArrowRight aria-hidden="true" />
+              </button>
+              <span className="ml-2 text-[10px] font-semibold tracking-[0.14em] text-white/60">
+                {activeIndex * homePageSize + 1}–{Math.min((activeIndex + 1) * homePageSize, projects.length)} OF {projects.length}
+              </span>
+            </nav>
+          </>
+        ) : (
+          <>
+            <section
+              className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] items-center justify-center sm:mt-3 sm:h-[clamp(38rem,78vh,54rem)]"
+              aria-label="Project image carousel"
+              aria-roledescription="carousel"
+            >
+              <div className="pointer-events-none absolute bottom-[6%] left-1/2 h-[13%] w-[76%] -translate-x-1/2 rounded-[50%] bg-[var(--gold-primary)]/15 blur-3xl" />
+              {visibleOffsets.map((offset) => {
+                const index = (activeIndex + offset + projects.length) % projects.length;
+                const project = projects[index];
+                const isActive = offset === 0;
+                const distance = Math.abs(offset);
+                const position = offset === 0 ? 0 : Math.sign(offset) * (distance === 1 ? 26 : 40);
+                const rotation = offset === 0 ? 0 : offset * 2.2;
+
+                return (
+                  <button
+                    key={`${project.image}-${offset}`}
+                    type="button"
+                    onClick={() => selectProject(index)}
+                    aria-label={`${isActive ? 'Current project' : 'Show project'}: ${project.title}`}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)] sm:rounded-2xl ${isActive
+                        ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[var(--gold-primary)] shadow-[0_0_0_1px_rgba(184,134,11,0.35),0_0_38px_rgba(184,134,11,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
+                        : distance === 1
+                          ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[var(--gold-primary)]/90 opacity-95 shadow-[0_0_18px_rgba(184,134,11,0.16),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
+                          : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[var(--gold-primary)]/75 opacity-90 shadow-[0_0_14px_rgba(184,134,11,0.12),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
+                      }`}
+                    style={{
+                      left: `calc(50% + ${position}%)`,
+                      transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${isActive ? 1 : distance === 1 ? 0.9 : 0.78})`,
+                    }}
+                  >
+                    <img
+                      key={isActive ? `${project.image}-${activeIndex}` : project.image}
+                      src={project.image}
+                      alt={isActive ? `${project.title} project artwork` : ''}
+                      className={`h-full w-full object-contain motion-reduce:animate-none ${isActive ? 'animate-project-image-reveal' : ''}`}
+                      draggable="false"
+                    />
+                  </button>
+                );
+              })}
+
+              <button
+                type="button"
+                onClick={() => move(-1)}
+                className="absolute left-0 top-1/2 z-40 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[var(--gold-primary)]/70 bg-black/65 text-lg text-white shadow-lg backdrop-blur transition hover:scale-110 hover:bg-[var(--gold-primary)] hover:text-white sm:left-2 sm:h-12 sm:w-12"
+                aria-label="Previous project"
+              >
+                <FaArrowLeft />
+              </button>
+              <button
+                type="button"
+                onClick={() => move(1)}
+                className="absolute right-0 top-1/2 z-40 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[var(--gold-primary)]/70 bg-black/65 text-lg text-white shadow-lg backdrop-blur transition hover:scale-110 hover:bg-[var(--gold-primary)] hover:text-white sm:right-2 sm:h-12 sm:w-12"
+                aria-label="Next project"
+              >
+                <FaArrowRight />
+              </button>
+            </section>
+
+            <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="40" className="-mt-4 flex items-center justify-center gap-2 sm:mt-5">
+              {visibleOffsets.map((offset) => {
+                const index = (activeIndex + offset + projects.length) % projects.length;
+                const isActive = offset === 0;
+
+                return (
+                  <button
+                    key={`indicator-${offset}`}
+                    type="button"
+                    onClick={() => selectProject(index)}
+                    aria-label={`Show project ${index + 1}: ${projects[index].title}`}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`h-1 rounded-full transition-all duration-300 ${isActive ? 'w-7 bg-[var(--gold-primary)]' : 'w-5 bg-white/35 hover:bg-white/70'}`}
+                  />
+                );
+              })}
+              <span className="ml-3 text-[10px] font-semibold tracking-[0.18em] text-white/55">
+                {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+              </span>
+            </div>
+          </>
+        )}
         {homePage && (
           <Link
             to="/projects"
