@@ -66,12 +66,12 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
       className={`group overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] ${
         isGridLayout
         ? 'grid min-h-[260px] h-full grid-cols-[55%_minmax(0,1fr)]'
-          : 'grid h-[460px] md:h-[300px] md:grid-cols-2'
+          : 'flex flex-col md:grid md:h-[300px] md:grid-cols-2'
       }`}
     >
       <div
         className={`service-comparison relative overflow-hidden ${
-          isGridLayout ? 'h-full min-h-[260px] w-full' : 'h-full'
+          isGridLayout ? 'h-full min-h-[260px] w-full' : 'h-[260px] md:h-full'
         }`}
       >
         <img
