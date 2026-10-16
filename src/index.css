@@ -399,6 +399,8 @@ body {
 @media (max-width: 767px) {
 	.cinematic-copy-overlay {
 		width: 100%;
+		-webkit-backdrop-filter: blur(1px);
+		backdrop-filter: blur(1px);
 		background: linear-gradient(
 			90deg,
 			rgba(0, 0, 0, 0.72) 0%,

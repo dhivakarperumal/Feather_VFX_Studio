@@ -143,15 +143,14 @@ const Contact = () => {
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
-        eyebrow="Contact Us"
+        eyebrow="Let&apos;s Bring Your Vision to Life"
         title={
           <>
-            Let&apos;s Bring Your
-            <br />
-            <span className="text-[var(--gold-primary)]">Vision to Life</span>
+            Contact<span className="text-[var(--gold-primary)]"> Us</span>
           </>
         }
         titleSize="text-2xl sm:text-3xl md:text-4xl"
+        breadcrumbLabel="Contact Us"
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
       >

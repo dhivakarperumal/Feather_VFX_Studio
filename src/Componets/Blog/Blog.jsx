@@ -49,7 +49,7 @@ function Blog() {
   return (
     <div className="blog-page-shell">
       <PageHeader
-        eyebrow="Fresh perspectives, creative insights"
+        eyebrow="Creative Ideas Unleashed"
         title={<>Our <span className="text-[var(--gold-bright)]">Blogs</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
