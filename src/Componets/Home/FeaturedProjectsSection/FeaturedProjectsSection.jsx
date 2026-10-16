@@ -82,8 +82,8 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
     <>
       {!homePage && (
         <PageHeader
-          eyebrow="Our Projects"
-          title="Projects"
+          eyebrow="A showcase of our visual effects and animation work."
+          title={<>Our <span className="text-[var(--gold-bright)]">Projects</span></>}
           titleSize="text-2xl sm:text-3xl md:text-4xl"
           background="/images/project.png"
           align="left"
