@@ -157,7 +157,7 @@ const Projects = ({ homePage = false }) => {
               {homePageProjects.map((project) => (
                 <article
                   key={project.image}
-                  className="group relative min-h-0 min-w-0 overflow-hidden rounded-md border border-[var(--gold-primary)]/50 bg-[#090b0d]/75 transition-colors duration-300 hover:border-[var(--gold-bright)]"
+                  className="group relative min-h-0 min-w-0 overflow-hidden rounded-md border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none"
                 >
                   <button
                     type="button"
