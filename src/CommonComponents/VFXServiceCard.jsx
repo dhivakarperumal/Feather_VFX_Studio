@@ -52,17 +52,26 @@ const serviceDetails = {
 
 const reverseComparisonServices = ['Rotoscoping', 'Matchmove', 'Cosmetic VFX'];
 
-const VFXServiceCard = ({ service }) => {
+const VFXServiceCard = ({ service, layout = 'row' }) => {
   const [comparisonPosition, setComparisonPosition] = useState(50);
   const { icon: Icon, points } = serviceDetails[service.title];
+  const isGridLayout = layout === 'grid';
   const outputImage = service.image.replace('_IN.jpg', '_OUT.jpg').replace('-IN.jpg', '-OUT.jpg');
   const reverseComparison = reverseComparisonServices.includes(service.title);
   const firstImage = reverseComparison ? outputImage : service.image;
   const secondImage = reverseComparison ? service.image : outputImage;
 
   return (
-    <article className="group grid h-[460px] overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] md:h-[300px] md:grid-cols-2">
-      <div className="service-comparison relative h-full overflow-hidden">
+    <article
+      className={`group overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] ${
+        isGridLayout ? 'flex h-full flex-col' : 'grid h-[460px] md:h-[300px] md:grid-cols-2'
+      }`}
+    >
+      <div
+        className={`service-comparison relative overflow-hidden ${
+          isGridLayout ? 'aspect-[16/10] w-full shrink-0' : 'h-full'
+        }`}
+      >
         <img
           src={firstImage}
           alt={`${service.title} before`}
@@ -110,19 +119,48 @@ const VFXServiceCard = ({ service }) => {
         />
       </div>
 
-      <div className="flex h-full items-start gap-5 bg-[var(--bg-secondary)] px-6 py-6 sm:px-8">
+      <div
+        className={`flex items-start bg-[var(--bg-secondary)] ${
+          isGridLayout
+            ? 'flex-1 gap-3 px-4 py-5 sm:gap-4 sm:px-5'
+            : 'h-full gap-5 px-6 py-6 sm:px-8'
+        }`}
+      >
         <div className="mt-1 shrink-0">
-          <Icon className="h-9 w-9 text-[var(--gold-primary)]" strokeWidth={1.35} aria-hidden="true" />
+          <Icon
+            className={isGridLayout ? 'h-6 w-6 text-[var(--gold-primary)]' : 'h-9 w-9 text-[var(--gold-primary)]'}
+            strokeWidth={1.35}
+            aria-hidden="true"
+          />
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="font-serif text-2xl font-bold uppercase leading-tight tracking-wide text-[var(--text-primary)] sm:text-3xl">
+          <h3 className={`font-serif font-bold uppercase leading-tight tracking-wide text-[var(--text-primary)] ${
+            isGridLayout ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'
+          }`}>
             {service.title}
           </h3>
-          <span className="mt-2 mb-4 block h-[2px] w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
-          <ul className="flex flex-col gap-2.5">
+          <span
+            className={`mt-2 block h-[2px] w-10 bg-[var(--gold-primary)] ${
+              isGridLayout ? 'mb-3' : 'mb-4'
+            }`}
+            aria-hidden="true"
+          />
+          <ul className={`flex flex-col ${isGridLayout ? 'gap-2' : 'gap-2.5'}`}>
             {points.map((point) => (
-              <li key={point} className="flex items-start gap-2.5 text-sm leading-snug text-[var(--text-secondary)] sm:text-base">
-                <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold-primary)]" aria-hidden="true" />
+              <li
+                key={point}
+                className={`flex items-start text-[var(--text-secondary)] ${
+                  isGridLayout
+                    ? 'gap-2 text-xs leading-snug sm:text-sm'
+                    : 'gap-2.5 text-sm leading-snug sm:text-base'
+                }`}
+              >
+                <span
+                  className={`mt-[6px] shrink-0 rounded-full bg-[var(--gold-primary)] ${
+                    isGridLayout ? 'h-1 w-1' : 'h-1.5 w-1.5'
+                  }`}
+                  aria-hidden="true"
+                />
                 {point}
               </li>
             ))}

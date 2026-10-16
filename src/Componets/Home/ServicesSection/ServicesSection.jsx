@@ -29,9 +29,9 @@ const ServicesSection = () => {
           </Link>
         </div>
 
-        <div className="grid gap-3 sm:gap-4">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
           {orderedServices.map((service) => (
-            <VFXServiceCard key={service.title} service={service} />
+            <VFXServiceCard key={service.title} service={service} layout="grid" />
           ))}
         </div>
       </PageContainer>
