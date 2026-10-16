@@ -138,13 +138,10 @@ const Projects = () => {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] py-16 text-[var(--text-primary)] sm:py-20"
+      className="relative isolate overflow-hidden bg-white px-[3%] py-16 text-gray-900 sm:py-20"
     >
       {/* Background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%] opacity-10"
-        aria-hidden="true"
-      />
+     
 
       <div className="mx-auto w-full max-w-[1500px]">
         {/* Section heading */}

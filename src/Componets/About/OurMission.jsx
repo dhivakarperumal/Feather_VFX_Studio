@@ -51,7 +51,7 @@ const OurMission = () => (
             alt="Creative studio team at work"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)]/50 via-transparent to-transparent" aria-hidden="true" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)]/50 via-transparent to-transparent" aria-hidden="true" /> */}
         </div>
 
         <div data-aos="fade-left" data-aos-delay="100" data-aos-offset="60" className="space-y-6 text-[15px] leading-[1.9] text-[var(--text-secondary)] sm:text-base">

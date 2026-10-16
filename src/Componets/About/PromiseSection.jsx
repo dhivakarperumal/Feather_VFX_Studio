@@ -78,10 +78,14 @@ const PromiseSection = () => (
                 </p>
               </div>
 
-              <div className="relative h-[7rem] overflow-hidden border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] sm:h-[8rem]">
-                <img src={image} alt="" loading="lazy" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--bg-secondary)]/50" aria-hidden="true" />
-                <div className="absolute inset-x-2 bottom-2 flex items-center justify-end text-[var(--gold-bright)]">
+              <div className="relative h-[7rem] overflow-hidden border border-[var(--gold-primary)]/50 sm:h-[8rem]">
+                <img
+                  src={image}
+                  alt=""
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute right-2 top-2 text-[var(--gold-bright)]">
                   <BadgeCheck className="h-4 w-4" aria-hidden="true" />
                 </div>
               </div>

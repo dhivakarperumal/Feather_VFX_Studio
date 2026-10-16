@@ -31,14 +31,14 @@ const GlobalVFXSection = () => (
           className="absolute inset-0 h-full w-full object-cover object-center"
           loading="lazy"
         />
-        <div
+        {/* <div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--bg-secondary)]/80 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[var(--bg-secondary)]"
           aria-hidden="true"
-        />
-        <div
+        /> */}
+        {/* <div
           className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[var(--bg-secondary)]/50 to-transparent lg:hidden"
           aria-hidden="true"
-        />
+        /> */}
       </div>
 
       <div className="relative z-10 flex items-center px-5 py-8 sm:px-8 lg:-ml-4 lg:py-10 lg:pl-0 lg:pr-[7%]">
