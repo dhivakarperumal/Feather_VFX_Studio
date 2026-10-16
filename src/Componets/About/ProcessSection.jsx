@@ -59,7 +59,7 @@ const ProcessSection = () => {
   return (
     <section
       aria-labelledby="process-heading"
-      className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] px-[5%] py-14 text-[var(--text-primary)] sm:py-20 lg:px-[6%] lg:py-24"
+      className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] px-[5%] py-14 text-[var(--text-primary)] [--gold-primary:#c9a33a] [--gold-bright:#d6ad4b] sm:py-20 lg:px-[6%] lg:py-24"
     >
       {/* Background decoration */}
       <div
