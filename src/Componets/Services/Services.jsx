@@ -47,7 +47,7 @@ const Services = () => (
           <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">
             Creative VFX for <span className="text-[var(--gold-primary)]">every production</span>
           </h2>
-          <p className="mt-2 text-xs leading-relaxed text-[var(--text-secondary)] sm:text-sm">
+          <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-[15px]">
             We are a global creative production company specializing in high-quality visual effects for feature films and television.
           </p>
         </header>
@@ -72,7 +72,7 @@ const Services = () => (
                   <span className="mt-0.5 block h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
                 </div>
               </div>
-              <p className="text-xs text-justify leading-relaxed text-[var(--text-secondary)] sm:text-sm">
+              <p className="text-sm text-justify leading-relaxed text-[var(--text-secondary)] sm:text-[15px]">
                 Whether you&apos;re a large VFX studio or a boutique production company, we help you take on ambitious projects with confidence. Our experienced team handles complex VFX tasks, allowing you to focus on creativity, storytelling, and production. Think of us as an extension of your team, providing reliable support whenever you need it.
               </p>
             </article>
@@ -88,7 +88,7 @@ const Services = () => (
                   <span className="mt-0.5 block h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
                 </div>
               </div>
-              <p className="text-xs text-justify leading-relaxed text-[var(--text-secondary)] sm:text-sm">
+              <p className="text-sm text-justify leading-relaxed text-[var(--text-secondary)] sm:text-[15px]">
                 Our flexible workflows and customized pipelines make projects of every size easy to manage. We work efficiently to deliver high-quality results within tight deadlines, often with overnight turnaround when required. No project is too small, and quality is never compromised.
               </p>
             </article>
@@ -148,7 +148,7 @@ const Services = () => (
               <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">
                 Work <span className="text-[var(--gold-primary)]">Together</span>
               </h2>
-              <p className="mt-2 text-xs leading-relaxed text-[var(--text-secondary)] sm:text-sm">
+              <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-[15px]">
                 Have a project in mind? Get in touch with our team to discuss your requirements and discover how our VFX expertise can support your production.
               </p>
             </div>

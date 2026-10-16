@@ -6,12 +6,31 @@ const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 6000);
+    const nextIndex = (activeSlide + 1) % heroSlides.length;
+    const nextSlide = heroSlides[nextIndex];
+    const image = new Image();
+    let timer;
+    let cancelled = false;
 
-    return () => window.clearInterval(timer);
-  }, []);
+    image.onload = () => {
+      if (cancelled) {
+        return;
+      }
+      timer = window.setTimeout(() => setActiveSlide(nextIndex), 6000);
+    };
+    image.onerror = () => {
+      if (!cancelled) {
+        console.error(`Failed to load hero slide image: ${nextSlide.image}`);
+      }
+    };
+    image.fetchPriority = 'low';
+    image.src = nextSlide.image;
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [activeSlide]);
 
   const showSlide = (index) => {
     setActiveSlide((index + heroSlides.length) % heroSlides.length);
@@ -33,9 +52,8 @@ const Hero = () => {
               src={item.image}
               alt=""
               fetchPriority={index === 0 ? 'high' : 'auto'}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-                activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
-              }`}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
+                }`}
             />
           ))}
         </div>
@@ -61,12 +79,12 @@ const Hero = () => {
     </span>
   </div>
 
-  <div className="hero-reveal-mask mt-1">
-    <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
-      Outsourcing Partner
-    </span>
-  </div>
-</h1>
+              <div className="hero-reveal-mask mt-1">
+                <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
+                  Outsourcing Partner
+                </span>
+              </div>
+            </h1>
 
 
             {/* Description — delay 3 */}
@@ -139,11 +157,10 @@ const Hero = () => {
               onClick={() => showSlide(index)}
               aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}
               aria-current={activeSlide === index ? 'true' : undefined}
-              className={`h-2 rounded-full transition-all ${
-                activeSlide === index
+              className={`h-2 rounded-full transition-all ${activeSlide === index
                   ? 'w-8 bg-[var(--gold-primary)]'
                   : 'w-2 bg-white/60 hover:bg-white'
-              }`}
+                }`}
             />
           ))}
         </div>
@@ -156,7 +173,7 @@ const Hero = () => {
               key={title}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="group flex items-center justify-center gap-4 border border-[var(--border-color)] px-6 py-7 text-left md:px-8 md:py-8 xl:border-r xl:last:border-r-0"
+              className="group flex items-center justify-start gap-4 border border-[var(--border-color)] px-6 py-7 text-left md:px-8 md:py-8 xl:justify-center xl:border-r xl:last:border-r-0"
             >
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]/80 transition-colors duration-200 group-hover:border-[var(--gold-primary)] group-hover:text-[var(--gold-bright)]">
                 <Icon className="h-8 w-8" aria-hidden="true" />
