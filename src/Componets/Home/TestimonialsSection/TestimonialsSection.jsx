@@ -167,9 +167,9 @@ const TestimonialsSection = () => {
                   </div>
 
                   <div className="relative flex-1 pl-7">
-                    <Quote className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/40 text-[var(--gold-primary)]/40" aria-hidden="true" />
-                    <p className="line-clamp-4 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[0.94rem]">{quote}</p>
-                    <Quote className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/25 text-[var(--gold-primary)]/25" aria-hidden="true" />
+                    <Quote className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-bright)] text-[var(--gold-bright)]" aria-hidden="true" />
+                    <p className="line-clamp-4 text-sm leading-[1.7] text-black sm:text-[0.94rem]">{quote}</p>
+                    <Quote className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-bright)] text-[var(--gold-bright)]" aria-hidden="true" />
                   </div>
 
                   <div className="h-px w-full bg-gradient-to-r from-[var(--gold-primary)]/30 via-[var(--gold-primary)]/15 to-transparent" aria-hidden="true" />
