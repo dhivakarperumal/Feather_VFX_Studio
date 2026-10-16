@@ -174,8 +174,7 @@ const Projects = () => {
           </h1>
 
           <p className="mt-3 max-w-2xl text-sm text-[var(--text-secondary)]">
-            Discover our visual effects, CGI, compositing and
-            post-production work across films, series and commercials.
+            Explore a selection of our previous work and discover how our visual effects expertise can support your next production. From detailed shot work to complex visual sequences, we are committed to delivering results that meet your creative requirements.
           </p>
 
           {/* Category filters */}
@@ -248,8 +247,8 @@ const Projects = () => {
                       onClick={() => goToPage(page)}
                       aria-current={currentPage === page ? 'page' : undefined}
                       className={`grid h-10 min-w-10 place-items-center rounded-full border px-3 text-xs font-semibold ${currentPage === page
-                          ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
-                          : 'border-[var(--border-color)] text-[var(--text-primary)]'
+                        ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
+                        : 'border-[var(--border-color)] text-[var(--text-primary)]'
                         }`}
                     >
                       {page}

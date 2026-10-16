@@ -139,7 +139,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
               Featured <span className="text-[var(--gold-bright)]">Projects</span>
             </h2>
             <p className="mt-3 text-sm text-[var(--text-secondary)]">
-              Bringing imagination to life through stunning visuals and world-class VFX.
+              Explore a selection of our previous work and discover how our visual effects expertise can support your next production. From detailed shot work to complex visual sequences, we are committed to delivering results that meet your creative requirements.
             </p>
 
             <div className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Filter projects by discipline" data-aos="fade-up" data-aos-delay="100" data-aos-offset="60">

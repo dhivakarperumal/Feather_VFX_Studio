@@ -53,15 +53,21 @@ const Hero = () => {
             </div>
 
             {/* Title line 1 — delay 1 */}
-            <h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
-              <div className="hero-reveal-mask">
-                <span className="hero-reveal hero-reveal-d1 block">{slide.title}</span>
-              </div>
-              {/* Highlight — delay 2 */}
-              <div className="hero-reveal-mask mt-1">
-                <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">{slide.highlight}</span>
-              </div>
-            </h1>
+           
+<h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
+  <div className="hero-reveal-mask">
+    <span className="hero-reveal hero-reveal-d1 block">
+      Your VFX
+    </span>
+  </div>
+
+  <div className="hero-reveal-mask mt-1">
+    <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
+      Outsourcing Partner
+    </span>
+  </div>
+</h1>
+
 
             {/* Description — delay 3 */}
             <div className="hero-reveal-mask mt-6">
