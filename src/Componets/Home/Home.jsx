@@ -1,6 +1,6 @@
 import Hero from './HeroSection/Hero';
 import HomeIntroSection from './HomeIntroSection/HomeIntroSection';
-import Projects from '../Projects/Projects';
+import FeaturedProjectsSection from './FeaturedProjectsSection/FeaturedProjectsSection';
 import ServicesSection from './ServicesSection/ServicesSection';
 import GlobalVFXSection from './GlobalVFXSection/GlobalVFXSection';
 import WhyUsSection from './WhyUsSection/WhyUsSection';
@@ -11,7 +11,7 @@ import TestimonialsSection from './TestimonialsSection/TestimonialsSection';
 const Home = () => (
   <>
     <Hero />
-    <Projects homePage />
+    <FeaturedProjectsSection homePage />
     <HomeIntroSection />
     <ServicesSection />
     <QualitySecuritySection />

@@ -21,14 +21,21 @@ const balanceIntoColumns = (items, columnCount) => {
   return columns;
 };
 
-const FeaturedProjectsSection = () => {
+const homePageSize = 6;
+
+const FeaturedProjectsSection = ({ homePage = false }) => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [activePage, setActivePage] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const visibleProjects = activeFilter === 'All'
     ? projects
     : projects.filter((project) => project.collection === activeFilter);
-  const portraitProjects = visibleProjects.filter((project) => project.orientation === 'portrait');
-  const landscapeProjects = visibleProjects.filter((project) => project.orientation === 'landscape');
+  const pageCount = Math.ceil(visibleProjects.length / homePageSize);
+  const galleryProjects = homePage
+    ? visibleProjects.slice(activePage * homePageSize, (activePage + 1) * homePageSize)
+    : visibleProjects;
+  const portraitProjects = galleryProjects.filter((project) => project.orientation === 'portrait');
+  const landscapeProjects = galleryProjects.filter((project) => project.orientation === 'landscape');
   const mobileColumns = balanceIntoColumns(portraitProjects, 2);
   const desktopColumns = balanceIntoColumns(portraitProjects, 3);
 
@@ -73,47 +80,49 @@ const FeaturedProjectsSection = () => {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Our Projects"
-        title={
-          <>
-            Featured <span className="text-[var(--gold-primary)]">Projects</span>
-            <br />
-            <span className="text-[var(--text-primary)]">CGI &amp; 3D Animation</span>
-          </>
-        }
-        description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
-        background="/images/project.png"
-        align="left"
-        showBreadcrumb={false}
-        className="min-h-[420px]"
-      >
-        <Link
-          to="/showreel"
-          className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+      {!homePage && (
+        <PageHeader
+          eyebrow="Our Projects"
+          title={
+            <>
+              Featured <span className="text-[var(--gold-primary)]">Projects</span>
+              <br />
+              <span className="text-[var(--text-primary)]">CGI &amp; 3D Animation</span>
+            </>
+          }
+          description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
+          background="/images/project.png"
+          align="left"
+          showBreadcrumb={false}
+          className="min-h-[420px]"
         >
-          Explore Projects
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--gold-bright)]">
-            <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
-          </span>
-        </Link>
-        <Link
-          to="/showreel"
-          className="mt-5 flex w-fit items-center gap-3 text-left text-[var(--text-primary)] md:absolute md:bottom-8 md:right-[5%] md:mt-0"
-        >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
-            <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
-          </span>
-          <span className="flex flex-col gap-1">
-            <span className="text-[9px] font-bold uppercase tracking-[0.16em]">Featured reel</span>
-            <span className="text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">Play video</span>
-          </span>
-        </Link>
-      </PageHeader>
+          <Link
+            to="/showreel"
+            className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+          >
+            Explore Projects
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--gold-bright)]">
+              <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
+            </span>
+          </Link>
+          <Link
+            to="/showreel"
+            className="mt-5 flex w-fit items-center gap-3 text-left text-[var(--text-primary)] md:absolute md:bottom-8 md:right-[5%] md:mt-0"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
+              <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
+            </span>
+            <span className="flex flex-col gap-1">
+              <span className="text-[9px] font-bold uppercase tracking-[0.16em]">Featured reel</span>
+              <span className="text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">Play video</span>
+            </span>
+          </Link>
+        </PageHeader>
+      )}
       <section
         id="projects"
         aria-labelledby="featured-projects-title"
-        className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] py-16 sm:py-20 lg:py-14"
+        className={`relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] ${homePage ? 'py-12 sm:py-16' : 'py-16 sm:py-20 lg:py-14'}`}
       >
         <div
           className="pointer-events-none absolute inset-0 -z-10 opacity-10 bg-[url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%]"
@@ -139,7 +148,11 @@ const FeaturedProjectsSection = () => {
                   key={filter}
                   type="button"
                   aria-pressed={activeFilter === filter}
-                  onClick={() => setActiveFilter(filter)}
+                  onClick={() => {
+                    setActiveFilter(filter);
+                    setActivePage(0);
+                    setSelectedIndex(null);
+                  }}
                   className={`min-h-8 cursor-pointer rounded-full border px-4 py-1.5 text-[11px] transition-colors focus-visible:border-[var(--gold-primary)] focus-visible:text-[var(--gold-bright)] ${
                     activeFilter === filter
                       ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
@@ -165,6 +178,47 @@ const FeaturedProjectsSection = () => {
               />
             ))}
           </div>
+        )}
+        {homePage && pageCount > 1 && (
+          <nav className="mt-6 flex flex-wrap items-center justify-center gap-2" aria-label="Project pages">
+            <button
+              type="button"
+              onClick={() => setActivePage((page) => Math.max(0, page - 1))}
+              disabled={activePage === 0}
+              className="grid h-9 w-9 place-items-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition enabled:hover:border-[var(--gold-primary)] enabled:hover:bg-[var(--gold-primary)] disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label="Previous project page"
+            >
+              <FaArrowLeft aria-hidden="true" />
+            </button>
+            {Array.from({ length: pageCount }, (_, pageIndex) => (
+              <button
+                key={`project-page-${pageIndex}`}
+                type="button"
+                onClick={() => setActivePage(pageIndex)}
+                aria-label={`Show project page ${pageIndex + 1}`}
+                aria-current={activePage === pageIndex ? 'page' : undefined}
+                className={`grid h-9 min-w-9 place-items-center rounded-full border px-2 text-xs font-semibold transition ${
+                  activePage === pageIndex
+                    ? 'border-[var(--gold-primary)] bg-[var(--gold-primary)] text-white'
+                    : 'border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--gold-primary)]'
+                }`}
+              >
+                {pageIndex + 1}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setActivePage((page) => Math.min(pageCount - 1, page + 1))}
+              disabled={activePage >= pageCount - 1}
+              className="grid h-9 w-9 place-items-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition enabled:hover:border-[var(--gold-primary)] enabled:hover:bg-[var(--gold-primary)] disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label="Next project page"
+            >
+              <FaArrowRight aria-hidden="true" />
+            </button>
+            <span className="ml-2 text-[10px] font-semibold tracking-[0.14em] text-[var(--text-secondary)]">
+              {activePage * homePageSize + 1}–{Math.min((activePage + 1) * homePageSize, visibleProjects.length)} OF {visibleProjects.length}
+            </span>
+          </nav>
         )}
         {selectedIndex !== null && visibleProjects[selectedIndex] && (
           <ModalPortal>
@@ -213,10 +267,10 @@ const FeaturedProjectsSection = () => {
         <div className="mt-7 flex items-center justify-center gap-8" data-aos="fade-up" data-aos-offset="60">
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-r from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
           <a
-            href="/contact"
+            href={homePage ? '/projects' : '/contact'}
             className="btn-shimmer inline-flex min-h-11 items-center gap-2.5 border border-[var(--gold-primary)] px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--text-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] focus-visible:bg-[var(--gold-primary)] focus-visible:text-[var(--bg-primary)] motion-reduce:transition-none"
           >
-            Start a project <FaArrowRight aria-hidden="true" />
+            {homePage ? 'View all projects' : 'Start a project'} <FaArrowRight aria-hidden="true" />
           </a>
           <span className="h-px w-[min(15vw,7rem)] bg-gradient-to-l from-transparent to-[var(--gold-primary)]/80" aria-hidden="true" />
         </div>
