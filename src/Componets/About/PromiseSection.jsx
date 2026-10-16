@@ -93,7 +93,7 @@ const PromiseSection = () => (
               <span className="mt-4 block h-px w-10 bg-[var(--gold-bright)]" aria-hidden="true" />
 
               {/* Description */}
-              <p className="mt-4 flex-1 text-sm leading-[1.75] text-[var(--text-secondary)] sm:text-[0.94rem]">
+              <p className="mt-4 flex-1 text-justify text-sm leading-[1.75] text-[var(--text-secondary)] sm:text-[0.94rem]">
                 {description}
               </p>
             </div>
