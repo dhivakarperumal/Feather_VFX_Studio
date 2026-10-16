@@ -46,7 +46,7 @@ const WhyUsSection = () => {
           <span className="mt-1 block text-[var(--gold-bright)]">proud of your business.</span>
         </h2>
 
-        <p data-aos="fade-up" data-aos-delay="160" data-aos-offset="60" className="mx-auto mt-7 max-w-[1000px] text-justify text-center text-sm leading-[1.8] text-black sm:text-base">
+        <p data-aos="fade-up" data-aos-delay="160" data-aos-offset="60" className="mx-auto mt-7 max-w-[1000px] text-justify text-center text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
           Feather is committed to loftier professional standards for your sensitive Data &amp; Information security. We respect and honor the trusting nature inherent in a professional relationship and in all respects and at all times remain rooted therein. The clear mechanisms of privacy are continually updated and restructured to ensure that they fully support the changing business climate and standards. We are not only renowned for our quality of work, but also for maintaining the trust of our customers coupled with business interests and that is what we want to be.
         </p>
 
