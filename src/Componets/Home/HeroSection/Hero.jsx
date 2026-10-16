@@ -40,11 +40,11 @@ const Hero = () => {
           ))}
         </div>
         <div
-          className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
+          className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--hero-overlay)] via-[var(--hero-overlay)]/80 to-[var(--hero-overlay)]/15"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]/15"
+          className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--hero-overlay)] via-transparent to-[var(--hero-overlay)]/15"
           aria-hidden="true"
         />
 

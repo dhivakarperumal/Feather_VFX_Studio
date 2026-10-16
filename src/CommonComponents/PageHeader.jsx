@@ -14,7 +14,7 @@ const PageHeader = ({
 
   return (
     <div
-      className={`relative isolate flex min-h-[380px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-[var(--text-primary)] ${className}`}
+      className={`page-header relative isolate flex min-h-[380px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-[var(--text-primary)] ${className}`}
     >
       <img
         src={background}
@@ -24,13 +24,13 @@ const PageHeader = ({
       <div
         className={`absolute inset-0 -z-10 ${
           isLeftAligned
-            ? "bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/10"
+            ? "bg-gradient-to-r from-[var(--hero-overlay)] via-[var(--hero-overlay)]/75 to-[var(--hero-overlay)]/10"
             : "bg-black/50"
         }`}
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)]/65 via-transparent to-[var(--bg-primary)]/20"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--hero-overlay)]/65 via-transparent to-[var(--hero-overlay)]/20"
         aria-hidden="true"
       />
       <div

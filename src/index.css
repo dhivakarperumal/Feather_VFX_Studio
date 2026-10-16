@@ -54,21 +54,47 @@
 
 
 :root {
-  --bg-primary: #050A0B;
-  --bg-secondary: #0B1113;
-  --gold-primary: #D6A04A;
-  --gold-bright: #F0A858;
-  --text-primary: #F5F2EA;
-  --text-secondary: #A7ADB0;
-  --border-color: #252D30;
+  color-scheme: dark;
+  --bg-primary: #080B0D;
+  --bg-secondary: #101416;
+  --bg-section: #101416;
+  --bg-surface: #171B1E;
+  --bg-header: #080B0D;
+  --gold-primary: #E5A544;
+  --gold-bright: #F0B65F;
+  --gold-text: #E5A544;
+  --text-primary: #F5F3EF;
+  --text-secondary: #B8B8B8;
+  --button-text: #080B0D;
+  --hero-overlay: #080B0D;
+  --hero-text: #F5F3EF;
+  --border-color: #292E31;
   font-family: "Roboto Condensed", sans-serif;
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-primary: #F8F8F6;
+  --bg-secondary: #F1F2EF;
+  --bg-section: #F1F2EF;
+  --bg-surface: #FFFFFF;
+  --bg-header: #FFFFFF;
+  --gold-primary: #B87920;
+  --gold-bright: #8D5A15;
+  --gold-text: #8D5A15;
+  --text-primary: #17191B;
+  --text-secondary: #5D6267;
+  --button-text: #17191B;
+  --hero-overlay: #080B0D;
+  --hero-text: #F5F3EF;
+  --border-color: #E2E4E1;
+}
 
 body {
 	background: var(--bg-primary);
 	color: var(--text-primary);
 	font-family: "Roboto Condensed", sans-serif;
+	min-height: 100vh;
 }
 
 .service-comparison {

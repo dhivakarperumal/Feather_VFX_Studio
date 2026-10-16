@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Moon, Sun } from 'lucide-react';
 import PageContainer from './PageContainer';
+import { useTheme } from '../ThemeContext';
 
 const navLinks = [
   { label: 'HOME', id: '' },
@@ -18,6 +20,7 @@ const Navbar = () => {
   const [activeHash, setActiveHash] = useState(window.location.hash);
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const updateActiveHash = () => setActiveHash(window.location.hash);
@@ -104,7 +107,7 @@ const Navbar = () => {
       className={`sticky top-0 z-50 text-[var(--text-primary)] transition-all duration-300 ${
         isScrolled
           ? 'border-b border-[var(--gold-primary)]/20 bg-[var(--bg-primary)]/98 shadow-xl shadow-black/40 backdrop-blur-xl'
-          : 'border-b border-[var(--border-color)] bg-[var(--bg-primary)]/95 shadow-lg shadow-black/20 backdrop-blur-md'
+            : 'border-b border-[var(--border-color)] bg-[var(--bg-header)]/95 shadow-lg shadow-black/20 backdrop-blur-md'
       }`}
     >
       <nav aria-label="Main navigation">
@@ -139,6 +142,21 @@ const Navbar = () => {
           LET&apos;S TALK
           <span aria-hidden="true">→</span>
         </a>
+
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          aria-pressed={theme === 'light'}
+          className="theme-toggle inline-flex h-10 w-10 shrink-0 items-center justify-center rounded border border-[var(--gold-primary)]/60 text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--button-text)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold-primary)]"
+        >
+          {theme === 'dark' ? (
+            <Moon aria-hidden="true" className="h-5 w-5" />
+          ) : (
+            <Sun aria-hidden="true" className="h-5 w-5" />
+          )}
+        </button>
 
         <button
           type="button"
