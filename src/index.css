@@ -81,6 +81,13 @@
   color-scheme: dark;
 }
 
+.why-us-background {
+  opacity: 0.1;
+}
+
+:root[data-theme="dark"] .why-us-background {
+  opacity: 0.4;
+}
 
 body {
   background: var(--bg-primary);
