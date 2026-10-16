@@ -77,7 +77,7 @@ const TestimonialsSection = () => {
       className="relative isolate overflow-hidden bg-[var(--bg-secondary)] px-[6%] py-16 text-[var(--text-primary)] sm:px-[5%] sm:py-20 lg:px-[3%] lg:py-14"
     >
       <div
-        className="absolute inset-0 -z-20 bg-cover bg-center opacity-10"
+        className="testimonials-background absolute inset-0 -z-20 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/testimonial.png')" }}
         aria-hidden="true"
       />

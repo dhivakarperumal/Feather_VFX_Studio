@@ -81,11 +81,13 @@
   color-scheme: dark;
 }
 
-.why-us-background {
+.why-us-background,
+.testimonials-background {
   opacity: 0.1;
 }
 
-:root[data-theme="dark"] .why-us-background {
+:root[data-theme="dark"] .why-us-background,
+:root[data-theme="dark"] .testimonials-background {
   opacity: 0.4;
 }
 
