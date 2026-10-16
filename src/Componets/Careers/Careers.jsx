@@ -135,7 +135,7 @@ function Careers() {
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
         eyebrow="Careers at Feather VFX"
-        title="Careers"
+        title={<>Our <span className="text-[var(--gold-bright)]">Careers</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         breadcrumbLabel="Careers"
         background="/images/heroimages/2.png"
