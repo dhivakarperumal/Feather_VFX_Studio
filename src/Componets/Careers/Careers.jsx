@@ -267,19 +267,37 @@ function Careers() {
             </div>
 
             <div className="relative flex min-h-[300px] items-end overflow-hidden border border-[var(--border-color)] sm:min-h-[390px]">
-              <img src="/images/heroimages/1.png" alt="A visual effects artist creating a cinematic environment" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/35 to-transparent" /> */}
-              <div className="relative max-w-lg p-5 sm:p-7">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">Build the future with us</p>
-                <h3 className="mt-2 font-serif text-3xl font-bold uppercase leading-[1.02] sm:text-4xl text-white">
+              <img
+                src="/images/heroimages/1.png"
+                alt="A visual effects artist creating a cinematic environment"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+
+              <div className="relative z-10 max-w-lg p-5 sm:p-7">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+                  Build the future with us
+                </p>
+
+                <h3 className="mt-2 font-serif text-3xl font-bold uppercase leading-[1.02] text-white sm:text-4xl">
                   Let&apos;s build
                   <br />
-                  <span className="text-[var(--gold-primary)]">extraordinary worlds</span>
+                  <span className="text-[var(--gold-bright)]">
+                    extraordinary worlds
+                  </span>
                   <br />
                   together
                 </h3>
-                <button type="button" onClick={() => startApplication('General Career Application')} className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
-                  Apply now <FaArrowRight aria-hidden="true" />
+
+                <button
+                  type="button"
+                  onClick={() => startApplication('General Career Application')}
+                  className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)]"
+                >
+                  Apply now
+                  <FaArrowRight aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -389,18 +407,37 @@ function Careers() {
           </div>
         </ModalPortal>
       )}
-
       <section className="relative isolate overflow-hidden">
-        <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]" />
-        {/* <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/70 to-[var(--bg-primary)]/25" /> */}
-        <div className="mx-auto flex max-w-[1700px] flex-col justify-between gap-5 px-[6%] py-8 sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
-          <div data-aos="fade-up">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">Ready to create something extraordinary?</p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl text-white">Your next chapter starts here.</h2>
-            <p className="mt-2 text-sm text-[var(--text-secondary)] text-white">Explore open positions and become a part of Feather VFX Studio.</p>
+        <img
+          src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]"
+        />
+
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/20 max-md:bg-black/65" />
+
+        <div className="mx-auto flex min-h-[260px] max-w-[1700px] flex-col justify-between gap-6 px-[6%] py-10 text-white sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
+          <div className="max-w-2xl" data-aos="fade-up">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+              Ready to create something extraordinary?
+            </p>
+
+            <h2 className="mt-2 font-serif text-2xl font-bold uppercase leading-tight text-white sm:text-3xl lg:text-4xl">
+              Your next chapter starts here.
+            </h2>
+
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/90">
+              Explore open positions and become a part of Feather VFX Studio.
+            </p>
           </div>
-          <a href="#open-positions" className="inline-flex shrink-0 items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
-            Join our team <FaArrowRight aria-hidden="true" />
+
+          <a
+            href="#open-positions"
+            className="inline-flex w-fit shrink-0 items-center gap-3 border border-[var(--gold-bright)] bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            Join our team
+            <FaArrowRight aria-hidden="true" />
           </a>
         </div>
       </section>

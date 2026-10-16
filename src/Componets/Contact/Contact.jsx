@@ -428,19 +428,49 @@ const Contact = () => {
       </section>
 
       <section className="relative isolate overflow-hidden border-b border-[var(--border-color)]">
-        <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_56%]" />
-        {/* <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/25" /> */}
-        <div className="mx-auto flex max-w-[1700px] flex-col justify-between gap-6 px-[6%] py-8 sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
-          <div>
-            <p className="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Ready to create something extraordinary?</p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase text-white sm:text-3xl">Let&apos;s bring your vision to life.</h2>
-            <a href="#contact-form" className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
-              Start a conversation <FaArrowRight aria-hidden="true" />
+        <img
+          src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_56%]"
+        />
+
+        {/* Dark overlay for readable text */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/20 max-md:bg-black/65" />
+
+        <div className="mx-auto flex min-h-[250px] max-w-[1700px] flex-col justify-between gap-7 px-[6%] py-10 text-white sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
+          <div className="max-w-[700px]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+              Ready to create something extraordinary?
+            </p>
+
+            <h2 className="mt-2 font-serif text-2xl font-bold uppercase leading-tight text-white sm:text-3xl lg:text-4xl">
+              Let&apos;s bring your vision to life.
+            </h2>
+
+            <a
+              href="#contact-form"
+              className="mt-5 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Start a conversation
+              <FaArrowRight aria-hidden="true" />
             </a>
           </div>
-          <ul className="grid gap-2 text-xs sm:grid-cols-2 md:grid-cols-1">
-            {['Creative expertise', 'Global collaboration', 'Reliable delivery', 'Long-term partnership'].map((benefit) => (
-              <li key={benefit} className="flex items-center gap-2"><FaCheckCircle className="text-[var(--gold-primary)]" aria-hidden="true" />{benefit}</li>
+
+          <ul className="grid gap-3 text-xs sm:grid-cols-2 md:grid-cols-1 md:text-sm">
+            {[
+              'Creative expertise',
+              'Global collaboration',
+              'Reliable delivery',
+              'Long-term partnership',
+            ].map((benefit) => (
+              <li key={benefit} className="flex items-center gap-2">
+                <FaCheckCircle
+                  className="shrink-0 text-[var(--gold-bright)]"
+                  aria-hidden="true"
+                />
+                <span>{benefit}</span>
+              </li>
             ))}
           </ul>
         </div>
@@ -448,45 +478,45 @@ const Contact = () => {
 
       {formStatus?.type === 'success' && (
         <ModalPortal>
-            <div
-              className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
-              onClick={() => setFormStatus(null)}
+          <div
+            className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+            onClick={() => setFormStatus(null)}
+          >
+            <section
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="contact-success-title"
+              aria-describedby="contact-success-message"
+              className="relative w-full max-w-md border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] p-7 text-center shadow-2xl sm:p-9"
+              onClick={(event) => event.stopPropagation()}
             >
-              <section
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="contact-success-title"
-                aria-describedby="contact-success-message"
-                className="relative w-full max-w-md border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] p-7 text-center shadow-2xl sm:p-9"
-                onClick={(event) => event.stopPropagation()}
+              <button
+                type="button"
+                onClick={() => setFormStatus(null)}
+                aria-label="Close success message"
+                className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
               >
-                <button
-                  type="button"
-                  onClick={() => setFormStatus(null)}
-                  aria-label="Close success message"
-                  className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-                >
-                  <FaTimes aria-hidden="true" />
-                </button>
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10">
-                  <FaCheckCircle className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
-                </span>
-                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)]">Inquiry sent</p>
-                <h2 id="contact-success-title" className="mt-2 font-serif text-2xl font-bold uppercase sm:text-3xl">
-                  Thank you!
-                </h2>
-                <p id="contact-success-message" className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-                  Your inquiry was sent successfully. Our team will get back to you within 24 hours.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setFormStatus(null)}
-                  className="mt-6 inline-flex items-center gap-2 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
-                >
-                  Done <FaArrowRight aria-hidden="true" />
-                </button>
-              </section>
-            </div>
+                <FaTimes aria-hidden="true" />
+              </button>
+              <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10">
+                <FaCheckCircle className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
+              </span>
+              <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)]">Inquiry sent</p>
+              <h2 id="contact-success-title" className="mt-2 font-serif text-2xl font-bold uppercase sm:text-3xl">
+                Thank you!
+              </h2>
+              <p id="contact-success-message" className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+                Your inquiry was sent successfully. Our team will get back to you within 24 hours.
+              </p>
+              <button
+                type="button"
+                onClick={() => setFormStatus(null)}
+                className="mt-6 inline-flex items-center gap-2 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+              >
+                Done <FaArrowRight aria-hidden="true" />
+              </button>
+            </section>
+          </div>
         </ModalPortal>
       )}
     </div>
