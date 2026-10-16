@@ -33,7 +33,7 @@ const HomeIntroSection = () => {
               <span className="mt-1 block text-[var(--gold-bright)]">new dimension with Feather VFX!</span>
             </h2>
 
-            <p className="mt-3 max-w-[620px] text-[11px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-xs">
+            <p className="mt-3 max-w-[620px] text-[14px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-[16px]">
               We combine advanced technology, artistic expertise, and attention to detail to deliver high-quality visual effects for film and television. Share your vision with us, and our team will work closely with you to bring it to life.
             </p>
 

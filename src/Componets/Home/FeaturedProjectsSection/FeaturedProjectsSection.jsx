@@ -138,7 +138,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
             <h2 id="featured-projects-title" className="mt-2 font-serif text-4xl font-bold uppercase leading-none text-[var(--text-primary)] sm:text-5xl lg:text-7xl">
               Featured <span className="text-[var(--gold-bright)]">Projects</span>
             </h2>
-            <p className="mt-3 text-sm text-[var(--text-secondary)]">
+            <p className="mx-auto mt-3 max-w-4xl text-[17px] text-[var(--text-secondary)]">
               Explore a selection of our previous work and discover how our visual effects expertise can support your next production. From detailed shot work to complex visual sequences, we are committed to delivering results that meet your creative requirements.
             </p>
 

@@ -153,8 +153,8 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
                 key={point}
                 className={`flex items-start text-[var(--text-secondary)] ${
                   isGridLayout
-                    ? 'gap-1.5 text-[10px] leading-snug sm:gap-2 sm:text-xs lg:text-sm'
-                    : 'gap-2.5 text-sm leading-snug sm:text-base'
+                    ? 'gap-1.5 text-[14px] leading-snug sm:gap-2 sm:text-xs lg:text-[14px]'
+                    : 'gap-2.5 text-[14px] leading-snug sm:text-[14px] '
                 }`}
               >
                 <span

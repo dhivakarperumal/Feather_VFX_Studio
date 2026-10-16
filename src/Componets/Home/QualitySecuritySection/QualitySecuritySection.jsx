@@ -61,10 +61,10 @@ const QualitySecuritySection = () => (
             <span className="block text-[var(--gold-bright)]">and Reliability</span>
           </h2>
           <span className="mt-4 block h-0.5 w-10 bg-[var(--gold-bright)]" aria-hidden="true" />
-          <p className="mt-4 max-w-xl text-xs leading-[1.7] text-[var(--text-secondary)] sm:text-sm">
+          <p className="mt-4 max-w-xl text-sm text-justify leading-[1.7] text-[var(--text-secondary)] sm:text-[16px]">
             At Feather VFX, we understand the importance of protecting our clients&apos; content and confidential information. We are committed to professional communication, responsible data handling, and reliable production workflows.
           </p>
-          <p className="mt-3 max-w-xl text-xs leading-[1.7] text-[var(--text-secondary)] sm:text-sm">
+          <p className="mt-3 max-w-xl text-sm  text-justify leading-[1.7] text-[var(--text-secondary)] sm:text-[16px]">
             Our goal is to build lasting client relationships through quality, transparency, and dependable service.
           </p>
         </div>
@@ -106,7 +106,7 @@ const QualitySecuritySection = () => (
                 {title}
               </h3>
               <span className="mt-3 block h-0.5 w-9 bg-[var(--gold-bright)]" aria-hidden="true" />
-              <p className="mt-3 text-xs leading-[1.7] text-[var(--text-secondary)] sm:text-sm">
+              <p className="mt-3 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[15px]">
                 {description}
               </p>
             </div>

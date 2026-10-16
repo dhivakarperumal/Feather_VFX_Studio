@@ -214,7 +214,7 @@ const ProcessSection = () => {
                     </div>
 
                     <div className="p-4 sm:p-5">
-                      <p className="text-xs leading-6 text-[var(--text-secondary)] sm:text-sm">
+                      <p className="text-[16px] leading-6 text-[var(--text-secondary)] sm:text-[16px]">
                         {description}
                       </p>
                     </div>
@@ -318,7 +318,7 @@ const ContentCard = ({ step, number, className = '' }) => {
           {title}
         </h3>
 
-        <p className="relative mt-3 text-xs leading-6 text-[var(--text-secondary)] lg:text-sm lg:leading-7">
+        <p className="relative mt-3 text-sm leading-6 text-[var(--text-secondary)] lg:text-[15px] lg:leading-7">
           {description}
         </p>
 

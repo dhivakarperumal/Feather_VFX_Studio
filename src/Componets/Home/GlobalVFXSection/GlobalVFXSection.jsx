@@ -56,10 +56,10 @@ const GlobalVFXSection = () => (
             <span className="text-[var(--gold-bright)]">VFX Partner</span>
           </h2>
 
-          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-sm">
+          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-[15px]">
             Feather VFX provides high-quality visual effects services for feature films, television series, and other visual media. We offer flexible, cost-effective solutions tailored to the needs of production companies and VFX studios.
           </p>
-          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-sm">
+          <p className="mt-4 max-w-[660px] text-[12px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-[15px]">
             Our team combines creativity, technical expertise, and professionalism to support projects of varying sizes and complexity. We focus on consistent quality, efficient workflows, and reliable delivery.
           </p>
           <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-5">
