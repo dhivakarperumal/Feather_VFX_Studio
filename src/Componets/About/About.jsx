@@ -475,7 +475,7 @@ const About = () => (
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/55 via-transparent to-transparent" aria-hidden="true" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/55 via-transparent to-transparent" aria-hidden="true" /> */}
           <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
               Crafted frame by frame
