@@ -65,7 +65,7 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
     <article
       className={`group overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] ${
         isGridLayout
-          ? 'grid min-h-[260px] h-full grid-cols-[40%_minmax(0,1fr)]'
+        ? 'grid min-h-[260px] h-full grid-cols-[55%_minmax(0,1fr)]'
           : 'grid h-[460px] md:h-[300px] md:grid-cols-2'
       }`}
     >
