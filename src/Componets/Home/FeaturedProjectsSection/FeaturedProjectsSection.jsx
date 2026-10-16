@@ -82,39 +82,32 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
     <>
       {!homePage && (
         <PageHeader
-          eyebrow="Our Projects"
-          title={
-            <>
-              Featured <span className="text-[var(--gold-primary)]">Projects</span>
-              <br />
-              <span className="text-[var(--text-primary)]">CGI &amp; 3D Animation</span>
-            </>
-          }
-          description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
+          eyebrow="Visual Effects Showcase"
+          title={<>Our <span className="text-[var(--gold-bright)]">Projects</span></>}
+          titleSize="text-2xl sm:text-3xl md:text-4xl"
+          breadcrumbLabel="Projects"
           background="/images/project.png"
           align="left"
-          showBreadcrumb={false}
-          className="min-h-[420px]"
         >
           <Link
             to="/showreel"
-            className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+            className="mt-6 inline-flex min-h-11 items-center gap-4 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             Explore Projects
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--gold-bright)]">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current">
               <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
             </span>
           </Link>
           <Link
             to="/showreel"
-            className="mt-5 flex w-fit items-center gap-3 text-left text-[var(--text-primary)] md:absolute md:bottom-8 md:right-[5%] md:mt-0"
+            className="mt-5 hidden w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0 md:flex"
           >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/40 bg-black/35 transition-colors hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)]">
               <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
             </span>
             <span className="flex flex-col gap-1">
               <span className="text-[9px] font-bold uppercase tracking-[0.16em]">Featured reel</span>
-              <span className="text-[9px] uppercase tracking-[0.12em] text-[var(--text-secondary)]">Play video</span>
+              <span className="text-[9px] uppercase tracking-[0.12em] text-white/75">Play video</span>
             </span>
           </Link>
         </PageHeader>
@@ -122,12 +115,8 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
       <section
         id="projects"
         aria-labelledby="featured-projects-title"
-        className={`relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] ${homePage ? 'py-12 sm:py-16' : 'py-16 sm:py-20 lg:py-14'}`}
+        className={`relative isolate overflow-hidden bg-white px-[3%] ${homePage ? 'py-12 sm:py-16' : 'py-16 sm:py-20 lg:py-14'}`}
       >
-        <div
-          className="pointer-events-none absolute inset-0 -z-10 opacity-10 bg-[url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%]"
-          aria-hidden="true"
-        />
         <div className="mx-auto w-full max-w-[1500px]">
           <header className="flex flex-col items-center text-center" data-aos="fade-up" data-aos-offset="60">
             <div className="flex items-center gap-4 text-[var(--text-primary)]">
@@ -138,7 +127,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
             <h2 id="featured-projects-title" className="mt-2 font-serif text-4xl font-bold uppercase leading-none text-[var(--text-primary)] sm:text-5xl lg:text-7xl">
               Featured <span className="text-[var(--gold-bright)]">Projects</span>
             </h2>
-            <p className="mt-3 text-sm text-[var(--text-secondary)]">
+            <p className="mx-auto mt-3 max-w-4xl text-[17px] text-[var(--text-secondary)]">
               Explore a selection of our previous work and discover how our visual effects expertise can support your next production. From detailed shot work to complex visual sequences, we are committed to delivering results that meet your creative requirements.
             </p>
 

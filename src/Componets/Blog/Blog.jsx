@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
-import { ArrowRight, CalendarDays, ChevronLeft, ChevronRight, Search, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarDays, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import PageContainer from '../../CommonComponents/PageContainer';
+import PageHeader from '../../CommonComponents/PageHeader';
 import { blogPosts } from '../../data/blogPosts';
 
 const categories = [
@@ -24,19 +25,13 @@ const formatPostDate = (date) =>
 
 function Blog() {
   const [activeCategory, setActiveCategory] = useState('All Posts');
-  const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
   const filteredPosts = useMemo(() => {
-    const normalizedQuery = searchQuery.trim().toLowerCase();
-    return blogPosts.filter((post) => {
-      const matchesCategory = activeCategory === 'All Posts' || post.category === activeCategory;
-      const matchesQuery =
-        !normalizedQuery ||
-        `${post.title} ${post.excerpt} ${post.category}`.toLowerCase().includes(normalizedQuery);
-      return matchesCategory && matchesQuery;
-    });
-  }, [activeCategory, searchQuery]);
+    return blogPosts.filter(
+      (post) => activeCategory === 'All Posts' || post.category === activeCategory
+    );
+  }, [activeCategory]);
 
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const visiblePosts = filteredPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
@@ -53,40 +48,25 @@ function Blog() {
 
   return (
     <div className="blog-page-shell">
-      <section className="blog-hero" aria-label="Blog hero section">
-        <div className="cinematic-copy-overlay" aria-hidden="true" />
-        <div className="blog-hero__content">
-          <div className="blog-hero__copy">
-            <p className="blog-hero__eyebrow">OUR BLOG</p>
-            <h1>
-              INSIGHTS, TIPS & <span>VFX STORIES.</span>
-            </h1>
-            <p className="blog-hero__description">
-              Explore the latest trends, behind-the-scenes stories, and industry insights from the Feather VFX Studio.
-            </p>
-
-            <label className="blog-search" htmlFor="blog-search-input">
-              <input
-                id="blog-search-input"
-                type="search"
-                value={searchQuery}
-                onChange={(event) => {
-                  setSearchQuery(event.target.value);
-                  setCurrentPage(1);
-                }}
-                placeholder="Search articles..."
-              />
-              <button type="button" aria-label="Search articles">
-                <Search size={18} />
-              </button>
-            </label>
-          </div>
-
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Creative Ideas Unleashed"
+        title={<>Our <span className="text-[var(--gold-bright)]">Blogs</span></>}
+        titleSize="text-2xl sm:text-3xl md:text-4xl"
+        background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
+        align="left"
+        breadcrumbLabel="Blog"
+      >
+        <a
+          href="#blog-posts"
+          className="mt-5 inline-flex min-h-11 items-center gap-2 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          Show My Blog
+          <ArrowRight size={15} aria-hidden="true" />
+        </a>
+      </PageHeader>
 
       <PageContainer className="pb-12 pt-8 sm:pt-10">
-        <div className="blog-category-bar" aria-label="Blog categories" data-aos="fade-up">
+        <div id="blog-posts" className="blog-category-bar scroll-mt-24" aria-label="Blog categories" data-aos="fade-up">
           {categories.map((category) => (
             <button
               key={category}
@@ -129,7 +109,7 @@ function Blog() {
               </article>
               ))
             ) : (
-              <p className="blog-empty-state">No articles match your search. Try another keyword or category.</p>
+              <p className="blog-empty-state">No articles found in this category.</p>
             )}
           </div>
 
@@ -232,15 +212,18 @@ function Blog() {
 
         <section className="blog-callout" aria-label="Stay updated callout" data-aos="zoom-in">
           <div className="blog-callout__text">
-            <p className="blog-callout__eyebrow">STAY UPDATED</p>
-            <h2>WITH OUR LATEST BLOGS</h2>
-            <p>Get the latest VFX insights, tutorials, and studio updates delivered straight to your inbox.</p>
-            <button type="button">Subscribe Now <ArrowRight size={16} /></button>
-          </div>
+  <p className="blog-callout__eyebrow text-white">STAY UPDATED</p>
 
-          <div className="blog-callout__visual">
-            <div className="headline-tag">STORIES • TIPS • INSPIRATION</div>
-          </div>
+  <h2 className="text-white">WITH OUR LATEST BLOGS</h2>
+
+  <p className="text-white/90">
+    Get the latest VFX insights, tutorials, and studio updates delivered straight to your inbox.
+  </p>
+
+  <button type="button">
+    Subscribe Now <ArrowRight size={16} />
+  </button>
+</div>
         </section>
       </PageContainer>
     </div>

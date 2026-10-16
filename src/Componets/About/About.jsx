@@ -104,22 +104,15 @@ const About = () => (
   <>
     <PageHeader
       eyebrow="About Feather VFX Studio"
-      title={
-        <>
-          Imagining worlds.
-          <br />
-          <span className="text-[var(--gold-primary)]">Creating reality.</span>
-        </>
-      }
-      description="Meet the creative team bringing bold ideas to life through visual effects and post-production."
-      background="/images/heroimages/3.png"
+      title={<>About <span className="text-[var(--gold-bright)]">Us</span></>}
+      titleSize="text-2xl sm:text-3xl md:text-4xl"
+      breadcrumbLabel="About Us"
+      background="/images/home.png"
       align="left"
-      showBreadcrumb={false}
-      className="min-h-[380px]"
     >
       <a
         href="#about-us"
-        className="btn-shimmer mt-6 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+        className="mt-5 inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
       >
         Learn more
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -170,7 +163,7 @@ const About = () => (
           >
             About Us
           </h2>
-          <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
+          <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
             At Feather VFX, we combine creativity, technical expertise, and innovation to deliver high-quality visual effects for film and television. We are committed to providing reliable, cost-effective VFX solutions without compromising on quality.
           </p>
 
@@ -470,12 +463,12 @@ const About = () => (
 
         <div data-aos="zoom-in" data-aos-delay="100" className="group relative min-h-[360px] overflow-hidden border border-[var(--gold-primary)]/55 lg:min-h-full">
           <img
-            src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+            src="/images/responsiveprojectsupport.png"
             alt="A detailed digital environment created for a cinematic story"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/55 via-transparent to-transparent" aria-hidden="true" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/55 via-transparent to-transparent" aria-hidden="true" /> */}
           <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
               Crafted frame by frame

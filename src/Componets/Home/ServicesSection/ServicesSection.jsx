@@ -35,7 +35,7 @@ const ServicesSection = () => {
               key={service.title}
               className={
                 index === orderedServices.length - 1
-                  ? 'sm:col-span-2 sm:w-1/2 sm:justify-self-center'
+                  ? 'sm:col-span-2 sm:w-1/2 sm:justify-self-start'
                   : ''
               }
             >

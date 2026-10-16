@@ -23,7 +23,7 @@ const OurCulture = () => (
             Our <span className="text-[var(--gold-primary)]">Culture</span>
           </h2>
 
-          <div className="mt-6 space-y-5 text-sm leading-[1.9] text-[var(--text-secondary)] sm:text-base">
+          <div className="mt-6 space-y-5 text-justify text-sm leading-[1.9] text-[var(--text-secondary)] sm:text-[16px]">
             <p>
               Visual effects are our passion. We combine advanced technology with creative expertise to produce visuals that bring stories to life. With a strong focus on detail, collaboration, and continuous improvement, we work closely with our clients to turn their creative visions into reality.
             </p>
@@ -52,7 +52,7 @@ const OurCulture = () => (
             alt="VFX team working in a high-tech studio"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/60 via-[var(--bg-primary)]/10 to-transparent" aria-hidden="true" />
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/60 via-[var(--bg-primary)]/10 to-transparent" aria-hidden="true" /> */}
         </div>
       </div>
     </div>

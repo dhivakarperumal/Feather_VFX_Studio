@@ -6,12 +6,31 @@ const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 6000);
+    const nextIndex = (activeSlide + 1) % heroSlides.length;
+    const nextSlide = heroSlides[nextIndex];
+    const image = new Image();
+    let timer;
+    let cancelled = false;
 
-    return () => window.clearInterval(timer);
-  }, []);
+    image.onload = () => {
+      if (cancelled) {
+        return;
+      }
+      timer = window.setTimeout(() => setActiveSlide(nextIndex), 6000);
+    };
+    image.onerror = () => {
+      if (!cancelled) {
+        console.error(`Failed to load hero slide image: ${nextSlide.image}`);
+      }
+    };
+    image.fetchPriority = 'low';
+    image.src = nextSlide.image;
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [activeSlide]);
 
   const showSlide = (index) => {
     setActiveSlide((index + heroSlides.length) % heroSlides.length);
@@ -24,7 +43,7 @@ const Hero = () => {
       <section
         id="home"
         aria-label="Feather VFX Studio"
-        className="relative isolate overflow-hidden bg-[var(--bg-primary)]"
+        className="relative isolate overflow-hidden border-b border-[var(--border-color)] bg-[var(--bg-primary)] sm:border-b-0"
       >
         <div className="absolute inset-0 z-0" aria-hidden="true">
           {heroSlides.map((item, index) => (
@@ -38,11 +57,11 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div className="cinematic-copy-overlay" aria-hidden="true" />
+        <div className="home-hero-copy-overlay" aria-hidden="true" />
 
-        <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[500px] max-w-[1700px] items-end px-[5%] py-12 sm:min-h-[650px] sm:items-center sm:px-[5%] lg:min-h-[640px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
-          <div key={activeSlide} className="max-w-2xl">
+          <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
 
             {/* Eyebrow — delay 0 */}
             <div className="hero-reveal-mask mb-5">
@@ -53,7 +72,7 @@ const Hero = () => {
 
             {/* Title line 1 — delay 1 */}
 
-            <h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-6xl">
               <div className="hero-reveal-mask">
                 <span className="hero-reveal hero-reveal-d1 block">
                   Your VFX
@@ -61,7 +80,7 @@ const Hero = () => {
               </div>
 
               <div className="hero-reveal-mask mt-1">
-                <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
+                <span className="hero-reveal hero-reveal-d2 block whitespace-nowrap text-[var(--gold-bright)]">
                   Outsourcing Partner
                 </span>
               </div>
@@ -69,26 +88,26 @@ const Hero = () => {
 
 
             {/* Description — delay 3 */}
-            <div className="hero-reveal-mask mt-6">
-              <p className="hero-reveal hero-reveal-d3 max-w-xl text-sm leading-relaxed text-[var(--text-primary)]/80 sm:text-lg">
+            <div className="hero-reveal-mask mt-6 hidden sm:block">
+              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
                 {slide.description}
               </p>
             </div>
 
             {/* Buttons — delay 4 */}
-            <div className="hero-reveal-mask mt-8">
-              <div className="hero-reveal hero-reveal-d4 flex flex-wrap items-center gap-4">
+            <div className="hero-reveal-mask mt-6 w-full sm:mt-8">
+              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:justify-start sm:gap-4">
                 <a
                   href="/projects"
-                  className="btn-shimmer inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                  className="btn-shimmer inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
                 >
                   Explore our work <FaArrowRight aria-hidden="true" />
                 </a>
                 <a
                   href="/showreel"
-                  className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
+                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:text-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/60 sm:h-10 sm:w-10">
                     <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
                   </span>
                   Watch showreel
@@ -97,12 +116,12 @@ const Hero = () => {
             </div>
 
             {/* Stats — delay 5 */}
-            <div className="hero-reveal-mask mt-12">
-              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-[var(--text-primary)]/20 pt-6">
+            <div className="hero-reveal-mask mt-12 hidden sm:block">
+              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/25 pt-6">
                 {slide.highlights.map((highlight) => (
                   <div key={highlight.label}>
                     <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
-                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-primary)]/75">
+                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white/80">
                       {highlight.label}
                     </p>
                   </div>
@@ -130,7 +149,7 @@ const Hero = () => {
           <FaArrowRight aria-hidden="true" />
         </button> */}
 
-        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
+        <div className="absolute bottom-6 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-2 sm:flex" aria-label="Choose hero slide">
           {heroSlides.map((item, index) => (
             <button
               key={item.image}
@@ -139,22 +158,22 @@ const Hero = () => {
               aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}
               aria-current={activeSlide === index ? 'true' : undefined}
               className={`h-2 rounded-full transition-all ${activeSlide === index
-                  ? 'w-8 bg-[var(--gold-primary)]'
-                  : 'w-2 bg-white/60 hover:bg-white'
+                ? 'w-8 bg-[var(--gold-primary)]'
+                : 'w-2 bg-white/60 hover:bg-white'
                 }`}
             />
           ))}
         </div>
       </section>
 
-      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95 backdrop-blur-[2px]">
+      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95">
         <div className="mx-auto grid max-w-[1700px] grid-cols-1 gap-0 sm:grid-cols-2 xl:grid-cols-4">
           {heroCapabilities.map(({ title, subtitle, Icon }, index) => (
             <div
               key={title}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="group flex items-center justify-center gap-4 border border-[var(--border-color)] px-6 py-7 text-left md:px-8 md:py-8 xl:border-r xl:last:border-r-0"
+              className="group flex items-center justify-start gap-4 border border-[var(--border-color)] px-6 py-7 text-left md:px-8 md:py-8 xl:justify-center xl:border-r xl:last:border-r-0"
             >
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]/80 transition-colors duration-200 group-hover:border-[var(--gold-primary)] group-hover:text-[var(--gold-bright)]">
                 <Icon className="h-8 w-8" aria-hidden="true" />

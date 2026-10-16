@@ -59,7 +59,7 @@ const ProcessSection = () => {
   return (
     <section
       aria-labelledby="process-heading"
-      className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] px-[5%] py-14 text-[var(--text-primary)] sm:py-20 lg:px-[6%] lg:py-24"
+      className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] px-[5%] py-14 text-[var(--text-primary)] [--gold-primary:#c9a33a] [--gold-bright:#d6ad4b] sm:py-20 lg:px-[6%] lg:py-24"
     >
       {/* Background decoration */}
       <div
@@ -90,7 +90,7 @@ const ProcessSection = () => {
             id="process-heading"
             className="font-serif text-3xl font-bold uppercase leading-tight sm:text-5xl lg:text-6xl"
           >
-            Our Creative{' '}
+            Our {' '}
             <span className="text-[var(--gold-bright)]">
               Process
             </span>
@@ -214,7 +214,7 @@ const ProcessSection = () => {
                     </div>
 
                     <div className="p-4 sm:p-5">
-                      <p className="text-xs leading-6 text-[var(--text-secondary)] sm:text-sm">
+                      <p className="text-[16px] leading-6 text-[var(--text-secondary)] sm:text-[16px]">
                         {description}
                       </p>
                     </div>
@@ -318,7 +318,7 @@ const ContentCard = ({ step, number, className = '' }) => {
           {title}
         </h3>
 
-        <p className="relative mt-3 text-xs leading-6 text-[var(--text-secondary)] lg:text-sm lg:leading-7">
+        <p className="relative mt-3 text-sm leading-6 text-[var(--text-secondary)] lg:text-[15px] lg:leading-7">
           {description}
         </p>
 

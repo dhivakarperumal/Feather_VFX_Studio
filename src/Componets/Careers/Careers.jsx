@@ -135,40 +135,20 @@ function Careers() {
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
         eyebrow="Careers at Feather VFX"
-        title={
-          <>
-            Create worlds
-            <br />
-            <span className="text-[var(--gold-primary)]">with us</span>
-          </>
-        }
-        description="Be part of a passionate team that transforms imagination into breathtaking visual experiences. Join us and work on films, series, commercials, and next-gen virtual content."
+        title={<>Our <span className="text-[var(--gold-bright)]">Careers</span></>}
+        titleSize="text-2xl sm:text-3xl md:text-4xl"
+        breadcrumbLabel="Careers"
         background="/images/heroimages/2.png"
         align="left"
-        showBreadcrumb={false}
-        className="min-h-[380px]"
       >
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <a href="#open-positions" className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
+          <a href="#open-positions" className="inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             View open positions <FaArrowRight aria-hidden="true" />
           </a>
-          <a href="#studio-life" className="inline-flex items-center gap-3 px-2 py-2 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[var(--gold-primary)]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/70 text-sm">▶</span>
+          <a href="#studio-life" className="hidden min-h-11 items-center gap-3 border border-white/60 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[var(--gold-bright)] hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:border-[var(--gold-bright)] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:inline-flex">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-current text-sm">▶</span>
             Watch our studio
           </a>
-        </div>
-        <div className="mt-7 grid max-w-[570px] grid-cols-2 gap-y-4 border-t border-[var(--border-color)] pt-4 sm:grid-cols-4">
-          {[
-            ['50+', 'Creative talents'],
-            ['25+', 'Global projects'],
-            ['10+', 'Years of excellence'],
-            ['∞', 'New possibilities'],
-          ].map(([value, label]) => (
-            <div key={label} className="border-l border-[var(--border-color)] pl-3 first:border-0 first:pl-0">
-              <p className="font-serif text-2xl text-[var(--gold-primary)]">{value}</p>
-              <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-[var(--text-secondary)]">{label}</p>
-            </div>
-          ))}
         </div>
       </PageHeader>
 
@@ -243,9 +223,9 @@ function Careers() {
                   <div className="grid sm:grid-cols-[120px_minmax(0,1fr)]">
                     <div className="relative hidden min-h-full sm:block">
                       <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-                      <div className="absolute inset-0 flex items-center justify-center bg-[var(--bg-primary)]/50">
+                      {/* <div className="absolute inset-0 flex items-center justify-center bg-[var(--bg-primary)]/50">
                         <Icon className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
-                      </div>
+                      </div> */}
                     </div>
                     <div className="p-4 sm:p-5">
                       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -287,19 +267,37 @@ function Careers() {
             </div>
 
             <div className="relative flex min-h-[300px] items-end overflow-hidden border border-[var(--border-color)] sm:min-h-[390px]">
-              <img src="/images/heroimages/1.png" alt="A visual effects artist creating a cinematic environment" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/35 to-transparent" />
-              <div className="relative max-w-lg p-5 sm:p-7">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Build the future with us</p>
-                <h3 className="mt-2 font-serif text-3xl font-bold uppercase leading-[1.02] sm:text-4xl">
+              <img
+                src="/images/heroimages/1.png"
+                alt="A visual effects artist creating a cinematic environment"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+
+              <div className="relative z-10 max-w-lg p-5 sm:p-7">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+                  Build the future with us
+                </p>
+
+                <h3 className="mt-2 font-serif text-3xl font-bold uppercase leading-[1.02] text-white sm:text-4xl">
                   Let&apos;s build
                   <br />
-                  <span className="text-[var(--gold-primary)]">extraordinary worlds</span>
+                  <span className="text-[var(--gold-bright)]">
+                    extraordinary worlds
+                  </span>
                   <br />
                   together
                 </h3>
-                <button type="button" onClick={() => startApplication('General Career Application')} className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
-                  Apply now <FaArrowRight aria-hidden="true" />
+
+                <button
+                  type="button"
+                  onClick={() => startApplication('General Career Application')}
+                  className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)]"
+                >
+                  Apply now
+                  <FaArrowRight aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -409,18 +407,37 @@ function Careers() {
           </div>
         </ModalPortal>
       )}
-
       <section className="relative isolate overflow-hidden">
-        <img src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png" alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/70 to-[var(--bg-primary)]/25" />
-        <div className="mx-auto flex max-w-[1700px] flex-col justify-between gap-5 px-[6%] py-8 sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
-          <div data-aos="fade-up">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Ready to create something extraordinary?</p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Your next chapter starts here.</h2>
-            <p className="mt-2 text-sm text-[var(--text-secondary)]">Explore open positions and become a part of Feather VFX Studio.</p>
+        <img
+          src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]"
+        />
+
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/20 max-md:bg-black/65" />
+
+        <div className="mx-auto flex min-h-[260px] max-w-[1700px] flex-col justify-between gap-6 px-[6%] py-10 text-white sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
+          <div className="max-w-2xl" data-aos="fade-up">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+              Ready to create something extraordinary?
+            </p>
+
+            <h2 className="mt-2 font-serif text-2xl font-bold uppercase leading-tight text-white sm:text-3xl lg:text-4xl">
+              Your next chapter starts here.
+            </h2>
+
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/90">
+              Explore open positions and become a part of Feather VFX Studio.
+            </p>
           </div>
-          <a href="#open-positions" className="inline-flex shrink-0 items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
-            Join our team <FaArrowRight aria-hidden="true" />
+
+          <a
+            href="#open-positions"
+            className="inline-flex w-fit shrink-0 items-center gap-3 border border-[var(--gold-bright)] bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            Join our team
+            <FaArrowRight aria-hidden="true" />
           </a>
         </div>
       </section>
