@@ -10,6 +10,7 @@ import {
   FaPhoneAlt,
   FaQuestionCircle,
   FaShieldAlt,
+  FaTimes,
   FaUpload,
   FaFacebookF,
   FaInstagram,
@@ -19,14 +20,17 @@ import {
 import { FaClapperboard, FaFilm, FaHandshake, FaXTwitter } from 'react-icons/fa6';
 import { sendEmailJsForm } from '../../utils/emailJs';
 import PageHeader from '../../CommonComponents/PageHeader';
+import ModalPortal from '../../CommonComponents/ModalPortal';
 
 const indiaAddress =
-  '18/09, Valasaravakkam, Chennai - 600087, Tamil Nadu, India.';
-const ukAddress = '35, Balfour Road, Ilford, Essex IG1 4HP, GB.';
+  '18/09, Valasaravakkam, Chennai – 600087, Tamil Nadu, India.';
+const ukAddress = '35 Balfour Road, Ilford, Essex, IG1 4HP, United Kingdom.';
 const ukPhoneNumber = '+44 74 5946 7325';
 const phoneNumber = ukPhoneNumber;
 const infoEmail = 'info@feathervfx.com';
 const enquiryEmail = 'enquiry@feathervfx.com';
+const gmailComposeUrl = (email) =>
+  `https://mail.google.com/mail/u/0/?fs=1&to=${encodeURIComponent(email)}&tf=cm`;
 const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(indiaAddress)}&output=embed`;
 
 const enquiryTypes = [
@@ -83,6 +87,17 @@ const Contact = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [location.hash, location.pathname]);
 
+  useEffect(() => {
+    if (formStatus?.type !== 'success') return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setFormStatus(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [formStatus]);
+
   const handleFilesChange = (event) => {
     const files = Array.from(event.target.files || []);
     const totalSize = files.reduce((size, file) => size + file.size, 0);
@@ -130,17 +145,15 @@ const Contact = () => {
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <PageHeader
-        eyebrow="Contact us"
+        eyebrow="Contact Us"
         title={
           <>
-            Let&apos;s create
+            Let&apos;s Bring Your
             <br />
-            something
-            <br />
-            <span className="text-[var(--gold-primary)]">extraordinary</span>
+            <span className="text-[var(--gold-primary)]">Vision to Life</span>
           </>
         }
-        description="Have a project in mind? We'd love to hear from you. Get in touch and let's bring your vision to life."
+        description="Have a project in mind or need professional VFX outsourcing support? We'd love to hear from you. Get in touch with our team to discuss your requirements, request a demonstration, or explore how our visual effects services can support your next production."
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
         showBreadcrumb={false}
@@ -174,50 +187,64 @@ const Contact = () => {
 
             <form className="mt-5 space-y-3" onSubmit={handleSubmit}>
               <div className="grid gap-3 sm:grid-cols-2">
-                <label className="sr-only" htmlFor="contact-name">Your name</label>
-                <input id="contact-name" name="name" autoComplete="name" required placeholder="Your Name *" className="contact-field" />
-                <label className="sr-only" htmlFor="contact-email">Your email</label>
-                <input id="contact-email" name="email" type="email" autoComplete="email" required placeholder="Your Email *" className="contact-field" />
-                <label className="sr-only" htmlFor="contact-phone">Phone number</label>
-                <input id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="Phone Number" className="contact-field" />
-                <label className="sr-only" htmlFor="contact-company">Company or studio</label>
-                <input id="contact-company" name="company" autoComplete="organization" placeholder="Company / Studio" className="contact-field" />
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-name">Your name <span className="text-red-500" aria-hidden="true">*</span></label>
+                  <input id="contact-name" name="name" autoComplete="name" required placeholder="Enter your name" className="contact-field" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-email">Your email <span className="text-red-500" aria-hidden="true">*</span></label>
+                  <input id="contact-email" name="email" type="email" autoComplete="email" required placeholder="name@example.com" className="contact-field" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-phone">Phone number</label>
+                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="+44 74 5946 7325" className="contact-field" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-medium" htmlFor="contact-company">Company / studio</label>
+                  <input id="contact-company" name="company" autoComplete="organization" placeholder="Company / studio name" className="contact-field" />
+                </div>
               </div>
-              <label className="sr-only" htmlFor="contact-project-type">Project type</label>
-              <select
-                id="contact-project-type"
-                name="project_type"
-                value={projectType}
-                onChange={(event) => setProjectType(event.target.value)}
-                className="contact-field"
-              >
-                <option value="">Project Type</option>
-                <option>Film &amp; Series</option>
-                <option>Commercial</option>
-                <option>Partnership</option>
-                <option>General enquiry</option>
-                <option>VFX &amp; CGI</option>
-                <option>Compositing</option>
-                <option>Rotoscope / Paint-Prep</option>
-              </select>
-              <label className="sr-only" htmlFor="contact-subject">Subject</label>
-              <input
-                id="contact-subject"
-                name="subject"
-                required
-                maxLength={150}
-                placeholder="Subject *"
-                className="contact-field"
-              />
-              <label className="sr-only" htmlFor="contact-message">Tell us about your project</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                required
-                rows="4"
-                placeholder="Tell us about your project *"
-                className="contact-field resize-y"
-              />
+              <div className="space-y-1.5">
+                <label className="block text-xs font-medium" htmlFor="contact-project-type">Project type</label>
+                <select
+                  id="contact-project-type"
+                  name="project_type"
+                  value={projectType}
+                  onChange={(event) => setProjectType(event.target.value)}
+                  className="contact-field"
+                >
+                  <option value="">Select project type</option>
+                  <option>Film &amp; Series</option>
+                  <option>Commercial</option>
+                  <option>Partnership</option>
+                  <option>General enquiry</option>
+                  <option>VFX &amp; CGI</option>
+                  <option>Compositing</option>
+                  <option>Rotoscope / Paint-Prep</option>
+                </select>
+              </div>
+              <div className="space-y-1.5">
+                <label className="block text-xs font-medium" htmlFor="contact-subject">Subject <span className="text-red-500" aria-hidden="true">*</span></label>
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  required
+                  maxLength={150}
+                  placeholder="Enter a subject"
+                  className="contact-field"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="block text-xs font-medium" htmlFor="contact-message">Project Details <span className="text-red-500" aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows="4"
+                  placeholder="Tell us about your project *"
+                  className="contact-field resize-y"
+                />
+              </div>
 
               <label className="flex min-h-[66px] cursor-pointer items-center justify-center gap-3 border border-dashed border-[var(--border-color)] px-4 py-3 text-center transition-colors hover:border-[var(--gold-primary)]">
                 <FaUpload className="shrink-0 text-lg text-[var(--gold-primary)]" aria-hidden="true" />
@@ -241,8 +268,8 @@ const Contact = () => {
               <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">
                 Your message and selected reference files will be sent through EmailJS.
               </p>
-              {formStatus && (
-                <p role={formStatus.type === 'error' ? 'alert' : 'status'} className={`text-xs ${formStatus.type === 'error' ? 'text-red-400' : 'text-[var(--gold-primary)]'}`}>
+              {formStatus?.type === 'error' && (
+                <p role="alert" className="text-xs text-red-400">
                   {formStatus.message}
                 </p>
               )}
@@ -251,7 +278,7 @@ const Contact = () => {
                 disabled={isSending || Boolean(fileError)}
                 className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSending ? 'Sending...' : 'Send message'} {!isSending && <FaArrowRight aria-hidden="true" />}
+                {isSending ? 'Sending...' : 'Send Inquiry'} {!isSending && <FaArrowRight aria-hidden="true" />}
               </button>
             </form>
           </div>
@@ -260,7 +287,7 @@ const Contact = () => {
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Our studio</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Get in touch</h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
-              Visit our studio, call us or drop us an email. We&apos;re always open to new ideas, collaborations and exciting projects.
+              Tell us about your project, timeline, and requirements. Our team will be happy to discuss the right VFX solution for your production.
             </p>
 
             <div className="mt-5 grid gap-5 sm:grid-cols-[1fr_0.95fr]">
@@ -273,23 +300,29 @@ const Contact = () => {
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaMapMarkerAlt aria-hidden="true" /></span>
                   <span>
-                    <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">India</strong>
+                    <span className="mt-0.5 block text-xs text-[var(--text-secondary)]">Production Facility</span>
                     <span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
                   </span>
                 </a>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
-                >
+                <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaMapMarkerAlt aria-hidden="true" /></span>
                   <span>
-                    <strong className="block font-semibold text-[var(--gold-primary)]">UK · Representation</strong>
-                    <span className="mt-1 block leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
-                    <span className="mt-1 block text-[var(--text-secondary)]">{ukPhoneNumber}</span>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom</strong>
+                    <span className="mt-0.5 block text-xs text-[var(--text-secondary)]">Representation</span>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block leading-relaxed text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]"
+                    >
+                      {ukAddress}
+                    </a>
+                    <a href="tel:+447459467325" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">
+                      {ukPhoneNumber}
+                    </a>
                   </span>
-                </a>
+                </div>
                 <a href="tel:+447459467325" className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaPhoneAlt aria-hidden="true" /></span>
                   <span><strong className="block font-semibold text-[var(--gold-primary)]">Call us</strong><span className="mt-1 block text-[var(--text-secondary)]">{phoneNumber}</span><span className="mt-1 block text-xs text-[var(--text-secondary)]">Mon - Sat · 10:00 AM - 7:00 PM</span></span>
@@ -297,9 +330,9 @@ const Contact = () => {
                 <div className="flex gap-3 text-sm">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 text-[var(--gold-primary)]"><FaEnvelope aria-hidden="true" /></span>
                   <span>
-                    <strong className="block font-semibold text-[var(--gold-primary)]">Email us</strong>
-                    <a href={`mailto:${infoEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
-                    <a href={`mailto:${enquiryEmail}`} className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                    <strong className="block font-semibold text-[var(--gold-primary)]">Email Us</strong>
+                    <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                    <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
                     <span className="mt-1 block text-xs text-[var(--text-secondary)]">We usually respond within 24 hours</span>
                   </span>
                 </div>
@@ -422,6 +455,50 @@ const Contact = () => {
           </ul>
         </div>
       </section>
+
+      {formStatus?.type === 'success' && (
+        <ModalPortal>
+            <div
+              className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+              onClick={() => setFormStatus(null)}
+            >
+              <section
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="contact-success-title"
+                aria-describedby="contact-success-message"
+                className="relative w-full max-w-md border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] p-7 text-center shadow-2xl sm:p-9"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  onClick={() => setFormStatus(null)}
+                  aria-label="Close success message"
+                  className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  <FaTimes aria-hidden="true" />
+                </button>
+                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10">
+                  <FaCheckCircle className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
+                </span>
+                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)]">Inquiry sent</p>
+                <h2 id="contact-success-title" className="mt-2 font-serif text-2xl font-bold uppercase sm:text-3xl">
+                  Thank you!
+                </h2>
+                <p id="contact-success-message" className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+                  Your inquiry was sent successfully. Our team will get back to you within 24 hours.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFormStatus(null)}
+                  className="mt-6 inline-flex items-center gap-2 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                >
+                  Done <FaArrowRight aria-hidden="true" />
+                </button>
+              </section>
+            </div>
+        </ModalPortal>
+      )}
     </div>
   );
 };

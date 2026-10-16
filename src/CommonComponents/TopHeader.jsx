@@ -30,7 +30,9 @@ const TopHeader = () => (
           <span>+44 74 5946 7325</span>
         </a>
         <a
-          href="mailto:info@feathervfx.com"
+          href="https://mail.google.com/mail/u/0/?fs=1&to=info%40feathervfx.com&tf=cm"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex min-w-0 items-center gap-2 whitespace-nowrap transition-opacity hover:opacity-70"
         >
           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-[var(--bg-primary)]">
