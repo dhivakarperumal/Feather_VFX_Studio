@@ -70,6 +70,29 @@ const physicalSecurityFeatures = [
 
 const securityPartners = ['MPAA', 'Paramount', 'FOX', 'HBO', 'NBCUniversal', 'NETFLIX'];
 
+const studioPhotos = [
+  {
+    src: '/images/officeimages/2.jpg',
+    alt: 'Workstations and chairs in the Feather VFX Studio office',
+    label: 'Our workspace',
+  },
+  {
+    src: '/images/officeimages/1.jpg',
+    alt: 'Open-plan office workstations at Feather VFX Studio',
+    label: 'Built for collaboration',
+  },
+  {
+    src: '/images/officeimages/IMG_1720.jpg',
+    alt: 'Feather VFX Studio office desks and collaborative work area',
+    label: 'Where ideas take shape',
+  },
+  {
+    src: '/images/officeimages/IMG_1822.jpg',
+    alt: 'A comfortable chair in the Feather VFX Studio office',
+    label: 'Room to recharge',
+  },
+];
+
 const About = () => (
   <>
     <PageHeader
@@ -138,11 +161,10 @@ const About = () => (
             id="about-heading"
             className="mt-3 max-w-2xl font-serif text-[1.125rem] font-bold uppercase leading-[0.98] tracking-[-0.025em] text-[var(--text-primary)] sm:text-2xl lg:text-[1.875rem]"
           >
-            From imagination
-            <span className="block text-[var(--gold-bright)]">to reality</span>
+            About Us
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
-            Feather VFX Studio was founded by a group of creative professionals who shared a common vision — to create world-class visual effects and help storytellers bring their ideas to life. What started as a small team with a big dream has now grown into a full-scale VFX and post-production studio, trusted by filmmakers, brands and game developers worldwide.
+            At Feather VFX, we combine creativity, technical expertise, and innovation to deliver high-quality visual effects for film and television. We are committed to providing reliable, cost-effective VFX solutions without compromising on quality.
           </p>
 
           <div className="mt-7 h-px w-16 bg-[var(--gold-primary)]" aria-hidden="true" />
@@ -166,6 +188,55 @@ const About = () => (
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="studio-gallery-heading"
+      className="bg-[var(--bg-secondary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
+    >
+      <div className="mx-auto max-w-[1500px]">
+        <div className="mb-7 flex flex-col gap-3 sm:mb-9 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
+              Behind the frames
+            </p>
+            <h2
+              id="studio-gallery-heading"
+              className="mt-2 font-serif text-2xl font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-3xl lg:text-4xl"
+            >
+              Inside our studio
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+            A look inside the workspace where our team collaborates and brings every frame to life.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {studioPhotos.map(({ src, alt, label }, index) => (
+            <figure
+              key={src}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="group relative m-0 aspect-[4/3] overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)]"
+            >
+              <img
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"
+                aria-hidden="true"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-10 text-sm font-semibold uppercase tracking-[0.12em] text-white sm:px-5 sm:pb-5">
+                {label}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
@@ -316,12 +387,14 @@ const About = () => (
 
           {/* <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div data-aos="fade-right">
-              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
-                Security features
-                <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+              <h3 className="font-serif text-xl font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-2xl">
+                Quality, Confidentiality and Security
+              </h3>
+              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
+                At Feather VFX, we understand the importance of protecting our clients&apos; projects and confidential information. We are committed to maintaining professional standards for data handling, secure file transfers, and production confidentiality.
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
-                We take the security and confidentiality of every project seriously. Our content-security practices follow Motion Picture Association (MPA) guidance, supporting the safe handling of production content for our clients.
+                Our workflows are designed to support reliable communication, secure collaboration, and efficient delivery throughout the production process. We continually review our practices to support our clients&apos; requirements.
               </p>
             </div>
 

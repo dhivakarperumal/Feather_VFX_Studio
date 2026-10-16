@@ -49,7 +49,7 @@ const OurMission = () => (
           <img
             src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
             alt="Creative studio team at work"
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)]/50 via-transparent to-transparent" aria-hidden="true" />
         </div>
