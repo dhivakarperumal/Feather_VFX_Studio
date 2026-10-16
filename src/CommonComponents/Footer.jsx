@@ -185,7 +185,7 @@ const Footer = ({ theme }) => {
 
       {/* Bottom Copyright Bar */}
       <div className="border-t border-[var(--border-color)] py-6 text-center text-[var(--text-secondary)] text-sm" data-aos="fade-up" data-aos-delay="100">
-        <p>&copy; {new Date().getFullYear()} Feather VFX Studio. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Feather VFX Studio. All rights reserved. Designed by <b>Q-Techx Solutions</b></p>
       </div>
     </footer>
   );
