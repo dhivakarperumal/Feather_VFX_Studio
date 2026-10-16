@@ -135,11 +135,11 @@ const TestimonialsSection = () => {
                   aria-hidden="true"
                 />
                 <span
-                  className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-2px_-2px_14px_rgba(184,134,11,0.6)]"
+                  className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 bg-[var(--gold-primary)] border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-2px_-2px_14px_rgba(184,134,11,0.6)]"
                   aria-hidden="true"
                 />
                 <span
-                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[2px_2px_14px_rgba(184,134,11,0.6)]"
+                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 bg-[var(--gold-primary)] border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[2px_2px_14px_rgba(184,134,11,0.6)]"
                   aria-hidden="true"
                 />
 

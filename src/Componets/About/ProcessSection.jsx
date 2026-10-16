@@ -90,7 +90,7 @@ const ProcessSection = () => {
             id="process-heading"
             className="font-serif text-3xl font-bold uppercase leading-tight sm:text-5xl lg:text-6xl"
           >
-            Our Creative{' '}
+            Our {' '}
             <span className="text-[var(--gold-bright)]">
               Process
             </span>
