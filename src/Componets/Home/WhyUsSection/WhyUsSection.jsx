@@ -46,7 +46,7 @@ const WhyUsSection = () => {
           <span className="mt-1 block text-[var(--gold-bright)]">proud of your business.</span>
         </h2>
 
-        <p data-aos="fade-up" data-aos-delay="160" data-aos-offset="60" className="mx-auto mt-7 max-w-[1000px] text-center text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
+        <p data-aos="fade-up" data-aos-delay="160" data-aos-offset="60" className="mx-auto mt-7 max-w-[1000px] text-justify text-center text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
           Feather is committed to loftier professional standards for your sensitive Data &amp; Information security. We respect and honor the trusting nature inherent in a professional relationship and in all respects and at all times remain rooted therein. The clear mechanisms of privacy are continually updated and restructured to ensure that they fully support the changing business climate and standards. We are not only renowned for our quality of work, but also for maintaining the trust of our customers coupled with business interests and that is what we want to be.
         </p>
 
@@ -88,11 +88,11 @@ const WhyUsSection = () => {
                 <Icon className="relative z-10 h-9 w-9 text-[var(--gold-bright)] drop-shadow-[0_0_8px_rgba(184,134,11,0.5)]" aria-hidden="true" />
               </div>
 
-              <h3 className="relative font-serif text-xl font-bold uppercase leading-tight tracking-[0.02em] text-[var(--text-primary)] sm:text-2xl">
+              <h3 className="relative  font-serif text-xl font-bold uppercase leading-tight tracking-[0.02em] text-[var(--text-primary)] sm:text-2xl">
                 {title}
               </h3>
 
-              <p className="relative mt-3 max-w-[360px] text-sm leading-[1.65] text-[var(--text-secondary)] sm:text-[0.94rem]">
+              <p className="relative text-justify mt-3 max-w-[360px] text-sm leading-[1.65] text-[var(--text-secondary)] sm:text-[0.94rem]">
                 {text}
               </p>
 
