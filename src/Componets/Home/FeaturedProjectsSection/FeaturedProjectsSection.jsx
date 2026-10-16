@@ -90,10 +90,10 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
         >
           <Link
             to="/showreel"
-            className="mt-6 inline-flex items-center gap-4 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+            className="mt-6 inline-flex min-h-11 items-center gap-4 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             Explore Projects
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--gold-bright)]">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current">
               <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
             </span>
           </Link>

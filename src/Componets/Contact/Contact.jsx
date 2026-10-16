@@ -5,11 +5,9 @@ import {
   FaCheckCircle,
   FaEnvelope,
   FaGlobe,
-  FaHeadphones,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaQuestionCircle,
-  FaShieldAlt,
   FaTimes,
   FaUpload,
   FaFacebookF,
@@ -157,20 +155,13 @@ const Contact = () => {
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
       >
-        <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
-          <div className="flex items-center gap-2.5">
-            <FaHeadphones className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-            <span><strong className="block font-semibold">Quick response</strong><span className="text-[var(--text-secondary)]">Within 24 hours</span></span>
-          </div>
-          <div className="flex items-center gap-2.5">
-            <FaShieldAlt className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-            <span><strong className="block font-semibold">Confidential</strong><span className="text-[var(--text-secondary)]">Project details stay safe</span></span>
-          </div>
-          <div className="flex items-center gap-2.5">
-            <FaGlobe className="text-lg text-[var(--gold-primary)]" aria-hidden="true" />
-            <span><strong className="block font-semibold">Global collaboration</strong><span className="text-[var(--text-secondary)]">Work from anywhere</span></span>
-          </div>
-        </div>
+        <a
+          href="#contact-form"
+          className="mt-5 inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          Send us a message
+          <FaArrowRight aria-hidden="true" />
+        </a>
       </PageHeader>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">

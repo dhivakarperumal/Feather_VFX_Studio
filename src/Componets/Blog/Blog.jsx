@@ -49,7 +49,7 @@ function Blog() {
   return (
     <div className="blog-page-shell">
       <PageHeader
-        eyebrow="Fresh perspectives, creative insights, and stories"
+        eyebrow="Fresh perspectives, creative insights"
         title={<>Our <span className="text-[var(--gold-bright)]">Blogs</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
@@ -58,7 +58,7 @@ function Blog() {
       >
         <a
           href="#blog-posts"
-          className="mt-5 inline-flex min-h-11 items-center gap-2 bg-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#17191b] transition-colors hover:bg-[var(--gold-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          className="mt-5 inline-flex min-h-11 items-center gap-2 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           Show My Blog
           <ArrowRight size={15} aria-hidden="true" />
