@@ -104,7 +104,7 @@ const About = () => (
   <>
     <PageHeader
       eyebrow="About Feather VFX Studio"
-      title="About Us"
+      title={<>About <span className="text-[var(--gold-bright)]">Us</span></>}
       titleSize="text-2xl sm:text-3xl md:text-4xl"
       background="/images/heroimages/3.png"
       align="left"
