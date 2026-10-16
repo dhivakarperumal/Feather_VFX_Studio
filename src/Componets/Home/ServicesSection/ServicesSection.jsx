@@ -30,8 +30,17 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-          {orderedServices.map((service) => (
-            <VFXServiceCard key={service.title} service={service} layout="grid" />
+          {orderedServices.map((service, index) => (
+            <div
+              key={service.title}
+              className={
+                index === orderedServices.length - 1
+                  ? 'sm:col-span-2 sm:w-1/2 sm:justify-self-center'
+                  : ''
+              }
+            >
+              <VFXServiceCard service={service} layout="grid" />
+            </div>
           ))}
         </div>
       </PageContainer>
