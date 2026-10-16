@@ -161,11 +161,10 @@ const About = () => (
             id="about-heading"
             className="mt-3 max-w-2xl font-serif text-[1.125rem] font-bold uppercase leading-[0.98] tracking-[-0.025em] text-[var(--text-primary)] sm:text-2xl lg:text-[1.875rem]"
           >
-            From imagination
-            <span className="block text-[var(--gold-bright)]">to reality</span>
+            About Us
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
-            Feather VFX Studio was founded by a group of creative professionals who shared a common vision — to create world-class visual effects and help storytellers bring their ideas to life. What started as a small team with a big dream has now grown into a full-scale VFX and post-production studio, trusted by filmmakers, brands and game developers worldwide.
+            At Feather VFX, we combine creativity, technical expertise, and innovation to deliver high-quality visual effects for film and television. We are committed to providing reliable, cost-effective VFX solutions without compromising on quality.
           </p>
 
           <div className="mt-7 h-px w-16 bg-[var(--gold-primary)]" aria-hidden="true" />
