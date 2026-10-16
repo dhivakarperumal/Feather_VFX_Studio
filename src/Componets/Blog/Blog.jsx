@@ -232,15 +232,18 @@ function Blog() {
 
         <section className="blog-callout" aria-label="Stay updated callout" data-aos="zoom-in">
           <div className="blog-callout__text">
-            <p className="blog-callout__eyebrow">STAY UPDATED</p>
-            <h2>WITH OUR LATEST BLOGS</h2>
-            <p>Get the latest VFX insights, tutorials, and studio updates delivered straight to your inbox.</p>
-            <button type="button">Subscribe Now <ArrowRight size={16} /></button>
-          </div>
+  <p className="blog-callout__eyebrow text-white">STAY UPDATED</p>
 
-          <div className="blog-callout__visual">
-            <div className="headline-tag">STORIES • TIPS • INSPIRATION</div>
-          </div>
+  <h2 className="text-white">WITH OUR LATEST BLOGS</h2>
+
+  <p className="text-white/90">
+    Get the latest VFX insights, tutorials, and studio updates delivered straight to your inbox.
+  </p>
+
+  <button type="button">
+    Subscribe Now <ArrowRight size={16} />
+  </button>
+</div>
         </section>
       </PageContainer>
     </div>

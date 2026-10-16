@@ -984,7 +984,7 @@ body {
   margin-top: 2.1rem;
   border: 1px solid var(--border-color);
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--bg-primary) 90%, transparent) 0%, color-mix(in srgb, var(--bg-primary) 80%, transparent) 43%, color-mix(in srgb, var(--bg-primary) 25%, transparent) 100%),
+    /* linear-gradient(90deg, color-mix(in srgb, var(--bg-primary) 90%, transparent) 0%, color-mix(in srgb, var(--bg-primary) 80%, transparent) 43%, color-mix(in srgb, var(--bg-primary) 25%, transparent) 100%), */
     url('/images/heroimages/Dragon Over the Sunset Kingdom.png') center/cover no-repeat;
 }
 
