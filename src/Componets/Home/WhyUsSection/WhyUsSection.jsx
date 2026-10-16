@@ -58,7 +58,7 @@ const WhyUsSection = () => {
               className="stagger-child group relative flex min-h-[400px] flex-col items-center overflow-hidden px-5 pb-5 pt-3 text-center sm:min-h-[420px] sm:px-7"
               style={{
                 clipPath: 'polygon(0 28px, 28px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)',
-                backgroundColor: 'rgba(239, 239, 239, 0.92)',
+                backgroundColor: 'color-mix(in srgb, var(--bg-secondary) 92%, transparent)',
               }}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_18%,rgba(184,134,11,0.06),transparent_44%)] opacity-80 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
@@ -83,7 +83,14 @@ const WhyUsSection = () => {
               <div className="relative mb-2 flex h-[112px] w-[144px] shrink-0 items-center justify-center">
                 <span className="absolute h-[82px] w-[108px] rotate-[-16deg] rounded-[50%] border border-[var(--gold-bright)]/65 transition-transform duration-500 group-hover:rotate-[-22deg] group-hover:scale-105" aria-hidden="true" />
                 <span className="absolute h-[82px] w-[108px] rotate-[16deg] rounded-[50%] border border-[var(--gold-primary)]/55 transition-transform duration-500 group-hover:rotate-[22deg] group-hover:scale-105" aria-hidden="true" />
-                <span className="absolute h-[94px] w-[94px] rounded-full bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.9),rgba(200,146,14,0.2)_14%,rgba(239,239,239,0.96)_48%,rgba(235,235,235,0.98)_72%)] shadow-[inset_0_0_10px_rgba(184,134,11,0.2),0_0_18px_rgba(184,134,11,0.15)]" aria-hidden="true" />
+                <span
+                  className="absolute h-[94px] w-[94px] rounded-full shadow-[inset_0_0_10px_rgba(184,134,11,0.2),0_0_18px_rgba(184,134,11,0.15)]"
+                  style={{
+                    background:
+                      'radial-gradient(circle at 35% 22%, color-mix(in srgb, var(--bg-primary) 90%, white), color-mix(in srgb, var(--gold-bright) 20%, transparent) 14%, color-mix(in srgb, var(--bg-secondary) 96%, transparent) 48%, var(--bg-secondary) 72%)',
+                  }}
+                  aria-hidden="true"
+                />
                 <span className="absolute h-[102px] w-[102px] rounded-full border border-[var(--border-color)] shadow-[0_0_10px_rgba(184,134,11,0.1)]" aria-hidden="true" />
                 <Icon className="relative z-10 h-9 w-9 text-[var(--gold-bright)] drop-shadow-[0_0_8px_rgba(184,134,11,0.5)]" aria-hidden="true" />
               </div>
@@ -112,4 +119,3 @@ const WhyUsSection = () => {
 };
 
 export default WhyUsSection;
-
