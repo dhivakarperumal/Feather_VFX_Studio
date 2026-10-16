@@ -23,6 +23,7 @@ const ProjectGalleryCard = ({
         src={project.image}
         alt={`${project.title} project artwork`}
         loading="lazy"
+        decoding="async"
       />
     </button>
   </article>
