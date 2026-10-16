@@ -106,6 +106,7 @@ const About = () => (
       eyebrow="About Feather VFX Studio"
       title={<>About <span className="text-[var(--gold-bright)]">Us</span></>}
       titleSize="text-2xl sm:text-3xl md:text-4xl"
+      breadcrumbLabel="About Us"
       background="/images/heroimages/3.png"
       align="left"
     >
