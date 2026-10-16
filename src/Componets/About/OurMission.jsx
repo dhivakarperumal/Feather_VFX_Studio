@@ -47,7 +47,7 @@ const OurMission = () => (
       <div className="mt-10 grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div data-aos="fade-right" data-aos-offset="60" className="relative min-h-[360px] overflow-hidden rounded-[18px] border border-[var(--gold-primary)]/35 bg-[var(--bg-secondary)] lg:min-h-[420px]">
           <img
-            src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+            src="/images/testimonial.png"
             alt="Creative studio team at work"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />

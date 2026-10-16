@@ -463,7 +463,7 @@ const About = () => (
 
         <div data-aos="zoom-in" data-aos-delay="100" className="group relative min-h-[360px] overflow-hidden border border-[var(--gold-primary)]/55 lg:min-h-full">
           <img
-            src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+            src="/images/responsiveprojectsupport.png"
             alt="A detailed digital environment created for a cinematic story"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"

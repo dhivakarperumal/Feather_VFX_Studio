@@ -57,30 +57,46 @@ const PromiseSection = () => (
             data-aos="fade-up"
             data-aos-delay={index * 100}
             data-aos-offset="40"
-            className="group flex flex-col border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:p-6"
+            className="group flex flex-col overflow-hidden border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] shadow-sm transition-transform duration-300 hover:-translate-y-1"
           >
-            {/* Number */}
-            <span className="font-serif justify-center text-[clamp(2.6rem,5vw,4rem)] font-bold leading-none tracking-[-0.06em] text-[var(--gold-bright)]">
-              {number}
-            </span>
-
-            {/* Icon + Title */}
-            <div className="mt-4 flex justify-center items-center gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[var(--gold-primary)] bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.18)] transition-shadow duration-300 group-hover:shadow-[0_0_22px_rgba(184,134,11,0.3)]">
-                <Icon className="h-5 w-5 stroke-[1.8]" aria-hidden="true" />
+            {/* Image with number overlay */}
+            <div className="relative h-48 shrink-0 overflow-hidden sm:h-52">
+              <img
+                src={image}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+                aria-hidden="true"
+              />
+              {/* Centered number overlay */}
+              <span className="absolute inset-0 flex items-center justify-center font-serif text-[clamp(3rem,6vw,5rem)] font-bold leading-none tracking-[-0.06em] text-[var(--gold-bright)] drop-shadow-lg">
+                {number}
               </span>
-              <h3 className="font-serif text-lg font-bold uppercase leading-tight tracking-[0.02em] text-[var(--text-primary)] sm:text-xl">
-                {title}
-              </h3>
             </div>
 
-            {/* Divider */}
-            <span className="mt-4 block h-px w-10 bg-[var(--gold-bright)]" aria-hidden="true" />
+            {/* Content */}
+            <div className="flex flex-1 flex-col p-5 sm:p-6">
+              {/* Icon + Title */}
+              <div className="flex items-center gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[var(--gold-primary)] bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.18)] transition-shadow duration-300 group-hover:shadow-[0_0_22px_rgba(184,134,11,0.3)]">
+                  <Icon className="h-5 w-5 stroke-[1.8]" aria-hidden="true" />
+                </span>
+                <h3 className="font-serif text-lg font-bold uppercase leading-tight tracking-[0.02em] text-[var(--text-primary)] sm:text-xl">
+                  {title}
+                </h3>
+              </div>
 
-            {/* Description */}
-            <p className="mt-4 flex-1 text-sm leading-[1.75] text-[var(--text-secondary)] sm:text-[0.94rem]">
-              {description}
-            </p>
+              {/* Divider */}
+              <span className="mt-4 block h-px w-10 bg-[var(--gold-bright)]" aria-hidden="true" />
+
+              {/* Description */}
+              <p className="mt-4 flex-1 text-sm leading-[1.75] text-[var(--text-secondary)] sm:text-[0.94rem]">
+                {description}
+              </p>
+            </div>
           </article>
         ))}
       </div>
