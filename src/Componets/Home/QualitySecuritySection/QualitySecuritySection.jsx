@@ -70,7 +70,7 @@ const QualitySecuritySection = () => (
         </div>
 
         <div data-aos="fade-left" data-aos-delay="100">
-          <div className="relative min-h-[220px] overflow-hidden border border-[var(--gold-primary)]/40 sm:min-h-[290px] lg:min-h-[330px]">
+          <div className="relative min-h-[220px] overflow-hidden sm:min-h-[290px] lg:min-h-[330px]">
             <img
               src="/images/mainimage.png"
               alt="VFX artist working at a studio workstation"
