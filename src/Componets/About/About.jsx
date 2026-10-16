@@ -387,12 +387,14 @@ const About = () => (
 
           <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div data-aos="fade-right">
-              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
-                Security features
-                <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+              <h3 className="font-serif text-xl font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-2xl">
+                Quality, Confidentiality and Security
+              </h3>
+              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
+                At Feather VFX, we understand the importance of protecting our clients&apos; projects and confidential information. We are committed to maintaining professional standards for data handling, secure file transfers, and production confidentiality.
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
-                We take the security and confidentiality of every project seriously. Our content-security practices follow Motion Picture Association (MPA) guidance, supporting the safe handling of production content for our clients.
+                Our workflows are designed to support reliable communication, secure collaboration, and efficient delivery throughout the production process. We continually review our practices to support our clients&apos; requirements.
               </p>
             </div>
 
