@@ -84,25 +84,27 @@ const QualitySecuritySection = () => (
 
       <div className="mt-7 grid gap-4 md:grid-cols-3 lg:mt-8 lg:gap-5">
         {benefits.map(({ title, description, Icon, image, imageAlt }, index) => (
-          <article
-            key={image}
-            data-aos="fade-up"
-            data-aos-delay={index * 90}
-            className="group relative overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-secondary)] shadow-[0_6px_20px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:-translate-y-1"
-          >
-            <div className="relative px-4 pb-5 pt-5 sm:px-5">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[var(--gold-primary)] bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(184,134,11,0.15)]">
+          <div key={image} className="relative pt-7">
+            <article
+              data-aos="fade-up"
+              data-aos-delay={index * 90}
+              className="group relative h-full border border-[var(--gold-primary)]/30 bg-[var(--bg-secondary)] shadow-[0_6px_20px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:-translate-y-1"
+            >
+              {/* Icon straddling the top border — half above, half inside */}
+              <span className="absolute -top-7 left-5 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[var(--gold-primary)] bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(184,134,11,0.15)]">
                 <Icon className="h-7 w-7" strokeWidth={1.7} aria-hidden="true" />
               </span>
-              <h3 className="mt-3 font-serif text-xl font-bold leading-tight sm:text-2xl">
-                {title}
-              </h3>
-              <span className="mt-3 block h-0.5 w-9 bg-[var(--gold-bright)]" aria-hidden="true" />
-              <p className="mt-3 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[15px]">
-                {description}
-              </p>
-            </div>
-          </article>
+              <div className="relative px-4 pb-5 pt-10 sm:px-5">
+                <h3 className="font-serif text-xl font-bold leading-tight sm:text-2xl">
+                  {title}
+                </h3>
+                <span className="mt-3 block h-0.5 w-9 bg-[var(--gold-bright)]" aria-hidden="true" />
+                <p className="mt-3 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[15px]">
+                  {description}
+                </p>
+              </div>
+            </article>
+          </div>
         ))}
       </div>
     </div>
