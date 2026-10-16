@@ -71,7 +71,7 @@ function App() {
           },
         }}
       />
-      <Footer key={`footer-${location.pathname}`} />
+      <Footer key={`footer-${location.pathname}`} theme={theme} />
     </section>
   );
 }

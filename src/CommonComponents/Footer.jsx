@@ -3,7 +3,7 @@ import PageContainer from "./PageContainer";
 import { FaXTwitter } from "react-icons/fa6";
 import { useStaggerReveal } from "../utils/useScrollReveal";
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   const columnsRef = useStaggerReveal(110);
 
   const quickLinks = [
@@ -38,7 +38,7 @@ const Footer = () => {
           <div className="stagger-child space-y-6">
             <div className="w-[220px] max-w-full">
               <img 
-                src="/images/logo-b.png" 
+                src={theme === 'dark' ? '/images/logo.png' : '/images/logo-b.png'}
                 alt="Feather VFX Studio" 
                 className="block h-auto w-full object-contain" 
               />
