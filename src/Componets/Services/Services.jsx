@@ -20,9 +20,10 @@ const Services = () => (
     <PageHeader
       eyebrow="Our expertise"
       title={<>Our <span className="text-[var(--gold-primary)]">Services</span></>}
-      description="We create innovative, complex visual effects for high-end television and feature films."
+      description="We create innovative, complex visual effects for high-end television and feature films, combining artistic craft and technical precision to bring ambitious stories to life."
       background="/images/home.png"
       align="left"
+      showBreadcrumb={false}
       className="min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]"
     >
       <Link

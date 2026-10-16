@@ -104,14 +104,14 @@ function ShowreelPage() {
     <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
       <PageHeader
         eyebrow="Feather VFX Studio"
-        title="Our Showreel"
+        title={<>Our <span className="text-[#E5A544]">Showreel</span></>}
         background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
         description="Explore the Feather VFX showreel and discover our expertise in visual effects for film and television. From seamless compositing and detailed paint and prep to precise rotoscoping and camera tracking, our team delivers high-quality visuals with creativity and attention to detail."
         align="left"
         showBreadcrumb={false}
         className="min-h-[370px]"
       >
-        <p className="mt-3 text-xs font-semibold text-[var(--text-primary)]">
+        <p className="mt-3 text-xs font-semibold text-white/85">
           Bringing Creative Visions to Life. Watch our work. Discover our capabilities. Imagine the possibilities.
         </p>
       </PageHeader>

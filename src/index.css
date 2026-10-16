@@ -368,9 +368,9 @@ body {
 	pointer-events: none;
 	background: linear-gradient(
 		90deg,
-		rgba(255, 255, 255, 0.9) 0%,
-		rgba(255, 255, 255, 0.76) 68%,
-		rgba(255, 255, 255, 0) 100%
+		rgba(0, 0, 0, 0.68) 0%,
+		rgba(0, 0, 0, 0.46) 68%,
+		rgba(0, 0, 0, 0) 100%
 	);
 	-webkit-backdrop-filter: blur(8px);
 	backdrop-filter: blur(8px);
@@ -401,9 +401,9 @@ body {
 		width: 100%;
 		background: linear-gradient(
 			90deg,
-			rgba(255, 255, 255, 0.92) 0%,
-			rgba(255, 255, 255, 0.78) 72%,
-			rgba(255, 255, 255, 0.08) 100%
+			rgba(0, 0, 0, 0.72) 0%,
+			rgba(0, 0, 0, 0.5) 72%,
+			rgba(0, 0, 0, 0.08) 100%
 		);
 		-webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
 		mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
@@ -571,7 +571,7 @@ body {
   letter-spacing: -0.06em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #fff;
 }
 
 .blog-hero h1 span {
@@ -582,7 +582,7 @@ body {
 .blog-hero__description {
   max-width: 540px;
   margin-top: 1rem;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1.15rem;
   line-height: 1.7;
 }
