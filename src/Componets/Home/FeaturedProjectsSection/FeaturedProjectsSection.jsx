@@ -115,7 +115,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
       <section
         id="projects"
         aria-labelledby="featured-projects-title"
-        className={`relative isolate overflow-hidden bg-white px-[3%] ${homePage ? 'py-12 sm:py-16' : 'py-16 sm:py-20 lg:py-14'}`}
+        className={`relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] ${homePage ? 'py-12 sm:py-16' : 'py-16 sm:py-20 lg:py-14'}`}
       >
         <div className="mx-auto w-full max-w-[1500px]">
           <header className="flex flex-col items-center text-center" data-aos="fade-up" data-aos-offset="60">
