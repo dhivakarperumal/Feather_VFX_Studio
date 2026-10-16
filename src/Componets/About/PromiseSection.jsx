@@ -1,4 +1,4 @@
-import { BadgeCheck, Clock3, ShieldCheck, UsersRound } from 'lucide-react';
+import { Clock3, ShieldCheck, UsersRound } from 'lucide-react';
 
 const promises = [
   {
@@ -13,7 +13,7 @@ const promises = [
     number: '02',
     title: 'We are satisfactory',
     description:
-      "We believe successful partnerships are built on understanding client requirements, maintaining consistent quality, and responding effectively to feedback.",
+      'We believe successful partnerships are built on understanding client requirements, maintaining consistent quality, and responding effectively to feedback.',
     image: '/images/heroimages/2.png',
     Icon: ShieldCheck,
   },
@@ -38,7 +38,8 @@ const PromiseSection = () => (
     />
 
     <div className="relative z-10 mx-auto max-w-[1500px]">
-      <div data-aos="fade-up" data-aos-offset="60" className="mb-8 flex items-center gap-4 sm:mb-10">
+      {/* Heading */}
+      <div data-aos="fade-up" data-aos-offset="60" className="mb-10 flex items-center gap-4 sm:mb-12">
         <span className="block h-px w-14 bg-[var(--gold-primary)] sm:w-20" aria-hidden="true" />
         <h2
           id="promise-heading"
@@ -48,48 +49,38 @@ const PromiseSection = () => (
         </h2>
       </div>
 
-      <div className="space-y-5 sm:space-y-6">
+      {/* Vertical cards grid */}
+      <div className="grid gap-6 md:grid-cols-3 md:gap-7">
         {promises.map(({ number, title, description, image, Icon }, index) => (
           <article
             key={title}
             data-aos="fade-up"
             data-aos-delay={index * 100}
             data-aos-offset="40"
-            className="group relative overflow-hidden border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] px-3 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 sm:px-4 lg:px-5"
+            className="group flex flex-col border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:p-6"
           >
-            <div className="relative grid items-center gap-3 md:grid-cols-[82px_92px_minmax(0,1.2fr)_minmax(220px,0.7fr)] md:gap-4 lg:grid-cols-[90px_110px_minmax(0,1.15fr)_minmax(230px,0.68fr)]">
-              <div
-                className="text-[clamp(2.4rem,4vw,4.6rem)] font-bold leading-[0.85] tracking-[-0.06em] text-[var(--gold-bright)]"
-                aria-label={`${number} ${title}`}
-              >
-                {number}
-              </div>
+            {/* Number */}
+            <span className="font-serif justify-center text-[clamp(2.6rem,5vw,4rem)] font-bold leading-none tracking-[-0.06em] text-[var(--gold-bright)]">
+              {number}
+            </span>
 
-              <div className="mx-auto flex h-[5rem] w-[5rem] items-center justify-center rounded-full border-[3px] border-[var(--gold-primary)] bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(184,134,11,0.18)] sm:h-[5.5rem] sm:w-[5.5rem]">
-                <Icon className="h-9 w-9 stroke-[1.8]" aria-hidden="true" />
-              </div>
-
-              <div className="min-w-0">
-                <h3 className="font-serif text-[clamp(1.4rem,2vw,2.2rem)] font-bold uppercase leading-[0.95] tracking-[0.02em] text-[var(--text-primary)]">
-                  {title}
-                </h3>
-                <p className="mt-2 max-w-[44rem] text-justify text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[0.9rem] lg:text-[1rem]">
-                  {description}
-                </p>
-              </div>
-
-              <div className="relative h-[7rem] overflow-hidden border border-[var(--gold-primary)]/50 sm:h-[8rem]">
-                <img
-                  src={image}
-                  alt=""
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute right-2 top-2 text-[var(--gold-bright)]">
-                  <BadgeCheck className="h-4 w-4" aria-hidden="true" />
-                </div>
-              </div>
+            {/* Icon + Title */}
+            <div className="mt-4 flex justify-center items-center gap-4">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[var(--gold-primary)] bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.18)] transition-shadow duration-300 group-hover:shadow-[0_0_22px_rgba(184,134,11,0.3)]">
+                <Icon className="h-5 w-5 stroke-[1.8]" aria-hidden="true" />
+              </span>
+              <h3 className="font-serif text-lg font-bold uppercase leading-tight tracking-[0.02em] text-[var(--text-primary)] sm:text-xl">
+                {title}
+              </h3>
             </div>
+
+            {/* Divider */}
+            <span className="mt-4 block h-px w-10 bg-[var(--gold-bright)]" aria-hidden="true" />
+
+            {/* Description */}
+            <p className="mt-4 flex-1 text-sm leading-[1.75] text-[var(--text-secondary)] sm:text-[0.94rem]">
+              {description}
+            </p>
           </article>
         ))}
       </div>
