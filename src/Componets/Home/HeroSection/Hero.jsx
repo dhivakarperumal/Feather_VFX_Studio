@@ -166,7 +166,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95 backdrop-blur-[2px]">
+      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95">
         <div className="mx-auto grid max-w-[1700px] grid-cols-1 gap-0 sm:grid-cols-2 xl:grid-cols-4">
           {heroCapabilities.map(({ title, subtitle, Icon }, index) => (
             <div

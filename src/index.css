@@ -418,6 +418,14 @@ body {
 }
 
 @media (max-width: 767px) {
+  #home,
+  #home * {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-filter: none !important;
+    filter: none !important;
+  }
+
   .cinematic-copy-overlay {
     width: 100%;
     -webkit-backdrop-filter: none !important;
