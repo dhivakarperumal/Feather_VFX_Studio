@@ -84,7 +84,7 @@ const SectionTitle = ({
       {/* Eyebrow Subtitle */}
       {subtitle && (
         <p
-          className={`mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#FF6A00] sm:text-xs md:text-xs ${subtitleClassName}`}
+          className={`mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--gold-primary)] sm:text-xs md:text-xs ${subtitleClassName}`}
         >
           {subtitle}
         </p>
@@ -92,20 +92,20 @@ const SectionTitle = ({
 
       {/* Main Heading */}
       <h2
-        className={`hero-font font-bold uppercase leading-tight tracking-[-0.035em] text-white ${sizeClasses} ${titleClassName}`}
+        className={`hero-font font-bold uppercase leading-tight tracking-[-0.035em] text-[var(--text-primary)] ${sizeClasses} ${titleClassName}`}
       >
         {children ? (
           children
         ) : (
           <>
             {highlight && highlightPosition === "start" && (
-              <span className="text-[#FF6A00]">{highlight} </span>
+              <span className="text-[var(--gold-primary)]">{highlight} </span>
             )}
             {title}
             {highlight && highlightPosition === "end" && (
               <>
                 {title ? " " : ""}
-                <span className="text-[#FF6A00]">{highlight}</span>
+                <span className="text-[var(--gold-primary)]">{highlight}</span>
               </>
             )}
           </>
@@ -115,14 +115,14 @@ const SectionTitle = ({
       {/* Glowing Orange Underline Bar */}
       {showUnderline && (
         <div
-          className={`mt-3 h-[2px] w-14 bg-[#FF6A00] shadow-[0_0_10px_rgba(255,106,0,0.5)] ${underlineAlign} ${underlineClassName}`}
+          className={`mt-3 h-[2px] w-14 bg-[var(--gold-primary)] ${underlineAlign} ${underlineClassName}`}
         />
       )}
 
       {/* Optional Description */}
       {description && (
         <p
-          className={`mt-4 text-xs leading-[25px] text-white/70 sm:text-sm md:text-base max-w-2xl ${descAlign} ${descriptionClassName}`}
+          className={`mt-4 text-xs leading-[25px] text-[var(--text-secondary)] sm:text-sm md:text-base max-w-2xl ${descAlign} ${descriptionClassName}`}
         >
           {description}
         </p>

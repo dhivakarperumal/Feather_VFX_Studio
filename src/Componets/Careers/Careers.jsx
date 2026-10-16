@@ -157,16 +157,16 @@ function Careers() {
             Watch our studio
           </a>
         </div>
-        <div className="mt-7 grid max-w-[570px] grid-cols-2 gap-y-4 border-t border-white/20 pt-4 sm:grid-cols-4">
+        <div className="mt-7 grid max-w-[570px] grid-cols-2 gap-y-4 border-t border-[var(--border-color)] pt-4 sm:grid-cols-4">
           {[
             ['50+', 'Creative talents'],
             ['25+', 'Global projects'],
             ['10+', 'Years of excellence'],
             ['∞', 'New possibilities'],
           ].map(([value, label]) => (
-            <div key={label} className="border-l border-white/20 pl-3 first:border-0 first:pl-0">
+            <div key={label} className="border-l border-[var(--border-color)] pl-3 first:border-0 first:pl-0">
               <p className="font-serif text-2xl text-[var(--gold-primary)]">{value}</p>
-              <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/80">{label}</p>
+              <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.08em] text-[var(--text-secondary)]">{label}</p>
             </div>
           ))}
         </div>
@@ -243,7 +243,7 @@ function Careers() {
                   <div className="grid sm:grid-cols-[120px_minmax(0,1fr)]">
                     <div className="relative hidden min-h-full sm:block">
                       <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/35">
+                      <div className="absolute inset-0 flex items-center justify-center bg-[var(--bg-primary)]/50">
                         <Icon className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
                       </div>
                     </div>
@@ -417,7 +417,7 @@ function Careers() {
           <div data-aos="fade-up">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Ready to create something extraordinary?</p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">Your next chapter starts here.</h2>
-            <p className="mt-2 text-sm text-white/80">Explore open positions and become a part of Feather VFX Studio.</p>
+            <p className="mt-2 text-sm text-[var(--text-secondary)]">Explore open positions and become a part of Feather VFX Studio.</p>
           </div>
           <a href="#open-positions" className="inline-flex shrink-0 items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]">
             Join our team <FaArrowRight aria-hidden="true" />

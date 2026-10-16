@@ -24,7 +24,7 @@ const TopHeader = () => (
           href="tel:+447459467325"
           className="flex shrink-0 items-center gap-2 whitespace-nowrap transition-opacity hover:opacity-70"
         >
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-[var(--bg-primary)]">
             <FaPhoneAlt aria-hidden="true" />
           </span>
           <span>+44 74 5946 7325</span>
@@ -35,7 +35,7 @@ const TopHeader = () => (
           rel="noopener noreferrer"
           className="flex min-w-0 items-center gap-2 whitespace-nowrap transition-opacity hover:opacity-70"
         >
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--gold-primary)] text-[var(--bg-primary)]">
             <FaEnvelope aria-hidden="true" />
           </span>
           <span>info@feathervfx.com</span>
@@ -54,7 +54,7 @@ const TopHeader = () => (
             target="_blank"
             rel="noreferrer"
             aria-label={name}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold-primary)] text-white transition-colors hover:bg-[var(--gold-bright)]"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold-primary)] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
           >
             <Icon aria-hidden="true" className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </a>

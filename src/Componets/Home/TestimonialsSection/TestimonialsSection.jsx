@@ -74,43 +74,32 @@ const TestimonialsSection = () => {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-16 text-[var(--text-primary)] sm:px-[5%] sm:py-20 lg:px-[3%] lg:py-24"
+      className="relative isolate overflow-hidden bg-[var(--bg-secondary)] px-[6%] py-16 text-[var(--text-primary)] sm:px-[5%] sm:py-20 lg:px-[3%] lg:py-24"
     >
-      {/* Section background image */}
       <div
-        className="absolute inset-0 -z-20 bg-cover bg-center"
+        className="absolute inset-0 -z-20 bg-cover bg-center opacity-10"
         style={{ backgroundImage: "url('/images/testimonial.png')" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,10,13,0.92)_0%,rgba(4,10,13,0.65)_48%,rgba(4,10,13,0.2)_100%)]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-[var(--bg-primary)]/70 to-transparent"
         aria-hidden="true"
       />
 
       <div className="relative mx-auto max-w-[1500px]">
-        {/* Section header */}
         <div className="mb-8 max-w-xl sm:mb-10" data-aos="fade-up" data-aos-offset="60">
-          <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--text-primary)]/85 sm:text-xs">
+          <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--text-secondary)] sm:text-xs">
             Client stories
             <span className="h-px w-16 bg-gradient-to-r from-[var(--gold-primary)] to-transparent" aria-hidden="true" />
           </p>
           <h2
             id="testimonials-heading"
-            className="mt-3 font-serif text-4xl font-medium uppercase leading-[0.94] tracking-[0.015em] text-white sm:text-5xl lg:text-6xl"
+            className="mt-3 font-serif text-4xl font-medium uppercase leading-[0.94] tracking-[0.015em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
           >
             What our
             <span className="block text-[var(--gold-bright)]">clients say</span>
           </h2>
-          <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/80 sm:text-base">
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
             Trusted by creative minds across the world. Here&apos;s what our clients feel about working with Feather VFX Studio.
           </p>
         </div>
 
-        {/* Swiper slider — 3 cards visible, auto-slides one by one */}
         <style>{`
           .testimonials-swiper .swiper-wrapper {
             align-items: stretch;
@@ -135,38 +124,33 @@ const TestimonialsSection = () => {
           {testimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
             <SwiperSlide key={name}>
               <article
-                className="group relative flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/55 bg-[rgba(3,9,12,0.82)] shadow-[0_12px_36px_rgba(0,0,0,0.32)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-bright)]/75 hover:shadow-[0_0_32px_rgba(214,160,74,0.2)]"
+                className="group relative flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-primary)] shadow-[0_6px_24px_rgba(0,0,0,0.07)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-primary)]/60 hover:shadow-[0_0_24px_rgba(184,134,11,0.1)]"
                 style={{
                   clipPath:
                     'polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
                 }}
               >
-                {/* Subtle hover inner glow */}
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--gold-primary)]/[0.04] via-transparent to-[var(--gold-primary)]/[0.07] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  aria-hidden="true"
-                />
-
-                {/* Corner accents */}
-                <span
-                  className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_14px_rgba(240,168,88,0.55)]"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--gold-primary)]/[0.03] via-transparent to-[var(--gold-primary)]/[0.05] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   aria-hidden="true"
                 />
                 <span
-                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-bright)] shadow-[3px_3px_14px_rgba(240,168,88,0.55)]"
+                  className="pointer-events-none absolute left-0 top-0 z-10 h-7 w-7 border-l-2 border-t-2 border-[var(--gold-primary)] shadow-[-2px_-2px_10px_rgba(184,134,11,0.3)]"
+                  aria-hidden="true"
+                />
+                <span
+                  className="pointer-events-none absolute bottom-0 right-0 z-10 h-7 w-7 border-b-2 border-r-2 border-[var(--gold-primary)] shadow-[2px_2px_10px_rgba(184,134,11,0.3)]"
                   aria-hidden="true"
                 />
 
                 <div className="relative z-10 flex h-full flex-col gap-5 p-5 sm:p-6">
-                  {/* Avatar + Stars row */}
                   <div className="flex items-center gap-4">
-                    {/* Circular avatar with gold ring */}
                     <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
                       <div
                         className="pointer-events-none absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
                         aria-hidden="true"
                       />
-                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_18px_rgba(240,168,88,0.45)]">
+                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.3)]">
                         <img
                           src={avatar}
                           alt={name}
@@ -175,44 +159,23 @@ const TestimonialsSection = () => {
                         />
                       </div>
                     </div>
-
-                    {/* Stars */}
-                    <div
-                      className="flex gap-[3px] text-[var(--gold-bright)]"
-                      aria-label="5 out of 5 stars"
-                    >
+                    <div className="flex gap-[3px] text-[var(--gold-bright)]" aria-label="5 out of 5 stars">
                       {Array.from({ length: 5 }, (_, i) => (
-                        <Star
-                          key={i}
-                          className="h-[15px] w-[15px] fill-current drop-shadow-[0_0_4px_rgba(240,168,88,0.7)] sm:h-[17px] sm:w-[17px]"
-                          aria-hidden="true"
-                        />
+                        <Star key={i} className="h-[15px] w-[15px] fill-current sm:h-[17px] sm:w-[17px]" aria-hidden="true" />
                       ))}
                     </div>
                   </div>
 
-                  {/* Quote text */}
                   <div className="relative flex-1 pl-7">
-                    <Quote
-                      className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/55 text-[var(--gold-primary)]/55"
-                      aria-hidden="true"
-                    />
-                    <p className="line-clamp-4 text-sm leading-[1.7] text-white/85 sm:text-[0.94rem]">{quote}</p>
-                    <Quote
-                      className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/30 text-[var(--gold-primary)]/30"
-                      aria-hidden="true"
-                    />
+                    <Quote className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/40 text-[var(--gold-primary)]/40" aria-hidden="true" />
+                    <p className="line-clamp-4 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[0.94rem]">{quote}</p>
+                    <Quote className="mt-3 ml-auto block h-5 w-5 fill-[var(--gold-primary)]/25 text-[var(--gold-primary)]/25" aria-hidden="true" />
                   </div>
 
-                  {/* Divider */}
-                  <div
-                    className="h-px w-full bg-gradient-to-r from-[var(--gold-primary)]/45 via-[var(--gold-primary)]/20 to-transparent"
-                    aria-hidden="true"
-                  />
+                  <div className="h-px w-full bg-gradient-to-r from-[var(--gold-primary)]/30 via-[var(--gold-primary)]/15 to-transparent" aria-hidden="true" />
 
-                  {/* Name + Role */}
                   <div className="pl-1">
-                    <h3 className="font-serif text-lg font-semibold uppercase tracking-[0.02em] text-white sm:text-xl">
+                    <h3 className="font-serif text-lg font-semibold uppercase tracking-[0.02em] text-[var(--text-primary)] sm:text-xl">
                       {name}
                     </h3>
                     <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]/80">

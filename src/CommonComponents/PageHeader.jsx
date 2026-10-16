@@ -24,13 +24,13 @@ const PageHeader = ({
       <div
         className={`absolute inset-0 -z-10 ${
           isLeftAligned
-            ? "bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/75 to-[var(--bg-primary)]/10"
-            : "bg-black/50"
+            ? "bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
+            : "bg-[var(--bg-primary)]/60"
         }`}
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)]/65 via-transparent to-[var(--bg-primary)]/20"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)]/70 via-transparent to-[var(--bg-primary)]/25"
         aria-hidden="true"
       />
       <div
@@ -50,17 +50,17 @@ const PageHeader = ({
             {title}
           </h1>
           {description && (
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
               {description}
             </p>
           )}
           {showBreadcrumb && (
-            <nav aria-label="Breadcrumb" className={`mt-4 flex items-center gap-2 text-xs text-white/75 sm:text-sm ${isLeftAligned ? "justify-start" : "justify-center"}`}>
+            <nav aria-label="Breadcrumb" className={`mt-4 flex items-center gap-2 text-xs text-[var(--text-secondary)] sm:text-sm ${isLeftAligned ? "justify-start" : "justify-center"}`}>
               <Link to="/" className="transition-colors hover:text-[var(--gold-primary)]">
                 Home
               </Link>
               <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-white">
+              <span aria-current="page" className="text-[var(--text-primary)]">
                 {typeof title === "string" ? title : eyebrow}
               </span>
             </nav>

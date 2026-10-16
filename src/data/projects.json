@@ -178,6 +178,54 @@
       "heightRatio": 0.563
     },
     {
+      "title": "Featured Project 23",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/1.1.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.365
+    },
+    {
+      "title": "Featured Project 24",
+      "category": "Environments",
+      "image": "/images/projects/featured/2.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.781
+    },
+    {
+      "title": "Featured Project 25",
+      "category": "Compositing",
+      "image": "/images/projects/featured/3.1.jpg",
+      "collection": "Featured",
+      "orientation": "landscape",
+      "heightRatio": 0.562
+    },
+    {
+      "title": "Featured Project 26",
+      "category": "Color Grading",
+      "image": "/images/projects/featured/45.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.342
+    },
+    {
+      "title": "Featured Project 27",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/MAIN.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 0.983
+    },
+    {
+      "title": "Featured Project 28",
+      "category": "Environments",
+      "image": "/images/projects/featured/MAIN1.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.42
+    },
+    {
       "title": "Commercial Project 1",
       "image": "/images/projects/commercials/1.png",
       "collection": "Commercials",

@@ -100,7 +100,7 @@ const Hero = () => {
 
             {/* Stats — delay 5 */}
             <div className="hero-reveal-mask mt-12">
-              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/20 pt-6">
+              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-[var(--text-primary)]/20 pt-6">
                 {slide.highlights.map((highlight) => (
                   <div key={highlight.label}>
                     <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
@@ -150,16 +150,16 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="relative z-20 border-t border-white/10 bg-[var(--bg-primary)]/95 backdrop-blur-[2px]">
+      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95 backdrop-blur-[2px]">
         <div className="mx-auto grid max-w-[1700px] grid-cols-1 gap-0 sm:grid-cols-2 xl:grid-cols-4">
           {heroCapabilities.map(({ title, subtitle, Icon }, index) => (
             <div
               key={title}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="group flex items-center justify-center gap-4 border border-white/10 px-6 py-7 text-left md:px-8 md:py-8 xl:border-r xl:last:border-r-0"
+              className="group flex items-center justify-center gap-4 border border-[var(--border-color)] px-6 py-7 text-left md:px-8 md:py-8 xl:border-r xl:last:border-r-0"
             >
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/3 text-[var(--text-primary)]/80 transition-colors duration-200 group-hover:border-[var(--gold-primary)] group-hover:text-[var(--gold-bright)]">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]/80 transition-colors duration-200 group-hover:border-[var(--gold-primary)] group-hover:text-[var(--gold-bright)]">
                 <Icon className="h-8 w-8" aria-hidden="true" />
               </div>
 

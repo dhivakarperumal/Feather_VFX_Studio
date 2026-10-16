@@ -95,24 +95,16 @@ const About = () => (
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </a>
     </PageHeader>
+
+    {/* Our Story Section */}
     <section
       id="about-us"
       aria-labelledby="about-heading"
       className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
-      <div
-        className="absolute inset-0 -z-20 bg-cover bg-center opacity-25"
-        style={{ backgroundImage: "url('/images/whyusbg.png')" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,10,13,0.92),rgba(4,10,13,0.82)_55%,rgba(4,10,13,0.92))]"
-        aria-hidden="true"
-      />
-
       <div className="mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[1.08fr_1fr] lg:gap-14">
         <div data-aos="fade-right" className="group relative min-h-[340px] overflow-hidden border border-[var(--gold-primary)]/70 p-1 sm:min-h-[440px] lg:min-h-[500px]">
-          <span className="pointer-events-none absolute left-0 top-0 z-20 h-12 w-12 border-l-2 border-t-2 border-[var(--gold-bright)] shadow-[-3px_-3px_16px_rgba(240,168,88,0.4)]" aria-hidden="true" />
+          <span className="pointer-events-none absolute left-0 top-0 z-20 h-12 w-12 border-l-2 border-t-2 border-[var(--gold-bright)]" aria-hidden="true" />
           <span className="pointer-events-none absolute bottom-0 right-0 z-20 h-12 w-12 border-b-2 border-r-2 border-[var(--gold-primary)]" aria-hidden="true" />
 
           <img
@@ -120,7 +112,7 @@ const About = () => (
             alt="A cinematic fantasy world created through visual effects"
             className="absolute inset-1 h-[calc(100%-0.5rem)] w-[calc(100%-0.5rem)] object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
           />
-          <div className="absolute inset-1 bg-gradient-to-t from-[#03090c]/90 via-[#03090c]/15 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-1 bg-gradient-to-t from-[var(--text-primary)]/60 via-transparent to-transparent" aria-hidden="true" />
           <div className="absolute inset-x-7 bottom-7 z-10 sm:inset-x-10 sm:bottom-10">
             <p className="font-serif text-4xl italic leading-[0.9] text-[var(--gold-bright)] drop-shadow-lg sm:text-5xl lg:text-6xl">
               Beyond
@@ -128,9 +120,9 @@ const About = () => (
             </p>
             <a
               href="/showreel"
-              className="mt-7 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-[var(--gold-bright)] sm:mt-9"
+              className="mt-7 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--bg-primary)] transition-colors hover:text-[var(--gold-bright)] sm:mt-9"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 transition-colors hover:border-[var(--gold-bright)]">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--bg-primary)]/70 transition-colors hover:border-[var(--gold-bright)]">
                 <Play className="ml-0.5 h-4 w-4 fill-current" aria-hidden="true" />
               </span>
               Watch our showreel
@@ -144,16 +136,16 @@ const About = () => (
           </p>
           <h2
             id="about-heading"
-            className="mt-3 max-w-2xl font-serif text-[1.125rem] font-bold uppercase leading-[0.98] tracking-[-0.025em] text-white sm:text-2xl lg:text-[1.875rem]"
+            className="mt-3 max-w-2xl font-serif text-[1.125rem] font-bold uppercase leading-[0.98] tracking-[-0.025em] text-[var(--text-primary)] sm:text-2xl lg:text-[1.875rem]"
           >
             From imagination
             <span className="block text-[var(--gold-bright)]">to reality</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-white/75 sm:text-base">
+          <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
             Feather VFX Studio was founded by a group of creative professionals who shared a common vision — to create world-class visual effects and help storytellers bring their ideas to life. What started as a small team with a big dream has now grown into a full-scale VFX and post-production studio, trusted by filmmakers, brands and game developers worldwide.
           </p>
 
-          <div className="mt-7 h-px w-16 bg-[var(--gold-primary)] shadow-[0_0_12px_rgba(214,160,74,0.55)]" aria-hidden="true" />
+          <div className="mt-7 h-px w-16 bg-[var(--gold-primary)]" aria-hidden="true" />
 
           <ul className="mt-7 grid gap-5 sm:grid-cols-3 sm:gap-0">
             {studioPillars.map(({ label, Icon }, index) => (
@@ -162,13 +154,13 @@ const About = () => (
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
                 className={`flex items-center gap-3 sm:px-4 lg:px-5 ${
-                  index > 0 ? 'sm:border-l sm:border-white/15' : 'sm:pl-0'
+                  index > 0 ? 'sm:border-l sm:border-[var(--border-color)]' : 'sm:pl-0'
                 }`}
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 text-[var(--gold-bright)] shadow-[0_0_14px_rgba(214,160,74,0.12)]">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 text-[var(--gold-bright)]">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <span className="max-w-[100px] text-[10px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/80 sm:text-[9px] lg:text-[10px]">
+                <span className="max-w-[100px] text-[10px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-[var(--text-secondary)] sm:text-[9px] lg:text-[10px]">
                   {label}
                 </span>
               </li>
@@ -178,19 +170,20 @@ const About = () => (
       </div>
     </section>
 
+    {/* Security Section */}
     <section
       aria-labelledby="security-heading"
-      className="relative isolate overflow-hidden border-y border-[var(--gold-primary)]/30 bg-[#050a0b] text-white"
+      className="relative isolate overflow-hidden border-y border-[var(--gold-primary)]/20 bg-[var(--bg-secondary)] text-[var(--text-primary)]"
     >
-      <div className="relative isolate overflow-hidden border-b border-[var(--gold-primary)]/35">
+      <div className="relative isolate overflow-hidden border-b border-[var(--border-color)]">
         <img
           src="/images/offerbanner.png"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-left opacity-25"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-left opacity-10"
         />
         <div
-          className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(3,8,9,0.95),rgba(3,8,9,0.83)_58%,rgba(3,8,9,0.94))]"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-secondary)] via-[var(--bg-secondary)]/90 to-[var(--bg-secondary)]/80"
           aria-hidden="true"
         />
 
@@ -202,12 +195,12 @@ const About = () => (
             </p>
             <h2
               id="security-heading"
-              className="mt-4 max-w-3xl font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl"
+              className="mt-4 max-w-3xl font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
             >
               Feather makes you feel more{' '}
               <span className="text-[var(--gold-bright)]">proud of your business.</span>
             </h2>
-            <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-white/75 sm:text-base">
+            <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
               We offer smooth VFX services with the right amount of passion and innovation, with no compromise in quality.
             </p>
           </div>
@@ -218,12 +211,12 @@ const About = () => (
                 key={label}
                 data-aos="fade-up"
                 data-aos-delay={index * 70}
-                className="flex flex-col items-center gap-3 border border-[var(--gold-primary)]/35 bg-black/35 px-2 py-4 text-center sm:px-3 sm:py-5"
+                className="flex flex-col items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-primary)] px-2 py-4 text-center sm:px-3 sm:py-5"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(214,160,74,0.18)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--gold-primary)] text-[var(--gold-bright)]">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <span className="text-[9px] font-semibold uppercase leading-relaxed tracking-[0.1em] text-white/85 sm:text-[10px]">
+                <span className="text-[9px] font-semibold uppercase leading-relaxed tracking-[0.1em] text-[var(--text-secondary)] sm:text-[10px]">
                   {label}
                 </span>
               </li>
@@ -235,7 +228,7 @@ const About = () => (
       <div className="mx-auto grid max-w-[1500px] items-center gap-7 px-[6%] py-9 sm:px-[5%] sm:py-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12 lg:px-[3%]">
         <div
           data-aos="fade-right"
-          className="relative overflow-hidden border border-[var(--gold-primary)]/40 bg-[radial-gradient(circle_at_center,rgba(214,160,74,0.12),transparent_58%),#080e10] p-7 sm:p-9"
+          className="relative overflow-hidden border border-[var(--gold-primary)]/40 bg-[var(--bg-primary)] p-7 sm:p-9"
         >
           <span className="absolute -right-6 -top-8 text-[var(--gold-primary)]/10" aria-hidden="true">
             <ShieldCheck className="h-40 w-40" strokeWidth={1} />
@@ -244,10 +237,10 @@ const About = () => (
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
               Our commitment
             </p>
-            <h3 className="mt-3 font-serif text-2xl font-bold uppercase leading-tight text-white sm:text-3xl">
+            <h3 className="mt-3 font-serif text-2xl font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-3xl">
               Your content deserves careful protection.
             </h3>
-            <p className="mt-4 text-sm leading-[1.8] text-white/70">
+            <p className="mt-4 text-sm leading-[1.8] text-[var(--text-secondary)]">
               We respect the trust placed in us and take care to protect sensitive production data. Our security practices are regularly reviewed and updated to support changing business needs and standards.
             </p>
           </div>
@@ -259,12 +252,12 @@ const About = () => (
               Industry standard
               <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
             </p>
-            <p className="mt-4 text-sm leading-[1.8] text-white/70">
+            <p className="mt-4 text-sm leading-[1.8] text-[var(--text-secondary)]">
               Our content-security practices follow Motion Picture Association (MPA) guidance and are designed to safeguard media throughout production and delivery.
             </p>
-            <div className="mt-5 flex items-center gap-3 border border-[var(--gold-primary)]/45 bg-black/35 p-3">
+            <div className="mt-5 flex items-center gap-3 border border-[var(--border-color)] bg-[var(--bg-primary)] p-3">
               <ServerCog className="h-8 w-8 shrink-0 text-[var(--gold-bright)]" aria-hidden="true" />
-              <p className="text-xs leading-relaxed text-white/75">
+              <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
                 A <span className="font-bold text-[var(--gold-bright)]">100 Mbps</span> secondary connection helps support service continuity.
               </p>
             </div>
@@ -276,12 +269,12 @@ const About = () => (
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#03090c]/65 via-transparent to-transparent" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/40 via-transparent to-transparent" aria-hidden="true" />
           </div>
         </div>
       </div>
 
-      <div className="border-y border-[var(--gold-primary)]/25 bg-[linear-gradient(90deg,rgba(9,15,17,0.97),rgba(5,10,11,0.9))]">
+      <div className="border-y border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto max-w-[1500px] px-[6%] py-8 sm:px-[5%] sm:py-10 lg:px-[3%]">
           <div className="grid items-center gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
           <div className="group relative min-h-[250px] overflow-hidden border border-[var(--gold-primary)]/45 sm:min-h-[320px]" data-aos="fade-right">
@@ -291,7 +284,7 @@ const About = () => (
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-black/20" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/30 via-transparent to-[var(--bg-primary)]/20" aria-hidden="true" />
           </div>
 
           <div data-aos="fade-left">
@@ -299,7 +292,7 @@ const About = () => (
               Physical security
               <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
             </p>
-            <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-white/75">
+            <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
               Door access controls and CCTV are monitored around the clock, with on-site security for studio entrances, production areas and data centers. Mobile phones and electronic storage devices are prohibited in the production network.
             </p>
 
@@ -309,10 +302,10 @@ const About = () => (
                   key={label}
                   data-aos="zoom-in"
                   data-aos-delay={index * 70}
-                  className="flex min-h-[94px] flex-col items-center justify-center gap-2 border border-[var(--gold-primary)]/40 bg-black/35 px-2 py-2.5 text-center"
+                  className="flex min-h-[94px] flex-col items-center justify-center gap-2 border border-[var(--border-color)] bg-[var(--bg-secondary)] px-2 py-2.5 text-center"
                 >
                   <Icon className="h-6 w-6 text-[var(--gold-bright)]" aria-hidden="true" />
-                  <span className="text-[9px] font-semibold leading-[1.4] text-white/85 sm:text-[10px]">
+                  <span className="text-[9px] font-semibold leading-[1.4] text-[var(--text-secondary)] sm:text-[10px]">
                     {label}
                   </span>
                 </li>
@@ -321,13 +314,13 @@ const About = () => (
           </div>
           </div>
 
-          <div className="mt-8 grid items-center gap-6 border-t border-[var(--gold-primary)]/20 pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div data-aos="fade-right">
               <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
                 Security features
                 <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
               </p>
-              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-white/75">
+              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
                 We take the security and confidentiality of every project seriously. Our content-security practices follow Motion Picture Association (MPA) guidance, supporting the safe handling of production content for our clients.
               </p>
             </div>
@@ -338,9 +331,9 @@ const About = () => (
                   key={partner}
                   data-aos="zoom-in"
                   data-aos-delay={index * 60}
-                  className="flex min-h-[72px] items-center justify-center border border-[var(--gold-primary)]/35 bg-black/45 px-3 py-3 text-center font-bold tracking-[0.08em] text-white/90 shadow-[inset_0_0_18px_rgba(214,160,74,0.04)]"
+                  className="flex min-h-[72px] items-center justify-center border border-[var(--border-color)] bg-[var(--bg-secondary)] px-3 py-3 text-center font-bold tracking-[0.08em] text-[var(--text-primary)]"
                 >
-                  <span className={partner === 'NETFLIX' ? 'text-red-500' : 'text-sm sm:text-base'}>
+                  <span className={partner === 'NETFLIX' ? 'text-red-600 text-sm sm:text-base' : 'text-sm sm:text-base'}>
                     {partner}
                   </span>
                 </li>
@@ -357,12 +350,13 @@ const About = () => (
     <ProcessSection />
     <PromiseSection />
 
+    {/* Values Section */}
     <section
       aria-labelledby="values-heading"
-      className="relative overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-white sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
+      className="relative overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
       <div className="mx-auto grid max-w-[1500px] gap-6 lg:grid-cols-[0.95fr_1.25fr_0.75fr]">
-        <div data-aos="fade-right" className="border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.025),rgba(5,10,11,0.45))] p-6 sm:p-8">
+        <div data-aos="fade-right" className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 sm:p-8">
           <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
             Our values
           </p>
@@ -377,10 +371,10 @@ const About = () => (
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-white">
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--text-primary)]">
                     {title}
                   </h3>
-                  <p className="mt-0.5 text-xs leading-relaxed text-white/65">{detail}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-[var(--text-secondary)]">{detail}</p>
                 </div>
               </li>
             ))}
@@ -394,7 +388,7 @@ const About = () => (
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(3,9,12,0.65)] via-transparent to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/55 via-transparent to-transparent" aria-hidden="true" />
           <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
               Crafted frame by frame
@@ -403,18 +397,18 @@ const About = () => (
           </div>
         </div>
 
-        <aside data-aos="fade-left" data-aos-delay="200" className="border border-white/15 bg-[rgba(7,13,15,0.82)] p-5 sm:p-6">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/70">
+        <aside data-aos="fade-left" data-aos-delay="200" className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 sm:p-6">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[var(--text-secondary)]">
             Our journey
           </p>
           <h2 className="mt-1 text-sm font-bold uppercase tracking-[0.15em] text-[var(--gold-bright)]">
             In numbers
           </h2>
-          <dl className="mt-4 divide-y divide-white/10">
+          <dl className="mt-4 divide-y divide-[var(--border-color)]">
             {studioStats.map(({ value, label }, index) => (
               <div key={label} className="flex items-center justify-between gap-3 py-3">
                 <CountUpStat value={value} delay={index * 150} />
-                <dd className="max-w-[120px] text-right text-[9px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/70">
+                <dd className="max-w-[120px] text-right text-[9px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-[var(--text-secondary)]">
                   {label}
                 </dd>
               </div>

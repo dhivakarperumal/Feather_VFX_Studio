@@ -80,7 +80,7 @@ const ScrollNavigator = () => {
       <div className="fixed right-5.5 bottom-20 z-[999] flex flex-col gap-3 sm:right-6.5 sm:bottom-24 pointer-events-auto print:hidden">
         <button
           onClick={scrollToTop}
-          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_8px_22px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#e85d00] hover:shadow-[0_10px_26px_rgba(255,106,0,0.45)] focus:outline-none focus:ring-2 focus:ring-[#FF6A00]/50"
+          className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-[var(--gold-primary)] text-[var(--bg-primary)] shadow-[0_8px_22px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--gold-bright)] focus:outline-none focus:ring-2 focus:ring-[var(--gold-primary)]"
           aria-label="Scroll to top"
           title="Scroll to top"
         >

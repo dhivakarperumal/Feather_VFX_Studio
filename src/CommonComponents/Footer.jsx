@@ -38,7 +38,7 @@ const Footer = () => {
           <div className="stagger-child space-y-6">
             <div className="w-[220px] max-w-full">
               <img 
-                src="/images/logo.png" 
+                src="/images/logo-b.png" 
                 alt="Feather VFX Studio" 
                 className="block h-auto w-full object-contain" 
               />
