@@ -6,7 +6,6 @@ import {
   Star,
 } from 'lucide-react';
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import ModalPortal from '../../CommonComponents/ModalPortal';
 import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
@@ -18,43 +17,70 @@ const categoryIcons = {
   Featured: Star,
 };
 
-const filters = projectData.filters;
-const homePageSize = 6;
+const PAGE_SIZE = 9;
 
-const Projects = ({ homePage = false }) => {
+const balanceIntoColumns = (items, columnCount) => {
+  const columns = Array.from({ length: columnCount }, () => []);
+  const heights = Array(columnCount).fill(0);
+
+  items.forEach((project) => {
+    const shortestColumn = heights.indexOf(Math.min(...heights));
+
+    columns[shortestColumn].push(project);
+    heights[shortestColumn] += project.heightRatio || 1;
+  });
+
+  return columns;
+};
+
+const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  const projects = useMemo(
-    () => activeFilter === 'All'
+  const projects = useMemo(() => {
+    return activeFilter === 'All'
       ? projectData.projects
-      : projectData.projects.filter((project) => project.collection === activeFilter),
-    [activeFilter],
+      : projectData.projects.filter(
+        (project) => project.collection === activeFilter
+      );
+  }, [activeFilter]);
+
+  const totalPages = Math.ceil(projects.length / PAGE_SIZE);
+
+  const currentProjects = projects.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
   );
+
+  const portraitProjects = currentProjects.filter(
+    (project) => project.orientation === 'portrait'
+  );
+
+  const landscapeProjects = currentProjects.filter(
+    (project) => project.orientation === 'landscape'
+  );
+
+  const mobileColumns = balanceIntoColumns(portraitProjects, 2);
+  const desktopColumns = balanceIntoColumns(portraitProjects, 3);
 
   const changeFilter = (filter) => {
     setActiveFilter(filter);
-    setActiveIndex(0);
+    setCurrentPage(1);
     setSelectedIndex(null);
   };
 
-  const pageCount = Math.ceil(projects.length / homePageSize);
-  const homePageProjects = projects.slice(
-    activeIndex * homePageSize,
-    (activeIndex + 1) * homePageSize,
-  );
-
-  const move = (direction) => {
-    setActiveIndex((current) => (current + direction + projects.length) % projects.length);
+  const goToPage = (page) => {
+    setCurrentPage(Math.max(1, Math.min(totalPages, page)));
+    setSelectedIndex(null);
   };
 
-  const moveHomePage = (direction) => {
-    setActiveIndex((current) => Math.max(0, Math.min(pageCount - 1, current + direction)));
-  };
+  const openProject = (project) => {
+    const index = projects.findIndex(
+      (item) => item.image === project.image
+    );
 
-  const selectProject = (index) => {
-    setActiveIndex((index + projects.length) % projects.length);
+    setSelectedIndex(index);
   };
 
   useEffect(() => {
@@ -64,69 +90,100 @@ const Projects = ({ homePage = false }) => {
     document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') setSelectedIndex(null);
-      if (event.key === 'ArrowRight') {
-        setSelectedIndex((current) => (current + 1) % projects.length);
+      if (event.key === 'Escape') {
+        setSelectedIndex(null);
       }
+
+      if (event.key === 'ArrowRight') {
+        setSelectedIndex(
+          (index) => (index + 1) % projects.length
+        );
+      }
+
       if (event.key === 'ArrowLeft') {
-        setSelectedIndex((current) => (current - 1 + projects.length) % projects.length);
+        setSelectedIndex(
+          (index) => (index - 1 + projects.length) % projects.length
+        );
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedIndex, projects.length]);
 
-  const visibleOffsets = projects.length === 2
-    ? (activeIndex === 0 ? [0, 1] : [-1, 0])
-    : Array.from(
-      { length: Math.min(5, projects.length) },
-      (_, index) => index - Math.floor(Math.min(5, projects.length) / 2),
-    );
+  const renderColumns = (columns) => (
+    <div className="grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
+      {columns.map((column, columnIndex) => (
+        <div
+          key={columnIndex}
+          className="flex h-full min-w-0 flex-col gap-2.5 sm:gap-3"
+        >
+          {column.map((project) => (
+            <ProjectGalleryCard
+              key={project.title}
+              project={project}
+              onSelect={() => openProject(project)}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className={`relative isolate overflow-hidden bg-[var(--text-primary)] px-4 pb-8 pt-9 text-white sm:px-8 sm:pt-12 ${homePage ? '' : 'min-h-[min(900px,calc(100vh-80px))]'
-        }`}
+      className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[3%] py-16 text-[var(--text-primary)] sm:py-20"
     >
-      <img
-        src="/images/project.png"
-        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
-        alt=""
+      {/* Background */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[url('/images/background/bg_14.jpg')] bg-cover bg-[center_42%] opacity-10"
         aria-hidden="true"
       />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(4,10,13,0.68)_0%,rgba(4,10,13,0.4)_42%,rgba(4,10,13,0.38)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1500px] flex-col items-center">
-        <header data-aos="fade-up" data-aos-offset="60" className="relative z-40 text-center">
-          <div className="mb-2 flex items-center justify-center gap-4 text-[10px] font-bold uppercase tracking-[0.38em] text-[var(--gold-primary)] sm:text-xs">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[var(--gold-primary)] sm:w-16" />
-            Our Work
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[var(--gold-primary)] sm:w-16" />
+      <div className="mx-auto w-full max-w-[1500px]">
+        {/* Section heading */}
+        <header
+          className="flex flex-col items-center text-center"
+          data-aos="fade-up"
+          data-aos-offset="60"
+        >
+          <div className="flex items-center gap-4">
+            <span className="h-px w-14 bg-gradient-to-r from-transparent to-[var(--gold-primary)]" />
+
+            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
+              Our Work
+            </p>
+
+            <span className="h-px w-14 bg-gradient-to-l from-transparent to-[var(--gold-primary)]" />
           </div>
-          {homePage ? (
-            <h2 id="projects-title" className="font-serif text-[clamp(2rem,5.2vw,4.5rem)] font-bold uppercase leading-none tracking-[0.035em]">
-              Featured <span className="text-[var(--gold-bright)]">Projects</span>
-            </h2>
-          ) : (
-            <h1 id="projects-title" className="font-serif text-[clamp(2rem,5.2vw,4.5rem)] font-bold uppercase leading-none tracking-[0.035em]">
-              Featured <span className="text-[var(--gold-bright)]">Projects</span>
-            </h1>
-          )}
-          <p className="mt-3 text-xs text-white/80 sm:text-sm">
-            Explore a selection of our previous work and discover how our visual effects expertise can support your next production. From detailed shot work to complex visual sequences, we are committed to delivering results that meet your creative requirements.
+
+          <h1
+            id="projects-title"
+            className="mt-2 font-serif text-4xl font-bold uppercase leading-none sm:text-5xl lg:text-7xl"
+          >
+            Featured{' '}
+            <span className="text-[var(--gold-bright)]">
+              Projects
+            </span>
+          </h1>
+
+          <p className="mt-3 max-w-2xl text-sm text-[var(--text-secondary)]">
+            Discover our visual effects, CGI, compositing and
+            post-production work across films, series and commercials.
           </p>
 
+          {/* Category filters */}
           <nav
-            className="mx-auto mt-6 flex max-w-full flex-wrap justify-center gap-2 px-1 pb-2"
-            aria-label="Filter projects"
+            className="mt-6 flex flex-wrap justify-center gap-2"
+            aria-label="Filter projects by category"
           >
-            {filters.map((filter) => {
+            {projectData.filters.map((filter) => {
               const Icon = categoryIcons[filter] || Star;
               const isActive = activeFilter === filter;
 
@@ -136,12 +193,12 @@ const Projects = ({ homePage = false }) => {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => changeFilter(filter)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-[11px] font-medium transition-all duration-300 sm:px-4 ${isActive
-                      ? 'border-[var(--gold-primary)] bg-[var(--gold-primary)] text-white shadow-[0_0_24px_rgba(184,134,11,0.3)]'
-                      : 'border-white/25 bg-white/10 text-white/85 hover:border-[var(--gold-primary)]/80 hover:bg-white/20 hover:text-white'
+                  className={`inline-flex min-h-9 items-center gap-2 rounded-full border px-4 py-2 text-[11px] transition-colors duration-300 ${isActive
+                    ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
+                    : 'border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)]'
                     }`}
                 >
-                  <Icon size={14} strokeWidth={2.2} aria-hidden="true" />
+                  <Icon size={14} aria-hidden="true" />
                   {filter}
                 </button>
               );
@@ -149,205 +206,139 @@ const Projects = ({ homePage = false }) => {
           </nav>
         </header>
 
-        {homePage ? (
+        {/* Projects gallery */}
+        {/* Projects gallery: exactly 9 projects per page */}
+        {currentProjects.length > 0 ? (
           <>
-            <section
-              className="mt-1 grid h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] grid-cols-2 grid-rows-3 gap-2.5 sm:mt-3 sm:grid-cols-3 sm:grid-rows-2 sm:gap-3"
-              aria-label="Featured project gallery"
+            <div
+              key={`${activeFilter}-${currentPage}`}
+              className="mt-7 grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 sm:gap-4"
             >
-              {homePageProjects.map((project) => (
+              {currentProjects.map((project) => (
                 <ProjectGalleryCard
-                  key={project.image}
+                  key={project.title}
                   project={project}
                   fixedSize
-                  onSelect={() => setSelectedIndex(projects.findIndex(({ image }) => image === project.image))}
+                  onSelect={() => openProject(project)}
                 />
               ))}
-            </section>
+            </div>
 
-            {selectedIndex !== null && projects[selectedIndex] && (
-              <ModalPortal>
-                <div
-                  className="fixed inset-0 z-[999999] flex items-center justify-center bg-[rgba(0,0,0,0.95)] p-3 backdrop-blur-sm sm:p-8"
-                  role="dialog"
-                  aria-modal="true"
-                  aria-label={`Project image ${selectedIndex + 1} of ${projects.length}`}
-                  onClick={(event) => {
-                    if (event.target === event.currentTarget) setSelectedIndex(null);
-                  }}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setSelectedIndex(null)}
-                    className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-xl text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-7 sm:top-7"
-                    aria-label="Close image viewer"
-                  >
-                    <FaTimes />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedIndex((selectedIndex - 1 + projects.length) % projects.length)}
-                    className="absolute left-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:left-6 sm:h-14 sm:w-14"
-                    aria-label="View previous image"
-                  >
-                    <FaArrowLeft />
-                  </button>
-                  <img
-                    src={projects[selectedIndex].image}
-                    alt={`${projects[selectedIndex].title} project artwork`}
-                    className="max-h-[calc(100vh-2rem)] max-w-[calc(100vw-6rem)] select-none object-contain sm:max-h-[calc(100vh-4rem)] sm:max-w-[calc(100vw-12rem)]"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setSelectedIndex((selectedIndex + 1) % projects.length)}
-                    className="absolute right-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-6 sm:h-14 sm:w-14"
-                    aria-label="View next image"
-                  >
-                    <FaArrowRight />
-                  </button>
-                </div>
-              </ModalPortal>
-            )}
-
-            <nav
-              className="mt-5 flex flex-wrap items-center justify-center gap-2"
-              aria-label="Project pages"
-            >
-              <button
-                type="button"
-                onClick={() => moveHomePage(-1)}
-                disabled={activeIndex === 0}
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/25 text-white transition enabled:hover:border-[var(--gold-primary)] enabled:hover:bg-[var(--gold-primary)] disabled:cursor-not-allowed disabled:opacity-40"
-                aria-label="Previous project page"
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <nav
+                className="mt-9 flex flex-wrap items-center justify-center gap-2"
+                aria-label="Project pagination"
               >
-                <FaArrowLeft aria-hidden="true" />
-              </button>
-              {Array.from({ length: pageCount }, (_, pageIndex) => (
                 <button
-                  key={`page-${pageIndex}`}
                   type="button"
-                  onClick={() => setActiveIndex(pageIndex)}
-                  aria-label={`Show project page ${pageIndex + 1}`}
-                  aria-current={activeIndex === pageIndex ? 'page' : undefined}
-                  className={`grid h-9 min-w-9 place-items-center rounded-full border px-2 text-xs font-semibold transition ${
-                    activeIndex === pageIndex
-                      ? 'border-[var(--gold-primary)] bg-[var(--gold-primary)] text-white'
-                      : 'border-white/25 text-white/80 hover:border-[var(--gold-primary)] hover:text-white'
-                  }`}
+                  onClick={() => goToPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  aria-label="Previous page"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-[var(--border-color)] disabled:opacity-40"
                 >
-                  {pageIndex + 1}
+                  <FaArrowLeft />
                 </button>
-              ))}
-              <button
-                type="button"
-                onClick={() => moveHomePage(1)}
-                disabled={activeIndex >= pageCount - 1}
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/25 text-white transition enabled:hover:border-[var(--gold-primary)] enabled:hover:bg-[var(--gold-primary)] disabled:cursor-not-allowed disabled:opacity-40"
-                aria-label="Next project page"
-              >
-                <FaArrowRight aria-hidden="true" />
-              </button>
-              <span className="ml-2 text-[10px] font-semibold tracking-[0.14em] text-white/60">
-                {activeIndex * homePageSize + 1}–{Math.min((activeIndex + 1) * homePageSize, projects.length)} OF {projects.length}
-              </span>
-            </nav>
+
+                {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+                  (page) => (
+                    <button
+                      key={page}
+                      type="button"
+                      onClick={() => goToPage(page)}
+                      aria-current={currentPage === page ? 'page' : undefined}
+                      className={`grid h-10 min-w-10 place-items-center rounded-full border px-3 text-xs font-semibold ${currentPage === page
+                          ? 'border-[var(--gold-bright)] bg-[var(--gold-bright)] text-[var(--bg-primary)]'
+                          : 'border-[var(--border-color)] text-[var(--text-primary)]'
+                        }`}
+                    >
+                      {page}
+                    </button>
+                  )
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => goToPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  aria-label="Next page"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-[var(--border-color)] disabled:opacity-40"
+                >
+                  <FaArrowRight />
+                </button>
+
+                <span className="ml-2 text-[10px] tracking-wider text-[var(--text-secondary)]">
+                  {Math.min((currentPage - 1) * PAGE_SIZE + 1, projects.length)}
+                  –
+                  {Math.min(currentPage * PAGE_SIZE, projects.length)} OF{' '}
+                  {projects.length}
+                </span>
+              </nav>
+            )}
           </>
         ) : (
-          <>
-            <section
-              className="relative mt-1 flex h-[clamp(25rem,62vh,37rem)] w-full max-w-[1480px] items-center justify-center sm:mt-3 sm:h-[clamp(38rem,78vh,54rem)]"
-              aria-label="Project image carousel"
-              aria-roledescription="carousel"
-            >
-              <div className="pointer-events-none absolute bottom-[6%] left-1/2 h-[13%] w-[76%] -translate-x-1/2 rounded-[50%] bg-[var(--gold-primary)]/15 blur-3xl" />
-              {visibleOffsets.map((offset) => {
-                const index = (activeIndex + offset + projects.length) % projects.length;
-                const project = projects[index];
-                const isActive = offset === 0;
-                const distance = Math.abs(offset);
-                const position = offset === 0 ? 0 : Math.sign(offset) * (distance === 1 ? 26 : 40);
-                const rotation = offset === 0 ? 0 : offset * 2.2;
+          <p className="py-16 text-center text-sm text-[var(--text-secondary)]">
+            No projects found in this category.
+          </p>
+        )}
 
-                return (
-                  <button
-                    key={`${project.image}-${offset}`}
-                    type="button"
-                    onClick={() => selectProject(index)}
-                    aria-label={`${isActive ? 'Current project' : 'Show project'}: ${project.title}`}
-                    aria-current={isActive ? 'true' : undefined}
-                    className={`absolute top-1/2 overflow-hidden rounded-xl border-2 bg-[#090b0d] shadow-[0_22px_70px_rgba(0,0,0,0.6)] transition-[transform,opacity,filter,width,height,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)] sm:rounded-2xl ${isActive
-                        ? 'z-30 h-[min(76vw,30rem)] w-[min(68vw,23rem)] border-[var(--gold-primary)] shadow-[0_0_0_1px_rgba(184,134,11,0.35),0_0_38px_rgba(184,134,11,0.3),0_30px_90px_rgba(0,0,0,0.75)] sm:h-[clamp(34rem,72vh,42rem)] sm:w-[clamp(20rem,34vw,32rem)]'
-                        : distance === 1
-                          ? 'z-20 h-[min(62vw,24rem)] w-[clamp(7rem,18vw,14rem)] border-[var(--gold-primary)]/90 opacity-95 shadow-[0_0_18px_rgba(184,134,11,0.16),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(66vh,34rem)] sm:w-[clamp(11rem,18vw,17rem)]'
-                          : 'z-10 h-[min(54vw,21rem)] w-[clamp(6rem,15vw,12rem)] border-[var(--gold-primary)]/75 opacity-90 shadow-[0_0_14px_rgba(184,134,11,0.12),0_22px_70px_rgba(0,0,0,0.6)] sm:h-[min(58vh,30rem)] sm:w-[clamp(9rem,15vw,14rem)]'
-                      }`}
-                    style={{
-                      left: `calc(50% + ${position}%)`,
-                      transform: `translate(-50%, -50%) rotate(${rotation}deg) scale(${isActive ? 1 : distance === 1 ? 0.9 : 0.78})`,
-                    }}
-                  >
-                    <img
-                      key={isActive ? `${project.image}-${activeIndex}` : project.image}
-                      src={project.image}
-                      alt={isActive ? `${project.title} project artwork` : ''}
-                      className={`h-full w-full object-contain motion-reduce:animate-none ${isActive ? 'animate-project-image-reveal' : ''}`}
-                      draggable="false"
-                    />
-                  </button>
-                );
-              })}
+        {/* Full-screen image viewer */}
+        {selectedIndex !== null && projects[selectedIndex] && (
+          <ModalPortal>
+            <div
+              className="fixed inset-0 z-[999999] flex items-center justify-center bg-[rgba(0,0,0,0.95)] p-3 backdrop-blur-sm sm:p-8"
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Project image ${selectedIndex + 1} of ${projects.length}`}
+              onClick={(event) => {
+                if (event.target === event.currentTarget) {
+                  setSelectedIndex(null);
+                }
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedIndex(null)}
+                className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-xl text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-7 sm:top-7"
+                aria-label="Close image viewer"
+              >
+                <FaTimes />
+              </button>
 
               <button
                 type="button"
-                onClick={() => move(-1)}
-                className="absolute left-0 top-1/2 z-40 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[var(--gold-primary)]/70 bg-black/65 text-lg text-white shadow-lg backdrop-blur transition hover:scale-110 hover:bg-[var(--gold-primary)] hover:text-white sm:left-2 sm:h-12 sm:w-12"
-                aria-label="Previous project"
+                onClick={() =>
+                  setSelectedIndex(
+                    (selectedIndex - 1 + projects.length) %
+                    projects.length
+                  )
+                }
+                className="absolute left-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:left-6 sm:h-14 sm:w-14"
+                aria-label="Previous image"
               >
                 <FaArrowLeft />
               </button>
+
+              <img
+                src={projects[selectedIndex].image}
+                alt={`${projects[selectedIndex].title} project artwork`}
+                className="max-h-[calc(100vh-2rem)] max-w-[calc(100vw-6rem)] select-none object-contain sm:max-h-[calc(100vh-4rem)] sm:max-w-[calc(100vw-12rem)]"
+              />
+
               <button
                 type="button"
-                onClick={() => move(1)}
-                className="absolute right-0 top-1/2 z-40 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-[var(--gold-primary)]/70 bg-black/65 text-lg text-white shadow-lg backdrop-blur transition hover:scale-110 hover:bg-[var(--gold-primary)] hover:text-white sm:right-2 sm:h-12 sm:w-12"
-                aria-label="Next project"
+                onClick={() =>
+                  setSelectedIndex(
+                    (selectedIndex + 1) % projects.length
+                  )
+                }
+                className="absolute right-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-black/50 text-lg text-white transition hover:border-[var(--gold-bright)] hover:text-[var(--gold-bright)] sm:right-6 sm:h-14 sm:w-14"
+                aria-label="Next image"
               >
                 <FaArrowRight />
               </button>
-            </section>
-
-            <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="40" className="-mt-4 flex items-center justify-center gap-2 sm:mt-5">
-              {visibleOffsets.map((offset) => {
-                const index = (activeIndex + offset + projects.length) % projects.length;
-                const isActive = offset === 0;
-
-                return (
-                  <button
-                    key={`indicator-${offset}`}
-                    type="button"
-                    onClick={() => selectProject(index)}
-                    aria-label={`Show project ${index + 1}: ${projects[index].title}`}
-                    aria-current={isActive ? 'true' : undefined}
-                    className={`h-1 rounded-full transition-all duration-300 ${isActive ? 'w-7 bg-[var(--gold-primary)]' : 'w-5 bg-white/35 hover:bg-white/70'}`}
-                  />
-                );
-              })}
-              <span className="ml-3 text-[10px] font-semibold tracking-[0.18em] text-white/55">
-                {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-              </span>
             </div>
-          </>
-        )}
-        {homePage && (
-          <Link
-            to="/projects"
-            data-aos="fade-up"
-            data-aos-delay="300"
-            data-aos-offset="40"
-            className="mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--gold-primary)]/70 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:border-[var(--gold-primary)] hover:bg-[var(--gold-primary)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)]"
-          >
-            View all projects
-            <span aria-hidden="true">→</span>
-          </Link>
+          </ModalPortal>
         )}
       </div>
     </section>
