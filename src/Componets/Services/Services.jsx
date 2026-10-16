@@ -122,12 +122,20 @@ const Services = () => (
           <div className="mt-6 grid grid-cols-2 items-center gap-5 sm:grid-cols-3 lg:grid-cols-5 lg:gap-10">
             {clients.map(({ name, image }) => (
               <div key={name} className="flex h-12 items-center justify-center">
-                <img
-                  src={image}
-                  alt={name}
-                  loading="lazy"
-                  className="max-h-9 max-w-[125px] object-contain opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0"
-                />
+                <span
+                  className={`flex items-center justify-center ${
+                    ['NBCUniversal', 'HBO', 'Paramount'].includes(name)
+                      ? 'brand-logo-backplate rounded-md px-2 py-1'
+                      : ''
+                  }`}
+                >
+                  <img
+                    src={image}
+                    alt={name}
+                    loading="lazy"
+                    className="max-h-9 max-w-[125px] object-contain"
+                  />
+                </span>
               </div>
             ))}
           </div>
