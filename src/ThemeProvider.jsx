@@ -1,7 +1,5 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-
-const ThemeContext = createContext(null);
-const THEME_STORAGE_KEY = 'feather-vfx-theme';
+import { useCallback, useMemo, useState } from 'react';
+import { THEME_STORAGE_KEY, ThemeContext } from './themeContext.js';
 
 function getInitialTheme() {
   const rootTheme = document.documentElement.dataset.theme;
@@ -21,17 +19,11 @@ export function ThemeProvider({ children }) {
   const toggleTheme = useCallback(() => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
     setTheme(nextTheme);
+    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
   }, [theme]);
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) throw new Error('useTheme must be used within a ThemeProvider');
-  return context;
 }

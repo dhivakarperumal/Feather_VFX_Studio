@@ -1970,6 +1970,225 @@ body {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+html,
+body,
+header,
+footer,
+section,
+article,
+aside,
+input,
+textarea,
+select {
+	transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html,
+	body,
+	header,
+	footer,
+	section,
+	article,
+	aside,
+	input,
+	textarea,
+	select {
+		transition-duration: 0.01ms;
+	}
+}
+
+html[data-theme="light"] body {
+	background: var(--bg-primary);
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] header img[alt="Feather VFX Studio"],
+html[data-theme="light"] footer img[alt="Feather VFX Studio"] {
+	filter: brightness(0) saturate(100%);
+}
+
+html[data-theme="light"] #home {
+	--text-primary: var(--hero-text);
+}
+
+html[data-theme="light"] .page-header {
+	--text-primary: var(--hero-text);
+}
+
+html[data-theme="light"] .page-header [class*="text-white"] {
+	color: var(--hero-text) !important;
+}
+
+html[data-theme="light"] #about-us {
+	--gold-bright: #E5A544;
+}
+
+html[data-theme="light"] #about-us [class*="text-white"] {
+	color: var(--hero-text) !important;
+}
+
+html[data-theme="light"] [class*="bg-[#0"]:not([class*="absolute"]):not([class*="fixed"]) {
+	background-color: var(--bg-section);
+}
+
+html[data-theme="light"] [class*="bg-[#1"]:not([class*="absolute"]):not([class*="fixed"]) {
+	background-color: var(--bg-surface);
+}
+
+html[data-theme="light"] [class~="bg-black"],
+html[data-theme="light"] [class~="bg-gray-900"],
+html[data-theme="light"] [class~="bg-gray-800"],
+html[data-theme="light"] [class~="bg-slate-900"],
+html[data-theme="light"] [class~="bg-slate-800"] {
+	background-color: var(--bg-surface);
+}
+
+html[data-theme="light"] [class*="text-white"] {
+	color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] [class*="text-gray-1"],
+html[data-theme="light"] [class*="text-gray-2"],
+html[data-theme="light"] [class*="text-gray-3"],
+html[data-theme="light"] [class*="text-gray-4"],
+html[data-theme="light"] [class*="text-slate-1"],
+html[data-theme="light"] [class*="text-slate-2"],
+html[data-theme="light"] [class*="text-slate-3"],
+html[data-theme="light"] [class*="text-slate-4"],
+html[data-theme="light"] [class*="text-zinc-1"],
+html[data-theme="light"] [class*="text-zinc-2"],
+html[data-theme="light"] [class*="text-zinc-3"],
+html[data-theme="light"] [class*="text-zinc-4"] {
+	color: var(--text-secondary) !important;
+}
+
+html[data-theme="light"] [class*="border-white"] {
+	border-color: var(--border-color) !important;
+}
+
+html[data-theme="light"] [class*="text-[var(--bg-primary)]"] {
+	color: var(--button-text) !important;
+}
+
+html[data-theme="light"] .blog-page-shell,
+html[data-theme="light"] .reels-page {
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] .blog-page-shell {
+	background-image: radial-gradient(circle at center top, rgba(184, 121, 32, 0.12), transparent 25%);
+}
+
+html[data-theme="light"] .blog-category-bar button,
+html[data-theme="light"] .blog-card,
+html[data-theme="light"] .blog-panel,
+html[data-theme="light"] .blog-tags button,
+html[data-theme="light"] .page-arrow,
+html[data-theme="light"] .page-number {
+	border-color: var(--border-color);
+	background-color: var(--bg-surface);
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] .blog-category-bar button.active,
+html[data-theme="light"] .blog-category-bar button:hover,
+html[data-theme="light"] .page-number.active,
+html[data-theme="light"] .page-number:hover,
+html[data-theme="light"] .page-arrow:hover {
+	border-color: var(--gold-primary);
+	background: color-mix(in srgb, var(--gold-primary) 12%, var(--bg-surface));
+	color: var(--gold-text);
+}
+
+html[data-theme="light"] .blog-card p,
+html[data-theme="light"] .blog-card__meta,
+html[data-theme="light"] .blog-feature-list span,
+html[data-theme="light"] .blog-panel--newsletter p {
+	color: var(--text-secondary);
+}
+
+html[data-theme="light"] .blog-search {
+	border-color: var(--border-color);
+	background: rgba(255, 255, 255, 0.88);
+}
+
+html[data-theme="light"] .blog-search input,
+html[data-theme="light"] .blog-search input::placeholder {
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] .newsletter-input input {
+	border-color: var(--border-color);
+	background: var(--bg-surface);
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] .newsletter-input input::placeholder {
+	color: var(--text-secondary);
+}
+
+html[data-theme="light"] .newsletter-submit {
+	background: var(--gold-primary);
+	color: var(--button-text);
+}
+
+html[data-theme="light"] .reels-categories button,
+html[data-theme="light"] .featured-reel__playlist,
+html[data-theme="light"] .featured-reel__playlist button,
+html[data-theme="light"] .work-controls,
+html[data-theme="light"] .work-search,
+html[data-theme="light"] .work-search input,
+html[data-theme="light"] .work-filter,
+html[data-theme="light"] .behind-scenes__item,
+html[data-theme="light"] .reels-cta {
+	border-color: var(--border-color);
+	background-color: var(--bg-surface);
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] .reels-categories button.active,
+html[data-theme="light"] .reels-categories button:hover {
+	border-color: var(--gold-primary);
+	background-color: color-mix(in srgb, var(--gold-primary) 10%, var(--bg-surface));
+	color: var(--gold-text);
+}
+
+html[data-theme="light"] .reels-hero h1,
+html[data-theme="light"] .reels-hero__description,
+html[data-theme="light"] .blog-hero__description,
+html[data-theme="light"] .blog-callout p {
+	color: var(--hero-text);
+}
+
+html[data-theme="light"] .chatbot-panel,
+html[data-theme="light"] .chatbot-messages,
+html[data-theme="light"] .chatbot-quick-actions,
+html[data-theme="light"] .chatbot-input-area {
+	background: var(--bg-surface) !important;
+	color: var(--text-primary);
+}
+
+html[data-theme="light"] .bot-bubble,
+html[data-theme="light"] .typing-indicator,
+html[data-theme="light"] .order-card {
+	border-color: var(--border-color);
+	background: var(--bg-surface) !important;
+	color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] .chatbot-messages [style*="color: rgb(229, 231, 235)"],
+html[data-theme="light"] .chatbot-messages [style*="color: rgb(255, 255, 255)"] {
+	color: var(--text-primary) !important;
+}
+
+@media (max-width: 1279px) {
+	.theme-toggle {
+		margin-left: auto;
+	}
 
   .work-lightbox__dialog {
     grid-template-columns: 1fr;

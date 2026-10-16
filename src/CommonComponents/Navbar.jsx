@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Moon, Sun } from 'lucide-react';
 import PageContainer from './PageContainer';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../useTheme.js';
 
 const navLinks = [
   { label: 'HOME', id: '' },
@@ -106,7 +106,7 @@ const Navbar = () => {
     <header
       className={`sticky top-0 z-50 text-[var(--text-primary)] transition-all duration-300 ${
         isScrolled
-          ? 'border-b border-[var(--gold-primary)]/20 bg-[var(--bg-primary)]/98 shadow-xl shadow-black/40 backdrop-blur-xl'
+          ? 'border-b border-[var(--gold-primary)]/20 bg-[var(--bg-header)]/98 shadow-xl shadow-black/15 backdrop-blur-xl'
             : 'border-b border-[var(--border-color)] bg-[var(--bg-header)]/95 shadow-lg shadow-black/20 backdrop-blur-md'
       }`}
     >
@@ -180,7 +180,7 @@ const Navbar = () => {
       </nav>
 
       {isMobileMenuOpen && (
-        <div id="mobile-navigation" className="border-t border-[var(--border-color)] bg-[var(--bg-secondary)] px-6 pb-5 pt-2 xl:hidden">
+        <div id="mobile-navigation" className="border-t border-[var(--border-color)] bg-[var(--bg-surface)] px-6 pb-5 pt-2 xl:hidden">
           {navLinks.map((link) => renderLink(link, true))}
           <a
             href="/contact"

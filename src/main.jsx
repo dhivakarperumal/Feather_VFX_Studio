@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate, useLocation } from 'react-route
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './index.css'
-import { ThemeProvider } from './ThemeContext.jsx'
+import { ThemeProvider } from './ThemeProvider.jsx'
 import App from './App.jsx'
 import SiteHome from './Componets/SiteHome/SiteHome.jsx'
 import Contact from './Componets/Contact/Contact.jsx'
