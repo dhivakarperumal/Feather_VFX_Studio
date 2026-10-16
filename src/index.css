@@ -418,10 +418,19 @@ body {
 }
 
 @media (max-width: 767px) {
+  #home,
+  #home * {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-filter: none !important;
+    filter: none !important;
+  }
+
   .cinematic-copy-overlay {
     width: 100%;
-		-webkit-backdrop-filter: blur(1px);
-		backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
     background: linear-gradient(90deg,
         rgba(0, 0, 0, 0.72) 0%,
         rgba(0, 0, 0, 0.5) 72%,
@@ -432,6 +441,9 @@ body {
 
   .home-hero-copy-overlay {
     width: 100%;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
     background: linear-gradient(90deg,
         rgba(0, 0, 0, 0.74) 0%,
         rgba(0, 0, 0, 0.52) 72%,

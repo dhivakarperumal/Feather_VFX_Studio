@@ -59,9 +59,9 @@ const Hero = () => {
         </div>
         <div className="home-hero-copy-overlay" aria-hidden="true" />
 
-        <div className="relative z-20 mx-auto flex min-h-[400px] max-w-[1700px] items-center px-[6%] py-8 sm:px-[5%] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[400px] max-w-[1700px] items-end px-[3%] py-8 sm:items-center sm:px-[5%] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
-          <div key={activeSlide} className="max-w-2xl">
+          <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
 
             {/* Eyebrow — delay 0 */}
             <div className="hero-reveal-mask mb-5">
@@ -72,7 +72,7 @@ const Hero = () => {
 
             {/* Title line 1 — delay 1 */}
            
-<h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+<h1 className="max-w-none text-4xl font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-7xl">
   <div className="hero-reveal-mask">
     <span className="hero-reveal hero-reveal-d1 block">
       Your VFX
@@ -88,14 +88,14 @@ const Hero = () => {
 
 
             {/* Description — delay 3 */}
-            <div className="hero-reveal-mask mt-6">
+            <div className="hero-reveal-mask mt-6 hidden sm:block">
               <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
                 {slide.description}
               </p>
             </div>
 
             {/* Buttons — delay 4 */}
-            <div className="hero-reveal-mask mt-8">
+            <div className="hero-reveal-mask mt-8 hidden sm:block">
               <div className="hero-reveal hero-reveal-d4 flex flex-wrap items-center gap-4">
                 <a
                   href="/projects"
@@ -116,7 +116,7 @@ const Hero = () => {
             </div>
 
             {/* Stats — delay 5 */}
-            <div className="hero-reveal-mask mt-12">
+            <div className="hero-reveal-mask mt-12 hidden sm:block">
               <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/25 pt-6">
                 {slide.highlights.map((highlight) => (
                   <div key={highlight.label}>
@@ -149,7 +149,7 @@ const Hero = () => {
           <FaArrowRight aria-hidden="true" />
         </button> */}
 
-        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2" aria-label="Choose hero slide">
+        <div className="absolute bottom-6 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-2 sm:flex" aria-label="Choose hero slide">
           {heroSlides.map((item, index) => (
             <button
               key={item.image}
@@ -166,7 +166,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95 backdrop-blur-[2px]">
+      <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95">
         <div className="mx-auto grid max-w-[1700px] grid-cols-1 gap-0 sm:grid-cols-2 xl:grid-cols-4">
           {heroCapabilities.map(({ title, subtitle, Icon }, index) => (
             <div
