@@ -74,7 +74,7 @@ const QualitySecuritySection = () => (
             <img
               src="/images/mainimage.png"
               alt="VFX artist working at a studio workstation"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-contain"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[var(--bg-primary)]/20" aria-hidden="true" />
