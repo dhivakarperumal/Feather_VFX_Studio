@@ -65,13 +65,13 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
     <article
       className={`group overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] ${
         isGridLayout
-        ? 'grid min-h-[260px] h-full grid-cols-[55%_minmax(0,1fr)]'
-          : 'grid h-[460px] md:h-[300px] md:grid-cols-2'
+        ? 'flex flex-col h-full sm:grid sm:min-h-[260px] sm:grid-cols-[55%_minmax(0,1fr)]'
+          : 'flex flex-col md:grid md:h-[300px] md:grid-cols-2'
       }`}
     >
       <div
         className={`service-comparison relative overflow-hidden ${
-          isGridLayout ? 'h-full min-h-[260px] w-full' : 'h-full'
+          isGridLayout ? 'h-[220px] w-full sm:h-full sm:min-h-[260px]' : 'h-[260px] md:h-full'
         }`}
       >
         <img
@@ -124,7 +124,7 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
       <div
         className={`flex items-start bg-[var(--bg-secondary)] ${
           isGridLayout
-            ? 'h-full gap-2 px-3 py-4 sm:gap-3 sm:px-4'
+            ? 'sm:h-full gap-3 px-4 py-4 sm:gap-2 sm:px-3 sm:py-4'
             : 'h-full gap-5 px-6 py-6 sm:px-8'
         }`}
       >

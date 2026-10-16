@@ -41,7 +41,7 @@ const GlobalVFXSection = () => (
         /> */}
       </div>
 
-      <div className="relative z-10 flex items-center px-5 py-8 sm:px-8 lg:-ml-4 lg:py-10 lg:pl-0 lg:pr-[7%]">
+      <div className="relative z-10 flex min-w-0 items-center px-5 py-8 sm:px-8 lg:py-10 lg:pl-8 lg:pr-[7%]">
         <div className="w-full" data-aos="fade-up" data-aos-offset="60">
           <p className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)] sm:text-[10px]">
             Global VFX Excellence

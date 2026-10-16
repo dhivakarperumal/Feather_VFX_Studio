@@ -105,7 +105,7 @@ const Services = () => (
           </div>
           <div className="grid gap-3 sm:gap-4">
             {orderedServices.map((service) => (
-              <VFXServiceCard key={service.title} service={service} />
+              <VFXServiceCard key={service.title} service={service} layout="grid" />
             ))}
           </div>
         </section>
