@@ -121,7 +121,7 @@ const Navbar = ({ theme, onToggleTheme }) => {
           }`}
         >
           <img
-            src="/images/logo-b.png"
+            src={theme === 'dark' ? '/images/logo.png' : '/images/logo-b.png'}
             alt="Feather VFX Studio"
             className="block h-auto w-full object-contain"
           />
