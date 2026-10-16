@@ -41,7 +41,7 @@ const Hero = () => {
         </div>
         <div className="home-hero-copy-overlay" aria-hidden="true" />
 
-        <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[400px] max-w-[1700px] items-center px-[6%] py-8 sm:px-[5%] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="max-w-2xl">
 
