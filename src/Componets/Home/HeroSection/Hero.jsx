@@ -38,7 +38,7 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div className="cinematic-copy-overlay" aria-hidden="true" />
+        <div className="home-hero-copy-overlay" aria-hidden="true" />
 
         <div className="relative z-20 mx-auto flex min-h-[560px] max-w-[1700px] items-center px-[6%] py-20 sm:px-[5%] lg:min-h-[620px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
@@ -52,13 +52,13 @@ const Hero = () => {
             </div>
 
             {/* Title line 1 — delay 1 */}
-
-            <h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl md:text-6xl lg:text-7xl">
-              <div className="hero-reveal-mask">
-                <span className="hero-reveal hero-reveal-d1 block">
-                  Your VFX
-                </span>
-              </div>
+           
+<h1 className="max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+  <div className="hero-reveal-mask">
+    <span className="hero-reveal hero-reveal-d1 block">
+      Your VFX
+    </span>
+  </div>
 
               <div className="hero-reveal-mask mt-1">
                 <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
@@ -70,7 +70,7 @@ const Hero = () => {
 
             {/* Description — delay 3 */}
             <div className="hero-reveal-mask mt-6">
-              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-[var(--text-primary)]/80 sm:text-lg">
+              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
                 {slide.description}
               </p>
             </div>
@@ -86,9 +86,9 @@ const Hero = () => {
                 </a>
                 <a
                   href="/showreel"
-                  className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
+                  className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:text-[var(--gold-bright)]"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--text-primary)]/60">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/60">
                     <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
                   </span>
                   Watch showreel
@@ -98,11 +98,11 @@ const Hero = () => {
 
             {/* Stats — delay 5 */}
             <div className="hero-reveal-mask mt-12">
-              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-[var(--text-primary)]/20 pt-6">
+              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/25 pt-6">
                 {slide.highlights.map((highlight) => (
                   <div key={highlight.label}>
                     <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
-                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--text-primary)]/75">
+                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white/80">
                       {highlight.label}
                     </p>
                   </div>
