@@ -96,7 +96,7 @@ const QualitySecuritySection = () => (
               </span>
               <div className="relative px-4 pb-5 pt-10 sm:px-5">
                 <h3 className="font-serif text-xl font-bold leading-tight sm:text-2xl">
-                  {title}
+                   {title}
                 </h3>
                 <span className="mt-3 block h-0.5 w-9 bg-[var(--gold-bright)]" aria-hidden="true" />
                 <p className="mt-3 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[15px]">
