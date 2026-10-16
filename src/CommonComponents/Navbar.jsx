@@ -110,14 +110,14 @@ const Navbar = () => {
       <nav aria-label="Main navigation">
         <PageContainer
           className={`flex items-center justify-between gap-6 transition-all duration-300 ${
-            isScrolled ? 'min-h-[56px] py-1.5' : 'min-h-[76px] py-3'
+            isScrolled ? 'min-h-[68px] py-2' : 'min-h-[76px] py-3'
           }`}
         >
         <a
           href="/"
           aria-label="Feather VFX Studio home"
           className={`shrink-0 transition-all duration-300 ${
-            isScrolled ? 'w-[140px] sm:w-[160px] lg:w-[185px]' : 'w-[170px] sm:w-[200px] lg:w-[220px]'
+            isScrolled ? 'w-[150px] sm:w-[175px] lg:w-[200px]' : 'w-[170px] sm:w-[200px] lg:w-[220px]'
           }`}
         >
           <img
