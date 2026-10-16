@@ -62,14 +62,21 @@ const HomeIntroSection = () => {
           </div>
         </div>
 
-        <div data-aos="fade-left" data-aos-delay="100" data-aos-offset="60" className="relative min-h-[220px] overflow-hidden sm:min-h-[280px] lg:h-full">
+        <div
+          data-aos="fade-left"
+          data-aos-delay="100"
+          data-aos-offset="60"
+          className="relative min-h-[220px] overflow-hidden sm:min-h-[280px] lg:h-full"
+        >
           <img
             src="/images/home.png"
             alt="Creative VFX work"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
+
+          {/* Subtle dark blend — removes the white blur */}
           <div
-            className="absolute inset-0 bg-[linear-gradient(90deg,var(--bg-secondary)_0%,rgba(239,239,239,0.5)_12%,transparent_42%),linear-gradient(0deg,rgba(239,239,239,0.15),transparent_35%)]"
+            className="absolute inset-0 bg-gradient-to-r from-[var(--bg-secondary)]/20 via-transparent to-transparent"
             aria-hidden="true"
           />
         </div>
