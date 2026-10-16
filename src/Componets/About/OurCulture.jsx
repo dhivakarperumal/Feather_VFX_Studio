@@ -50,7 +50,7 @@ const OurCulture = () => (
           <img
             src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
             alt="VFX team working in a high-tech studio"
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/60 via-[var(--bg-primary)]/10 to-transparent" aria-hidden="true" />
         </div>
