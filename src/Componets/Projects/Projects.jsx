@@ -8,6 +8,7 @@ import {
 import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ModalPortal from '../../CommonComponents/ModalPortal';
+import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
 
 const categoryIcons = {
@@ -155,24 +156,12 @@ const Projects = ({ homePage = false }) => {
               aria-label="Featured project gallery"
             >
               {homePageProjects.map((project) => (
-                <article
+                <ProjectGalleryCard
                   key={project.image}
-                  className="group relative min-h-0 min-w-0 overflow-hidden rounded-md border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none"
-                >
-                  <button
-                    type="button"
-                    className="absolute inset-0 block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--gold-bright)]"
-                    aria-label={`View ${project.title} image full screen`}
-                    onClick={() => setSelectedIndex(projects.findIndex(({ image }) => image === project.image))}
-                  >
-                    <img
-                      src={project.image}
-                      alt={`${project.title} project artwork`}
-                      className="h-full w-full object-contain p-1 transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none sm:p-2"
-                      loading="lazy"
-                    />
-                  </button>
-                </article>
+                  project={project}
+                  fixedSize
+                  onSelect={() => setSelectedIndex(projects.findIndex(({ image }) => image === project.image))}
+                />
               ))}
             </section>
 

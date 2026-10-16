@@ -3,6 +3,7 @@ import { FaArrowLeft, FaArrowRight, FaPlay, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ModalPortal from '../../../CommonComponents/ModalPortal';
 import PageHeader from '../../../CommonComponents/PageHeader';
+import ProjectGalleryCard from '../../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../../data/projects.json';
 
 const { filters, projects } = projectData;
@@ -54,37 +55,17 @@ const FeaturedProjectsSection = () => {
     };
   }, [selectedIndex, visibleProjects.length]);
 
-  const renderProjectCard = ({ title, image, heightRatio }, landscape = false) => (
-    <article
-      key={title}
-      style={{ aspectRatio: `${1 / heightRatio}` }}
-      className={`group relative w-full overflow-hidden rounded-md border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-bright)] motion-reduce:transition-none ${
-        landscape ? '' : 'flex-1 basis-auto'
-      }`}
-    >
-      <button
-        type="button"
-        className="absolute inset-0 block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[var(--gold-bright)]"
-        aria-label={`View ${title} image full screen`}
-        onClick={() => setSelectedIndex(visibleProjects.findIndex((project) => project.image === image))}
-      >
-        <img
-          className={`h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] motion-reduce:transition-none ${
-            landscape ? 'p-1 sm:p-2' : ''
-          }`}
-          src={image}
-          alt={`${title} project artwork`}
-          loading="lazy"
-        />
-      </button>
-    </article>
-  );
-
   const renderColumns = (columns) => (
     <div className="grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
       {columns.map((column, columnIndex) => (
         <div key={columnIndex} className="flex h-full min-w-0 flex-col gap-2.5 sm:gap-3">
-          {column.map((project) => renderProjectCard(project))}
+          {column.map((project) => (
+            <ProjectGalleryCard
+              key={project.title}
+              project={project}
+              onSelect={() => setSelectedIndex(visibleProjects.findIndex((item) => item.image === project.image))}
+            />
+          ))}
         </div>
       ))}
     </div>
@@ -175,7 +156,14 @@ const FeaturedProjectsSection = () => {
         <div className="mt-5 hidden sm:block">{renderColumns(desktopColumns)}</div>
         {landscapeProjects.length > 0 && (
           <div className="mt-2.5 grid grid-cols-1 gap-2.5 sm:mt-3 sm:grid-cols-2 sm:gap-3">
-            {landscapeProjects.map((project) => renderProjectCard(project, true))}
+            {landscapeProjects.map((project) => (
+              <ProjectGalleryCard
+                key={project.title}
+                project={project}
+                landscape
+                onSelect={() => setSelectedIndex(visibleProjects.findIndex((item) => item.image === project.image))}
+              />
+            ))}
           </div>
         )}
         {selectedIndex !== null && visibleProjects[selectedIndex] && (
