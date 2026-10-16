@@ -1,11 +1,11 @@
-import { Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import PageContainer from '../../../CommonComponents/PageContainer';
 import VFXServiceCard from '../../../CommonComponents/VFXServiceCard';
 import { services } from '../../../data/services';
+
+const serviceOrder = ['Rotoscoping', 'Paint & Prep', 'Cosmetic VFX', 'Matchmove', 'Compositing'];
+const orderedServices = serviceOrder.map((title) => services.find((service) => service.title === title));
 
 const ServicesSection = () => {
   return (
@@ -22,37 +22,18 @@ const ServicesSection = () => {
           </div>
 
           <Link
-            to="/#services"
+            to="/services"
             className="btn-shimmer inline-flex items-center self-start gap-3 border border-[var(--gold-primary)] bg-transparent px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] lg:self-auto"
           >
             View all services <FaArrowRight aria-hidden="true" />
           </Link>
         </div>
 
-        <Swiper
-          className="home-services-swiper"
-          modules={[Autoplay]}
-          slidesPerView={1.1}
-          spaceBetween={16}
-          loop={services.length > 1}
-          speed={700}
-          autoplay={{
-            delay: 3500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 16 },
-            1024: { slidesPerView: 3, spaceBetween: 20 },
-          }}
-          aria-label="Our services carousel"
-        >
-          {services.map((service) => (
-            <SwiperSlide key={service.title}>
-              <VFXServiceCard service={service} />
-            </SwiperSlide>
+        <div className="grid gap-3 sm:gap-4">
+          {orderedServices.map((service) => (
+            <VFXServiceCard key={service.title} service={service} />
           ))}
-        </Swiper>
+        </div>
       </PageContainer>
     </section>
   );

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {
+  Camera,
   ChevronLeft,
   ChevronRight,
-  Globe2,
   Layers3,
   ScanLine,
   Sparkles,
@@ -36,7 +36,7 @@ const serviceDetails = {
     ],
   },
   Matchmove: {
-    icon: Globe2,
+    icon: Camera,
     points: ['Camera Tracking', 'Object and Layout Tracking', '2D Tracking'],
   },
   Compositing: {
@@ -50,25 +50,22 @@ const serviceDetails = {
   },
 };
 
-const reversedComparisonServices = ['Rotoscoping', 'Matchmove', 'Cosmetic VFX'];
+const reverseComparisonServices = ['Rotoscoping', 'Matchmove', 'Cosmetic VFX'];
 
 const VFXServiceCard = ({ service }) => {
   const [comparisonPosition, setComparisonPosition] = useState(50);
-  const details = serviceDetails[service.title];
-  const Icon = details.icon;
+  const { icon: Icon, points } = serviceDetails[service.title];
   const outputImage = service.image.replace('_IN.jpg', '_OUT.jpg').replace('-IN.jpg', '-OUT.jpg');
-  const reverseComparison = reversedComparisonServices.includes(service.title);
+  const reverseComparison = reverseComparisonServices.includes(service.title);
   const firstImage = reverseComparison ? outputImage : service.image;
   const secondImage = reverseComparison ? service.image : outputImage;
-  const firstLabel = 'SOURCE';
-  const secondLabel = 'OUTPUT';
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/40 bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)]/80">
-      <div className="service-comparison relative aspect-[16/10] min-h-[190px] shrink-0 overflow-hidden sm:min-h-[210px]">
+    <article className="group grid h-[460px] overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] md:h-[300px] md:grid-cols-2">
+      <div className="service-comparison relative h-full overflow-hidden">
         <img
           src={firstImage}
-          alt={`${service.title} ${firstLabel} image`}
+          alt={`${service.title} before`}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -78,23 +75,23 @@ const VFXServiceCard = ({ service }) => {
         >
           <img
             src={secondImage}
-            alt={`${service.title} ${secondLabel} image`}
+            alt={`${service.title} after`}
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
-        <span className="pointer-events-none absolute bottom-2 left-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/85">
-          {firstLabel}
+        <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-sm bg-[var(--text-primary)]/75 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--bg-primary)]">
+          Before
         </span>
-        <span className="pointer-events-none absolute bottom-2 right-2 z-10 bg-black/75 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-[#f2c56e]">
-          {secondLabel}
+        <span className="pointer-events-none absolute right-3 top-3 z-10 rounded-sm bg-[var(--gold-primary)] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--bg-primary)]">
+          After
         </span>
         <span
-          className="service-comparison__divider pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.7)]"
+          className="pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-[var(--gold-primary)] shadow-[0_0_8px_rgba(0,0,0,0.3)]"
           style={{ left: `${comparisonPosition}%` }}
           aria-hidden="true"
         >
-          <span className="absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white bg-black/75 text-white shadow-lg">
+          <span className="absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-[var(--gold-primary)] bg-[var(--bg-primary)]/90 text-[var(--text-primary)] shadow-lg">
             <span className="flex items-center">
               <ChevronLeft size={14} />
               <ChevronRight size={14} />
@@ -107,28 +104,30 @@ const VFXServiceCard = ({ service }) => {
           max="100"
           value={comparisonPosition}
           onChange={(event) => setComparisonPosition(Number(event.target.value))}
-          aria-label={`Compare source and output for ${service.title}`}
-          aria-valuetext={`${comparisonPosition}% source, ${100 - comparisonPosition}% output`}
+          aria-label={`Compare before and after for ${service.title}`}
+          aria-valuetext={`${comparisonPosition}% before, ${100 - comparisonPosition}% after`}
           className="service-comparison__range absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
         />
       </div>
 
-      <div className="flex flex-1 flex-col px-4 py-5 sm:px-5 lg:px-6">
-        <div className="flex items-center gap-3">
-          <Icon className="h-5 w-5 shrink-0 text-[var(--gold-bright)]" strokeWidth={1.7} aria-hidden="true" />
-          <h3 className="font-serif text-lg font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-xl">
+      <div className="flex h-full items-start gap-5 bg-[var(--bg-secondary)] px-6 py-6 sm:px-8">
+        <div className="mt-1 shrink-0">
+          <Icon className="h-9 w-9 text-[var(--gold-primary)]" strokeWidth={1.35} aria-hidden="true" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-serif text-2xl font-bold uppercase leading-tight tracking-wide text-[var(--text-primary)] sm:text-3xl">
             {service.title}
           </h3>
+          <span className="mt-2 mb-4 block h-[2px] w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+          <ul className="flex flex-col gap-2.5">
+            {points.map((point) => (
+              <li key={point} className="flex items-start gap-2.5 text-sm leading-snug text-[var(--text-secondary)] sm:text-base">
+                <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold-primary)]" aria-hidden="true" />
+                {point}
+              </li>
+            ))}
+          </ul>
         </div>
-        <p className="mt-2 text-xs leading-relaxed text-[var(--text-secondary)]">{service.description}</p>
-        <ul className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5">
-          {details.points.map((point) => (
-            <li key={point} className="flex items-start gap-1.5 text-[10px] leading-snug text-[var(--text-secondary)]">
-              <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-[var(--gold-primary)]" aria-hidden="true" />
-              {point}
-            </li>
-          ))}
-        </ul>
       </div>
     </article>
   );
