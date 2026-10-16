@@ -386,8 +386,8 @@ body {
 	pointer-events: none;
 	background: linear-gradient(
 		90deg,
-		rgba(0, 0, 0, 0.78) 0%,
-		rgba(0, 0, 0, 0.58) 68%,
+		rgba(0, 0, 0, 0.7) 0%,
+		rgba(0, 0, 0, 0.48) 68%,
 		rgba(0, 0, 0, 0) 100%
 	);
 	-webkit-backdrop-filter: blur(8px);
@@ -413,8 +413,8 @@ body {
 		width: 100%;
 		background: linear-gradient(
 			90deg,
-			rgba(0, 0, 0, 0.82) 0%,
-			rgba(0, 0, 0, 0.62) 72%,
+			rgba(0, 0, 0, 0.74) 0%,
+			rgba(0, 0, 0, 0.52) 72%,
 			rgba(0, 0, 0, 0.08) 100%
 		);
 		-webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
