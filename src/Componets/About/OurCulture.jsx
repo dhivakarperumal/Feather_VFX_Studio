@@ -52,7 +52,7 @@ const OurCulture = () => (
             alt="VFX team working in a high-tech studio"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/60 via-[var(--bg-primary)]/10 to-transparent" aria-hidden="true" />
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/60 via-[var(--bg-primary)]/10 to-transparent" aria-hidden="true" /> */}
         </div>
       </div>
     </div>
