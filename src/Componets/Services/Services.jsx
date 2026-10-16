@@ -18,7 +18,7 @@ const clients = [
 const Services = () => (
   <div className="overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]">
     <PageHeader
-      eyebrow="Our expertise"
+      eyebrow="Creative Visual Solutions"
       title={<>Our <span className="text-[var(--gold-primary)]">Services</span></>}
       titleSize="text-2xl sm:text-3xl md:text-4xl"
       breadcrumbLabel="Services"
