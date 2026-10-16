@@ -1,5 +1,4 @@
-
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import {
   ArrowRight,
   Box,
@@ -73,15 +72,33 @@ function ShowreelPage() {
     });
   };
 
-  const handleVideoLoaded = () => {
-    if (shouldPlay && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay can be blocked by browser settings.
-        // The video controls remain available.
-      });
-      setShouldPlay(false);
+  useEffect(() => {
+    if (!shouldPlay || !videoRef.current) return;
+
+    const video = videoRef.current;
+    let cancelled = false;
+
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch {
+        // Autoplay may be blocked by the browser.
+      } finally {
+        if (!cancelled) setShouldPlay(false);
+      }
+    };
+
+    if (video.readyState >= 2) {
+      playVideo();
+    } else {
+      video.addEventListener('loadeddata', playVideo, { once: true });
     }
-  };
+
+    return () => {
+      cancelled = true;
+      video.removeEventListener('loadeddata', playVideo);
+    };
+  }, [selectedReel, shouldPlay]);
 
   return (
     <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
@@ -102,7 +119,7 @@ function ShowreelPage() {
       {/* MAIN VIDEO PLAYER */}
       <section
         ref={playerSectionRef}
-        className="relative z-10 -mt-2 pb-8 sm:pb-10"
+        className="relative z-10 mt-8 pb-8 sm:mt-12 sm:pb-10"
       >
         <PageContainer>
           <div className="mx-auto w-full max-w-[1000px] overflow-hidden rounded-xl border-[4px] border-white bg-black shadow-[0_18px_45px_rgba(35,28,18,0.22)] sm:rounded-2xl">
@@ -113,8 +130,8 @@ function ShowreelPage() {
               playsInline
               preload="metadata"
               poster={HERO_IMAGE}
-              onLoadedData={handleVideoLoaded}
-              onCanPlay={handleVideoLoaded}
+              // onLoadedData={handleVideoLoaded}
+              // onCanPlay={handleVideoLoaded}
               aria-label={`${selectedReel.title} showreel`}
               className="block aspect-video max-h-[580px] w-full bg-black object-contain sm:max-h-[620px]"
             >
@@ -235,7 +252,8 @@ function ShowreelPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
+    
   );
 }
 
