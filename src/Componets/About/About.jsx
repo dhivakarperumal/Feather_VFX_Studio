@@ -170,7 +170,7 @@ const About = () => (
           >
             About Us
           </h2>
-          <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
+          <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
             At Feather VFX, we combine creativity, technical expertise, and innovation to deliver high-quality visual effects for film and television. We are committed to providing reliable, cost-effective VFX solutions without compromising on quality.
           </p>
 

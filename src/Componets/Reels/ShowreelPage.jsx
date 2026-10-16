@@ -154,7 +154,7 @@ function ShowreelPage() {
               Showreels
             </h2>
 
-            <p className="mt-1 text-xs leading-relaxed text-[#60656a] sm:text-[13px]">
+            <p className="mt-1 text-sm leading-relaxed text-[#60656a] sm:text-[15px]">
               Explore our specialised showreels showcasing the key
               areas of our VFX expertise.
             </p>
@@ -187,7 +187,7 @@ function ShowreelPage() {
                   {title}
                 </h3>
 
-                <p className="mt-1.5 text-xs leading-[1.5] text-[#62666a]">
+                <p className="mt-1.5 text-[15px] leading-[1.5] text-[#62666a]">
                   {description}
                 </p>
 
