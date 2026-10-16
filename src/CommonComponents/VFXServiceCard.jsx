@@ -64,12 +64,14 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
   return (
     <article
       className={`group overflow-hidden rounded-sm border border-[var(--border-color)] bg-[var(--bg-secondary)] transition-colors duration-300 hover:border-[var(--gold-primary)] ${
-        isGridLayout ? 'flex h-full flex-col' : 'grid h-[460px] md:h-[300px] md:grid-cols-2'
+        isGridLayout
+          ? 'grid min-h-[260px] h-full grid-cols-[40%_minmax(0,1fr)]'
+          : 'grid h-[460px] md:h-[300px] md:grid-cols-2'
       }`}
     >
       <div
         className={`service-comparison relative overflow-hidden ${
-          isGridLayout ? 'aspect-[16/10] w-full shrink-0' : 'h-full'
+          isGridLayout ? 'h-full min-h-[260px] w-full' : 'h-full'
         }`}
       >
         <img
@@ -122,20 +124,20 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
       <div
         className={`flex items-start bg-[var(--bg-secondary)] ${
           isGridLayout
-            ? 'flex-1 gap-3 px-4 py-5 sm:gap-4 sm:px-5'
+            ? 'h-full gap-2 px-3 py-4 sm:gap-3 sm:px-4'
             : 'h-full gap-5 px-6 py-6 sm:px-8'
         }`}
       >
         <div className="mt-1 shrink-0">
           <Icon
-            className={isGridLayout ? 'h-6 w-6 text-[var(--gold-primary)]' : 'h-9 w-9 text-[var(--gold-primary)]'}
+            className={            isGridLayout ? 'h-5 w-5 text-[var(--gold-primary)]' : 'h-9 w-9 text-[var(--gold-primary)]'}
             strokeWidth={1.35}
             aria-hidden="true"
           />
         </div>
         <div className="min-w-0 flex-1">
           <h3 className={`font-serif font-bold uppercase leading-tight tracking-wide text-[var(--text-primary)] ${
-            isGridLayout ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'
+            isGridLayout ? 'text-sm sm:text-base lg:text-lg' : 'text-2xl sm:text-3xl'
           }`}>
             {service.title}
           </h3>
@@ -151,7 +153,7 @@ const VFXServiceCard = ({ service, layout = 'row' }) => {
                 key={point}
                 className={`flex items-start text-[var(--text-secondary)] ${
                   isGridLayout
-                    ? 'gap-2 text-xs leading-snug sm:text-sm'
+                    ? 'gap-1.5 text-[10px] leading-snug sm:gap-2 sm:text-xs lg:text-sm'
                     : 'gap-2.5 text-sm leading-snug sm:text-base'
                 }`}
               >
