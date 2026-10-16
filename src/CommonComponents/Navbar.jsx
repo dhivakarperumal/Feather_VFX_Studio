@@ -121,7 +121,7 @@ const Navbar = () => {
           }`}
         >
           <img
-            src="/images/logo.png"
+            src="/images/logo-b.png"
             alt="Feather VFX Studio"
             className="block h-auto w-full object-contain"
           />
