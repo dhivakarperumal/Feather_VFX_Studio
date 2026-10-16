@@ -21,20 +21,9 @@ const PageHeader = ({
         alt=""
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       />
+      <div className="cinematic-copy-overlay" aria-hidden="true" />
       <div
-        className={`absolute inset-0 -z-10 ${
-          isLeftAligned
-            ? "bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-[var(--bg-primary)]/15"
-            : "bg-[var(--bg-primary)]/60"
-        }`}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--bg-primary)]/70 via-transparent to-[var(--bg-primary)]/25"
-        aria-hidden="true"
-      />
-      <div
-        className={`mx-auto w-full max-w-[1700px] px-[6%] py-12 sm:px-[5%] lg:px-[3%] ${
+        className={`relative z-20 mx-auto w-full max-w-[1700px] px-[6%] py-12 sm:px-[5%] lg:px-[3%] ${
           isLeftAligned ? "text-left" : "text-center"
         }`}
         data-aos="fade-up"

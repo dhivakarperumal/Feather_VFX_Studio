@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageContainer from '../../CommonComponents/PageContainer';
+import PageHeader from '../../CommonComponents/PageHeader';
 
 const showreels = [
   {
@@ -83,91 +84,20 @@ function ShowreelPage() {
   };
 
   return (
-    <main className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
-      {/* HERO SECTION */}
-      <section className="relative isolate overflow-hidden bg-[#fffdfa]">
-        {/* Clear image on the right side */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 -z-20 hidden w-[65%] lg:block"
-        >
-          <img
-            src={HERO_IMAGE}
-            alt=""
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
-
-        {/* Tablet and mobile background */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-20 lg:hidden"
-        >
-          <img
-            src={HERO_IMAGE}
-            alt=""
-            className="h-full w-full object-cover object-center opacity-30 sm:opacity-40"
-          />
-        </div>
-
-        {/* Softer fade: mostly behind text, not over the image */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#fffdfa] from-0% via-[#fffdfa]/90 via-35% to-transparent to-75% lg:via-[#fffdfa]/85"
-        />
-
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-20 bg-gradient-to-b from-transparent to-[#fffdfa]"
-        />
-
-        <PageContainer className="relative">
-          <div className="flex min-h-[340px] items-center py-10 sm:min-h-[365px] lg:min-h-[390px]">
-            <div className="max-w-[540px]">
-              <nav
-                aria-label="Breadcrumb"
-                className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#858585]"
-              >
-                <Link
-                  to="/"
-                  className="transition-colors hover:text-[#c77a00]"
-                >
-                  Home
-                </Link>
-                <span aria-hidden="true">/</span>
-                <span
-                  aria-current="page"
-                  className="text-[#c77a00]"
-                >
-                  Showreel
-                </span>
-              </nav>
-
-              <h1 className="font-serif text-4xl font-bold leading-[1.05] tracking-tight text-[#17191b] sm:text-5xl lg:text-6xl">
-                Our Showreel
-              </h1>
-
-              <p className="mt-1 font-serif text-xl font-semibold leading-tight text-[#c77a00] sm:text-2xl lg:text-[34px]">
-                Bringing Creative Visions to Life
-              </p>
-
-              <p className="mt-3 max-w-[490px] text-xs leading-[1.65] text-[#52565a] sm:text-[13px]">
-                Explore the Feather VFX showreel and discover our
-                expertise in visual effects for film and television.
-                From seamless compositing and detailed paint and prep
-                to precise rotoscoping and camera tracking, our team
-                delivers high-quality visuals with creativity and
-                attention to detail.
-              </p>
-
-              <p className="mt-3 text-xs font-bold leading-relaxed text-[#26292c] sm:text-[13px]">
-                Watch our work. Discover our capabilities. Imagine the
-                possibilities.
-              </p>
-            </div>
-          </div>
-        </PageContainer>
-      </section>
+    <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
+      <PageHeader
+        eyebrow="Feather VFX Studio"
+        title="Our Showreel"
+        background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
+        description="Explore the Feather VFX showreel and discover our expertise in visual effects for film and television. From seamless compositing and detailed paint and prep to precise rotoscoping and camera tracking, our team delivers high-quality visuals with creativity and attention to detail."
+        align="left"
+        showBreadcrumb={false}
+        className="min-h-[370px]"
+      >
+        <p className="mt-3 text-xs font-semibold text-[var(--text-primary)]">
+          Bringing Creative Visions to Life. Watch our work. Discover our capabilities. Imagine the possibilities.
+        </p>
+      </PageHeader>
 
       {/* MAIN VIDEO PLAYER */}
       <section
