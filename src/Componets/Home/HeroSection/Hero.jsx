@@ -43,7 +43,7 @@ const Hero = () => {
       <section
         id="home"
         aria-label="Feather VFX Studio"
-        className="relative isolate overflow-hidden bg-[var(--bg-primary)]"
+        className="relative isolate overflow-hidden border-b border-[var(--border-color)] bg-[var(--bg-primary)] sm:border-b-0"
       >
         <div className="absolute inset-0 z-0" aria-hidden="true">
           {heroSlides.map((item, index) => (
@@ -59,7 +59,7 @@ const Hero = () => {
         </div>
         <div className="home-hero-copy-overlay" aria-hidden="true" />
 
-        <div className="relative z-20 mx-auto flex min-h-[400px] max-w-[1700px] items-end px-[3%] py-8 sm:items-center sm:px-[5%] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[400px] max-w-[1700px] items-end px-[5%] py-8 sm:items-center sm:px-[5%] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
 
@@ -72,7 +72,7 @@ const Hero = () => {
 
             {/* Title line 1 — delay 1 */}
            
-<h1 className="max-w-none text-4xl font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+<h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-7xl">
   <div className="hero-reveal-mask">
     <span className="hero-reveal hero-reveal-d1 block">
       Your VFX
@@ -80,7 +80,7 @@ const Hero = () => {
   </div>
 
               <div className="hero-reveal-mask mt-1">
-                <span className="hero-reveal hero-reveal-d2 block text-[var(--gold-bright)]">
+                <span className="hero-reveal hero-reveal-d2 block whitespace-nowrap text-[var(--gold-bright)]">
                   Outsourcing Partner
                 </span>
               </div>
@@ -95,19 +95,19 @@ const Hero = () => {
             </div>
 
             {/* Buttons — delay 4 */}
-            <div className="hero-reveal-mask mt-8 hidden sm:block">
-              <div className="hero-reveal hero-reveal-d4 flex flex-wrap items-center gap-4">
+            <div className="hero-reveal-mask mt-6 w-full sm:mt-8">
+              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:justify-start sm:gap-4">
                 <a
                   href="/projects"
-                  className="btn-shimmer inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
+                  className="btn-shimmer inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
                 >
                   Explore our work <FaArrowRight aria-hidden="true" />
                 </a>
                 <a
                   href="/showreel"
-                  className="inline-flex items-center gap-3 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:text-[var(--gold-bright)]"
+                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:text-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/60">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/60 sm:h-10 sm:w-10">
                     <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
                   </span>
                   Watch showreel
