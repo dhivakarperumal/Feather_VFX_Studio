@@ -6,12 +6,31 @@ const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 6000);
+    const nextIndex = (activeSlide + 1) % heroSlides.length;
+    const nextSlide = heroSlides[nextIndex];
+    const image = new Image();
+    let timer;
+    let cancelled = false;
 
-    return () => window.clearInterval(timer);
-  }, []);
+    image.onload = () => {
+      if (cancelled) {
+        return;
+      }
+      timer = window.setTimeout(() => setActiveSlide(nextIndex), 6000);
+    };
+    image.onerror = () => {
+      if (!cancelled) {
+        console.error(`Failed to load hero slide image: ${nextSlide.image}`);
+      }
+    };
+    image.fetchPriority = 'low';
+    image.src = nextSlide.image;
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [activeSlide]);
 
   const showSlide = (index) => {
     setActiveSlide((index + heroSlides.length) % heroSlides.length);
