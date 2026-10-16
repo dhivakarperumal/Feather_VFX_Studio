@@ -70,6 +70,29 @@ const physicalSecurityFeatures = [
 
 const securityPartners = ['MPAA', 'Paramount', 'FOX', 'HBO', 'NBCUniversal', 'NETFLIX'];
 
+const studioPhotos = [
+  {
+    src: '/images/officeimages/2.jpg',
+    alt: 'Workstations and chairs in the Feather VFX Studio office',
+    label: 'Our workspace',
+  },
+  {
+    src: '/images/officeimages/1.jpg',
+    alt: 'Open-plan office workstations at Feather VFX Studio',
+    label: 'Built for collaboration',
+  },
+  {
+    src: '/images/officeimages/IMG_1720.jpg',
+    alt: 'Feather VFX Studio office desks and collaborative work area',
+    label: 'Where ideas take shape',
+  },
+  {
+    src: '/images/officeimages/IMG_1822.jpg',
+    alt: 'A comfortable chair in the Feather VFX Studio office',
+    label: 'Room to recharge',
+  },
+];
+
 const About = () => (
   <>
     <PageHeader
@@ -166,6 +189,55 @@ const About = () => (
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section
+      aria-labelledby="studio-gallery-heading"
+      className="bg-[var(--bg-secondary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
+    >
+      <div className="mx-auto max-w-[1500px]">
+        <div className="mb-7 flex flex-col gap-3 sm:mb-9 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
+              Behind the frames
+            </p>
+            <h2
+              id="studio-gallery-heading"
+              className="mt-2 font-serif text-2xl font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-3xl lg:text-4xl"
+            >
+              Inside our studio
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+            A look inside the workspace where our team collaborates and brings every frame to life.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {studioPhotos.map(({ src, alt, label }, index) => (
+            <figure
+              key={src}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="group relative m-0 aspect-[4/3] overflow-hidden border border-[var(--border-color)] bg-[var(--bg-surface)]"
+            >
+              <img
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"
+                aria-hidden="true"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-10 text-sm font-semibold uppercase tracking-[0.12em] text-white sm:px-5 sm:pb-5">
+                {label}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
