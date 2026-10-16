@@ -13,6 +13,7 @@ import About from './Componets/About/About.jsx'
 import FeaturedProjectsSection from './Componets/Home/FeaturedProjectsSection/FeaturedProjectsSection.jsx'
 import Blog from './Componets/Blog/Blog.jsx'
 import Reels from './Componets/Reels/Reels.jsx'
+import ShowreelPage from './Componets/Reels/ShowreelPage.jsx'
 import Sitemap from './Componets/Sitemap/Sitemap.jsx'
 import ServicesRoute from './Componets/Services/ServicesRoute.jsx'
 
@@ -60,7 +61,7 @@ function AppRoot() {
           <Route path="blog" element={<Blog />} />
           <Route path="sitemap" element={<Sitemap />} />
           <Route path="sitemap.xml" element={<Navigate to="/sitemap" replace />} />
-          <Route path="reels" element={<Reels />} />
+          <Route path="showreel" element={<ShowreelPage />} />
           <Route path="work" element={<Reels />} />
         </Route>
       </Routes>

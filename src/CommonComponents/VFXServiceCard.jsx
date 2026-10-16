@@ -12,23 +12,41 @@ import {
 const serviceDetails = {
   Rotoscoping: {
     icon: ScanLine,
-    points: ['VFX roto', 'Stereo roto', 'Green/blue keying', 'Matte extraction'],
+    points: ['VFX Roto', 'Stereo Roto', 'Green/Blue Screen Keying', 'Matte Extraction'],
   },
   'Paint & Prep': {
     icon: WandSparkles,
-    points: ['Wire removals', 'Rig removals', 'Camera/reflection removals', 'Clean plate creation'],
+    points: [
+      'Wire Removal',
+      'Rig Removal',
+      'Camera and Reflection Removal',
+      'Object Removal',
+      'Clean Plate Creation',
+      'Dust and Scratch Removal',
+    ],
   },
   'Cosmetic VFX': {
     icon: Sparkles,
-    points: ['Tattoo clean-ups', 'Wrinkle and crew clean-ups', 'Beard and hair removals', 'Digital beauty'],
+    points: [
+      'Tattoo Cleanup',
+      "Wrinkle and Crow's Feet Cleanup",
+      'Beard and Hair Removal',
+      'Acne Scar and Age Spot Removal',
+      'Digital Beauty Makeup',
+    ],
   },
   Matchmove: {
     icon: Globe2,
-    points: ['Camera tracking', 'Object and layout tracking', '2D tracking', '3D tracking'],
+    points: ['Camera Tracking', 'Object and Layout Tracking', '2D Tracking'],
   },
   Compositing: {
     icon: Layers3,
-    points: ['Crowd duplication', 'Multi-layer composites', 'Match, color and grain', 'Set extension'],
+    points: [
+      'Crowd Duplication',
+      'Monitor Screen Compositing',
+      'Mobile Screen Compositing',
+      'Set Extensions',
+    ],
   },
 };
 
