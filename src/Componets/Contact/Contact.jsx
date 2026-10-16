@@ -153,10 +153,9 @@ const Contact = () => {
             <span className="text-[var(--gold-primary)]">Vision to Life</span>
           </>
         }
-        description="Have a project in mind or need professional VFX outsourcing support? We'd love to hear from you. Get in touch with our team to discuss your requirements, request a demonstration, or explore how our visual effects services can support your next production."
+        titleSize="text-2xl sm:text-3xl md:text-4xl"
         background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
         align="left"
-        showBreadcrumb={false}
       >
         <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-xs">
           <div className="flex items-center gap-2.5">

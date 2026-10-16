@@ -7,6 +7,8 @@ const PageHeader = ({
   description,
   align = "center",
   showBreadcrumb = true,
+  breadcrumbLabel,
+  titleSize = "text-3xl sm:text-4xl md:text-5xl",
   className = "",
   children,
 }) => {
@@ -14,7 +16,7 @@ const PageHeader = ({
 
   return (
     <div
-      className={`relative isolate flex min-h-[380px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-white ${className}`}
+      className={`relative isolate flex min-h-[250px] w-full items-center overflow-hidden border-b border-[var(--border-color)] text-white ${className}`}
     >
       <img
         src={background}
@@ -23,7 +25,7 @@ const PageHeader = ({
       />
       <div className="cinematic-copy-overlay" aria-hidden="true" />
       <div
-        className={`relative z-20 mx-auto w-full max-w-[1700px] px-[6%] py-12 sm:px-[5%] lg:px-[3%] ${
+        className={`relative z-20 mx-auto w-full max-w-[1700px] px-[6%] py-6 sm:px-[5%] lg:px-[3%] ${
           isLeftAligned ? "text-left" : "text-center"
         }`}
         data-aos="fade-up"
@@ -35,9 +37,11 @@ const PageHeader = ({
               {eyebrow}
             </p>
           )}
-          <h1 className="font-serif text-3xl font-bold uppercase leading-[1.02] text-white sm:text-4xl md:text-5xl">
-            {title}
-          </h1>
+          {title && (
+            <h1 className={`font-serif ${titleSize} font-bold uppercase leading-[1.02] text-white`}>
+              {title}
+            </h1>
+          )}
           {description && (
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
               {description}
@@ -50,7 +54,7 @@ const PageHeader = ({
               </Link>
               <span aria-hidden="true">/</span>
               <span aria-current="page" className="text-white">
-                {typeof title === "string" ? title : eyebrow}
+                {breadcrumbLabel || (typeof title === "string" ? title : eyebrow)}
               </span>
             </nav>
           )}

@@ -83,18 +83,10 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
       {!homePage && (
         <PageHeader
           eyebrow="Our Projects"
-          title={
-            <>
-              Featured <span className="text-[var(--gold-bright)]">Projects</span>
-              <br />
-              <span className="text-white">CGI &amp; 3D Animation</span>
-            </>
-          }
-          description="Discover our visual effects, CGI, compositing and post-production work across films, series and commercials."
+          title="Projects"
+          titleSize="text-2xl sm:text-3xl md:text-4xl"
           background="/images/project.png"
           align="left"
-          showBreadcrumb={false}
-          className="min-h-[420px]"
         >
           <Link
             to="/showreel"
