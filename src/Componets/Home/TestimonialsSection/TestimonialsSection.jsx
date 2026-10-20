@@ -1,7 +1,8 @@
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Quote, Star } from 'lucide-react';
+import { Quote, UserRound, UserRoundPen } from 'lucide-react';
+import { FaMale, FaFemale } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -9,64 +10,56 @@ const testimonials = [
       'Feather VFX Studio delivered exceptional quality and creativity. Their attention to detail is outstanding.',
     name: 'Arjun Mehta',
     role: 'Freelancer',
-    avatar: '/images/heroimages/1.png',
-    avatarPosition: 'center top',
+    gender: 'male',
   },
   {
     quote:
       'A fantastic team to work with. Professional, creative and always delivers beyond expectations.',
     name: 'Priya Sharma',
     role: 'Creative Director',
-    avatar: '/images/heroimages/3.png',
-    avatarPosition: 'center top',
+    gender: 'female',
   },
   {
     quote:
       'Their VFX and compositing work completely elevated our project. Highly recommended!',
     name: 'Karan Raj',
     role: 'Producer',
-    avatar: '/images/heroimages/2.png',
-    avatarPosition: 'center top',
+    gender: 'male',
   },
   {
     quote:
       'Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.',
     name: 'Meera Nair',
     role: 'Film Director',
-    avatar: '/images/heroimages/1.png',
-    avatarPosition: 'center top',
+    gender: 'female',
   },
   {
     quote:
       'From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.',
     name: 'Rohan Desai',
     role: 'Ad Film Maker',
-    avatar: '/images/heroimages/2.png',
-    avatarPosition: 'center top',
+    gender: 'male',
   },
   {
     quote:
       'We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.',
     name: 'Sneha Pillai',
     role: 'OTT Content Head',
-    avatar: '/images/heroimages/3.png',
-    avatarPosition: 'center top',
+    gender: 'female',
   },
   {
     quote:
       'The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.',
     name: 'Vikram Sood',
     role: 'Brand Manager',
-    avatar: '/images/heroimages/1.png',
-    avatarPosition: 'center top',
+    gender: 'male',
   },
   {
     quote:
       'Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.',
     name: 'Ananya Bose',
     role: 'Cinematographer',
-    avatar: '/images/heroimages/2.png',
-    avatarPosition: 'center top',
+    gender: 'female',
   },
 ];
 
@@ -121,7 +114,7 @@ const TestimonialsSection = () => {
             1024: { slidesPerView: 3, spaceBetween: 20 },
           }}
         >
-          {testimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
+          {testimonials.map(({ quote, name, role, avatar, avatarPosition, gender }) => (
             <SwiperSlide key={name}>
               <article
                 className="group relative flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-primary)] shadow-[0_6px_24px_rgba(0,0,0,0.07)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-primary)]/60 hover:shadow-[0_0_24px_rgba(184,134,11,0.1)]"
@@ -147,16 +140,24 @@ const TestimonialsSection = () => {
                   <div className="flex items-center gap-4">
                     <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
                       <div
-                        className="pointer-events-none absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
+                        className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
                         aria-hidden="true"
                       />
-                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.3)]">
-                        <img
-                          src={avatar}
-                          alt={name}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          style={{ objectPosition: avatarPosition }}
-                        />
+
+                      <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full border-2 border-[var(--gold-bright)] bg-[var(--bg-secondary)] text-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.3)]">
+                        {gender === 'female' ? (
+                          <UserRoundPen
+                            className="h-8 w-8 sm:h-9 sm:w-9"
+                            strokeWidth={1.5}
+                            aria-label="Female client"
+                          />
+                        ) : (
+                          <UserRound
+                            className="h-8 w-8 sm:h-9 sm:w-9"
+                            strokeWidth={1.5}
+                            aria-label="Male client"
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
