@@ -9,7 +9,10 @@ import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../CommonComponents/ModalPortal';
 import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
-import { prioritizeFeaturedProjects } from '../../data/projectOrdering';
+import {
+  balanceProjectsIntoColumns,
+  prioritizeFeaturedProjects,
+} from '../../data/projectOrdering';
 
 const categoryIcons = {
   All: Grid2X2,
@@ -19,20 +22,6 @@ const categoryIcons = {
 };
 
 const PAGE_SIZE = 6;
-
-const balanceIntoColumns = (items, columnCount) => {
-  const columns = Array.from({ length: columnCount }, () => []);
-  const heights = Array(columnCount).fill(0);
-
-  items.forEach((project) => {
-    const shortestColumn = heights.indexOf(Math.min(...heights));
-
-    columns[shortestColumn].push(project);
-    heights[shortestColumn] += project.heightRatio || 1;
-  });
-
-  return columns;
-};
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -54,16 +43,8 @@ const Projects = () => {
     currentPage * PAGE_SIZE
   );
 
-  const portraitProjects = currentProjects.filter(
-    (project) => project.orientation === 'portrait'
-  );
-
-  const landscapeProjects = currentProjects.filter(
-    (project) => project.orientation === 'landscape'
-  );
-
-  const mobileColumns = balanceIntoColumns(portraitProjects, 2);
-  const desktopColumns = balanceIntoColumns(portraitProjects, 3);
+  const mobileColumns = balanceProjectsIntoColumns(currentProjects, 2);
+  const desktopColumns = balanceProjectsIntoColumns(currentProjects, 3);
 
   const changeFilter = (filter) => {
     setActiveFilter(filter);
@@ -203,22 +184,20 @@ const Projects = () => {
           </nav>
         </header>
 
-        {/* Projects gallery */}
         {/* Projects gallery: six projects per page */}
         {currentProjects.length > 0 ? (
           <>
             <div
               key={`${activeFilter}-${currentPage}`}
-              className="mt-7 grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 sm:gap-4"
+              className="mt-7 sm:hidden"
             >
-              {currentProjects.map((project) => (
-                <ProjectGalleryCard
-                  key={project.title}
-                  project={project}
-                  fixedSize
-                  onSelect={() => openProject(project)}
-                />
-              ))}
+              {renderColumns(mobileColumns)}
+            </div>
+            <div
+              key={`${activeFilter}-${currentPage}-desktop`}
+              className="mt-7 hidden sm:block"
+            >
+              {renderColumns(desktopColumns)}
             </div>
 
             {/* Pagination */}

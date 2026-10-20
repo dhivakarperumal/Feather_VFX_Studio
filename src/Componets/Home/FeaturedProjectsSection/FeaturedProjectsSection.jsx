@@ -5,7 +5,10 @@ import ModalPortal from '../../../CommonComponents/ModalPortal';
 import PageHeader from '../../../CommonComponents/PageHeader';
 import ProjectGalleryCard from '../../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../../data/projects.json';
-import { prioritizeFeaturedProjects } from '../../../data/projectOrdering';
+import {
+  balanceProjectsIntoColumns,
+  prioritizeFeaturedProjects,
+} from '../../../data/projectOrdering';
 
 const { filters } = projectData;
 const projects = prioritizeFeaturedProjects(projectData.projects);
@@ -23,6 +26,8 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
   const galleryProjects = homePage
     ? visibleProjects.slice(activePage * homePageSize, (activePage + 1) * homePageSize)
     : visibleProjects;
+  const mobileColumns = balanceProjectsIntoColumns(galleryProjects, 2);
+  const desktopColumns = balanceProjectsIntoColumns(galleryProjects, 3);
 
   useEffect(() => {
     if (selectedIndex === null) return undefined;
@@ -46,6 +51,23 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedIndex, visibleProjects.length]);
+
+  const renderColumns = (columns) => (
+    <div className="grid grid-cols-2 items-start gap-2.5 sm:grid-cols-3 sm:gap-3">
+      {columns.map((column, columnIndex) => (
+        <div key={columnIndex} className="flex min-w-0 flex-col gap-2.5 sm:gap-3">
+          {column.map((project) => (
+            <ProjectGalleryCard
+              key={project.title}
+              project={project}
+              landscape={project.orientation === 'landscape'}
+              onSelect={() => setSelectedIndex(visibleProjects.findIndex((item) => item.image === project.image))}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <>
@@ -123,16 +145,8 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
             </div>
           </header>
 
-        <div className="mt-5 grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
-          {galleryProjects.map((project) => (
-            <ProjectGalleryCard
-              key={project.title}
-              project={project}
-              landscape={project.orientation === 'landscape'}
-              onSelect={() => setSelectedIndex(visibleProjects.findIndex((item) => item.image === project.image))}
-            />
-          ))}
-        </div>
+        <div className="mt-5 sm:hidden">{renderColumns(mobileColumns)}</div>
+        <div className="mt-5 hidden sm:block">{renderColumns(desktopColumns)}</div>
         {homePage && pageCount > 1 && (
           <nav className="mt-6 flex flex-wrap items-center justify-center gap-2" aria-label="Project pages">
             <button
