@@ -144,19 +144,11 @@ const TestimonialsSection = () => {
                         aria-hidden="true"
                       />
 
-                      <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full border-2 border-[var(--gold-bright)] bg-[var(--bg-secondary)] text-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.3)]">
-                        {gender === 'female' ? (
-                          <UserRoundPen
-                            className="h-8 w-8 sm:h-9 sm:w-9"
-                            strokeWidth={1.5}
-                            aria-label="Female client"
-                          />
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10 text-[var(--gold-bright)]">
+                        {gender === "female" ? (
+                          <FaFemale className="h-7 w-7" />
                         ) : (
-                          <UserRound
-                            className="h-8 w-8 sm:h-9 sm:w-9"
-                            strokeWidth={1.5}
-                            aria-label="Male client"
-                          />
+                          <FaMale className="h-7 w-7" />
                         )}
                       </div>
                     </div>
