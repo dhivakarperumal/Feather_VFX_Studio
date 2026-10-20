@@ -66,7 +66,7 @@ function ShowreelPage() {
         </a>
       </PageHeader>
 
-      <section id="showreels" className="scroll-mt-24 px-[4%] pb-10 pt-8 sm:pb-14 sm:pt-12">
+      <section id="showreels" className="scroll-mt-24 bg-[#f3f1ed] px-[4%] py-8 sm:py-12">
         <div className="mx-auto max-w-[1100px]">
           <header className="mx-auto mb-8 max-w-2xl text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c77a00]">
@@ -86,7 +86,7 @@ function ShowreelPage() {
             {showreels.map(({ id, title, description, video, Icon }, index) => (
               <article
                 key={id}
-                className="overflow-hidden rounded-xl border border-[#eadfce] bg-white shadow-[0_5px_16px_rgba(54,39,15,0.07)]"
+                className="overflow-hidden rounded-xl border-2 border-[#c77a00]/45 bg-white shadow-[0_8px_24px_rgba(35,28,18,0.12)]"
               >
                 <div className="flex items-start gap-3 px-4 py-4 sm:px-6">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d58a0b] text-[#c77a00]">
