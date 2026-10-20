@@ -9,10 +9,7 @@ import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../CommonComponents/ModalPortal';
 import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
-import {
-  balanceProjectsIntoColumns,
-  prioritizeFeaturedProjects,
-} from '../../data/projectOrdering';
+import { prioritizeFeaturedProjects } from '../../data/projectOrdering';
 
 const categoryIcons = {
   All: Grid2X2,
@@ -42,9 +39,6 @@ const Projects = () => {
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE
   );
-
-  const mobileColumns = balanceProjectsIntoColumns(currentProjects, 2);
-  const desktopColumns = balanceProjectsIntoColumns(currentProjects, 3);
 
   const changeFilter = (filter) => {
     setActiveFilter(filter);
@@ -96,25 +90,6 @@ const Projects = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedIndex, projects.length]);
-
-  const renderColumns = (columns) => (
-    <div className="grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
-      {columns.map((column, columnIndex) => (
-        <div
-          key={columnIndex}
-          className="flex h-full min-w-0 flex-col gap-2.5 sm:gap-3"
-        >
-          {column.map((project) => (
-            <ProjectGalleryCard
-              key={project.title}
-              project={project}
-              onSelect={() => openProject(project)}
-            />
-          ))}
-        </div>
-      ))}
-    </div>
-  );
 
   return (
     <section
@@ -189,15 +164,15 @@ const Projects = () => {
           <>
             <div
               key={`${activeFilter}-${currentPage}`}
-              className="mt-7 sm:hidden"
+              className="mt-7 columns-2 gap-3 lg:columns-3 lg:gap-4"
             >
-              {renderColumns(mobileColumns)}
-            </div>
-            <div
-              key={`${activeFilter}-${currentPage}-desktop`}
-              className="mt-7 hidden sm:block"
-            >
-              {renderColumns(desktopColumns)}
+              {currentProjects.map((project) => (
+                <ProjectGalleryCard
+                  key={project.title}
+                  project={project}
+                  onSelect={() => openProject(project)}
+                />
+              ))}
             </div>
 
             {/* Pagination */}
