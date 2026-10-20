@@ -63,15 +63,6 @@ const Hero = () => {
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
 
-            {/* Eyebrow — delay 0 */}
-            <div className="hero-reveal-mask mb-5">
-              <p className="hero-reveal hero-reveal-d0 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-sm">
-                {slide.eyebrow}
-              </p>
-            </div>
-
-            {/* Title line 1 — delay 1 */}
-
             <h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-6xl">
               <div className="hero-reveal-mask">
                 <span className="hero-reveal hero-reveal-d1 block">
@@ -87,11 +78,15 @@ const Hero = () => {
             </h1>
 
 
-            {/* Description — delay 3 */}
-            <div className="hero-reveal-mask mt-6 hidden sm:block">
-              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-                {slide.description}
+            <div className="hero-reveal-mask mt-6">
+              <p className="hero-reveal hero-reveal-d3 max-w-2xl text-base font-semibold leading-relaxed text-white/90 sm:text-lg">
+                {slide.message}
               </p>
+              {slide.supportingMessage && (
+                <p className="hero-reveal hero-reveal-d3 mt-2 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
+                  {slide.supportingMessage}
+                </p>
+              )}
             </div>
 
             {/* Buttons — delay 4 */}
@@ -112,20 +107,6 @@ const Hero = () => {
                   </span>
                   Watch showreel
                 </a>
-              </div>
-            </div>
-
-            {/* Stats — delay 5 */}
-            <div className="hero-reveal-mask mt-12 hidden sm:block">
-              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/25 pt-6">
-                {slide.highlights.map((highlight) => (
-                  <div key={highlight.label}>
-                    <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
-                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white/80">
-                      {highlight.label}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -155,7 +136,7 @@ const Hero = () => {
               key={item.image}
               type="button"
               onClick={() => showSlide(index)}
-              aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}
+              aria-label={`Show slide ${index + 1}: ${item.message}`}
               aria-current={activeSlide === index ? 'true' : undefined}
               className={`h-2 rounded-full transition-all ${activeSlide === index
                 ? 'w-8 bg-[var(--gold-primary)]'
