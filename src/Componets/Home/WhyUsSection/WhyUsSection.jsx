@@ -35,10 +35,19 @@ const WhyUsSection = () => {
       />
 
       <div className="mx-auto max-w-[1500px]">
-        <p data-aos="fade-up" data-aos-offset="60" className="mx-auto max-w-4xl text-center text-[0.66rem] font-semibold uppercase leading-relaxed tracking-[0.2em] text-[var(--text-secondary)] sm:text-xs sm:tracking-[0.25em]">
+        <p
+          data-aos="fade-up"
+          data-aos-offset="60"
+          className="mx-auto w-fit max-w-full rounded-xl border border-[var(--gold-primary)]/40 bg-white px-5 py-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.12em] text-[var(--text-secondary)] shadow-[0_6px_24px_rgba(0,0,0,0.06)] sm:whitespace-nowrap sm:px-6 sm:py-5 sm:text-sm sm:tracking-[0.15em] lg:text-base"
+        >
           We offer smooth VFX services with the right amount of{' '}
-          <span className="text-[var(--gold-bright)]">passion and innovation</span>, with{' '}
-          <span className="text-[var(--gold-bright)]">no compromise in quality.</span>
+          <span className="text-[var(--gold-bright)]">
+            passion and innovation
+          </span>
+          , with{' '}
+          <span className="text-[var(--gold-bright)]">
+            no compromise in quality.
+          </span>
         </p>
 
         <h2 data-aos="fade-up" data-aos-delay="80" data-aos-offset="60" className="mx-auto mt-6 max-w-4xl text-center font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
