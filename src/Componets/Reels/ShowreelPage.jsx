@@ -44,6 +44,8 @@ const showreels = [
   },
 ];
 
+const SHOWREEL_POSTER = '/images/logo-b.png';
+
 function ShowreelPage() {
   return (
     <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
@@ -106,8 +108,9 @@ function ShowreelPage() {
                   controls
                   playsInline
                   preload="metadata"
+                  poster={SHOWREEL_POSTER}
                   aria-label={`${title} showreel`}
-                  className="block aspect-video w-full bg-black object-contain"
+                  className="block aspect-video w-full bg-white object-contain"
                 >
                   <source src={video} type="video/mp4" />
                   Your browser does not support the video element.
