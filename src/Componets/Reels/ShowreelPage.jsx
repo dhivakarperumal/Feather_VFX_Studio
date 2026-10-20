@@ -1,4 +1,3 @@
-import { useRef, useState, useEffect } from 'react';
 import {
   ArrowRight,
   Box,
@@ -8,7 +7,6 @@ import {
   ScanFace,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import PageContainer from '../../CommonComponents/PageContainer';
 import PageHeader from '../../CommonComponents/PageHeader';
 
 const showreels = [
@@ -18,7 +16,6 @@ const showreels = [
     description:
       'Clean and detailed rotoscoping work for film, OTT and commercial projects.',
     video: '/images/videos/rotoscope-showreel.mp4',
-    image: '/images/projects/featured/4.jpg',
     Icon: ScanFace,
   },
   {
@@ -27,7 +24,6 @@ const showreels = [
     description:
       'Wire removal, object cleanup and high quality paint work for seamless visuals.',
     video: '/images/videos/prep-cleanup-showreel.mp4',
-    image: '/images/projects/featured/5.jpg',
     Icon: Paintbrush,
   },
   {
@@ -36,7 +32,6 @@ const showreels = [
     description:
       'Accurate 3D camera tracking and matchmoving for realistic integration.',
     video: '/images/videos/matchmove-showreel.mp4',
-    image: '/images/projects/featured/7.jpg',
     Icon: Box,
   },
   {
@@ -45,61 +40,11 @@ const showreels = [
     description:
       'Stunning compositing work that brings elements together seamlessly for breathtaking results.',
     video: '/images/videos/compositing-showreel.mp4',
-    image: '/images/projects/featured/1.jpg',
     Icon: Layers3,
   },
 ];
 
-const HERO_IMAGE =
-  '/images/heroimages/Dragon Over the Sunset Kingdom.png';
-
 function ShowreelPage() {
-  const [selectedReel, setSelectedReel] = useState(showreels[3]);
-  const [shouldPlay, setShouldPlay] = useState(false);
-
-  const playerSectionRef = useRef(null);
-  const videoRef = useRef(null);
-
-  const selectReel = (reel) => {
-    setSelectedReel(reel);
-    setShouldPlay(true);
-
-    requestAnimationFrame(() => {
-      playerSectionRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    });
-  };
-
-  useEffect(() => {
-    if (!shouldPlay || !videoRef.current) return;
-
-    const video = videoRef.current;
-    let cancelled = false;
-
-    const playVideo = async () => {
-      try {
-        await video.play();
-      } catch {
-        // Autoplay may be blocked by the browser.
-      } finally {
-        if (!cancelled) setShouldPlay(false);
-      }
-    };
-
-    if (video.readyState >= 2) {
-      playVideo();
-    } else {
-      video.addEventListener('loadeddata', playVideo, { once: true });
-    }
-
-    return () => {
-      cancelled = true;
-      video.removeEventListener('loadeddata', playVideo);
-    };
-  }, [selectedReel, shouldPlay]);
-
   return (
     <div className="overflow-hidden bg-[#fffdfa] text-[#191a1c]">
       <PageHeader
@@ -110,46 +55,18 @@ function ShowreelPage() {
         background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
         align="left"
       >
-        <button
-          type="button"
-          onClick={() => selectReel(selectedReel)}
+        <a
+          href="#showreels"
           className="mt-5 inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           <Play size={14} fill="currentColor" aria-hidden="true" />
           Play showreel
-        </button>
+        </a>
       </PageHeader>
 
-      {/* MAIN VIDEO PLAYER */}
-      <section
-        ref={playerSectionRef}
-        className="relative z-10 mt-8 pb-8 sm:mt-12 sm:pb-10"
-      >
-        <PageContainer>
-          <div className="mx-auto w-full max-w-[1000px] overflow-hidden rounded-xl border-[4px] border-white bg-black shadow-[0_18px_45px_rgba(35,28,18,0.22)] sm:rounded-2xl">
-            <video
-              key={selectedReel.id}
-              ref={videoRef}
-              controls
-              playsInline
-              preload="metadata"
-              poster={HERO_IMAGE}
-              // onLoadedData={handleVideoLoaded}
-              // onCanPlay={handleVideoLoaded}
-              aria-label={`${selectedReel.title} showreel`}
-              className="block aspect-video max-h-[580px] w-full bg-black object-contain sm:max-h-[620px]"
-            >
-              <source src={selectedReel.video} type="video/mp4" />
-              Your browser does not support the video element.
-            </video>
-          </div>
-        </PageContainer>
-      </section>
-
-      {/* SHOWREEL EXPERTISE CARDS */}
-      <section className="pb-8 pt-2 sm:pb-10">
-        <PageContainer>
-          <header className="mx-auto mb-6 max-w-2xl text-center">
+      <section id="showreels" className="scroll-mt-24 px-[4%] pb-10 pt-8 sm:pb-14 sm:pt-12">
+        <div className="mx-auto max-w-[1100px]">
+          <header className="mx-auto mb-8 max-w-2xl text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c77a00]">
               Our Expertise
             </p>
@@ -159,63 +76,46 @@ function ShowreelPage() {
             </h2>
 
             <p className="mt-1 text-sm leading-relaxed text-[#60656a] sm:text-[15px]">
-              Explore our specialised showreels showcasing the key
-              areas of our VFX expertise.
+              Watch our specialised showreels, presented one by one.
             </p>
           </header>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {showreels.map(({ id, title, description, image, Icon }) => (
+          <div className="flex flex-col gap-8 sm:gap-10">
+            {showreels.map(({ id, title, description, video, Icon }, index) => (
               <article
                 key={id}
-                className="showreel-expertise-card group relative isolate flex min-h-[190px] flex-col overflow-hidden rounded-xl border border-[#eadfce] bg-white p-4 shadow-[0_5px_16px_rgba(54,39,15,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_26px_rgba(54,39,15,0.13)]"
+                className="overflow-hidden rounded-xl border border-[#eadfce] bg-white shadow-[0_5px_16px_rgba(54,39,15,0.07)]"
               >
-                <img
-                  src={image}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  className="pointer-events-none absolute right-0 top-0 -z-20 h-full w-[68%] object-cover object-center opacity-[0.17] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.25]"
-                />
-
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/90 to-white/35"
-                />
-
-                <div className="mb-2 flex h-[47px] w-[47px] items-center justify-center rounded-full border-[1.5px] border-[#d58a0b] text-[#c77a00] transition-all duration-300 group-hover:bg-[#c77a00] group-hover:text-white">
-                  <Icon size={23} strokeWidth={1.7} />
-                </div>
-
-                <h3 className="font-serif text-lg font-bold leading-tight text-[#202124]">
-                  {title}
-                </h3>
-
-                <p className="mt-1.5 text-[15px] leading-[1.5] text-[#62666a]">
-                  {description}
-                </p>
-
-                <button
-                  type="button"
-                  onClick={() => selectReel(showreels.find((reel) => reel.id === id))}
-                  className="mt-auto inline-flex w-fit items-center gap-2 pt-4 text-[11px] font-semibold text-[#bd7300] transition-colors hover:text-[#8f5400] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd7300]"
-                  aria-label={`Play ${title} in the main showreel player`}
-                >
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current transition-colors group-hover:bg-[#c77a00] group-hover:text-white">
-                    <Play size={11} fill="currentColor" />
+                <div className="flex items-start gap-3 px-4 py-4 sm:px-6">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d58a0b] text-[#c77a00]">
+                    <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
                   </span>
-
-                  Watch Showreel
-
-                  <ArrowRight
-                    size={14}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </button>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#c77a00]">
+                      Showreel {index + 1}
+                    </p>
+                    <h3 className="mt-1 font-serif text-xl font-bold leading-tight text-[#202124] sm:text-2xl">
+                      {title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-[#62666a]">
+                      {description}
+                    </p>
+                  </div>
+                </div>
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label={`${title} showreel`}
+                  className="block aspect-video w-full bg-black object-contain"
+                >
+                  <source src={video} type="video/mp4" />
+                  Your browser does not support the video element.
+                </video>
               </article>
             ))}
           </div>
-        </PageContainer>
+        </div>
       </section>
 
       {/* CONTACT CTA */}
