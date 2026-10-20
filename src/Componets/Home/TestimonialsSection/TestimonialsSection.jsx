@@ -145,23 +145,23 @@ const TestimonialsSection = () => {
                 />
 
                 <div className="relative z-10 flex h-full flex-col gap-5 p-5 sm:p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
-                      {/* Gold circular frame */}
-                      <div
-                        className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
-                        aria-hidden="true"
-                      />
+                 <div className="flex w-full justify-center">
+  <div className="relative flex h-[68px] w-[68px] shrink-0 items-center justify-center sm:h-[76px] sm:w-[76px]">
+    {/* Gold circular frame */}
+    <div
+      className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
+      aria-hidden="true"
+    />
 
-                      {/* Male/Female profile image */}
-                      <img
-                        src={avatar}
-                        alt={`${name} profile`}
-                        className="relative z-10 h-full w-full rounded-full border-2 border-[var(--bg-primary)] object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+    {/* Centered profile image */}
+    <img
+      src={avatar}
+      alt={`${name} profile`}
+      className="relative z-10 block h-full w-full rounded-full border-2 border-[var(--bg-primary)] object-cover object-center"
+      loading="lazy"
+    />
+  </div>
+</div>
 
                   <div className="relative flex-1 pl-7">
                     <Quote className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-primary)]/40 text-[var(--gold-primary)]/40" aria-hidden="true" />
