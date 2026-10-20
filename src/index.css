@@ -401,22 +401,6 @@ body {
   mask-image: linear-gradient(to right, #000 0%, #000 68%, transparent 100%);
 }
 
-.home-hero-copy-overlay {
-  position: absolute;
-  inset: 0 auto 0 0;
-  z-index: 10;
-  width: min(76%, 900px);
-  pointer-events: none;
-  background: linear-gradient(90deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.48) 68%,
-      rgba(0, 0, 0, 0) 100%);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 68%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, #000 68%, transparent 100%);
-}
-
 @media (max-width: 767px) {
   #home,
   #home * {
@@ -439,18 +423,6 @@ body {
     mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
   }
 
-  .home-hero-copy-overlay {
-    width: 100%;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-    filter: none !important;
-    background: linear-gradient(90deg,
-        rgba(0, 0, 0, 0.74) 0%,
-        rgba(0, 0, 0, 0.52) 72%,
-        rgba(0, 0, 0, 0.08) 100%);
-    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
-    mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
-  }
 }
 
 /* ─── Hero Text Line Reveal (Film-Credits Slide-Up) ───────────────────── */
