@@ -63,7 +63,7 @@ const Hero = () => {
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
 
-            <h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-6xl">
+            <h1 className="w-full max-w-none text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-4xl md:text-5xl lg:text-5xl">
               <div className="hero-reveal-mask">
                 <span className="hero-reveal hero-reveal-d1 block">
                   Your VFX
@@ -79,7 +79,7 @@ const Hero = () => {
 
 
             <div className="hero-reveal-mask mt-6">
-              <p className="hero-reveal hero-reveal-d3 max-w-2xl text-base font-semibold leading-relaxed text-white/90 sm:text-lg">
+              <p className="hero-reveal hero-reveal-d3 max-w-2xl text-base font-semibold leading-relaxed text-[var(--gold-bright)] sm:text-lg">
                 {slide.message}
               </p>
               {slide.supportingMessage && (
