@@ -27,16 +27,3 @@ export const prioritizeFeaturedProjects = (projects) => {
     })
     .map(({ project }) => project);
 };
-
-export const balanceProjectsIntoColumns = (projects, columnCount) => {
-  const columns = Array.from({ length: columnCount }, () => []);
-  const columnHeights = Array(columnCount).fill(0);
-
-  projects.forEach((project) => {
-    const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
-    columns[shortestColumn].push(project);
-    columnHeights[shortestColumn] += project.heightRatio || 1;
-  });
-
-  return columns;
-};
