@@ -61,7 +61,7 @@ const Hero = () => {
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
 
-            <h1 className="w-full max-w-none text-[clamp(1.25rem,5vw,2rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-3xl md:text-4xl lg:text-4xl">
+            <h1 className="w-full max-w-none text-xs font-semibold uppercase leading-tight tracking-[0.18em] text-white sm:max-w-3xl sm:text-sm md:text-base">
               <div className="hero-reveal-mask">
                 <span className="hero-reveal hero-reveal-d1 block">
                   Your VFX
@@ -77,14 +77,14 @@ const Hero = () => {
 
 
             <div className="hero-reveal-mask mt-6">
-              <p className={`hero-reveal hero-reveal-d3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-[var(--gold-bright)] ${activeSlide === 2
+              <p className={`hero-reveal hero-reveal-d3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-white ${activeSlide === 2
                 ? 'text-[clamp(1rem,4vw,1.75rem)] sm:text-3xl md:text-4xl'
                 : 'text-[clamp(1.5rem,6vw,2.5rem)] sm:text-4xl md:text-5xl'
                 }`}>
                 {slide.message}
               </p>
               {slide.supportingMessage && (
-                <p className="hero-reveal hero-reveal-d3 mt-3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-[var(--gold-bright)] sm:text-4xl md:text-5xl">
+                <p className="hero-reveal hero-reveal-d3 mt-3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl">
                   {slide.supportingMessage}
                 </p>
               )}
