@@ -64,7 +64,7 @@ const WhyUsSection = () => {
           {features.map(({ icon: Icon, title, text }) => (
             <article
               key={text}
-              className="stagger-child group relative flex min-h-[400px] flex-col items-center overflow-hidden px-5 pb-5 pt-3 text-center sm:min-h-[420px] sm:px-7"
+              className="stagger-child group relative flex min-h-[300px] flex-col items-center overflow-hidden px-4 pb-4 pt-3 text-center transition-transform duration-300 hover:-translate-y-1 sm:min-h-[320px] sm:px-5"
               style={{
                 clipPath: 'polygon(0 28px, 28px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%)',
                 backgroundColor: 'rgba(239, 239, 239, 0.92)',
@@ -89,12 +89,19 @@ const WhyUsSection = () => {
                 />
               </svg>
 
-              <div className="relative mb-2 flex h-[112px] w-[144px] shrink-0 items-center justify-center">
-                <span className="absolute h-[82px] w-[108px] rotate-[-16deg] rounded-[50%] border border-[var(--gold-bright)]/65 transition-transform duration-500 group-hover:rotate-[-22deg] group-hover:scale-105" aria-hidden="true" />
-                <span className="absolute h-[82px] w-[108px] rotate-[16deg] rounded-[50%] border border-[var(--gold-primary)]/55 transition-transform duration-500 group-hover:rotate-[22deg] group-hover:scale-105" aria-hidden="true" />
-                <span className="absolute h-[94px] w-[94px] rounded-full bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.9),rgba(200,146,14,0.2)_14%,rgba(239,239,239,0.96)_48%,rgba(235,235,235,0.98)_72%)] shadow-[inset_0_0_10px_rgba(184,134,11,0.2),0_0_18px_rgba(184,134,11,0.15)]" aria-hidden="true" />
-                <span className="absolute h-[102px] w-[102px] rounded-full border border-[var(--border-color)] shadow-[0_0_10px_rgba(184,134,11,0.1)]" aria-hidden="true" />
-                <Icon className="relative z-10 h-9 w-9 text-[var(--gold-bright)] drop-shadow-[0_0_8px_rgba(184,134,11,0.5)]" aria-hidden="true" />
+              <div className="relative mb-2 flex h-[72px] w-[90px] shrink-0 items-center justify-center">
+                <span className="absolute h-[48px] w-[62px] rotate-[-16deg] rounded-[50%] border border-[var(--gold-bright)]/65 transition-transform duration-500 group-hover:rotate-[-22deg] group-hover:scale-105" aria-hidden="true" />
+
+                <span className="absolute h-[48px] w-[62px] rotate-[16deg] rounded-[50%] border border-[var(--gold-primary)]/55 transition-transform duration-500 group-hover:rotate-[22deg] group-hover:scale-105" aria-hidden="true" />
+
+                <span className="absolute h-[54px] w-[54px] rounded-full bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.9),rgba(200,146,14,0.2)_14%,rgba(239,239,239,0.96)_48%,rgba(235,235,235,0.98)_72%)] shadow-[inset_0_0_6px_rgba(184,134,11,0.2),0_0_10px_rgba(184,134,11,0.15)]" aria-hidden="true" />
+
+                <span className="absolute h-[60px] w-[60px] rounded-full border border-[var(--border-color)] shadow-[0_0_6px_rgba(184,134,11,0.1)]" aria-hidden="true" />
+
+                <Icon
+                  className="relative z-10 h-5 w-5 text-[var(--gold-bright)] drop-shadow-[0_0_4px_rgba(184,134,11,0.4)]"
+                  aria-hidden="true"
+                />
               </div>
 
               <h3 className="relative  font-serif text-xl font-bold uppercase leading-tight tracking-[0.02em] text-[var(--text-primary)] sm:text-2xl">
