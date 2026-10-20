@@ -159,11 +159,6 @@ const TestimonialsSection = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex gap-[3px] text-[var(--gold-bright)]" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <Star key={i} className="h-[15px] w-[15px] fill-current sm:h-[17px] sm:w-[17px]" aria-hidden="true" />
-                      ))}
-                    </div>
                   </div>
 
                   <div className="relative flex-1 pl-7">
