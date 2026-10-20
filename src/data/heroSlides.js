@@ -1,7 +1,7 @@
 import { FaClapperboard, FaCube, FaLayerGroup, FaWandMagicSparkles } from 'react-icons/fa6';
 
 const heroImage = (filename) =>
-  `/images/heroimages/${encodeURIComponent(filename)}`;
+  `/images/slider/${encodeURIComponent(filename)}`;
 
 export const heroSlides = [
   {
@@ -10,7 +10,7 @@ export const heroSlides = [
     highlight: 'Creating reality.',
     description:
       'We are a creative visual effects studio crafting breathtaking worlds through VFX, CGI, compositing and post-production.',
-    image: heroImage('1.png'),
+    image: heroImage('1.jpg'),
     highlights: [
       { value: 'VFX', label: 'Visual effects' },
       { value: 'CGI', label: 'Digital worlds' },
@@ -23,7 +23,7 @@ export const heroSlides = [
     highlight: 'feel cinematic.',
     description:
       'From the first concept to the final composite, we help filmmakers bring ambitious visual stories to life.',
-    image: heroImage('2.png'),
+    image: heroImage('2.jpg'),
     highlights: [
       { value: 'DESIGN', label: 'Creative vision' },
       { value: 'CRAFT', label: 'Pixel precision' },
@@ -36,7 +36,7 @@ export const heroSlides = [
     highlight: 'Unforgettable worlds.',
     description:
       'Build believable environments and seamless shots with thoughtful matchmove, paint-prep and compositing.',
-    image: heroImage('3.png'),
+    image: heroImage('3.jpg'),
     highlights: [
       { value: 'TRACK', label: 'Matchmove' },
       { value: 'REFINE', label: 'Paint-prep' },
@@ -49,24 +49,11 @@ export const heroSlides = [
     highlight: 'single pixel.',
     description:
       'Our artists bring focus and care to every cleanup, cosmetic fix and finishing pass.',
-    image: heroImage('4.png'),
+    image: heroImage('4.jpg'),
     highlights: [
       { value: 'CLEAN', label: 'Careful cleanup' },
       { value: 'POLISH', label: 'Cosmetic fixes' },
       { value: 'FINISH', label: 'Final delivery' },
-    ],
-  },
-  {
-    eyebrow: 'Your creative post-production partner',
-    title: 'Big ideas.',
-    highlight: 'Built together.',
-    description:
-      'Partner with Feather VFX Studio for collaborative visual effects and post-production from start to finish.',
-    image: heroImage('5.png'),
-    highlights: [
-      { value: 'IDEATE', label: 'Plan together' },
-      { value: 'CREATE', label: 'Craft each shot' },
-      { value: 'DELIVER', label: 'Ready to release' },
     ],
   },
 ];
