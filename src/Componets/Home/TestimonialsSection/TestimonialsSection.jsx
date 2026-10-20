@@ -11,6 +11,7 @@ const testimonials = [
     name: 'Arjun Mehta',
     role: 'Freelancer',
     gender: 'male',
+    avatar: '/images/male.png',
   },
   {
     quote:
@@ -18,6 +19,7 @@ const testimonials = [
     name: 'Priya Sharma',
     role: 'Creative Director',
     gender: 'female',
+    avatar: '/images/female.png',
   },
   {
     quote:
@@ -25,6 +27,7 @@ const testimonials = [
     name: 'Karan Raj',
     role: 'Producer',
     gender: 'male',
+    avatar: '/images/male.png',
   },
   {
     quote:
@@ -32,6 +35,7 @@ const testimonials = [
     name: 'Meera Nair',
     role: 'Film Director',
     gender: 'female',
+    avatar: '/images/female.png',
   },
   {
     quote:
@@ -39,6 +43,7 @@ const testimonials = [
     name: 'Rohan Desai',
     role: 'Ad Film Maker',
     gender: 'male',
+    avatar: '/images/male.png',
   },
   {
     quote:
@@ -46,6 +51,7 @@ const testimonials = [
     name: 'Sneha Pillai',
     role: 'OTT Content Head',
     gender: 'female',
+    avatar: '/images/female.png',
   },
   {
     quote:
@@ -53,6 +59,7 @@ const testimonials = [
     name: 'Vikram Sood',
     role: 'Brand Manager',
     gender: 'male',
+    avatar: '/images/male.png',
   },
   {
     quote:
@@ -60,6 +67,7 @@ const testimonials = [
     name: 'Ananya Bose',
     role: 'Cinematographer',
     gender: 'female',
+    avatar: '/images/female.png',
   },
 ];
 
@@ -139,18 +147,19 @@ const TestimonialsSection = () => {
                 <div className="relative z-10 flex h-full flex-col gap-5 p-5 sm:p-6">
                   <div className="flex items-center gap-4">
                     <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
+                      {/* Gold circular frame */}
                       <div
                         className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
                         aria-hidden="true"
                       />
 
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10 text-[var(--gold-bright)]">
-                        {gender === "female" ? (
-                          <FaFemale className="h-7 w-7" />
-                        ) : (
-                          <FaMale className="h-7 w-7" />
-                        )}
-                      </div>
+                      {/* Male/Female profile image */}
+                      <img
+                        src={avatar}
+                        alt={`${name} profile`}
+                        className="relative z-10 h-full w-full rounded-full border-2 border-[var(--bg-primary)] object-cover"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
 
