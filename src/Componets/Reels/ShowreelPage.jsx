@@ -110,7 +110,7 @@ function ShowreelPage() {
                   preload="metadata"
                   poster={SHOWREEL_POSTER}
                   aria-label={`${title} showreel`}
-                  className="block aspect-video w-full bg-white object-contain"
+                  className="block aspect-video w-full bg-white p-4 object-contain sm:p-8"
                 >
                   <source src={video} type="video/mp4" />
                   Your browser does not support the video element.
