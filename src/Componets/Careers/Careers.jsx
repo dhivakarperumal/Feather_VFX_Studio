@@ -220,7 +220,7 @@ function Careers() {
             <div className="space-y-4">
               {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon, responsibilities, qualifications }) => (
                 <article key={title} className="overflow-hidden border border-[var(--border-color)] bg-[var(--bg-secondary)]">
-                  <div className="grid sm:grid-cols-[120px_minmax(0,1fr)]">
+                  <div className="grid sm:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[450px_minmax(0,1fr)]">
                     <div className="relative hidden min-h-full sm:block">
                       <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                       {/* <div className="absolute inset-0 flex items-center justify-center bg-[var(--bg-primary)]/50">
