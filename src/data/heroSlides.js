@@ -59,8 +59,8 @@ export const heroSlides = [
 ];
 
 export const heroCapabilities = [
-  { title: 'VFX & CGI', subtitle: 'Real worlds. Beyond reality.', Icon: FaWandMagicSparkles },
-  { title: 'Compositing', subtitle: 'Seamless integration.', Icon: FaLayerGroup },
-  { title: '3D Environments', subtitle: 'Worlds without limits.', Icon: FaCube },
-  { title: 'Color & Finishing', subtitle: 'The perfect look.', Icon: FaClapperboard },
+  { title: 'Rotoscoping', subtitle: 'Detail-driven mattes.', Icon: FaClapperboard },
+  { title: 'Paint & Prep', subtitle: 'Clean plates & fixes.', Icon: FaWandMagicSparkles },
+  { title: 'Cosmetic VFX', subtitle: 'Clean plates & fixes.', Icon: FaLayerGroup },
+  { title: 'Matchmove', subtitle: 'Precision tracking.', Icon: FaCube },
 ];
