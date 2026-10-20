@@ -79,11 +79,11 @@ const Hero = () => {
 
 
             <div className="hero-reveal-mask mt-6">
-              <p className="hero-reveal hero-reveal-d3 max-w-2xl text-base font-semibold leading-relaxed text-[var(--gold-bright)] sm:text-lg">
+              <p className="hero-reveal hero-reveal-d3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-[var(--gold-bright)] sm:text-4xl md:text-5xl">
                 {slide.message}
               </p>
               {slide.supportingMessage && (
-                <p className="hero-reveal hero-reveal-d3 mt-2 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
+                <p className="hero-reveal hero-reveal-d3 mt-3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-[var(--gold-bright)] sm:text-4xl md:text-5xl">
                   {slide.supportingMessage}
                 </p>
               )}
