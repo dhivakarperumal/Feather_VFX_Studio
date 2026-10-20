@@ -74,13 +74,13 @@ const HomeIntroSection = () => {
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
 
-          {/* White blur across the entire image */}
+          {/* Uniform transparent white overlay */}
           <div
-            className="pointer-events-none absolute inset-0 bg-white/30 backdrop-blur-[2px]"
+            className="pointer-events-none absolute inset-0 bg-white/35"
             aria-hidden="true"
           />
         </div>
-        
+
       </div>
     </section>
   );
