@@ -9,6 +9,7 @@ import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../CommonComponents/ModalPortal';
 import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
+import { prioritizeFeaturedProjects } from '../../data/projectOrdering';
 
 const categoryIcons = {
   All: Grid2X2,
@@ -17,7 +18,7 @@ const categoryIcons = {
   Featured: Star,
 };
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 6;
 
 const balanceIntoColumns = (items, columnCount) => {
   const columns = Array.from({ length: columnCount }, () => []);
@@ -40,10 +41,10 @@ const Projects = () => {
 
   const projects = useMemo(() => {
     return activeFilter === 'All'
-      ? projectData.projects
-      : projectData.projects.filter(
+      ? prioritizeFeaturedProjects(projectData.projects)
+      : prioritizeFeaturedProjects(projectData.projects.filter(
         (project) => project.collection === activeFilter
-      );
+      ));
   }, [activeFilter]);
 
   const totalPages = Math.ceil(projects.length / PAGE_SIZE);
@@ -203,7 +204,7 @@ const Projects = () => {
         </header>
 
         {/* Projects gallery */}
-        {/* Projects gallery: exactly 9 projects per page */}
+        {/* Projects gallery: six projects per page */}
         {currentProjects.length > 0 ? (
           <>
             <div

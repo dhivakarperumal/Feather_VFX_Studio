@@ -70,14 +70,13 @@ const QualitySecuritySection = () => (
         </div>
 
         <div data-aos="fade-left" data-aos-delay="100">
-          <div className="relative min-h-[220px] overflow-hidden sm:min-h-[290px] lg:min-h-[330px] rounded-xl">
+          <div className="relative min-h-[220px] overflow-hidden rounded-xl sm:min-h-[290px] lg:min-h-[330px]">
             <img
-              src="/images/whyusbg.png"
+              src="/images/qsr.png"
               alt="VFX artist working at a studio workstation"
-              className="absolute inset-0 h-full w-full object-contain"
+              className="absolute inset-0 h-full w-full object-contain opacity-60"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[var(--bg-primary)]/20" aria-hidden="true" />
           </div>
         </div>
       </div>
@@ -96,7 +95,7 @@ const QualitySecuritySection = () => (
               </span>
               <div className="relative px-4 pb-5 pt-10 sm:px-5">
                 <h3 className="font-serif text-xl font-bold leading-tight sm:text-2xl">
-                   {title}
+                  {title}
                 </h3>
                 <span className="mt-3 block h-0.5 w-9 bg-[var(--gold-bright)]" aria-hidden="true" />
                 <p className="mt-3 text-sm leading-[1.7] text-[var(--text-secondary)] sm:text-[15px]">

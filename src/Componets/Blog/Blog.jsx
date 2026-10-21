@@ -52,17 +52,17 @@ function Blog() {
         eyebrow="Creative Ideas Unleashed"
         title={<>Our <span className="text-[var(--gold-bright)]">Blogs</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
-        background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
+        background="/images/pageheader/blog.png"
         align="left"
         breadcrumbLabel="Blog"
       >
-        <a
+        {/* <a
           href="#blog-posts"
           className="mt-5 inline-flex min-h-11 items-center gap-2 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           Show My Blog
           <ArrowRight size={15} aria-hidden="true" />
-        </a>
+        </a> */}
       </PageHeader>
 
       <PageContainer className="pb-12 pt-8 sm:pt-10">

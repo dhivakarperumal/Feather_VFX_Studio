@@ -57,46 +57,38 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div className="home-hero-copy-overlay" aria-hidden="true" />
-
-        <div className="relative z-20 mx-auto flex min-h-[500px] max-w-[1700px] items-end px-[5%] py-12 sm:min-h-[650px] sm:items-center sm:px-[5%] lg:min-h-[640px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-center justify-center px-[5%] py-12 sm:min-h-[780px] sm:px-[5%] lg:min-h-[820px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
-          <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
+          <div key={activeSlide} className="mx-auto w-full max-w-4xl text-center">
 
-            {/* Eyebrow — delay 0 */}
-            <div className="hero-reveal-mask mb-5">
-              <p className="hero-reveal hero-reveal-d0 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-sm">
-                {slide.eyebrow}
-              </p>
-            </div>
-
-            {/* Title line 1 — delay 1 */}
-
-            <h1 className="w-full max-w-none text-[clamp(1.75rem,7.5vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl lg:text-6xl">
-              <div className="hero-reveal-mask">
-                <span className="hero-reveal hero-reveal-d1 block">
-                  Your VFX
-                </span>
-              </div>
-
-              <div className="hero-reveal-mask mt-1">
-                <span className="hero-reveal hero-reveal-d2 block whitespace-nowrap text-[var(--gold-bright)]">
-                  Outsourcing Partner
-                </span>
-              </div>
+            <h1 className="w-full text-[clamp(0.8rem,3.5vw,1.5rem)] font-medium leading-tight tracking-[0.12em] text-white sm:text-xl md:text-2xl">
+              <span className="hero-reveal hero-reveal-d1">
+                Your VFX Outsourcing Partner
+              </span>
             </h1>
 
-
-            {/* Description — delay 3 */}
-            <div className="hero-reveal-mask mt-6 hidden sm:block">
-              <p className="hero-reveal hero-reveal-d3 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-                {slide.description}
+            <div className="hero-reveal-mask mt-6">
+              <p className={`hero-reveal hero-reveal-d3 mx-auto max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${slide.singleLine
+                ? 'whitespace-nowrap text-[clamp(0.8rem,5vw,2.75rem)] uppercase'
+                : slide.compactMessage
+                  ? 'text-[clamp(1rem,3.5vw,1.5rem)] sm:text-2xl md:text-3xl'
+                  : 'uppercase text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
+                }`}>
+                {slide.message}
               </p>
+              {slide.supportingMessage && (
+                <p className={`hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-white ${slide.compactSupportingMessage
+                  ? 'text-[clamp(1rem,4vw,1.75rem)] sm:text-2xl md:text-3xl'
+                  : 'text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
+                  }`}>
+                  {slide.supportingMessage}
+                </p>
+              )}
             </div>
 
             {/* Buttons — delay 4 */}
             <div className="hero-reveal-mask mt-6 w-full sm:mt-8">
-              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:justify-start sm:gap-4">
+              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:gap-4">
                 <a
                   href="/projects"
                   className="btn-shimmer inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
@@ -112,20 +104,6 @@ const Hero = () => {
                   </span>
                   Watch showreel
                 </a>
-              </div>
-            </div>
-
-            {/* Stats — delay 5 */}
-            <div className="hero-reveal-mask mt-12 hidden sm:block">
-              <div className="hero-reveal hero-reveal-d5 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/25 pt-6">
-                {slide.highlights.map((highlight) => (
-                  <div key={highlight.label}>
-                    <p className="text-xl font-bold text-[var(--gold-bright)] sm:text-2xl">{highlight.value}</p>
-                    <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white/80">
-                      {highlight.label}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -155,7 +133,7 @@ const Hero = () => {
               key={item.image}
               type="button"
               onClick={() => showSlide(index)}
-              aria-label={`Show slide ${index + 1}: ${item.title} ${item.highlight}`}
+              aria-label={`Show slide ${index + 1}: ${item.message}`}
               aria-current={activeSlide === index ? 'true' : undefined}
               className={`h-2 rounded-full transition-all ${activeSlide === index
                 ? 'w-8 bg-[var(--gold-primary)]'

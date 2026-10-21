@@ -74,12 +74,13 @@ const HomeIntroSection = () => {
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
 
-          {/* Subtle dark blend — removes the white blur */}
+          {/* Uniform transparent white overlay */}
           <div
-            className="absolute inset-0 bg-gradient-to-r from-[var(--bg-secondary)]/20 via-transparent to-transparent"
+            className="pointer-events-none absolute inset-0 bg-white/35"
             aria-hidden="true"
           />
         </div>
+
       </div>
     </section>
   );

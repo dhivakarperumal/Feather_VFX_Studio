@@ -138,10 +138,10 @@ function Careers() {
         title={<>Our <span className="text-[var(--gold-bright)]">Careers</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         breadcrumbLabel="Careers"
-        background="/images/heroimages/2.png"
+        background="/images/pageheader/career.png"
         align="left"
       >
-        <div className="mt-5 flex flex-wrap items-center gap-3">
+        {/* <div className="mt-5 flex flex-wrap items-center gap-3">
           <a href="#open-positions" className="inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             View open positions <FaArrowRight aria-hidden="true" />
           </a>
@@ -149,7 +149,7 @@ function Careers() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-current text-sm">▶</span>
             Watch our studio
           </a>
-        </div>
+        </div> */}
       </PageHeader>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
@@ -216,11 +216,11 @@ function Careers() {
             </div>
           </div>
 
-          <div className="mt-5 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="mt-5">
             <div className="space-y-4">
               {filteredRoles.length ? filteredRoles.map(({ title, department: team, type: contract, location: place, image, Icon, responsibilities, qualifications }) => (
                 <article key={title} className="overflow-hidden border border-[var(--border-color)] bg-[var(--bg-secondary)]">
-                  <div className="grid sm:grid-cols-[120px_minmax(0,1fr)]">
+                  <div className="grid sm:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[450px_minmax(0,1fr)]">
                     <div className="relative hidden min-h-full sm:block">
                       <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                       {/* <div className="absolute inset-0 flex items-center justify-center bg-[var(--bg-primary)]/50">
@@ -265,42 +265,6 @@ function Careers() {
               )}
               <p className="pt-1 text-[10px] text-[var(--text-secondary)]">{filteredRoles.length} position{filteredRoles.length === 1 ? '' : 's'} shown · Select a role to apply by email.</p>
             </div>
-
-            <div className="relative flex min-h-[300px] items-end overflow-hidden border border-[var(--border-color)] sm:min-h-[390px]">
-              <img
-                src="/images/heroimages/1.png"
-                alt="A visual effects artist creating a cinematic environment"
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-
-              <div className="relative z-10 max-w-lg p-5 sm:p-7">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
-                  Build the future with us
-                </p>
-
-                <h3 className="mt-2 font-serif text-3xl font-bold uppercase leading-[1.02] text-white sm:text-4xl">
-                  Let&apos;s build
-                  <br />
-                  <span className="text-[var(--gold-bright)]">
-                    extraordinary worlds
-                  </span>
-                  <br />
-                  together
-                </h3>
-
-                <button
-                  type="button"
-                  onClick={() => startApplication('General Career Application')}
-                  className="mt-4 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)]"
-                >
-                  Apply now
-                  <FaArrowRight aria-hidden="true" />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -322,29 +286,7 @@ function Careers() {
         </div>
       </section>
 
-      <section id="studio-life" className="scroll-mt-24 border-b border-[var(--border-color)]">
-        <div className="mx-auto max-w-[1700px] px-[6%] py-8 sm:px-[5%] lg:px-[3%]">
-          <div className="flex flex-wrap items-end justify-between gap-3">
-            <div data-aos="fade-up">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em]">Life at Feather VFX Studio</p>
-              <h2 className="mt-1 font-serif text-2xl font-bold uppercase sm:text-3xl">A place to create, learn and grow</h2>
-            </div>
-            <a href="#open-positions" className="inline-flex items-center gap-2 border border-[var(--gold-primary)] px-4 py-2 text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-              Join our team <FaArrowRight aria-hidden="true" />
-            </a>
-          </div>
-          <p className="mt-2 max-w-2xl text-xs leading-relaxed text-[var(--text-secondary)]">
-            Explore the worlds we create, the production craft that inspires us, and the creative possibilities that bring a team together.
-          </p>
-          <div className="mt-4 grid h-[150px] grid-cols-2 gap-2 sm:h-[190px] sm:grid-cols-5">
-            {galleryImages.map(({ src, alt }, index) => (
-              <div key={src} className={`relative overflow-hidden border border-[var(--border-color)] ${index === 0 ? 'col-span-2 sm:col-span-1' : ''}`} data-aos="zoom-in" data-aos-delay={index * 80}>
-                <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+  
 
       <TeamReviewsSlider />
 
