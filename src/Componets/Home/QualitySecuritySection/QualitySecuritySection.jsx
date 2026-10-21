@@ -70,15 +70,28 @@ const QualitySecuritySection = () => (
         </div>
 
         <div data-aos="fade-left" data-aos-delay="100">
-          <div className="relative min-h-[220px] overflow-hidden sm:min-h-[290px] lg:min-h-[330px] rounded-xl">
-            <img
-              src="/images/whyusbg.png"
-              alt="VFX artist working at a studio workstation"
-              className="absolute inset-0 h-full w-full object-contain"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[var(--bg-primary)]/20" aria-hidden="true" />
-          </div>
+         <div className="relative min-h-[220px] overflow-hidden rounded-xl sm:min-h-[290px] lg:min-h-[330px]">
+  <img
+    src="/images/qsr.png"
+    alt="VFX artist working at a studio workstation"
+    className="absolute inset-0 h-full w-full object-contain"
+    loading="lazy"
+  />
+
+  {/* Soft transparent blend on the left */}
+  <div
+    className="pointer-events-none absolute inset-0"
+    style={{
+      background: `linear-gradient(
+        to right,
+        var(--bg-primary) 0%,
+        transparent 25%,
+        transparent 100%
+      )`,
+    }}
+    aria-hidden="true"
+  />
+</div>
         </div>
       </div>
 
