@@ -65,7 +65,12 @@ function App() {
       <section className="relative min-h-screen flex flex-col">
         {isNavigating && <div className="route-progress-bar" aria-hidden="true" />}
         <TopHeader />
-        <Navbar />
+        <Navbar
+          theme={theme}
+          onToggleTheme={() =>
+            setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"))
+          }
+        />
         <div className="print:hidden">
           <ScrollToTop />
         </div>
@@ -84,7 +89,7 @@ function App() {
             },
           }}
         />
-        <Footer key={`footer-${location.pathname}`} />
+        <Footer key={`footer-${location.pathname}`} theme={theme} />
       </section>
     </>
   );
