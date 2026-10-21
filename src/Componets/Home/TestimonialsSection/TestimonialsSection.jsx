@@ -1,72 +1,97 @@
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Quote, Star } from 'lucide-react';
+import { Quote, UserRound, UserRoundPen } from 'lucide-react';
+import { FaMale, FaFemale } from "react-icons/fa";
 
 const testimonials = [
   {
     quote:
-      'Feather VFX Studio delivered exceptional quality and creativity. Their attention to detail is outstanding.',
-    name: 'Arjun Mehta',
-    role: 'Freelancer',
-    avatar: '/images/heroimages/1.png',
-    avatarPosition: 'center top',
+      "Feather VFX offers valuable support when additional VFX capacity is needed. Their team understands the importance of quality, clear communication, and meeting production schedules. They are a practical partner for handling demanding post-production workloads.",
+    name: "Jared Kaplan",
+    role: "Head of Post-Production, ZwickPost",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'A fantastic team to work with. Professional, creative and always delivers beyond expectations.',
-    name: 'Priya Sharma',
-    role: 'Creative Director',
-    avatar: '/images/heroimages/3.png',
-    avatarPosition: 'center top',
+      "The Feather VFX team provides consistent support across roto, paint, and cleanup. Their attention to detail and commitment to delivering clean, production-ready shots make them a useful extension of our post-production workflow.",
+    name: "Egert Kanep",
+    role: "Visual Effects",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'Their VFX and compositing work completely elevated our project. Highly recommended!',
-    name: 'Karan Raj',
-    role: 'Producer',
-    avatar: '/images/heroimages/2.png',
-    avatarPosition: 'center top',
+      "Feather VFX offers valuable support when additional VFX capacity is needed. Their team understands the importance of quality, clear communication, and meeting production schedules. They are a practical partner for handling demanding post-production workloads.",
+    name: "Or Schraiber",
+    role: "Film Director",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.',
-    name: 'Meera Nair',
-    role: 'Film Director',
-    avatar: '/images/heroimages/1.png',
-    avatarPosition: 'center top',
+      "Feather VFX Studio delivered exceptional quality and creativity. Their attention to detail is outstanding.",
+    name: "Arjun Mehta",
+    role: "Freelancer",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.',
-    name: 'Rohan Desai',
-    role: 'Ad Film Maker',
-    avatar: '/images/heroimages/2.png',
-    avatarPosition: 'center top',
+      "A fantastic team to work with. Professional, creative and always delivers beyond expectations.",
+    name: "Priya Sharma",
+    role: "Creative Director",
+    gender: "female",
+    avatar: "/images/female.png",
   },
   {
     quote:
-      'We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.',
-    name: 'Sneha Pillai',
-    role: 'OTT Content Head',
-    avatar: '/images/heroimages/3.png',
-    avatarPosition: 'center top',
+      "Their VFX and compositing work completely elevated our project. Highly recommended!",
+    name: "Karan Raj",
+    role: "Producer",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.',
-    name: 'Vikram Sood',
-    role: 'Brand Manager',
-    avatar: '/images/heroimages/1.png',
-    avatarPosition: 'center top',
+      "Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.",
+    name: "Meera Nair",
+    role: "Film Director",
+    gender: "female",
+    avatar: "/images/female.png",
   },
   {
     quote:
-      'Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.',
-    name: 'Ananya Bose',
-    role: 'Cinematographer',
-    avatar: '/images/heroimages/2.png',
-    avatarPosition: 'center top',
+      "From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.",
+    name: "Rohan Desai",
+    role: "Ad Film Maker",
+    gender: "male",
+    avatar: "/images/male.png",
+  },
+  {
+    quote:
+      "We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.",
+    name: "Sneha Pillai",
+    role: "OTT Content Head",
+    gender: "female",
+    avatar: "/images/female.png",
+  },
+  {
+    quote:
+      "The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.",
+    name: "Vikram Sood",
+    role: "Brand Manager",
+    gender: "male",
+    avatar: "/images/male.png",
+  },
+  {
+    quote:
+      "Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.",
+    name: "Ananya Bose",
+    role: "Cinematographer",
+    gender: "female",
+    avatar: "/images/female.png",
   },
 ];
 
@@ -121,7 +146,7 @@ const TestimonialsSection = () => {
             1024: { slidesPerView: 3, spaceBetween: 20 },
           }}
         >
-          {testimonials.map(({ quote, name, role, avatar, avatarPosition }) => (
+          {testimonials.map(({ quote, name, role, avatar, avatarPosition, gender }) => (
             <SwiperSlide key={name}>
               <article
                 className="group relative flex h-full flex-col overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-primary)] shadow-[0_6px_24px_rgba(0,0,0,0.07)] backdrop-blur-sm transition-all duration-300 hover:border-[var(--gold-primary)]/60 hover:shadow-[0_0_24px_rgba(184,134,11,0.1)]"
@@ -144,27 +169,23 @@ const TestimonialsSection = () => {
                 />
 
                 <div className="relative z-10 flex h-full flex-col gap-5 p-5 sm:p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-[68px] w-[68px] shrink-0 sm:h-[76px] sm:w-[76px]">
-                      <div
-                        className="pointer-events-none absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
-                        aria-hidden="true"
-                      />
-                      <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-[var(--gold-bright)] shadow-[0_0_14px_rgba(184,134,11,0.3)]">
-                        <img
-                          src={avatar}
-                          alt={name}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          style={{ objectPosition: avatarPosition }}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex gap-[3px] text-[var(--gold-bright)]" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <Star key={i} className="h-[15px] w-[15px] fill-current sm:h-[17px] sm:w-[17px]" aria-hidden="true" />
-                      ))}
-                    </div>
-                  </div>
+                 <div className="flex w-full justify-center">
+  <div className="relative flex h-[68px] w-[68px] shrink-0 items-center justify-center sm:h-[76px] sm:w-[76px]">
+    {/* Gold circular frame */}
+    <div
+      className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[var(--gold-bright)] via-[var(--gold-primary)]/50 to-[var(--gold-bright)]/20"
+      aria-hidden="true"
+    />
+
+    {/* Centered profile image */}
+    <img
+      src={avatar}
+      alt={`${name} profile`}
+      className="relative z-10 block h-full w-full rounded-full border-2 border-[var(--bg-primary)] object-cover object-center"
+      loading="lazy"
+    />
+  </div>
+</div>
 
                   <div className="relative flex-1 pl-7">
                     <Quote className="absolute -left-1 top-0 h-6 w-6 rotate-180 fill-[var(--gold-bright)] text-[var(--gold-bright)]" aria-hidden="true" />

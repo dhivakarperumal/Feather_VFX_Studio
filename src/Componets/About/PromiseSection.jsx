@@ -2,27 +2,27 @@ import { Clock3, ShieldCheck, UsersRound } from 'lucide-react';
 
 const promises = [
   {
-    number: '01',
+    // number: '01',  
     title: 'We are on time',
     description:
       'We have a sharp eye on the extend all through its span and work towards conveying ventures with a commitment on time, and take after a six-step venture approach.',
-    image: '/images/heroimages/1.png',
+    image: '/images/time.png',
     Icon: Clock3,
   },
   {
-    number: '02',
+    // number: '02',
     title: 'We are satisfactory',
     description:
       'We believe successful partnerships are built on understanding client requirements, maintaining consistent quality, and responding effectively to feedback.',
-    image: '/images/heroimages/2.png',
+    image: '/images/satisfactory.png',
     Icon: ShieldCheck,
   },
   {
-    number: '03',
+    // number: '03',
     title: 'We are experienced',
     description:
       'Our team combines technical skills, artistic expertise, and a collaborative approach to support projects of varying sizes and complexity.',
-    image: '/images/heroimages/3.png',
+    image: '/images/team.png',
     Icon: UsersRound,
   },
 ];
@@ -68,7 +68,7 @@ const PromiseSection = () => (
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div
-                className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+                className="absolute inset-0 bg-white/50"
                 aria-hidden="true"
               />
               {/* Centered number overlay */}

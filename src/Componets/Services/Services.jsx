@@ -22,15 +22,15 @@ const Services = () => (
       title={<>Our <span className="text-[var(--gold-primary)]">Services</span></>}
       titleSize="text-2xl sm:text-3xl md:text-4xl"
       breadcrumbLabel="Services"
-      background="/images/home.png"
+      background="/images/pageheader/services.png"
       align="left"
     >
-      <Link
+      {/* <Link
         to="/contact"
         className="mt-5 inline-flex min-h-10 items-center gap-3 border border-[var(--gold-primary)] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold-primary)]"
       >
         Discuss your project <ArrowRight size={15} aria-hidden="true" />
-      </Link>
+      </Link> */}
     </PageHeader>
 
     <section className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[5%] pb-12 pt-8 sm:pb-16 sm:pt-10">

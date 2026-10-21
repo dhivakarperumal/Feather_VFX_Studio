@@ -31,12 +31,12 @@ const PageHeader = ({
         data-aos="fade-up"
         data-aos-duration="900"
       >
-        <div className={isLeftAligned ? "max-w-2xl" : "mx-auto max-w-4xl"}>
-          {eyebrow && (
+        <div className={`page-header-copy ${isLeftAligned ? "max-w-2xl" : "mx-auto max-w-4xl"}`}>
+          {/* {eyebrow && (
             <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
               {eyebrow}
             </p>
-          )}
+          )} */}
           {title && (
             <h1 className={`font-serif ${titleSize} font-bold uppercase leading-[1.02] text-white`}>
               {title}
@@ -48,12 +48,12 @@ const PageHeader = ({
             </p>
           )}
           {showBreadcrumb && (
-            <nav aria-label="Breadcrumb" className={`mt-4 flex items-center gap-2 text-xs text-white/75 sm:text-sm ${isLeftAligned ? "justify-start" : "justify-center"}`}>
+            <nav aria-label="Breadcrumb" className={`mt-4 flex items-center gap-2 text-sm font-semibold text-white sm:text-base ${isLeftAligned ? "justify-start" : "justify-center"}`}>
               <Link to="/" className="transition-colors hover:text-[var(--gold-bright)]">
                 Home
               </Link>
               <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-white">
+              <span aria-current="page" className="font-bold text-white">
                 {breadcrumbLabel || (typeof title === "string" ? title : eyebrow)}
               </span>
             </nav>
