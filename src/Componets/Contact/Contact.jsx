@@ -419,7 +419,7 @@ const Contact = () => {
 
       <section aria-labelledby="contact-cta-title" className="relative isolate overflow-hidden border-b border-[var(--border-color)] text-white">
         <img
-          src="/images/home.png"
+          src="/images/slider/hero.webp"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_42%]"
