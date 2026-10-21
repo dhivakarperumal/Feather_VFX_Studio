@@ -419,10 +419,10 @@ const Contact = () => {
 
       <section aria-labelledby="contact-cta-title" className="relative isolate overflow-hidden border-b border-[var(--border-color)] text-white">
         <img
-          src="/images/slider/hero.webp"
+          src="/images/slider/1.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_42%]"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[top-10%]"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/65 to-black/45" aria-hidden="true" />
         <div className="mx-auto grid min-h-[230px] max-w-[1700px] items-center gap-6 px-[5%] py-8 sm:px-[5%] lg:min-h-[250px] lg:grid-cols-[1fr_auto] lg:gap-10 lg:px-[4%] xl:px-[3%]">

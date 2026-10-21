@@ -354,7 +354,7 @@ function Careers() {
           src="/images/slider/2.jpg"
           alt=""
           loading="lazy"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
         />
 
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/20 max-md:bg-black/65" />

@@ -880,7 +880,7 @@ body {
   overflow: hidden;
   border: 1px solid var(--border-color);
   background: url('/images/slider/4.jpg')
-    center / cover no-repeat;
+    center top / cover no-repeat;
 }
 
 .blog-callout__text {
@@ -956,7 +956,7 @@ body {
 @media (max-width: 600px) {
   .blog-callout {
     min-height: 380px;
-    background-position: center;
+    background-position: center top;
   }
 
   .blog-callout__text {
