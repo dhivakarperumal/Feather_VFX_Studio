@@ -6,7 +6,7 @@ const heroImage = (filename) =>
 export const heroSlides = [
   {
     message: 'International Space Station',
-    image: heroImage('hero1.jpg'),
+    image: heroImage('hero1.png'),
   },
   {
     message: 'Carter',
