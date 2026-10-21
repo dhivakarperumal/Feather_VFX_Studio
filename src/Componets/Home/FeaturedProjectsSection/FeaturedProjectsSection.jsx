@@ -5,10 +5,15 @@ import ModalPortal from '../../../CommonComponents/ModalPortal';
 import PageHeader from '../../../CommonComponents/PageHeader';
 import ProjectGalleryCard from '../../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../../data/projects.json';
-import { prioritizeFeaturedProjects } from '../../../data/projectOrdering';
+import {
+  keepFirstCarterProject,
+  prioritizeFeaturedProjects,
+} from '../../../data/projectOrdering';
 
 const { filters } = projectData;
-const projects = prioritizeFeaturedProjects(projectData.projects);
+const projects = keepFirstCarterProject(
+  prioritizeFeaturedProjects(projectData.projects)
+);
 
 const homePageSize = 6;
 
@@ -126,7 +131,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
         <div className="mt-5 grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
           {galleryProjects.map((project) => (
             <ProjectGalleryCard
-              key={project.title}
+              key={project.image}
               project={project}
               landscape={project.orientation === 'landscape'}
               onSelect={() => setSelectedIndex(visibleProjects.findIndex((item) => item.image === project.image))}

@@ -9,7 +9,10 @@ import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ModalPortal from '../../CommonComponents/ModalPortal';
 import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
-import { prioritizeFeaturedProjects } from '../../data/projectOrdering';
+import {
+  keepFirstCarterProject,
+  prioritizeFeaturedProjects,
+} from '../../data/projectOrdering';
 
 const categoryIcons = {
   All: Grid2X2,
@@ -40,11 +43,13 @@ const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const projects = useMemo(() => {
-    return activeFilter === 'All'
+    const filteredProjects = activeFilter === 'All'
       ? prioritizeFeaturedProjects(projectData.projects)
       : prioritizeFeaturedProjects(projectData.projects.filter(
         (project) => project.collection === activeFilter
       ));
+
+    return keepFirstCarterProject(filteredProjects);
   }, [activeFilter]);
 
   const totalPages = Math.ceil(projects.length / PAGE_SIZE);
