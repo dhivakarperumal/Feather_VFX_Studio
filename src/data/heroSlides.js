@@ -5,6 +5,15 @@ const heroImage = (filename) =>
 
 export const heroSlides = [
   {
+    message: 'International Space Station',
+    compactMessage: true,
+    image: heroImage('hero1.jpg'),
+  },
+  {
+    message: 'Carter',
+    image: heroImage('hero2.png'),
+  },
+  {
     message: '2021 Oscars Predictions "One Night in Miami"',
     supportingMessage: 'Roto - Paint - Matchmove | 200+ shots completed',
     compactSupportingMessage: true,
