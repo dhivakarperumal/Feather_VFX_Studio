@@ -123,8 +123,8 @@ const About = () => (
       aria-labelledby="about-heading"
       className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
-      <div className="mx-auto max-w-5xl">
-        <div data-aos="fade-up">
+      <div className="mx-auto max-w-[1500px]">
+        <div className="max-w-5xl" data-aos="fade-up">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
             Our story
           </p>
@@ -143,26 +143,28 @@ const About = () => (
 
           <div className="mt-7 h-px w-16 bg-[var(--gold-primary)]" aria-hidden="true" />
 
-          <ul className="mt-7 grid gap-5 sm:grid-cols-3 sm:gap-0">
-            {studioPillars.map(({ label, Icon }, index) => (
-              <li
-                key={label}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className={`flex items-center gap-3 sm:px-4 lg:px-5 ${
-                  index > 0 ? 'sm:border-l sm:border-[var(--border-color)]' : 'sm:pl-0'
-                }`}
-              >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 text-[var(--gold-bright)]">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <span className="max-w-[100px] text-[10px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-[var(--text-secondary)] sm:text-[9px] lg:text-[10px]">
-                  {label}
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
+        <ul className="mt-8 grid gap-3 sm:grid-cols-3 lg:mt-10 lg:gap-5">
+          {studioPillars.map(({ label, Icon }, index) => (
+            <li
+              key={label}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="group relative flex min-h-24 items-center gap-4 overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-secondary)] px-5 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/70 sm:px-6 lg:min-h-28 lg:gap-5 lg:px-8"
+            >
+              <span
+                className="absolute inset-y-0 left-0 w-1 bg-[var(--gold-primary)]/70 transition-all duration-300 group-hover:w-1.5"
+                aria-hidden="true"
+              />
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/75 text-[var(--gold-bright)] transition-colors duration-300 group-hover:bg-[var(--gold-primary)]/10">
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <span className="text-xs font-semibold uppercase leading-relaxed tracking-[0.14em] text-[var(--text-primary)] sm:text-sm">
+                {label}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
 
