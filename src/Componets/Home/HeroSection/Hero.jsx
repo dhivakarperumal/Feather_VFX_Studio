@@ -71,7 +71,7 @@ const Hero = () => {
             </h1>
 
             <div className="hero-reveal-mask mt-6">
-              <p className={`hero-reveal hero-reveal-d3 hero-headline-outline mx-auto max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${slide.singleLine
+              <p className={`hero-reveal hero-reveal-d3 hero-headline-shadow mx-auto max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${slide.singleLine
                 ? 'max-w-none whitespace-nowrap text-[clamp(1rem,6vw,3rem)] uppercase sm:text-5xl md:text-6xl'
                 : slide.compactMessage
                   ? 'text-[clamp(1rem,3.5vw,1.5rem)] sm:text-2xl md:text-3xl'
@@ -79,7 +79,7 @@ const Hero = () => {
                 {slide.message}
               </p>
               {slide.supportingMessage && (
-                <p className={`hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-white ${slide.compactMessage ? 'hero-headline-outline' : ''} ${slide.compactSupportingMessage
+                <p className={`hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-white ${slide.compactMessage ? 'hero-headline-shadow' : ''} ${slide.compactSupportingMessage
                   ? 'text-[clamp(1rem,4vw,1.75rem)] sm:text-2xl md:text-3xl'
                   : 'text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
                   }`}>

@@ -433,9 +433,7 @@ body {
   animation: heroLineReveal 750ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hero-headline-outline {
-  -webkit-text-stroke: 4px var(--gold-primary);
-  paint-order: stroke fill;
+.hero-headline-shadow {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
 }
 
