@@ -160,6 +160,92 @@ const Contact = () => {
         </a>
       </PageHeader>
 
+      <section className="border-b border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div className="mx-auto grid max-w-[1700px] gap-7 px-[5%] py-10 sm:px-[5%] lg:grid-cols-2 lg:items-stretch lg:gap-10 lg:px-[4%] xl:px-[3%]">
+          <div className="min-h-[320px] overflow-hidden border border-[var(--border-color)] bg-white sm:min-h-[420px] lg:min-h-[520px]">
+            <iframe
+              title={`Map showing Feather VFX Studio at ${indiaAddress}`}
+              src={mapUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full min-h-[320px] w-full border-0 sm:min-h-[420px] lg:min-h-[520px]"
+            />
+          </div>
+
+          <div className="flex flex-col justify-center border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-8 lg:p-10">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">
+              Visit or contact us
+            </p>
+            <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl lg:text-4xl">
+              Studio addresses &amp; contact details
+            </h2>
+
+            <div className="mt-5 grid gap-5">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indiaAddress)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
+              >
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
+                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
+                </span>
+              </a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
+              >
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom · Representation</strong>
+                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
+                </span>
+              </a>
+            </div>
+
+            <div className="mt-5 grid gap-3 border-t border-[var(--border-color)] pt-4 text-xs text-[var(--text-secondary)] sm:grid-cols-2">
+              <div className="flex items-start gap-2">
+                <FaPhoneAlt className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Call us</strong>
+                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{phoneNumber}</a>
+                  <span className="mt-1 block">Mon–Sat · 10:00 AM–7:00 PM</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <FaEnvelope className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Email us</strong>
+                  <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                  <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
+              <a href="#contact-form" className="inline-flex items-center gap-3 border border-[var(--gold-primary)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                Let&apos;s talk <FaArrowRight aria-hidden="true" />
+              </a>
+              <nav className="flex items-center gap-2" aria-label="Follow Feather VFX Studio">
+                {[
+                  ['Facebook', 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', FaFacebookF],
+                  ['LinkedIn', 'https://www.linkedin.com/company/feather-vfx-studio/', FaLinkedinIn],
+                  ['X', 'https://x.com/feathervfx', FaXTwitter],
+                ].map(([name, href, Icon]) => (
+                  <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
+                    <Icon aria-hidden="true" className="h-3.5 w-3.5" />
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto max-w-[1700px] px-[5%] py-8 sm:px-[5%] lg:px-[4%] xl:px-[3%]">
           <div id="contact-form" className="mx-auto w-full border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:w-4/5 sm:p-7" data-aos="fade-up">
@@ -332,92 +418,6 @@ const Contact = () => {
                   <p className="max-w-2xl pt-2 text-xs leading-relaxed text-[var(--text-secondary)]">{answer}</p>
                 </details>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
-        <div className="mx-auto grid max-w-[1700px] gap-7 px-[5%] py-10 sm:px-[5%] lg:grid-cols-2 lg:items-stretch lg:gap-10 lg:px-[4%] xl:px-[3%]">
-          <div className="min-h-[300px] overflow-hidden border border-[var(--border-color)] bg-white sm:min-h-[380px]">
-            <iframe
-              title={`Map showing Feather VFX Studio at ${indiaAddress}`}
-              src={mapUrl}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-full min-h-[300px] w-full border-0 sm:min-h-[380px]"
-            />
-          </div>
-
-          <div className="flex flex-col justify-center border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-8">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">
-              Visit or contact us
-            </p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl">
-              Studio addresses &amp; contact details
-            </h2>
-
-            <div className="mt-5 grid gap-5">
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indiaAddress)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
-              >
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
-                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
-                </span>
-              </a>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
-              >
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom · Representation</strong>
-                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
-                </span>
-              </a>
-            </div>
-
-            <div className="mt-5 grid gap-3 border-t border-[var(--border-color)] pt-4 text-xs text-[var(--text-secondary)] sm:grid-cols-2">
-              <div className="flex items-start gap-2">
-                <FaPhoneAlt className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block text-[var(--text-primary)]">Call us</strong>
-                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{phoneNumber}</a>
-                  <span className="mt-1 block">Mon–Sat · 10:00 AM–7:00 PM</span>
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <FaEnvelope className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block text-[var(--text-primary)]">Email us</strong>
-                  <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
-                  <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-              <a href="#contact-form" className="inline-flex items-center gap-3 border border-[var(--gold-primary)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-                Let&apos;s talk <FaArrowRight aria-hidden="true" />
-              </a>
-              <nav className="flex items-center gap-2" aria-label="Follow Feather VFX Studio">
-                {[
-                  ['Facebook', 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', FaFacebookF],
-                  ['LinkedIn', 'https://www.linkedin.com/company/feather-vfx-studio/', FaLinkedinIn],
-                  ['X', 'https://x.com/feathervfx', FaXTwitter],
-                ].map(([name, href, Icon]) => (
-                  <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
-                    <Icon aria-hidden="true" className="h-3.5 w-3.5" />
-                  </a>
-                ))}
-              </nav>
             </div>
           </div>
         </div>
