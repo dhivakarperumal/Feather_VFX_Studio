@@ -72,7 +72,7 @@ const Hero = () => {
                 {slide.message}
               </p>
               {slide.supportingMessage && (
-                <p className={`hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-white ${slide.compactSupportingMessage
+                <p className={`hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl font-bold uppercase leading-[1.05] tracking-tight text-white ${slide.compactMessage ? 'hero-headline-outline' : ''} ${slide.compactSupportingMessage
                   ? 'text-[clamp(1rem,4vw,1.75rem)] sm:text-2xl md:text-3xl'
                   : 'text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
                   }`}>
@@ -83,16 +83,16 @@ const Hero = () => {
 
             {/* Buttons — delay 4 */}
             <div className="hero-reveal-mask mt-6 w-full sm:mt-8">
-              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:gap-4">
+              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-wrap items-center justify-center gap-1 sm:gap-4">
                 <a
                   href="/projects"
-                  className="btn-shimmer inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
+                  className="btn-shimmer inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
                 >
                   Explore our work <FaArrowRight aria-hidden="true" />
                 </a>
                 <a
                   href="/showreel"
-                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:text-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
+                  className="inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:text-[var(--gold-bright)] sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/60 sm:h-10 sm:w-10">
                     <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
