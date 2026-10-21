@@ -74,22 +74,8 @@ const QualitySecuritySection = () => (
   <img
     src="/images/qsr.png"
     alt="VFX artist working at a studio workstation"
-    className="absolute inset-0 h-full w-full object-contain"
+    className="absolute inset-0 h-full w-full object-contain opacity-60"
     loading="lazy"
-  />
-
-  {/* Soft transparent blend on the left */}
-  <div
-    className="pointer-events-none absolute inset-0"
-    style={{
-      background: `linear-gradient(
-        to right,
-        var(--bg-primary) 0%,
-        transparent 25%,
-        transparent 100%
-      )`,
-    }}
-    aria-hidden="true"
   />
 </div>
         </div>
