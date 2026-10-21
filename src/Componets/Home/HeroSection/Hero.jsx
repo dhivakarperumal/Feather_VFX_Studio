@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaPlay } from 'react-icons/fa';
+import { FaArrowRight, FaPlay } from 'react-icons/fa';
 import { heroCapabilities, heroSlides } from '../../../data/heroSlides';
 
 const Hero = () => {
@@ -32,10 +32,6 @@ const Hero = () => {
     };
   }, [activeSlide]);
 
-  const showSlide = (index) => {
-    setActiveSlide((index + heroSlides.length) % heroSlides.length);
-  };
-
   const slide = heroSlides[activeSlide];
 
   return (
@@ -57,7 +53,7 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-end justify-center px-[5%] pb-20 pt-12 sm:min-h-[780px] sm:px-[5%] sm:pb-24 lg:min-h-[820px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-end justify-center px-[5%] pb-8 pt-12 sm:min-h-[780px] sm:px-[5%] sm:pb-10 lg:min-h-[820px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="mx-auto w-full max-w-4xl text-center">
 
@@ -110,38 +106,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* <button
-          type="button"
-          onClick={() => showSlide(activeSlide - 1)}
-          aria-label="Previous hero slide"
-          className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:left-6"
-        >
-          <FaArrowLeft aria-hidden="true" />
-        </button> */}
-        {/* <button
-          type="button"
-          onClick={() => showSlide(activeSlide + 1)}
-          aria-label="Next hero slide"
-          className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-sm transition hover:border-[var(--gold-primary)] hover:text-[var(--gold-bright)] sm:right-6"
-        >
-          <FaArrowRight aria-hidden="true" />
-        </button> */}
-
-        <div className="absolute bottom-6 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-2 sm:flex" aria-label="Choose hero slide">
-          {heroSlides.map((item, index) => (
-            <button
-              key={item.image}
-              type="button"
-              onClick={() => showSlide(index)}
-              aria-label={`Show slide ${index + 1}: ${item.message}`}
-              aria-current={activeSlide === index ? 'true' : undefined}
-              className={`h-2 rounded-full transition-all ${activeSlide === index
-                ? 'w-8 bg-[var(--gold-primary)]'
-                : 'w-2 bg-white/60 hover:bg-white'
-                }`}
-            />
-          ))}
-        </div>
       </section>
 
       <section className="relative z-20 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/95">
