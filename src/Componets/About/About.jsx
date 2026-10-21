@@ -435,7 +435,7 @@ const About = () => (
       aria-labelledby="values-heading"
       className="relative overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
-      <div className="mx-auto grid max-w-[1500px] gap-6 lg:grid-cols-[0.95fr_1.25fr_0.75fr]">
+      <div className="mx-auto grid max-w-[1500px] gap-6 lg:grid-cols-2">
         <div data-aos="fade-right" className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 sm:p-8">
           <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
             Our values
@@ -459,22 +459,6 @@ const About = () => (
               </li>
             ))}
           </ul>
-        </div>
-
-        <div data-aos="zoom-in" data-aos-delay="100" className="group relative min-h-[360px] overflow-hidden border border-[var(--gold-primary)]/55 lg:min-h-full">
-          <img
-            src="/images/responsiveprojectsupport.png"
-            alt="A detailed digital environment created for a cinematic story"
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/55 via-transparent to-transparent" aria-hidden="true" /> */}
-          <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
-              Crafted frame by frame
-            </p>
-            <ArrowUpRight className="h-5 w-5 text-[var(--gold-bright)]" aria-hidden="true" />
-          </div>
         </div>
 
         <aside data-aos="fade-left" data-aos-delay="200" className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 sm:p-6">
