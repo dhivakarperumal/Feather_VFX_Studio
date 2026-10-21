@@ -49,16 +49,8 @@ const processSteps = [
 const ProcessSection = () => (
   <section
     aria-labelledby="process-heading"
-    className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] px-[5%] py-14 text-[var(--text-primary)] [--gold-primary:#c9a33a] [--gold-bright:#d6ad4b] sm:py-20 lg:px-[6%] lg:py-24"
+    className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-white px-[5%] py-14 text-[var(--text-primary)] [--gold-primary:#c9a33a] [--gold-bright:#d6ad4b] sm:py-20 lg:px-[6%] lg:py-24"
   >
-    <div
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-      aria-hidden="true"
-    >
-      <div className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-[var(--gold-primary)]/[0.05] blur-[100px]" />
-      <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-[var(--gold-primary)]/[0.05] blur-[100px]" />
-    </div>
-
     <div className="mx-auto max-w-[1250px]">
       <header
         className="mx-auto mb-12 max-w-3xl text-center sm:mb-16"
