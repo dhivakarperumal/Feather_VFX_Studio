@@ -29,13 +29,13 @@ export const heroSlides = [
     singleLine: true,
     image: heroImage('2.jpg'),
   },
-  {
-    message:
-      'Films, TV Commercials, Web Videos, Music Videos, Corporate Videos, and TV Shows',
-    supportingMessage: 'Content creators and Collaborators',
-    compactMessage: true,
-    image: heroImage('3.jpg'),
-  },
+  // {
+  //   message:
+  //     'Films, TV Commercials, Web Videos, Music Videos, Corporate Videos, and TV Shows',
+  //   supportingMessage: 'Content creators and Collaborators',
+  //   compactMessage: true,
+  //   image: heroImage('3.jpg'),
+  // },
   {
     message: 'Feather, Great Work Gets Delivered',
     image: heroImage('4.jpg'),
