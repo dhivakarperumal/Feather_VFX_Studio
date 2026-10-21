@@ -61,7 +61,7 @@ const Hero = () => {
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="mx-auto w-full max-w-4xl text-center">
 
-            <h1 className="w-full text-[clamp(0.8rem,3.5vw,1.5rem)] font-semibold leading-tight tracking-[0.12em] text-white sm:text-xl md:text-2xl">
+            <h1 className="w-full text-[clamp(0.8rem,3.5vw,1.5rem)] font-medium leading-tight tracking-[0.12em] text-white sm:text-xl md:text-2xl">
               <span className="hero-reveal hero-reveal-d1">
                 Your VFX Outsourcing Partner
               </span>
