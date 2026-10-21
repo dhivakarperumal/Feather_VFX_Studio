@@ -417,6 +417,47 @@ const Contact = () => {
         </div>
       </section>
 
+      <section aria-labelledby="contact-cta-title" className="relative isolate overflow-hidden border-b border-[var(--border-color)] text-white">
+        <img
+          src="/images/home.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_42%]"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/65 to-black/45" aria-hidden="true" />
+        <div className="mx-auto grid min-h-[230px] max-w-[1700px] items-center gap-6 px-[5%] py-8 sm:px-[5%] lg:min-h-[250px] lg:grid-cols-[1fr_auto] lg:gap-10 lg:px-[4%] xl:px-[3%]">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.28em]">
+              Ready to create something extraordinary?
+            </p>
+            <h2 id="contact-cta-title" className="mt-2 font-serif text-3xl font-bold uppercase leading-tight sm:text-4xl lg:text-[2.7rem]">
+              Let&apos;s bring your vision to life.
+            </h2>
+            <a
+              href="#contact-form"
+              className="mt-5 inline-flex min-h-11 items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--gold-bright)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Start a conversation
+              <FaArrowRight aria-hidden="true" />
+            </a>
+          </div>
+
+          <ul className="grid gap-2 text-xs font-semibold sm:grid-cols-2 lg:grid-cols-1 lg:gap-3">
+            {[
+              'Creative expertise',
+              'Global collaboration',
+              'Reliable delivery',
+              'Long-term partnership',
+            ].map((benefit) => (
+              <li key={benefit} className="flex items-center gap-2">
+                <FaCheckCircle className="shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {formStatus?.type === 'success' && (
         <ModalPortal>
           <div
