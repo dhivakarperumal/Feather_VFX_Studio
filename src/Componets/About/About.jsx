@@ -134,6 +134,9 @@ const About = () => (
           >
             About Us
           </h2>
+          <p className="mt-4 inline-flex border border-[var(--gold-primary)]/50 bg-[var(--bg-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--gold-bright)] sm:text-sm">
+            Feather VFX <span className="mx-2 text-[var(--text-secondary)]">|</span> Established in June 2016
+          </p>
           <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
             At Feather VFX, we combine creativity, technical expertise, and innovation to deliver high-quality visual effects for film and television. We are committed to providing reliable, cost-effective VFX solutions without compromising on quality.
           </p>
