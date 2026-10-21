@@ -439,6 +439,11 @@ body {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
 }
 
+.hero-partner-outline {
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
+}
+
 /* Staggered delays for each line */
 .hero-reveal-d0 {
   animation-delay: 60ms;
