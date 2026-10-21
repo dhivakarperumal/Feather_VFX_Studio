@@ -57,7 +57,7 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-center justify-center px-[5%] py-12 sm:min-h-[780px] sm:px-[5%] lg:min-h-[820px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-end justify-center px-[5%] pb-20 pt-12 sm:min-h-[780px] sm:px-[5%] sm:pb-24 lg:min-h-[820px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
           <div key={activeSlide} className="mx-auto w-full max-w-4xl text-center">
 
