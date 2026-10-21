@@ -1,4 +1,4 @@
-import { FaClapperboard, FaCube, FaFaceSmile, FaLayerGroup, FaWandMagicSparkles } from 'react-icons/fa6';
+import { FaCrosshairs, FaFaceSmile, FaLayerGroup, FaPaintbrush, FaVectorSquare } from 'react-icons/fa6';
 
 const heroImage = (filename) =>
   `/images/slider/${encodeURIComponent(filename)}`;
@@ -43,9 +43,9 @@ export const heroSlides = [
 ];
 
 export const heroCapabilities = [
-  { title: 'Rotoscoping', subtitle: 'Detail-driven mattes.', Icon: FaClapperboard },
-  { title: 'Paint & Prep', subtitle: 'Clean plates & fixes.', Icon: FaWandMagicSparkles },
+  { title: 'Rotoscoping', subtitle: 'Detail-driven mattes.', Icon: FaVectorSquare },
+  { title: 'Paint & Prep', subtitle: 'Clean plates & fixes.', Icon: FaPaintbrush },
   { title: 'Cosmetic VFX', subtitle: 'Natural-looking enhancements.', Icon: FaFaceSmile },
-  { title: 'Matchmove', subtitle: 'Precision tracking.', Icon: FaCube },
+  { title: 'Matchmove', subtitle: 'Precision tracking.', Icon: FaCrosshairs },
   { title: 'Compositing', subtitle: 'Seamless final shots.', Icon: FaLayerGroup },
 ];
