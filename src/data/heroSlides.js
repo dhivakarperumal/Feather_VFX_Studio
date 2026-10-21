@@ -47,4 +47,5 @@ export const heroCapabilities = [
   { title: 'Paint & Prep', subtitle: 'Clean plates & fixes.', Icon: FaWandMagicSparkles },
   { title: 'Cosmetic VFX', subtitle: 'Natural-looking enhancements.', Icon: FaFaceSmile },
   { title: 'Matchmove', subtitle: 'Precision tracking.', Icon: FaCube },
+  { title: 'Compositing', subtitle: 'Seamless final shots.', Icon: FaLayerGroup },
 ];
