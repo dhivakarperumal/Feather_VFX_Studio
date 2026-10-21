@@ -52,7 +52,7 @@ const Hero = () => {
               src={item.image}
               alt=""
               fetchPriority={index === 0 ? 'high' : 'auto'}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
+              className={`absolute inset-0 h-full w-full ${index === 1 ? 'bg-black object-contain' : 'object-cover'} transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
                 }`}
             />
           ))}
