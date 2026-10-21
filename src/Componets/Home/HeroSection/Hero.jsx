@@ -69,13 +69,13 @@ const Hero = () => {
 
             <div className="hero-reveal-mask mt-6">
               <p className={`hero-reveal hero-reveal-d3 mx-auto max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${activeSlide === 2
-                ? 'text-[clamp(0.75rem,3vw,1.25rem)] sm:text-xl md:text-2xl'
-                : 'uppercase text-[clamp(1.5rem,6vw,2.5rem)] sm:text-4xl md:text-5xl'
+                ? 'text-[clamp(1rem,3.5vw,1.5rem)] sm:text-2xl md:text-3xl'
+                : 'uppercase text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
                 }`}>
                 {slide.message}
               </p>
               {slide.supportingMessage && (
-                <p className="hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl">
+                <p className="hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl text-[clamp(1.75rem,6vw,3rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
                   {slide.supportingMessage}
                 </p>
               )}
