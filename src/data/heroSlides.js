@@ -5,17 +5,25 @@ const heroImage = (filename) =>
 
 export const heroSlides = [
   {
+    message: '2021 Oscars Predictions "One Night in Miami"',
+    supportingMessage: 'Roto - Paint - Matchmove | 200+ shots completed',
+    compactSupportingMessage: true,
+    image: heroImage('hero.webp'),
+  },
+  {
     message: 'Projects Delivered on Time and Within Budget',
     image: heroImage('1.jpg'),
   },
   {
     message: 'We Create the Extraordinary',
+    singleLine: true,
     image: heroImage('2.jpg'),
   },
   {
     message:
       'Films, TV Commercials, Web Videos, Music Videos, Corporate Videos, and TV Shows',
     supportingMessage: 'Content creators and Collaborators',
+    compactMessage: true,
     image: heroImage('3.jpg'),
   },
   {
