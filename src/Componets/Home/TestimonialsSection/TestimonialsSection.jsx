@@ -7,67 +7,91 @@ import { FaMale, FaFemale } from "react-icons/fa";
 const testimonials = [
   {
     quote:
-      'Feather VFX Studio delivered exceptional quality and creativity. Their attention to detail is outstanding.',
-    name: 'Arjun Mehta',
-    role: 'Freelancer',
-    gender: 'male',
-    avatar: '/images/male.png',
+      "Feather VFX offers valuable support when additional VFX capacity is needed. Their team understands the importance of quality, clear communication, and meeting production schedules. They are a practical partner for handling demanding post-production workloads.",
+    name: "Jared Kaplan",
+    role: "Head of Post-Production, ZwickPost",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'A fantastic team to work with. Professional, creative and always delivers beyond expectations.',
-    name: 'Priya Sharma',
-    role: 'Creative Director',
-    gender: 'female',
-    avatar: '/images/female.png',
+      "The Feather VFX team provides consistent support across roto, paint, and cleanup. Their attention to detail and commitment to delivering clean, production-ready shots make them a useful extension of our post-production workflow.",
+    name: "Egert Kanep",
+    role: "Visual Effects",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'Their VFX and compositing work completely elevated our project. Highly recommended!',
-    name: 'Karan Raj',
-    role: 'Producer',
-    gender: 'male',
-    avatar: '/images/male.png',
+      "Feather VFX offers valuable support when additional VFX capacity is needed. Their team understands the importance of quality, clear communication, and meeting production schedules. They are a practical partner for handling demanding post-production workloads.",
+    name: "Or Schraiber",
+    role: "Film Director",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.',
-    name: 'Meera Nair',
-    role: 'Film Director',
-    gender: 'female',
-    avatar: '/images/female.png',
+      "Feather VFX Studio delivered exceptional quality and creativity. Their attention to detail is outstanding.",
+    name: "Arjun Mehta",
+    role: "Freelancer",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.',
-    name: 'Rohan Desai',
-    role: 'Ad Film Maker',
-    gender: 'male',
-    avatar: '/images/male.png',
+      "A fantastic team to work with. Professional, creative and always delivers beyond expectations.",
+    name: "Priya Sharma",
+    role: "Creative Director",
+    gender: "female",
+    avatar: "/images/female.png",
   },
   {
     quote:
-      'We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.',
-    name: 'Sneha Pillai',
-    role: 'OTT Content Head',
-    gender: 'female',
-    avatar: '/images/female.png',
+      "Their VFX and compositing work completely elevated our project. Highly recommended!",
+    name: "Karan Raj",
+    role: "Producer",
+    gender: "male",
+    avatar: "/images/male.png",
   },
   {
     quote:
-      'The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.',
-    name: 'Vikram Sood',
-    role: 'Brand Manager',
-    gender: 'male',
-    avatar: '/images/male.png',
+      "Absolutely world-class service. The CGI renders they produced were indistinguishable from reality. Our audience was blown away.",
+    name: "Meera Nair",
+    role: "Film Director",
+    gender: "female",
+    avatar: "/images/female.png",
   },
   {
     quote:
-      'Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.',
-    name: 'Ananya Bose',
-    role: 'Cinematographer',
-    gender: 'female',
-    avatar: '/images/female.png',
+      "From concept to final delivery, the Feather VFX team was meticulous, responsive and incredibly talented.",
+    name: "Rohan Desai",
+    role: "Ad Film Maker",
+    gender: "male",
+    avatar: "/images/male.png",
+  },
+  {
+    quote:
+      "We partnered with Feather VFX for our OTT series and the quality of work surpassed every studio we have worked with before.",
+    name: "Sneha Pillai",
+    role: "OTT Content Head",
+    gender: "female",
+    avatar: "/images/female.png",
+  },
+  {
+    quote:
+      "The compositing and color grading Feather VFX did for our commercial was nothing short of breathtaking.",
+    name: "Vikram Sood",
+    role: "Brand Manager",
+    gender: "male",
+    avatar: "/images/male.png",
+  },
+  {
+    quote:
+      "Highly professional studio with an eye for cinematic detail. They turned our rough footage into a visual masterpiece.",
+    name: "Ananya Bose",
+    role: "Cinematographer",
+    gender: "female",
+    avatar: "/images/female.png",
   },
 ];
 
