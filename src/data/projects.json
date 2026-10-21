@@ -2,6 +2,14 @@
   "filters": ["All", "Featured", "Commercials", "Episodes"],
   "projects": [
     {
+      "title": "Enola Holmes 2",
+      "category": "VFX & CGI",
+      "image": "/images/projects/featured/0.1.jpg",
+      "collection": "Featured",
+      "orientation": "portrait",
+      "heightRatio": 1.337
+    },
+    {
       "title": "Spider-Man: Far From Home",
       "category": "VFX & CGI",
       "image": "/images/projects/featured/1.jpg",

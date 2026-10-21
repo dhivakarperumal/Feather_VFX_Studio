@@ -1,4 +1,5 @@
 const featuredProjectPriority = [
+  '/images/projects/featured/0.1.jpg',
   '/images/projects/featured/1.1.jpg',
   '/images/projects/featured/2.jpg',
   '/images/projects/featured/3.1.jpg',
