@@ -78,12 +78,18 @@ const OurCulture = () => (
             Our <span className="text-[var(--gold-primary)]">Culture</span>
           </h3>
           <div className="mt-4 space-y-4 text-justify text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
-            <p>
-              Visual effects are our passion. We combine advanced technology with creative expertise to produce visuals that bring stories to life. With a strong focus on detail, collaboration, and continuous improvement, we work closely with our clients to turn their creative visions into reality.
-            </p>
-            <p>
-              Our culture is built on quality, commitment, transparency, and timely delivery. We strive to maintain high professional standards while fostering creativity, teamwork, and long-term client relationships.
-            </p>
+            <div className="flex items-start gap-2">
+              <span className="font-bold text-[var(--gold-primary)]" aria-hidden="true">*</span>
+              <p>
+                Visual effects are our passion. We combine advanced technology with creative expertise to produce visuals that bring stories to life. With a strong focus on detail, collaboration, and continuous improvement, we work closely with our clients to turn their creative visions into reality.
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="font-bold text-[var(--gold-primary)]" aria-hidden="true">*</span>
+              <p>
+                Our culture is built on quality, commitment, transparency, and timely delivery. We strive to maintain high professional standards while fostering creativity, teamwork, and long-term client relationships.
+              </p>
+            </div>
           </div>
 
           <ul className="mt-6 grid gap-3 sm:grid-cols-2" aria-label="Our culture pillars">
@@ -108,15 +114,24 @@ const OurCulture = () => (
             Our <span className="text-[var(--gold-primary)]">Mission</span>
           </h3>
           <div className="mt-4 space-y-4 text-justify text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
-            <p>
-              Our mission is to deliver exceptional visual effects services through creativity, technical excellence, and efficient workflows.
-            </p>
-            <p>
-              Our multidisciplinary team provides a comprehensive range of services, including Rotoscoping, Paint and Prep, Compositing, Matchmove, and Animation. We work with production companies and VFX studios to provide flexible solutions tailored to their project requirements.
-            </p>
-            <p>
-              We encourage professional growth, collaboration, innovation, and responsible business practices. By combining artistic talent with technical expertise, we aim to build lasting partnerships and deliver value to every client.
-            </p>
+            <div className="flex items-start gap-2">
+              <span className="font-bold text-[var(--gold-primary)]" aria-hidden="true">*</span>
+              <p>
+                Our mission is to deliver exceptional visual effects services through creativity, technical excellence, and efficient workflows.
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="font-bold text-[var(--gold-primary)]" aria-hidden="true">*</span>
+              <p>
+                Our multidisciplinary team provides a comprehensive range of services, including Rotoscoping, Paint and Prep, Compositing, Matchmove, and Animation. We work with production companies and VFX studios to provide flexible solutions tailored to their project requirements.
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="font-bold text-[var(--gold-primary)]" aria-hidden="true">*</span>
+              <p>
+                We encourage professional growth, collaboration, innovation, and responsible business practices. By combining artistic talent with technical expertise, we aim to build lasting partnerships and deliver value to every client.
+              </p>
+            </div>
           </div>
 
           <ul className="mt-6 grid gap-3 sm:grid-cols-2" aria-label="Our mission commitments">
