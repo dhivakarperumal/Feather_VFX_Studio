@@ -7,10 +7,12 @@ export const heroSlides = [
   {
     message: 'International Space Station',
     image: heroImage('hero1.png'),
+    responsiveImage: heroImage('hero1_res.jpg'),
   },
   {
     message: 'Carter',
     image: heroImage('hero2.png'),
+    responsiveImage: heroImage('hero2_res.png'),
   },
   {
     message: '2021 Oscars Predictions "One Night in Miami"',

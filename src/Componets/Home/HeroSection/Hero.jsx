@@ -43,14 +43,21 @@ const Hero = () => {
       >
         <div className="absolute inset-0 z-0" aria-hidden="true">
           {heroSlides.map((item, index) => (
-            <img
+            <picture
               key={item.image}
-              src={item.image}
-              alt=""
-              fetchPriority={index === 0 ? 'high' : 'auto'}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
+              className={`absolute inset-0 block h-full w-full transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100 hero-ken-burns' : 'opacity-0'
                 }`}
-            />
+            >
+              {item.responsiveImage && (
+                <source media="(max-width: 767px)" srcSet={item.responsiveImage} />
+              )}
+              <img
+                src={item.image}
+                alt=""
+                fetchPriority={index === 0 ? 'high' : 'auto'}
+                className="h-full w-full object-cover"
+              />
+            </picture>
           ))}
         </div>
         <div className="relative z-20 mx-auto flex min-h-[440px] max-w-[1700px] items-end justify-center px-[5%] pb-8 pt-12 sm:min-h-[640px] sm:px-[5%] sm:pb-10 lg:min-h-[700px] lg:px-[3%]">
