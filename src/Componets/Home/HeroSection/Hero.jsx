@@ -92,9 +92,9 @@ const Hero = () => {
                 </a>
                 <a
                   href="/showreel"
-                  className="inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:text-[var(--gold-bright)] sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
+                  className="inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap bg-white px-2 py-3 text-[10px] font-semibold uppercase tracking-[0.04em] text-black transition-colors hover:bg-[var(--gold-bright)] sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/60 sm:h-10 sm:w-10">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/60 sm:h-10 sm:w-10">
                     <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
                   </span>
                   Watch showreel
