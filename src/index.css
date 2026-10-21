@@ -390,11 +390,28 @@ body {
   inset: 0;
   z-index: 10;
   pointer-events: none;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .page-header-copy {
+  position: relative;
+  isolation: isolate;
+  width: fit-content;
+  max-width: 100%;
+  padding: 1rem 1.25rem;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95);
+}
+
+.page-header-copy::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.68);
+  content: "";
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 767px) {
