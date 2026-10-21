@@ -4,6 +4,22 @@ const heroImage = (filename) =>
   `/images/slider/${encodeURIComponent(filename)}`;
 
 export const heroSlides = [
+   {
+    message: '2021 Oscars Predictions "One Night in Miami"',
+    supportingMessage: 'Roto - Paint - Matchmove | 200+ shots completed',
+    compactSupportingMessage: true,
+    image: heroImage('hero.webp'),
+  },
+   {
+    message: 'International Space Station',
+    image: heroImage('hero1.png'),
+    responsiveImage: heroImage('hero1_res.jpg'),
+  },
+  {
+    message: 'Carter',
+    image: heroImage('hero2.png'),
+    responsiveImage: heroImage('hero2_res.png'),
+  },
   {
     message: 'Projects Delivered on Time and Within Budget',
     image: heroImage('1.jpg'),
@@ -23,22 +39,6 @@ export const heroSlides = [
   {
     message: 'Feather, Great Work Gets Delivered',
     image: heroImage('4.jpg'),
-  },
-  {
-    message: 'International Space Station',
-    image: heroImage('hero1.png'),
-    responsiveImage: heroImage('hero1_res.jpg'),
-  },
-  {
-    message: 'Carter',
-    image: heroImage('hero2.png'),
-    responsiveImage: heroImage('hero2_res.png'),
-  },
-  {
-    message: '2021 Oscars Predictions "One Night in Miami"',
-    supportingMessage: 'Roto - Paint - Matchmove | 200+ shots completed',
-    compactSupportingMessage: true,
-    image: heroImage('hero.webp'),
   },
 ];
 
