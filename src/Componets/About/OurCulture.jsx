@@ -1,9 +1,11 @@
 import {
   Award,
+  BadgeCheck,
   ChartNoAxesCombined,
   Clock3,
   Leaf,
   Lightbulb,
+  RefreshCw,
   ShieldCheck,
   Sparkles,
   UsersRound,
@@ -16,6 +18,8 @@ const culturePillars = [
   { title: 'Excellence', Icon: Award },
   { title: 'Transparency', Icon: ShieldCheck },
   { title: 'Timely Delivery', Icon: Clock3 },
+  { title: 'Commitment', Icon: BadgeCheck },
+  { title: 'Continuous Improvement', Icon: RefreshCw },
 ];
 
 const missionCards = [
