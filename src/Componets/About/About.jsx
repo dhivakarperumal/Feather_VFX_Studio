@@ -298,30 +298,40 @@ const About = () => (
 
       <div className="border-y border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto max-w-[1500px] px-[6%] py-8 sm:px-[5%] sm:py-10 lg:px-[3%]">
-          <div data-aos="fade-left">
-            <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
-              Physical security
-              <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
-            </p>
-            <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
-              Door access controls and CCTV are monitored around the clock, with on-site security for studio entrances, production areas and data centers. Mobile phones and electronic storage devices are prohibited in the production network.
-            </p>
+          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
+            <img
+              src="/images/physicalsecurity.png"
+              alt="Feather VFX Studio physical security, with monitored access, production areas, and data center."
+              loading="lazy"
+              data-aos="fade-right"
+              className="h-full min-h-56 w-full object-cover sm:min-h-72"
+            />
 
-            <ul className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-              {physicalSecurityFeatures.map(({ label, Icon }, index) => (
-                <li
-                  key={label}
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 70}
-                  className="flex min-h-[94px] flex-col items-center justify-center gap-2 border border-[var(--border-color)] bg-[var(--bg-secondary)] px-2 py-2.5 text-center"
-                >
-                  <Icon className="h-6 w-6 text-[var(--gold-bright)]" aria-hidden="true" />
-                  <span className="text-[9px] font-semibold leading-[1.4] text-[var(--text-secondary)] sm:text-[10px]">
-                    {label}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div data-aos="fade-left">
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
+                Physical security
+                <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
+              </p>
+              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
+                Door access controls and CCTV are monitored around the clock, with on-site security for studio entrances, production areas and data centers. Mobile phones and electronic storage devices are prohibited in the production network.
+              </p>
+
+              <ul className="mt-5 grid grid-cols-2 gap-2.5">
+                {physicalSecurityFeatures.map(({ label, Icon }, index) => (
+                  <li
+                    key={label}
+                    data-aos="zoom-in"
+                    data-aos-delay={index * 70}
+                    className="flex min-h-[94px] flex-col items-center justify-center gap-2 border border-[var(--border-color)] bg-[var(--bg-secondary)] px-2 py-2.5 text-center"
+                  >
+                    <Icon className="h-6 w-6 text-[var(--gold-bright)]" aria-hidden="true" />
+                    <span className="text-[9px] font-semibold leading-[1.4] text-[var(--text-secondary)] sm:text-[10px]">
+                      {label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
