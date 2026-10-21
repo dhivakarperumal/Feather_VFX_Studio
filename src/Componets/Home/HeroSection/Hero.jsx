@@ -68,8 +68,9 @@ const Hero = () => {
                 ? 'whitespace-nowrap text-[clamp(0.8rem,5vw,2.75rem)] uppercase'
                 : slide.compactMessage
                   ? 'text-[clamp(1rem,3.5vw,1.5rem)] sm:text-2xl md:text-3xl'
-                  : 'uppercase text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
-                }`}>
+                  : 'uppercase text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'} ${slide.highlightMessage
+                  ? 'w-fit border border-white/70 bg-black/55 px-3 py-2 shadow-lg backdrop-blur-sm sm:px-5 sm:py-3'
+                  : ''}`}>
                 {slide.message}
               </p>
               {slide.supportingMessage && (
