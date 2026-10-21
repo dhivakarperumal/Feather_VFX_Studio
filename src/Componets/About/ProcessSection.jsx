@@ -87,7 +87,7 @@ const ProcessSection = () => (
         <span className="mx-auto mt-6 block h-[3px] w-16 bg-[var(--gold-bright)]" />
       </header>
 
-      <div className="mx-auto hidden max-w-[1000px] md:block" data-aos="fade-up">
+      <div className="mx-auto hidden max-w-[800px] md:block" data-aos="fade-up">
         <img
           src="/images/ourprocess.png"
           alt="Our six-step VFX process: Project Brief, Planning, Production, Quality Control, Client Review, and Final Delivery."
