@@ -162,105 +162,6 @@ const Contact = () => {
         </a>
       </PageHeader>
 
-      <section className="border-b border-[var(--border-color)] bg-[var(--bg-primary)]">
-        <div className="mx-auto grid max-w-[1700px] gap-5 px-[5%] py-6 sm:px-[5%] lg:grid-cols-2 lg:items-stretch lg:gap-8 lg:px-[4%] xl:px-[3%]">
-          <div className="min-h-[280px] overflow-hidden border border-[var(--border-color)] bg-white sm:min-h-[360px] lg:min-h-[440px]">
-            <iframe
-              title={`Map showing Feather VFX Studio at ${indiaAddress}`}
-              src={mapUrl}
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              className="h-full min-h-[280px] w-full border-0 sm:min-h-[360px] lg:min-h-[440px]"
-            />
-          </div>
-
-          <div className="flex flex-col justify-center border border-[var(--border-color)] bg-[var(--bg-primary)] p-4 sm:p-6 lg:p-7">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">
-              Our studio
-            </p>
-            <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl lg:text-4xl">
-              Get in touch
-            </h2>
-            <p className="mt-1 text-sm leading-relaxed text-[var(--text-secondary)]">
-              Tell us about your project, timeline, and requirements. Our team will be happy to discuss the right VFX solution for your production.
-            </p>
-
-            <div className="mt-3 grid gap-3">
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indiaAddress)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
-              >
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
-                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
-                </span>
-              </a>
-              <div className="flex gap-3 text-sm">
-                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition-colors hover:text-[var(--gold-bright)]"
-                  >
-                    <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom · Representation</strong>
-                    <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
-                  </a>
-                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{ukPhoneNumber}</a>
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-3 grid gap-2 border-t border-[var(--border-color)] pt-3 text-xs text-[var(--text-secondary)] sm:grid-cols-2">
-              <div className="flex items-start gap-2">
-                <FaPhoneAlt className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block text-[var(--text-primary)]">Call us</strong>
-                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{phoneNumber}</a>
-                  <span className="mt-1 block">Mon–Sat · 10:00 AM–7:00 PM</span>
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <FaEnvelope className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block text-[var(--text-primary)]">Email us</strong>
-                  <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
-                  <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
-                  <span className="mt-1 block">We usually respond within 24 hours</span>
-                </span>
-              </div>
-              <div className="flex items-start gap-2 sm:col-span-2">
-                <FaGlobe className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
-                <span>
-                  <strong className="block text-[var(--text-primary)]">Work with us</strong>
-                  <span className="mt-1 block">India | Remote | Worldwide</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-              <a href="#contact-form" className="inline-flex items-center gap-3 border border-[var(--gold-primary)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-                Let&apos;s talk <FaArrowRight aria-hidden="true" />
-              </a>
-              <nav className="flex items-center gap-2" aria-label="Follow Feather VFX Studio">
-                {[
-                  ['Facebook', 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', FaFacebookF],
-                  ['LinkedIn', 'https://www.linkedin.com/company/feather-vfx-studio/', FaLinkedinIn],
-                  ['X', 'https://x.com/feathervfx', FaXTwitter],
-                ].map(([name, href, Icon]) => (
-                  <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
-                    <Icon aria-hidden="true" className="h-3.5 w-3.5" />
-                  </a>
-                ))}
-              </nav>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">
         <div className="mx-auto max-w-[1700px] px-[5%] py-8 sm:px-[5%] lg:px-[4%] xl:px-[3%]">
@@ -374,28 +275,105 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* <section className="grid border-b border-[var(--border-color)] lg:min-h-[190px] lg:grid-cols-2">
-        <div className="relative min-h-[190px] overflow-hidden">
-          <img src="/images/heroimages/3.png" alt="Action film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" />
-        </div>
-        <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8" data-aos="fade-up">
-          <div className="mx-auto w-full max-w-[850px]">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">Collaborate with us</p>
-            <h2 className="mt-1 font-serif text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">
-              Turning ideas
-              <br />
-              into <span className="text-[var(--gold-primary)]">visual reality</span>
-            </h2>
-            <p className="mt-2 max-w-lg text-sm text-[var(--text-secondary)]">
-              Whether it&apos;s a film, series, commercial or an immersive experience, we&apos;re here to create impactful visuals together.
+      <section className="border-b border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div className="mx-auto grid max-w-[1700px] gap-5 px-[5%] py-6 sm:px-[5%] lg:grid-cols-2 lg:items-stretch lg:gap-8 lg:px-[4%] xl:px-[3%]">
+          <div className="min-h-[280px] overflow-hidden border border-[var(--border-color)] bg-white sm:min-h-[360px] lg:min-h-[440px]">
+            <iframe
+              title={`Map showing Feather VFX Studio at ${indiaAddress}`}
+              src={mapUrl}
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="h-full min-h-[280px] w-full border-0 sm:min-h-[360px] lg:min-h-[440px]"
+            />
+          </div>
+
+          <div className="flex flex-col justify-center border border-[var(--border-color)] bg-[var(--bg-primary)] p-4 sm:p-6 lg:p-7">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">
+              Our studio
             </p>
-            <a href="#contact-form" className="mt-4 inline-flex items-center gap-3 border border-[var(--gold-primary)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
-              Let&apos;s talk <FaArrowRight aria-hidden="true" />
-            </a>
+            <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl lg:text-4xl">
+              Get in touch
+            </h2>
+            <p className="mt-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+              Tell us about your project, timeline, and requirements. Our team will be happy to discuss the right VFX solution for your production.
+            </p>
+
+            <div className="mt-3 grid gap-3">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indiaAddress)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
+              >
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block font-semibold text-[var(--gold-primary)]">India · Production Facility</strong>
+                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
+                </span>
+              </a>
+              <div className="flex gap-3 text-sm">
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-[var(--gold-bright)]"
+                  >
+                    <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom · Representation</strong>
+                    <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
+                  </a>
+                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{ukPhoneNumber}</a>
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-3 grid gap-2 border-t border-[var(--border-color)] pt-3 text-xs text-[var(--text-secondary)] sm:grid-cols-2">
+              <div className="flex items-start gap-2">
+                <FaPhoneAlt className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Call us</strong>
+                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{phoneNumber}</a>
+                  <span className="mt-1 block">Mon–Sat · 10:00 AM–7:00 PM</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <FaEnvelope className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Email us</strong>
+                  <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                  <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                  <span className="mt-1 block">We usually respond within 24 hours</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2 sm:col-span-2">
+                <FaGlobe className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Work with us</strong>
+                  <span className="mt-1 block">India | Remote | Worldwide</span>
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+              <a href="#contact-form" className="inline-flex items-center gap-3 border border-[var(--gold-primary)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-primary)] transition-colors hover:bg-[var(--gold-primary)] hover:text-[var(--bg-primary)]">
+                Let&apos;s talk <FaArrowRight aria-hidden="true" />
+              </a>
+              <nav className="flex items-center gap-2" aria-label="Follow Feather VFX Studio">
+                {[
+                  ['Facebook', 'https://www.facebook.com/people/Feather-VFX-Studio/100065280768853/#', FaFacebookF],
+                  ['LinkedIn', 'https://www.linkedin.com/company/feather-vfx-studio/', FaLinkedinIn],
+                  ['X', 'https://x.com/feathervfx', FaXTwitter],
+                ].map(([name, href, Icon]) => (
+                  <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name} className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-primary)] transition-colors hover:border-[var(--gold-primary)] hover:text-[var(--gold-primary)]">
+                    <Icon aria-hidden="true" className="h-3.5 w-3.5" />
+                  </a>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto grid max-w-[1700px] gap-8 px-[6%] py-10 sm:px-[5%] lg:grid-cols-[1.2fr_0.9fr] lg:gap-12 lg:px-[4%] xl:px-[3%]">
