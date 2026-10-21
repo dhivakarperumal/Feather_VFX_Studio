@@ -27,7 +27,8 @@ const infoEmail = 'info@feathervfx.com';
 const enquiryEmail = 'enquiry@feathervfx.com';
 const gmailComposeUrl = (email) =>
   `https://mail.google.com/mail/u/0/?fs=1&to=${encodeURIComponent(email)}&tf=cm`;
-const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(indiaAddress)}&output=embed`;
+const mapUrl =
+  'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7773.903633797518!2d80.17163!3d13.038739!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261241e339d29%3A0x6f572b9c718197c1!2s10%2F18%2C%20S.%20V.%20S%20Nagar%2C%20Valasaravakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600087%2C%20India!5e0!3m2!1sen!2sus!4v1792543964449!5m2!1sen!2sus';
 
 const enquiryTypes = [
   { title: 'Film & Series', description: 'VFX and post-production support', value: 'Film & Series', Icon: FaClapperboard },
@@ -168,7 +169,7 @@ const Contact = () => {
               title={`Map showing Feather VFX Studio at ${indiaAddress}`}
               src={mapUrl}
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
               className="h-full min-h-[280px] w-full border-0 sm:min-h-[360px] lg:min-h-[440px]"
             />
           </div>
