@@ -4,6 +4,7 @@ import {
   FaArrowRight,
   FaCheckCircle,
   FaEnvelope,
+  FaGlobe,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaQuestionCircle,
@@ -174,11 +175,14 @@ const Contact = () => {
 
           <div className="flex flex-col justify-center border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-8 lg:p-10">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">
-              Visit or contact us
+              Our studio
             </p>
             <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl lg:text-4xl">
-              Studio addresses &amp; contact details
+              Get in touch
             </h2>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+              Tell us about your project, timeline, and requirements. Our team will be happy to discuss the right VFX solution for your production.
+            </p>
 
             <div className="mt-5 grid gap-5">
               <a
@@ -193,18 +197,21 @@ const Contact = () => {
                   <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{indiaAddress}</span>
                 </span>
               </a>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex gap-3 text-sm transition-colors hover:text-[var(--gold-bright)]"
-              >
+              <div className="flex gap-3 text-sm">
                 <FaMapMarkerAlt className="mt-1 shrink-0 text-[var(--gold-primary)]" aria-hidden="true" />
                 <span>
-                  <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom · Representation</strong>
-                  <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ukAddress)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-[var(--gold-bright)]"
+                  >
+                    <strong className="block font-semibold text-[var(--gold-primary)]">United Kingdom · Representation</strong>
+                    <span className="mt-1 block text-xs leading-relaxed text-[var(--text-secondary)]">{ukAddress}</span>
+                  </a>
+                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]">{ukPhoneNumber}</a>
                 </span>
-              </a>
+              </div>
             </div>
 
             <div className="mt-5 grid gap-3 border-t border-[var(--border-color)] pt-4 text-xs text-[var(--text-secondary)] sm:grid-cols-2">
@@ -222,6 +229,14 @@ const Contact = () => {
                   <strong className="block text-[var(--text-primary)]">Email us</strong>
                   <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
                   <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                  <span className="mt-1 block">We usually respond within 24 hours</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2 sm:col-span-2">
+                <FaGlobe className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Work with us</strong>
+                  <span className="mt-1 block">India | Remote | Worldwide</span>
                 </span>
               </div>
             </div>
