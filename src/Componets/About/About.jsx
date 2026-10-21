@@ -435,7 +435,7 @@ const About = () => (
       aria-labelledby="values-heading"
       className="relative overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
-      <div className="mx-auto grid max-w-[1500px] gap-6 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-[1500px] gap-6 lg:grid-cols-[2.5fr_1.5fr]">
         <div data-aos="fade-right" className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-6 sm:p-8">
           <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
             Our values
