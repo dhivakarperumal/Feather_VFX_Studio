@@ -6,16 +6,16 @@ import PageHeader from '../../../CommonComponents/PageHeader';
 import ProjectGalleryCard from '../../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../../data/projects.json';
 import {
-  keepFirstCarterProject,
+  keepCarterProjectsOnFirstPage,
   prioritizeFeaturedProjects,
 } from '../../../data/projectOrdering';
 
 const { filters } = projectData;
-const projects = keepFirstCarterProject(
-  prioritizeFeaturedProjects(projectData.projects)
-);
-
 const homePageSize = 6;
+const projects = keepCarterProjectsOnFirstPage(
+  prioritizeFeaturedProjects(projectData.projects),
+  homePageSize
+);
 
 const FeaturedProjectsSection = ({ homePage = false }) => {
   const [activeFilter, setActiveFilter] = useState('All');

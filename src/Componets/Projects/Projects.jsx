@@ -10,7 +10,7 @@ import ModalPortal from '../../CommonComponents/ModalPortal';
 import ProjectGalleryCard from '../../CommonComponents/ProjectGalleryCard';
 import projectData from '../../data/projects.json';
 import {
-  keepFirstCarterProject,
+  keepCarterProjectsOnFirstPage,
   prioritizeFeaturedProjects,
 } from '../../data/projectOrdering';
 
@@ -49,7 +49,7 @@ const Projects = () => {
         (project) => project.collection === activeFilter
       ));
 
-    return keepFirstCarterProject(filteredProjects);
+    return keepCarterProjectsOnFirstPage(filteredProjects, PAGE_SIZE);
   }, [activeFilter]);
 
   const totalPages = Math.ceil(projects.length / PAGE_SIZE);

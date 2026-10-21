@@ -31,14 +31,8 @@ export const prioritizeFeaturedProjects = (projects) => {
     .map(({ project }) => project);
 };
 
-export const keepFirstCarterProject = (projects) => {
-  let hasCarter = false;
-
-  return projects.filter((project) => {
-    if (project.title !== 'Carter') return true;
-    if (hasCarter) return false;
-
-    hasCarter = true;
-    return true;
-  });
-};
+export const keepCarterProjectsOnFirstPage = (projects, pageSize) => (
+  projects.filter((project, index) => (
+    project.title !== 'Carter' || index < pageSize
+  ))
+);
