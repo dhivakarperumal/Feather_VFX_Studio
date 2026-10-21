@@ -69,7 +69,7 @@ const Hero = () => {
 
             <div className="hero-reveal-mask mt-6">
               <p className={`hero-reveal hero-reveal-d3 mx-auto max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${activeSlide === 1
-                ? 'whitespace-nowrap text-[clamp(0.8rem,5vw,2.75rem)]'
+                ? 'whitespace-nowrap text-[clamp(0.8rem,5vw,2.75rem)] uppercase'
                 : activeSlide === 2
                   ? 'text-[clamp(1rem,3.5vw,1.5rem)] sm:text-2xl md:text-3xl'
                   : 'uppercase text-[clamp(1.75rem,6vw,3rem)] sm:text-5xl md:text-6xl'
