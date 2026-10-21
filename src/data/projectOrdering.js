@@ -3,11 +3,11 @@ const featuredProjectPriority = [
   '/images/projects/featured/0.2.jpg',
   '/images/projects/featured/0.3.png',
   '/images/projects/featured/1.1.jpg',
-  '/images/projects/featured/2.jpg',
-  '/images/projects/featured/3.1.jpg',
   '/images/projects/featured/45.jpg',
   '/images/projects/featured/MAIN.jpg',
   '/images/projects/featured/MAIN1.jpg',
+  '/images/projects/featured/2.jpg',
+  '/images/projects/featured/3.1.jpg',
 ];
 
 export const prioritizeFeaturedProjects = (projects) => {
