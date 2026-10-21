@@ -1,4 +1,11 @@
 import { FaCrosshairs, FaFaceSmile, FaLayerGroup, FaPaintbrush, FaVectorSquare } from 'react-icons/fa6';
+import {
+  Layers3,
+  Crosshair,
+  Paintbrush,
+  ScanLine,
+  Sparkles,
+} from "lucide-react";
 
 const heroImage = (filename) =>
   `/images/slider/${encodeURIComponent(filename)}`;
@@ -43,9 +50,29 @@ export const heroSlides = [
 ];
 
 export const heroCapabilities = [
-  { title: 'Rotoscoping', subtitle: 'Detail-driven mattes.', Icon: FaVectorSquare },
-  { title: 'Paint & Prep', subtitle: 'Clean plates & fixes.', Icon: FaPaintbrush },
-  { title: 'Cosmetic VFX', subtitle: 'Natural-looking enhancements.', Icon: FaFaceSmile },
-  { title: 'Matchmove', subtitle: 'Precision tracking.', Icon: FaCrosshairs },
-  { title: 'Compositing', subtitle: 'Seamless final shots.', Icon: FaLayerGroup },
+  {
+    title: "Compositing",
+    subtitle: "Seamless final shots.",
+    Icon: Layers3,
+  },
+  {
+    title: "Matchmove",
+    subtitle: "Precision tracking.",
+    Icon: Crosshair,
+  },
+  {
+    title: "Paint & Prep",
+    subtitle: "Clean plates & fixes.",
+    Icon: Paintbrush,
+  },
+  {
+    title: "Rotoscoping",
+    subtitle: "Precise subject mattes.",
+    Icon: ScanLine,
+  },
+  {
+    title: "Cosmetic VFX",
+    subtitle: "Natural-looking enhancements.",
+    Icon: Sparkles,
+  },
 ];
