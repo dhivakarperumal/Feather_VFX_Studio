@@ -14,7 +14,7 @@ const promises = [
     title: 'We are satisfactory',
     description:
       'We believe successful partnerships are built on understanding client requirements, maintaining consistent quality, and responding effectively to feedback.',
-    image: '/images/quality.png',
+    image: '/images/satisfactory.png',
     Icon: ShieldCheck,
   },
   {
@@ -22,7 +22,7 @@ const promises = [
     title: 'We are experienced',
     description:
       'Our team combines technical skills, artistic expertise, and a collaborative approach to support projects of varying sizes and complexity.',
-    image: '/images/teamwork.png',
+    image: '/images/team.png',
     Icon: UsersRound,
   },
 ];
