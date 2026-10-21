@@ -42,7 +42,7 @@ const ProcessSection = () => (
 
       <div className="mx-auto md:hidden" data-aos="fade-up">
         <img
-          src="/images/ourprocessresponsive.png"
+          src="/images/ourprocess_res.png"
           alt="Our six-step VFX process: Project Brief, Planning, Production, Quality Control, Client Review, and Final Delivery."
           loading="lazy"
           className="block h-auto w-full"
