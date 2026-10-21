@@ -87,76 +87,13 @@ const ProcessSection = () => (
         <span className="mx-auto mt-6 block h-[3px] w-16 bg-[var(--gold-bright)]" />
       </header>
 
-      <div className="relative mx-auto hidden h-[750px] max-w-[1200px] md:block">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1000 750"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-0 h-full w-full"
-        >
-          <path
-            d="M 250 125 H 750 C 888 125 888 375 750 375 H 250 C 112 375 112 625 250 625 H 750"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="5"
-            className="text-[var(--text-primary)]/75"
-          />
-        </svg>
-
-        <ol className="relative grid h-full grid-cols-2 grid-rows-3 p-0">
-          {processSteps.map(({ title, description, Icon }, index) => {
-            const number = String(index + 1).padStart(2, '0');
-            const row = Math.floor(index / 2);
-            const contentBelowTrack = row === 1;
-
-            return (
-              <li
-                key={title}
-                className="relative min-w-0"
-                style={{
-                  gridColumn: index === 2 ? 2 : index === 3 ? 1 : undefined,
-                  gridRow: row + 1,
-                }}
-                data-aos="fade-up"
-                data-aos-delay={index * 60}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`absolute left-1/2 z-10 h-12 w-[5px] -translate-x-1/2 bg-[var(--text-primary)]/75 ${
-                    contentBelowTrack ? 'top-1/2' : 'bottom-1/2'
-                  }`}
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute left-1/2 top-1/2 z-20 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[5px] border-[var(--text-primary)]/75 bg-[var(--bg-primary)] after:h-3 after:w-3 after:rounded-full after:bg-[var(--text-primary)]/80"
-                />
-
-                <article
-                  className={`absolute left-4 right-4 flex items-start gap-4 lg:left-10 lg:right-10 ${
-                    contentBelowTrack ? 'bottom-5' : 'top-5'
-                  } ${index % 2 === 1 ? 'flex-row-reverse text-right' : ''}`}
-                >
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center text-[var(--gold-primary)] sm:h-16 sm:w-16">
-                    <Icon aria-hidden="true" className="h-12 w-12" strokeWidth={1.8} />
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--gold-primary)]">
-                      Step {number}
-                    </p>
-                    <h3 className="mt-1 font-serif text-xl font-bold uppercase leading-tight text-[var(--text-primary)] lg:text-2xl">
-                      {title}
-                    </h3>
-                    <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--text-secondary)]">
-                      {description}
-                    </p>
-                  </div>
-                </article>
-              </li>
-            );
-          })}
-        </ol>
+      <div className="mx-auto hidden max-w-[1200px] md:block" data-aos="fade-up">
+        <img
+          src="/images/ourprocess.png"
+          alt="Our six-step VFX process: Project Brief, Planning, Production, Quality Control, Client Review, and Final Delivery."
+          loading="lazy"
+          className="block h-auto w-full"
+        />
       </div>
 
       <div className="relative md:hidden">
