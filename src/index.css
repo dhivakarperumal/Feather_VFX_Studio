@@ -387,18 +387,10 @@ body {
 
 .cinematic-copy-overlay {
   position: absolute;
-  inset: 0 auto 0 0;
+  inset: 0;
   z-index: 10;
-  width: min(76%, 900px);
   pointer-events: none;
-  background: linear-gradient(90deg,
-      rgba(0, 0, 0, 0.68) 0%,
-      rgba(0, 0, 0, 0.46) 68%,
-      rgba(0, 0, 0, 0) 100%);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 68%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, #000 68%, transparent 100%);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 @media (max-width: 767px) {
@@ -408,19 +400,6 @@ body {
     backdrop-filter: none !important;
     -webkit-filter: none !important;
     filter: none !important;
-  }
-
-  .cinematic-copy-overlay {
-    width: 100%;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-    filter: none !important;
-    background: linear-gradient(90deg,
-        rgba(0, 0, 0, 0.72) 0%,
-        rgba(0, 0, 0, 0.5) 72%,
-        rgba(0, 0, 0, 0.08) 100%);
-    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
-    mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
   }
 
 }
