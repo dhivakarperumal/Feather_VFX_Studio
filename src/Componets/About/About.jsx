@@ -7,7 +7,6 @@ import {
   Heart,
   Lightbulb,
   LockKeyhole,
-  Play,
   Rocket,
   ServerCog,
   Settings2,
@@ -124,35 +123,8 @@ const About = () => (
       aria-labelledby="about-heading"
       className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
-      <div className="mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[1.08fr_1fr] lg:gap-14">
-        <div data-aos="fade-right" className="group relative min-h-[340px] overflow-hidden border border-[var(--gold-primary)]/70 p-1 sm:min-h-[440px] lg:min-h-[500px]">
-          <span className="pointer-events-none absolute left-0 top-0 z-20 h-12 w-12 border-l-2 border-t-2 border-[var(--gold-bright)]" aria-hidden="true" />
-          <span className="pointer-events-none absolute bottom-0 right-0 z-20 h-12 w-12 border-b-2 border-r-2 border-[var(--gold-primary)]" aria-hidden="true" />
-
-          <img
-            src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
-            alt="A cinematic fantasy world created through visual effects"
-            className="absolute inset-1 h-[calc(100%-0.5rem)] w-[calc(100%-0.5rem)] object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
-          />
-          <div className="absolute inset-1 bg-gradient-to-t from-[var(--text-primary)]/60 via-transparent to-transparent" aria-hidden="true" />
-          <div className="absolute inset-x-7 bottom-7 z-10 sm:inset-x-10 sm:bottom-10">
-            <p className="font-serif text-4xl italic leading-[0.9] text-[var(--gold-bright)] drop-shadow-lg sm:text-5xl lg:text-6xl">
-              Beyond
-              <span className="block pl-8">Reality</span>
-            </p>
-            <a
-              href="/showreel"
-              className="mt-7 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--bg-primary)] transition-colors hover:text-[var(--gold-bright)] sm:mt-9"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--bg-primary)]/70 transition-colors hover:border-[var(--gold-bright)]">
-                <Play className="ml-0.5 h-4 w-4 fill-current" aria-hidden="true" />
-              </span>
-              Watch our showreel
-            </a>
-          </div>
-        </div>
-
-        <div data-aos="fade-left" data-aos-delay="100">
+      <div className="mx-auto max-w-5xl">
+        <div data-aos="fade-up">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
             Our story
           </p>
@@ -246,17 +218,6 @@ const About = () => (
       className="relative isolate overflow-hidden border-y border-[var(--gold-primary)]/20 bg-[var(--bg-secondary)] text-[var(--text-primary)]"
     >
       <div className="relative isolate overflow-hidden border-b border-[var(--border-color)]">
-        <img
-          src="/images/offerbanner.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-left opacity-10"
-        />
-        <div
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--bg-secondary)] via-[var(--bg-secondary)]/90 to-[var(--bg-secondary)]/80"
-          aria-hidden="true"
-        />
-
         <div className="mx-auto grid max-w-[1500px] gap-9 px-[6%] py-12 sm:px-[5%] sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-[3%] lg:py-20">
           <div data-aos="fade-right">
             <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--gold-bright)]">
@@ -295,7 +256,7 @@ const About = () => (
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[1500px] items-center gap-7 px-[6%] py-9 sm:px-[5%] sm:py-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12 lg:px-[3%]">
+      <div className="mx-auto grid max-w-[1500px] items-stretch gap-7 px-[6%] py-9 sm:px-[5%] sm:py-12 lg:grid-cols-2 lg:gap-12 lg:px-[3%]">
         <div
           data-aos="fade-right"
           className="relative overflow-hidden border border-[var(--gold-primary)]/40 bg-[var(--bg-primary)] p-7 sm:p-9"
@@ -316,7 +277,7 @@ const About = () => (
           </div>
         </div>
 
-        <div data-aos="fade-left" className="grid items-center gap-6 sm:grid-cols-[0.85fr_1.15fr] sm:gap-8">
+        <div data-aos="fade-left" className="flex flex-col justify-center">
           <div>
             <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
               Industry standard
@@ -332,31 +293,11 @@ const About = () => (
               </p>
             </div>
           </div>
-          <div className="group relative min-h-[220px] overflow-hidden border border-[var(--gold-primary)]/40 sm:min-h-[260px]">
-            <img
-              src="/images/industry.png"
-              alt="Secure server room supporting protected production data"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/40 via-transparent to-transparent" aria-hidden="true" />
-          </div>
         </div>
       </div>
 
       <div className="border-y border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto max-w-[1500px] px-[6%] py-8 sm:px-[5%] sm:py-10 lg:px-[3%]">
-          <div className="grid items-center gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
-          <div className="group relative min-h-[250px] overflow-hidden border border-[var(--gold-primary)]/45 sm:min-h-[320px]" data-aos="fade-right">
-            <img
-              src="/images/physicalsecurity.png"
-              alt="Controlled-entry security system at a studio facility"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)]/30 via-transparent to-[var(--bg-primary)]/20" aria-hidden="true" />
-          </div>
-
           <div data-aos="fade-left">
             <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
               Physical security
@@ -381,7 +322,6 @@ const About = () => (
                 </li>
               ))}
             </ul>
-          </div>
           </div>
 
           <div className="mt-8 grid items-center gap-6 border-t border-[var(--border-color)] pt-7 sm:mt-10 sm:gap-8 sm:pt-8 lg:grid-cols-[1.15fr_0.85fr]">
