@@ -123,7 +123,7 @@ const About = () => (
       aria-labelledby="about-heading"
       className="relative isolate overflow-hidden bg-[var(--bg-primary)] px-[6%] py-12 text-[var(--text-primary)] sm:px-[5%] sm:py-16 lg:px-[3%] lg:py-20"
     >
-      <div className="mx-auto max-w-[1500px]">
+      <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.8fr)] lg:items-center lg:gap-12">
         <div className="max-w-5xl" data-aos="fade-up">
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
             Our story
@@ -142,15 +142,14 @@ const About = () => (
           </p>
 
           <div className="mt-7 h-px w-16 bg-[var(--gold-primary)]" aria-hidden="true" />
-
         </div>
-        <ul className="mt-8 grid gap-3 sm:grid-cols-3 lg:mt-10 lg:gap-5">
+        <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 lg:gap-4">
           {studioPillars.map(({ label, Icon }, index) => (
             <li
               key={label}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="group relative flex min-h-24 items-center gap-4 overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-secondary)] px-5 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/70 sm:px-6 lg:min-h-28 lg:gap-5 lg:px-8"
+              className="group relative flex min-h-24 items-center gap-4 overflow-hidden border border-[var(--gold-primary)]/30 bg-[var(--bg-secondary)] px-5 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/70 sm:px-6 lg:min-h-24 lg:gap-5 lg:px-8"
             >
               <span
                 className="absolute inset-y-0 left-0 w-1 bg-[var(--gold-primary)]/70 transition-all duration-300 group-hover:w-1.5"
