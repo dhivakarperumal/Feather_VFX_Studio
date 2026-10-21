@@ -29,7 +29,6 @@ const CountUpStat = ({ value, delay = 0 }) => {
 };
 
 import OurCulture from './OurCulture';
-import OurMission from './OurMission';
 import ProcessSection from './ProcessSection';
 import PromiseSection from './PromiseSection';
 
@@ -425,7 +424,6 @@ const About = () => (
     </section>
 
     <OurCulture />
-    <OurMission />
 
     <ProcessSection />
     <PromiseSection />
