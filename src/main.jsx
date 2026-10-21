@@ -1,6 +1,7 @@
 import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes, Navigate, useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './index.css'
@@ -45,26 +46,28 @@ function AOSManager() {
 
 function AppRoot() {
   return (
-    <BrowserRouter>
-      <AOSManager />
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<SiteHome />} />
-          <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="about" element={<About />} />
-          <Route path="services" element={<ServicesRoute />} />
-          <Route path="projects" element={<FeaturedProjectsSection />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="contactus" element={<Navigate to="/contact" replace />} />
-          <Route path="careers" element={<Careers />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="sitemap" element={<Sitemap />} />
-          <Route path="sitemap.xml" element={<Navigate to="/sitemap" replace />} />
-          <Route path="showreel" element={<ShowreelPage />} />
-          <Route path="work" element={<Reels />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AOSManager />
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<SiteHome />} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="about" element={<About />} />
+            <Route path="services" element={<ServicesRoute />} />
+            <Route path="projects" element={<FeaturedProjectsSection />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="contactus" element={<Navigate to="/contact" replace />} />
+            <Route path="careers" element={<Careers />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="sitemap" element={<Sitemap />} />
+            <Route path="sitemap.xml" element={<Navigate to="/sitemap" replace />} />
+            <Route path="showreel" element={<ShowreelPage />} />
+            <Route path="work" element={<Reels />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }
 

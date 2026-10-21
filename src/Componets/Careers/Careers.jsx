@@ -351,15 +351,15 @@ function Careers() {
       )}
       <section className="relative isolate overflow-hidden">
         <img
-          src="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+          src="/images/slider/2.jpg"
           alt=""
           loading="lazy"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_55%]"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-top"
         />
 
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/20 max-md:bg-black/65" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/20 to-black/15 max-md:bg-black/65" />
 
-        <div className="mx-auto flex min-h-[260px] max-w-[1700px] flex-col justify-between gap-6 px-[6%] py-10 text-white sm:px-[5%] md:flex-row md:items-center lg:px-[3%]">
+        <div className="mx-auto flex min-h-[320px] max-w-[1700px] flex-col justify-between gap-6 px-[6%] py-12 text-white sm:px-[5%] md:flex-row md:items-center lg:min-h-[380px] lg:px-[3%]">
           <div className="max-w-2xl" data-aos="fade-up">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white">
               Ready to create something extraordinary?
