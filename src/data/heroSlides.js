@@ -36,7 +36,6 @@ export const heroSlides = [
   },
   {
     message: 'Feather, Great Work Gets Delivered',
-    highlightMessage: true,
     image: heroImage('4.jpg'),
   },
 ];
