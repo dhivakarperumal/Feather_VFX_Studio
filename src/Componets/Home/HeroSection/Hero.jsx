@@ -86,13 +86,13 @@ const Hero = () => {
               <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-wrap items-center justify-center gap-1 sm:gap-4">
                 <a
                   href="/projects"
-                  className="btn-shimmer inline-flex h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
+                  className="btn-shimmer inline-flex h-9 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:h-10 sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
                 >
                   Explore our work <FaArrowRight aria-hidden="true" />
                 </a>
                 <a
                   href="/showreel"
-                  className="inline-flex h-10 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap bg-white px-2 text-[10px] font-semibold uppercase tracking-[0.04em] text-black transition-colors hover:bg-[var(--gold-bright)] sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
+                  className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap bg-white px-2 text-[10px] font-semibold uppercase tracking-[0.04em] text-black transition-colors hover:bg-[var(--gold-bright)] sm:h-10 sm:gap-3 sm:px-3 sm:text-xs sm:tracking-[0.12em]"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-black/60">
                     <FaPlay className="ml-0.5 text-xs" aria-hidden="true" />
