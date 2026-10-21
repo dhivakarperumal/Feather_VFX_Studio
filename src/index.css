@@ -393,6 +393,10 @@ body {
   background: rgba(255, 255, 255, 0.18);
 }
 
+.page-header-copy {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.95);
+}
+
 @media (max-width: 767px) {
   #home,
   #home * {

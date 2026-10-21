@@ -31,7 +31,7 @@ const PageHeader = ({
         data-aos="fade-up"
         data-aos-duration="900"
       >
-        <div className={isLeftAligned ? "max-w-2xl" : "mx-auto max-w-4xl"}>
+        <div className={`page-header-copy ${isLeftAligned ? "max-w-2xl" : "mx-auto max-w-4xl"}`}>
           {eyebrow && (
             <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-bright)] sm:text-xs">
               {eyebrow}
