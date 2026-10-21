@@ -58,7 +58,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
           background="/images/pageheader/project.png"
           align="left"
         >
-          <Link
+          {/* <Link
             to="/showreel"
             className="mt-6 inline-flex min-h-11 items-center gap-4 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
@@ -66,7 +66,7 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current">
               <FaPlay className="ml-0.5 text-[9px]" aria-hidden="true" />
             </span>
-          </Link>
+          </Link> */}
           <Link
             to="/showreel"
             className="mt-5 hidden w-fit items-center gap-3 text-left text-white md:absolute md:bottom-8 md:right-[5%] md:mt-0 md:flex"

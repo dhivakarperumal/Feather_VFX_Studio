@@ -153,13 +153,13 @@ const Contact = () => {
         background="/images/pageheader/contactus.png"
         align="left"
       >
-        <a
+        {/* <a
           href="#contact-form"
           className="mt-5 inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           Send us a message
           <FaArrowRight aria-hidden="true" />
-        </a>
+        </a> */}
       </PageHeader>
 
 

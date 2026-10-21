@@ -141,7 +141,7 @@ function Careers() {
         background="/images/pageheader/career.png"
         align="left"
       >
-        <div className="mt-5 flex flex-wrap items-center gap-3">
+        {/* <div className="mt-5 flex flex-wrap items-center gap-3">
           <a href="#open-positions" className="inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             View open positions <FaArrowRight aria-hidden="true" />
           </a>
@@ -149,7 +149,7 @@ function Careers() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-current text-sm">▶</span>
             Watch our studio
           </a>
-        </div>
+        </div> */}
       </PageHeader>
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-secondary)]">

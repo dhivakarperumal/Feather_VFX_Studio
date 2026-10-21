@@ -57,13 +57,13 @@ function ShowreelPage() {
         background="/images/pageheader/showreel.png"
         align="left"
       >
-        <a
+        {/* <a
           href="#showreels"
           className="mt-5 inline-flex min-h-11 items-center gap-3 border border-[var(--gold-bright)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold-bright)] hover:text-[#17191b] focus-visible:bg-[var(--gold-bright)] focus-visible:text-[#17191b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           <Play size={14} fill="currentColor" aria-hidden="true" />
           Play showreel
-        </a>
+        </a> */}
       </PageHeader>
 
       <section id="showreels" className="scroll-mt-24 bg-[#f3f1ed] px-[4%] py-8 sm:py-12">
@@ -150,13 +150,13 @@ function ShowreelPage() {
             </p>
           </div>
 
-          <Link
+          {/* <Link
             to="/contact"
             className="relative inline-flex shrink-0 items-center gap-2 rounded-full bg-[#c77a00] px-6 py-3 text-xs font-semibold text-white shadow-md shadow-[#9b5d00]/20 transition-all hover:-translate-y-0.5 hover:bg-[#a96500] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a96500]"
           >
             Discuss Your Project
             <ArrowRight size={15} />
-          </Link>
+          </Link> */}
         </div>
       </section>
     </div>
