@@ -272,10 +272,10 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="grid border-b border-[var(--border-color)] lg:min-h-[190px] lg:grid-cols-2">
+      {/* <section className="grid border-b border-[var(--border-color)] lg:min-h-[190px] lg:grid-cols-2">
         <div className="relative min-h-[190px] overflow-hidden">
           <img src="/images/heroimages/3.png" alt="Action film production scene at sunset" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-          {/* <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" /> */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-[var(--bg-primary)]/70" />
         </div>
         <div className="flex items-center bg-[var(--bg-secondary)] px-[7%] py-8" data-aos="fade-up">
           <div className="mx-auto w-full max-w-[850px]">
@@ -293,7 +293,7 @@ const Contact = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="border-b border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto grid max-w-[1700px] gap-8 px-[6%] py-10 sm:px-[5%] lg:grid-cols-[1.2fr_0.9fr] lg:gap-12 lg:px-[4%] xl:px-[3%]">
@@ -351,18 +351,13 @@ const Contact = () => {
 
           <div className="flex flex-col justify-center border border-[var(--border-color)] bg-[var(--bg-primary)] p-5 sm:p-8">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--text-primary)]">
-              Collaborate with us
+              Visit or contact us
             </p>
-            <h2 className="mt-1 font-serif text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">
-              Turning ideas
-              <br />
-              into <span className="text-[var(--gold-primary)]">visual reality</span>
+            <h2 className="mt-1 font-serif text-2xl font-bold uppercase leading-tight sm:text-3xl">
+              Studio addresses &amp; contact details
             </h2>
-            <p className="mt-2 max-w-lg text-sm leading-relaxed text-[var(--text-secondary)]">
-              Whether it&apos;s a film, series, commercial or an immersive experience, we&apos;re here to create impactful visuals together.
-            </p>
 
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="mt-5 grid gap-5">
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indiaAddress)}`}
                 target="_blank"
@@ -389,15 +384,23 @@ const Contact = () => {
               </a>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 border-t border-[var(--border-color)] pt-4 text-xs text-[var(--text-secondary)]">
-              <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="inline-flex items-center gap-2 transition-colors hover:text-[var(--gold-bright)]">
-                <FaPhoneAlt className="text-[var(--gold-primary)]" aria-hidden="true" />
-                {phoneNumber}
-              </a>
-              <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[var(--gold-bright)]">
-                <FaEnvelope className="text-[var(--gold-primary)]" aria-hidden="true" />
-                {infoEmail}
-              </a>
+            <div className="mt-5 grid gap-3 border-t border-[var(--border-color)] pt-4 text-xs text-[var(--text-secondary)] sm:grid-cols-2">
+              <div className="flex items-start gap-2">
+                <FaPhoneAlt className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Call us</strong>
+                  <a href={`tel:${ukPhoneNumber.replaceAll(' ', '')}`} className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{phoneNumber}</a>
+                  <span className="mt-1 block">Mon–Sat · 10:00 AM–7:00 PM</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <FaEnvelope className="mt-0.5 text-[var(--gold-primary)]" aria-hidden="true" />
+                <span>
+                  <strong className="block text-[var(--text-primary)]">Email us</strong>
+                  <a href={gmailComposeUrl(infoEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{infoEmail}</a>
+                  <a href={gmailComposeUrl(enquiryEmail)} target="_blank" rel="noopener noreferrer" className="mt-1 block transition-colors hover:text-[var(--gold-bright)]">{enquiryEmail}</a>
+                </span>
+              </div>
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
