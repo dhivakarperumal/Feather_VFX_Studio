@@ -1,8 +1,10 @@
 import {
   Award,
   ChartNoAxesCombined,
+  Clock3,
   Leaf,
   Lightbulb,
+  ShieldCheck,
   Sparkles,
   UsersRound,
 } from 'lucide-react';
@@ -12,6 +14,8 @@ const culturePillars = [
   { title: 'Technology', Icon: Sparkles },
   { title: 'Collaborative Team', Icon: UsersRound },
   { title: 'Excellence', Icon: Award },
+  { title: 'Transparency', Icon: ShieldCheck },
+  { title: 'Timely Delivery', Icon: Clock3 },
 ];
 
 const missionCards = [
@@ -69,7 +73,7 @@ const OurCulture = () => (
           <h3 className="font-serif text-xl font-bold uppercase text-[var(--text-primary)] sm:text-2xl">
             Our <span className="text-[var(--gold-primary)]">Culture</span>
           </h3>
-          <div className="mt-4 space-y-4 text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
+          <div className="mt-4 space-y-4 text-justify text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
             <p>
               Visual effects are our passion. We combine advanced technology with creative expertise to produce visuals that bring stories to life. With a strong focus on detail, collaboration, and continuous improvement, we work closely with our clients to turn their creative visions into reality.
             </p>
@@ -99,7 +103,7 @@ const OurCulture = () => (
           <h3 className="font-serif text-xl font-bold uppercase text-[var(--text-primary)] sm:text-2xl">
             Our <span className="text-[var(--gold-primary)]">Mission</span>
           </h3>
-          <div className="mt-4 space-y-4 text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
+          <div className="mt-4 space-y-4 text-justify text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-[15px]">
             <p>
               Our mission is to deliver exceptional visual effects services through creativity, technical excellence, and efficient workflows.
             </p>
