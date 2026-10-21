@@ -329,10 +329,10 @@ const About = () => (
               <h3 className="font-serif text-xl font-bold uppercase leading-tight text-[var(--text-primary)] sm:text-2xl">
                 Quality, Confidentiality and Security
               </h3>
-              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
+              <p className="mt-3 max-w-2xl text-sm text-justify leading-[1.7] text-[var(--text-secondary)]">
                 At Feather VFX, we understand the importance of protecting our clients&apos; projects and confidential information. We are committed to maintaining professional standards for data handling, secure file transfers, and production confidentiality.
               </p>
-              <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
+              <p className="mt-3 max-w-2xl text-justify text-sm leading-[1.7] text-[var(--text-secondary)]">
                 Our workflows are designed to support reliable communication, secure collaboration, and efficient delivery throughout the production process. We continually review our practices to support our clients&apos; requirements.
               </p>
             </div>
