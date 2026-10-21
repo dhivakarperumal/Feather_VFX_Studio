@@ -3,15 +3,15 @@ import { Clock3, ShieldCheck, UsersRound } from 'lucide-react';
 const promises = [
   {
     // number: '01',  
-    title: 'We are on time',
+    title: 'We Deliver on Time',
     description:
-      'We have a sharp eye on the extend all through its span and work towards conveying ventures with a commitment on time, and take after a six-step venture approach.',
+      'We plan each project carefully, monitor progress, and communicate with clients to help meet agreed deadlines.',
     image: '/images/time.png',
     Icon: Clock3,
   },
   {
     // number: '02',
-    title: 'We are satisfactory',
+    title: 'We Focus on Client Satisfaction',
     description:
       'We believe successful partnerships are built on understanding client requirements, maintaining consistent quality, and responding effectively to feedback.',
     image: '/images/satisfactory.png',
@@ -19,7 +19,7 @@ const promises = [
   },
   {
     // number: '03',
-    title: 'We are experienced',
+    title: 'We Bring Experience and Creativity',
     description:
       'Our team combines technical skills, artistic expertise, and a collaborative approach to support projects of varying sizes and complexity.',
     image: '/images/team.png',

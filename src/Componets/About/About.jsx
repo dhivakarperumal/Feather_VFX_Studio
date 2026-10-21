@@ -321,7 +321,7 @@ const About = () => (
                 <span className="h-px w-10 bg-[var(--gold-primary)]" aria-hidden="true" />
               </p>
               <p className="mt-3 max-w-2xl text-sm leading-[1.7] text-[var(--text-secondary)]">
-                Door access controls and CCTV are monitored around the clock, with on-site security for studio entrances, production areas and data centers. Mobile phones and electronic storage devices are prohibited in the production network.
+                We implement appropriate physical and operational security measures to help protect our production environment and client content. Access controls, monitoring, and restrictions on electronic devices within designated production areas can help safeguard sensitive material.
               </p>
 
               <ul className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
