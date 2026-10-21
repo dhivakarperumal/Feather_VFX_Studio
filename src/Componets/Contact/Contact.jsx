@@ -150,7 +150,7 @@ const Contact = () => {
         }
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         breadcrumbLabel="Contact Us"
-        background="/images/heroimages/Dragon%20Over%20the%20Sunset%20Kingdom.png"
+        background="/images/pageheader/contactus.png"
         align="left"
       >
         <a

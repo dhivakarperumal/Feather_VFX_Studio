@@ -138,7 +138,7 @@ function Careers() {
         title={<>Our <span className="text-[var(--gold-bright)]">Careers</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         breadcrumbLabel="Careers"
-        background="/images/heroimages/2.png"
+        background="/images/pageheader/career.png"
         align="left"
       >
         <div className="mt-5 flex flex-wrap items-center gap-3">

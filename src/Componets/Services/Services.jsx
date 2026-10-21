@@ -22,7 +22,7 @@ const Services = () => (
       title={<>Our <span className="text-[var(--gold-primary)]">Services</span></>}
       titleSize="text-2xl sm:text-3xl md:text-4xl"
       breadcrumbLabel="Services"
-      background="/images/home.png"
+      background="/images/pageheader/services.png"
       align="left"
     >
       <Link

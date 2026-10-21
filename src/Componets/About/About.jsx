@@ -107,7 +107,7 @@ const About = () => (
       title={<>About <span className="text-[var(--gold-bright)]">Us</span></>}
       titleSize="text-2xl sm:text-3xl md:text-4xl"
       breadcrumbLabel="About Us"
-      background="/images/home.png"
+      background="/images/pageheader/aboutus.png"
       align="left"
     >
       <a

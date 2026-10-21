@@ -54,7 +54,7 @@ function ShowreelPage() {
         title={<>Our <span className="text-[#E5A544]">Showreel</span></>}
         titleSize="text-2xl sm:text-3xl md:text-4xl"
         breadcrumbLabel="Showreel"
-        background="/images/heroimages/Dragon Over the Sunset Kingdom.png"
+        background="/images/pageheader/showreel.png"
         align="left"
       >
         <a
