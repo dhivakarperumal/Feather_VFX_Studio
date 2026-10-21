@@ -298,13 +298,13 @@ const About = () => (
 
       <div className="border-y border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto max-w-[1500px] px-[6%] py-8 sm:px-[5%] sm:py-10 lg:px-[3%]">
-          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
+          <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
             <img
               src="/images/physicalsecurity.png"
               alt="Feather VFX Studio physical security, with monitored access, production areas, and data center."
               loading="lazy"
               data-aos="fade-right"
-              className="h-full min-h-56 w-full object-cover sm:min-h-72"
+              className="aspect-[2/1] w-full object-cover"
             />
 
             <div data-aos="fade-left">
@@ -316,7 +316,7 @@ const About = () => (
                 Door access controls and CCTV are monitored around the clock, with on-site security for studio entrances, production areas and data centers. Mobile phones and electronic storage devices are prohibited in the production network.
               </p>
 
-              <ul className="mt-5 grid grid-cols-2 gap-2.5">
+              <ul className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
                 {physicalSecurityFeatures.map(({ label, Icon }, index) => (
                   <li
                     key={label}
