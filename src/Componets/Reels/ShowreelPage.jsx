@@ -84,11 +84,8 @@ function ShowreelPage() {
 
           <div className="flex flex-col gap-8 sm:gap-10">
             {showreels.map(({ id, title, description, video, Icon }, index) => (
-              <article
-                key={id}
-                className="overflow-hidden rounded-xl border-2 border-[#c77a00]/45 bg-white shadow-[0_8px_24px_rgba(35,28,18,0.12)]"
-              >
-                <div className="flex items-start gap-3 px-4 py-4 sm:px-6">
+              <div key={id}>
+                <div className="mb-3 flex items-start gap-3 px-1 md:hidden">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d58a0b] text-[#c77a00]">
                     <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
                   </span>
@@ -104,18 +101,37 @@ function ShowreelPage() {
                     </p>
                   </div>
                 </div>
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={SHOWREEL_POSTER}
-                  aria-label={`${title} showreel`}
-                  className="block aspect-video w-full bg-white object-contain"
-                >
-                  <source src={video} type="video/mp4" />
-                  Your browser does not support the video element.
-                </video>
-              </article>
+
+                <article className="overflow-hidden rounded-xl border-2 border-[#c77a00]/45 bg-white shadow-[0_8px_24px_rgba(35,28,18,0.12)]">
+                  <div className="hidden items-start gap-3 px-4 py-4 sm:px-6 md:flex">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d58a0b] text-[#c77a00]">
+                      <Icon size={21} strokeWidth={1.7} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#c77a00]">
+                        Showreel {index + 1}
+                      </p>
+                      <h3 className="mt-1 font-serif text-xl font-bold leading-tight text-[#202124] sm:text-2xl">
+                        {title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-[#62666a]">
+                        {description}
+                      </p>
+                    </div>
+                  </div>
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={SHOWREEL_POSTER}
+                    aria-label={`${title} showreel`}
+                    className="block aspect-video w-full bg-white object-contain"
+                  >
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video element.
+                  </video>
+                </article>
+              </div>
             ))}
           </div>
         </div>
