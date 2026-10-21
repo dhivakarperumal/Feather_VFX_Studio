@@ -299,13 +299,18 @@ const About = () => (
       <div className="border-y border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="mx-auto max-w-[1500px] px-[6%] py-8 sm:px-[5%] sm:py-10 lg:px-[3%]">
           <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
-            <img
-              src="/images/physicalsecurity.png"
-              alt="Feather VFX Studio physical security, with monitored access, production areas, and data center."
-              loading="lazy"
-              data-aos="fade-right"
-              className="aspect-[2/1] w-full object-cover"
-            />
+            <div className="relative overflow-hidden" data-aos="fade-right">
+              <img
+                src="/images/physicalsecurity.png"
+                alt="Feather VFX Studio physical security, with monitored access, production areas, and data center."
+                loading="lazy"
+                className="aspect-[2/1] w-full object-cover"
+              />
+              <span
+                className="pointer-events-none absolute inset-0 bg-white/40"
+                aria-hidden="true"
+              />
+            </div>
 
             <div data-aos="fade-left">
               <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--gold-bright)]">
