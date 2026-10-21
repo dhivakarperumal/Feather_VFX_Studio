@@ -57,25 +57,25 @@ const Hero = () => {
             />
           ))}
         </div>
-        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-end px-[5%] py-12 sm:min-h-[780px] sm:items-center sm:px-[5%] lg:min-h-[820px] lg:px-[3%]">
+        <div className="relative z-20 mx-auto flex min-h-[620px] max-w-[1700px] items-center justify-center px-[5%] py-12 sm:min-h-[780px] sm:px-[5%] lg:min-h-[820px] lg:px-[3%]">
           {/* key forces remount on slide change → animations replay */}
-          <div key={activeSlide} className="w-full max-w-none text-center sm:max-w-2xl sm:text-left">
+          <div key={activeSlide} className="mx-auto w-full max-w-4xl text-center">
 
-            <h1 className="w-full max-w-none whitespace-nowrap text-[clamp(0.8rem,3.5vw,1.5rem)] font-semibold uppercase leading-tight tracking-[0.12em] text-white sm:max-w-none sm:text-xl md:text-2xl">
+            <h1 className="w-full text-[clamp(0.8rem,3.5vw,1.5rem)] font-semibold leading-tight tracking-[0.12em] text-white sm:text-xl md:text-2xl">
               <span className="hero-reveal hero-reveal-d1">
                 Your VFX Outsourcing Partner
               </span>
             </h1>
 
             <div className="hero-reveal-mask mt-6">
-              <p className={`hero-reveal hero-reveal-d3 max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${activeSlide === 2
+              <p className={`hero-reveal hero-reveal-d3 mx-auto max-w-3xl font-bold leading-[1.05] tracking-tight text-white ${activeSlide === 2
                 ? 'text-[clamp(0.75rem,3vw,1.25rem)] sm:text-xl md:text-2xl'
                 : 'uppercase text-[clamp(1.5rem,6vw,2.5rem)] sm:text-4xl md:text-5xl'
                 }`}>
                 {slide.message}
               </p>
               {slide.supportingMessage && (
-                <p className="hero-reveal hero-reveal-d3 mt-3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl">
+                <p className="hero-reveal hero-reveal-d3 mx-auto mt-3 max-w-3xl text-[clamp(1.5rem,6vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl">
                   {slide.supportingMessage}
                 </p>
               )}
@@ -83,7 +83,7 @@ const Hero = () => {
 
             {/* Buttons — delay 4 */}
             <div className="hero-reveal-mask mt-6 w-full sm:mt-8">
-              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:justify-start sm:gap-4">
+              <div className="hero-reveal hero-reveal-d4 flex w-full flex-row flex-nowrap items-center justify-center gap-1 sm:gap-4">
                 <a
                   href="/projects"
                   className="btn-shimmer inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap bg-[var(--gold-primary)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.04em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] sm:flex-none sm:gap-3 sm:px-6 sm:text-xs sm:tracking-[0.12em]"
