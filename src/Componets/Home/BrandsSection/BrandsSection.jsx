@@ -73,7 +73,7 @@ const BrandsSection = () => {
                   role="group"
                   aria-roledescription="slide"
                   aria-label={`${index + 1} of ${brands.length}: ${name}`}
-                  className="group relative flex min-h-[112px] items-center justify-center overflow-hidden border border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-5 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:min-h-[148px] sm:px-5"
+                  className="group relative flex h-[112px] items-center justify-center overflow-hidden border border-[var(--border-color)] bg-[var(--bg-primary)] px-4 py-3 transition-colors duration-300 hover:border-[var(--gold-primary)]/60 sm:h-[148px] sm:px-5"
                 >
                   <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 border-l border-t border-[var(--gold-primary)]/40" aria-hidden="true" />
                   <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 border-b border-r border-[var(--gold-primary)]/40" aria-hidden="true" />
@@ -92,7 +92,7 @@ const BrandsSection = () => {
                       loading="lazy"
                       className={`relative z-10 object-contain transition duration-300 ${
                         name === '20th Century Fox'
-                          ? 'max-h-24 max-w-[210px] opacity-80'
+                          ? 'max-h-20 max-w-[210px] opacity-80 sm:max-h-24'
                           : `max-h-12 max-w-[150px] sm:max-h-14 lg:max-w-[180px] ${
                             name === 'Netflix'
                               ? 'opacity-90'
