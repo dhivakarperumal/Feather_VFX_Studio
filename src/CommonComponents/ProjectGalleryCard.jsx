@@ -3,6 +3,8 @@ const ProjectGalleryCard = ({
   onSelect,
   landscape = false,
   fixedSize = false,
+  loading = 'lazy',
+  fetchPriority = 'auto',
 }) => (
   <article
     style={
@@ -24,7 +26,8 @@ const ProjectGalleryCard = ({
           }`}
         src={project.image}
         alt={`${project.title} project artwork`}
-        loading="lazy"
+        loading={loading}
+        fetchPriority={fetchPriority}
         decoding="async"
       />
     </button>

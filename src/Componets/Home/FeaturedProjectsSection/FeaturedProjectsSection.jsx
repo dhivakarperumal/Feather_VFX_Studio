@@ -129,11 +129,13 @@ const FeaturedProjectsSection = ({ homePage = false }) => {
           </header>
 
         <div className="mt-5 grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-3 sm:gap-3">
-          {galleryProjects.map((project) => (
+          {galleryProjects.map((project, index) => (
             <ProjectGalleryCard
               key={project.image}
               project={project}
               landscape={project.orientation === 'landscape'}
+              loading={!homePage && index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={!homePage && index === 0 ? 'high' : 'auto'}
               onSelect={() => setSelectedIndex(visibleProjects.findIndex((item) => item.image === project.image))}
             />
           ))}

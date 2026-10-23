@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode, lazy, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes, Navigate, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
@@ -6,16 +6,17 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './index.css'
 import App from './App.jsx'
-import SiteHome from './Componets/SiteHome/SiteHome.jsx'
-import Contact from './Componets/Contact/Contact.jsx'
-import Careers from './Componets/Careers/Careers.jsx'
-import About from './Componets/About/About.jsx'
-import FeaturedProjectsSection from './Componets/Home/FeaturedProjectsSection/FeaturedProjectsSection.jsx'
-import Blog from './Componets/Blog/Blog.jsx'
-import Reels from './Componets/Reels/Reels.jsx'
-import ShowreelPage from './Componets/Reels/ShowreelPage.jsx'
-import Sitemap from './Componets/Sitemap/Sitemap.jsx'
-import ServicesRoute from './Componets/Services/ServicesRoute.jsx'
+
+const SiteHome = lazy(() => import('./Componets/SiteHome/SiteHome.jsx'))
+const Contact = lazy(() => import('./Componets/Contact/Contact.jsx'))
+const Careers = lazy(() => import('./Componets/Careers/Careers.jsx'))
+const About = lazy(() => import('./Componets/About/About.jsx'))
+const FeaturedProjectsSection = lazy(() => import('./Componets/Home/FeaturedProjectsSection/FeaturedProjectsSection.jsx'))
+const Blog = lazy(() => import('./Componets/Blog/Blog.jsx'))
+const Reels = lazy(() => import('./Componets/Reels/Reels.jsx'))
+const ShowreelPage = lazy(() => import('./Componets/Reels/ShowreelPage.jsx'))
+const Sitemap = lazy(() => import('./Componets/Sitemap/Sitemap.jsx'))
+const ServicesRoute = lazy(() => import('./Componets/Services/ServicesRoute.jsx'))
 
 /**
  * AOSManager — must live inside <BrowserRouter> so useLocation() works.

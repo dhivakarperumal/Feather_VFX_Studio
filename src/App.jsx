@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
@@ -63,7 +63,18 @@ function App() {
         </div>
 
         <main key={`page-${location.pathname}`} className="page-transition flex-1">
-          <Outlet />
+          <Suspense
+            fallback={
+              <div
+                className="flex min-h-[45vh] items-center justify-center text-sm text-[var(--text-secondary)]"
+                role="status"
+              >
+                Loading page…
+              </div>
+            }
+          >
+            <Outlet />
+          </Suspense>
         </main>
         <FloatingSupport />
         <Toaster

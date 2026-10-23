@@ -216,11 +216,13 @@ const Projects = () => {
               key={`${activeFilter}-${currentPage}`}
               className="mt-7 grid grid-cols-2 items-stretch gap-3 sm:grid-cols-3 sm:gap-4"
             >
-              {currentProjects.map((project) => (
+              {currentProjects.map((project, index) => (
                 <ProjectGalleryCard
                   key={project.title}
                   project={project}
                   fixedSize
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
                   onSelect={() => openProject(project)}
                 />
               ))}
