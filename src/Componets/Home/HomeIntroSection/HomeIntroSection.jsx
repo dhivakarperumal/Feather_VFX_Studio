@@ -1,12 +1,12 @@
-import { Crosshair, Layers, Paintbrush, ScanLine } from 'lucide-react';
+import { Gem, Lightbulb, Settings, UsersRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useStaggerReveal } from '../../../utils/useScrollReveal';
 
 const highlights = [
-  { icon: Layers, label: 'Rotoscoping', detail: 'Seamless final shots.' },
-  { icon: Crosshair, label: 'Paint and Prep', detail: 'Precision tracking.' },
-  { icon: Paintbrush, label: 'Matchmove', detail: 'Clean plates & fixes.' },
-  { icon: ScanLine, label: 'Compositing', detail: 'Precise subject mattes.' },
+  { icon: Lightbulb, label: 'Creative', detail: 'Solutions' },
+  { icon: Settings, label: 'Advanced', detail: 'Technology' },
+  { icon: UsersRound, label: 'Experienced', detail: 'VFX Artists' },
+  { icon: Gem, label: 'High Quality', detail: 'Delivery' },
 ];
 
 const HomeIntroSection = () => {
