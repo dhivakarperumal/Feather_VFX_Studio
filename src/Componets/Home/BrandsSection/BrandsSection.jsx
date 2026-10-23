@@ -51,7 +51,7 @@ const BrandsSection = () => {
               carouselRef.current = swiper;
             }}
             modules={[Autoplay]}
-            slidesPerView={1.15}
+            slidesPerView={1}
             spaceBetween={12}
             breakpoints={{
               640: { slidesPerView: 2, spaceBetween: 16 },
