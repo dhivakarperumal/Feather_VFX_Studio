@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className="mt-auto border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <PageContainer className="py-16">
         {/* Stagger-revealed columns grid */}
-        <div ref={columnsRef} className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-[1.15fr_0.65fr_0.8fr_1.1fr_1fr] lg:gap-10">
+        <div ref={columnsRef} className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-[1.15fr_0.65fr_0.8fr_1.1fr_1fr] xl:gap-6 2xl:gap-10">
           
           {/* 1. Logo & Info */}
           <div className="stagger-child space-y-6">
