@@ -1,12 +1,12 @@
-import { Gem, Lightbulb, Settings, UsersRound } from 'lucide-react';
+import { Crosshair, Layers, Paintbrush, ScanLine } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useStaggerReveal } from '../../../utils/useScrollReveal';
 
 const highlights = [
-  { icon: Lightbulb, label: 'Creative', detail: 'Solutions' },
-  { icon: Settings, label: 'Advanced', detail: 'Technology' },
-  { icon: UsersRound, label: 'Experienced', detail: 'VFX Artists' },
-  { icon: Gem, label: 'High Quality', detail: 'Delivery' },
+  { icon: Layers, label: 'Rotoscoping', detail: 'Seamless final shots.' },
+  { icon: Crosshair, label: 'Paint and Prep', detail: 'Precision tracking.' },
+  { icon: Paintbrush, label: 'Matchmove', detail: 'Clean plates & fixes.' },
+  { icon: ScanLine, label: 'Compositing', detail: 'Precise subject mattes.' },
 ];
 
 const HomeIntroSection = () => {
@@ -36,21 +36,6 @@ const HomeIntroSection = () => {
             <p className="mt-3 max-w-[620px] text-[14px] text-justify leading-relaxed text-[var(--text-secondary)] sm:text-[16px]">
               We combine advanced technology, artistic expertise, and attention to detail to deliver high-quality visual effects for film and television. Share your vision with us, and our team will work closely with you to bring it to life.
             </p>
-
-            {/* Highlight icons — stagger in one by one */}
-            <ul ref={highlightsRef} className="mt-4 grid max-w-[500px] grid-cols-4 gap-2">
-              {highlights.map(({ icon: Icon, label, detail }) => (
-                <li key={label} className="stagger-child flex flex-col items-center text-center">
-                  <span className="grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)]/80 bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(184,134,11,0.12)]">
-                    <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
-                  </span>
-                  <span className="mt-2 text-[9px] font-bold uppercase leading-tight tracking-[0.12em] text-[var(--text-primary)] sm:text-[10px]">
-                    {label}
-                    <span className="mt-0.5 block text-[var(--text-secondary)]">{detail}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
 
             <Link
               to="/contact"
@@ -82,6 +67,34 @@ const HomeIntroSection = () => {
         </div>
 
       </div>
+
+      <ul
+        ref={highlightsRef}
+        className="grid grid-cols-2 border-y border-[#d1d5d8] bg-[#f4f4f4] sm:grid-cols-4"
+      >
+        {highlights.map(({ icon: Icon, label, detail }, index) => (
+          <li
+            key={label}
+            className={`stagger-child flex min-h-[112px] items-center gap-3 border-[#d1d5d8] px-4 py-5 sm:min-h-[144px] sm:gap-4 sm:px-6 md:px-8 lg:px-[3.5%] ${
+              index % 2 === 0 ? 'border-r' : ''
+            } ${index < 2 ? 'border-b sm:border-b-0' : ''} ${
+              index < highlights.length - 1 ? 'sm:border-r' : ''
+            }`}
+          >
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-[#d1d5d8] text-[#3f4142] sm:h-[72px] sm:w-[72px]">
+              <Icon size={30} strokeWidth={1.8} aria-hidden="true" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-[10px] font-bold uppercase leading-tight tracking-[0.16em] text-[#222] sm:text-sm sm:tracking-[0.18em]">
+                {label}
+              </span>
+              <span className="mt-2 block text-[8px] font-medium uppercase leading-relaxed tracking-[0.14em] text-[#666] sm:text-[10px]">
+                {detail}
+              </span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };
