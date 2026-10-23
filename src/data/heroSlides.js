@@ -58,12 +58,12 @@ export const heroCapabilities = [
   {
     title: "Paint and Prep",
     subtitle: "Precision tracking.",
-    Icon: Crosshair,
+    Icon: Paintbrush,
   },
   {
     title: "Matchmove",
     subtitle: "Clean plates & fixes.",
-    Icon: Paintbrush,
+    Icon: Crosshair,
   },
   {
     title: "Compositing",
