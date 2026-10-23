@@ -51,28 +51,23 @@ export const heroSlides = [
 
 export const heroCapabilities = [
   {
-    title: "Compositing",
+    title: "Rotoscoping",
     subtitle: "Seamless final shots.",
     Icon: Layers3,
   },
   {
-    title: "Matchmove",
+    title: "Paint and Prep",
     subtitle: "Precision tracking.",
     Icon: Crosshair,
   },
   {
-    title: "Paint & Prep",
+    title: "Matchmove",
     subtitle: "Clean plates & fixes.",
     Icon: Paintbrush,
   },
   {
-    title: "Rotoscoping",
+    title: "Compositing",
     subtitle: "Precise subject mattes.",
     Icon: ScanLine,
-  },
-  {
-    title: "Cosmetic VFX",
-    subtitle: "Natural-looking enhancements.",
-    Icon: Sparkles,
   },
 ];
