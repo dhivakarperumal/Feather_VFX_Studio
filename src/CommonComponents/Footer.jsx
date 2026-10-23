@@ -184,8 +184,33 @@ const Footer = () => {
       </PageContainer>
 
       {/* Bottom Copyright Bar */}
-      <div className="border-t border-[var(--border-color)] py-6 text-center text-[var(--text-secondary)] text-sm" data-aos="fade-up" data-aos-delay="100">
-        <p>&copy; {new Date().getFullYear()} Feather VFX Studio. All rights reserved. Designed by <b>Q-Techx Solutions</b></p>
+           {/* Bottom Copyright Bar */}
+      <div
+        className="border-t border-[var(--border-color)] px-4 py-6 text-center text-sm text-[var(--text-secondary)]"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <p>
+          &copy; {new Date().getFullYear()}{" "}
+          <a
+            href="https://feathervfx.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[var(--text-primary)] transition-colors hover:text-[var(--gold-bright)]"
+          >
+            Feather VFX Studio
+          </a>
+          . All rights reserved. Designed by{" "}
+          <a
+            href="https://www.qtechx.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-[var(--gold-bright)] transition-colors hover:underline"
+          >
+            Q-Techx Solutions
+          </a>
+          .
+        </p>
       </div>
     </footer>
   );
