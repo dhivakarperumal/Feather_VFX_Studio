@@ -38,7 +38,7 @@ const HomeIntroSection = () => {
             </p>
 
             {/* Highlight icons — stagger in one by one */}
-            <ul ref={highlightsRef} className="mt-4 grid max-w-[500px] grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-2">
+            <ul ref={highlightsRef} className="mt-4 grid max-w-[500px] grid-cols-4 gap-2">
               {highlights.map(({ icon: Icon, label, detail }) => (
                 <li key={label} className="stagger-child flex flex-col items-center text-center">
                   <span className="grid h-9 w-9 place-items-center rounded-full border border-[var(--gold-primary)]/80 bg-[var(--bg-primary)] text-[var(--gold-bright)] shadow-[0_0_18px_rgba(184,134,11,0.12)]">
