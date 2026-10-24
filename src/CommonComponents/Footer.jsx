@@ -200,16 +200,16 @@ const Footer = () => {
           >
             Feather VFX Studio
           </a>
-          . All rights reserved. Designed by{" "}
-          <a
+          . All rights reserved. 
+          {/* <a
             href="https://www.qtechx.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold text-[var(--gold-bright)] transition-colors hover:underline"
           >
             Q-Techx Solutions
-          </a>
-          .
+          </a> */}
+          
         </p>
       </div>
     </footer>
