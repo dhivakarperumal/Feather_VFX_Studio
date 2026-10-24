@@ -7,19 +7,19 @@ const features = [
     icon: FaPlay,
     title: <>HIGH <span className="text-[var(--gold-bright)]">QUALITY WORK</span></>,
     text:
-      'Our mission is to provide facilities of high quality. The works are as special as you, leaving no information unattended, so you can be confident of your brand commitment and focus on what’s important, i.e., taking your business up to the next level.',
+      'We deliver carefully crafted visual effects with close attention to detail, helping your production achieve its creative goals.',
   },
   {
     icon: FaHeadphones,
     title: <>ONLINE SUPPORT <span className="text-[var(--gold-bright)]">24/7</span></>,
     text:
-      'We’ve supported a large section of customers from around the world with great customer experiences. We understand the ever changing nature and stresses involved in the schedule or production and we are open for 24/7 to offer Quick turnaround.',
+      'We understand the changing demands of production schedules. Our team provides responsive support and works with you to meet agreed deadlines.',
   },
   {
     icon: FaHandPeace,
     title: <>COST - <span className="text-[var(--gold-bright)]">EFFECTIVE RATES</span></>,
     text:
-      'Myths can be broken; yes you heard correctly, we are cost-effective! Best competitive costs inside your budget restrain. Beyond any doubt you’ll feel this.',
+      'Our flexible VFX outsourcing solutions are designed to meet a range of project requirements and budgets without compromising on quality.',
   },
 ];
 
@@ -40,23 +40,23 @@ const WhyUsSection = () => {
           data-aos-offset="60"
           className="mx-auto w-fit max-w-full rounded-xl border border-[var(--gold-primary)]/40 bg-white px-5 py-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.12em] text-[var(--text-secondary)] shadow-[0_6px_24px_rgba(0,0,0,0.06)] sm:whitespace-nowrap sm:px-6 sm:py-5 sm:text-sm sm:tracking-[0.15em] lg:text-base"
         >
-          We offer smooth VFX services with the right amount of{' '}
+          We provide reliable VFX services, combining{' '}
           <span className="text-[var(--gold-bright)]">
-            passion and innovation
+            creativity with care
           </span>
-          , with{' '}
+          {' '}and maintaining{' '}
           <span className="text-[var(--gold-bright)]">
-            no compromise in quality.
+            quality at every stage.
           </span>
         </p>
 
         <h2 data-aos="fade-up" data-aos-delay="80" data-aos-offset="60" className="mx-auto mt-6 max-w-4xl text-center font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
-          Feather makes you feel more
-          <span className="mt-1 block text-[var(--gold-bright)]">proud of your business.</span>
+          A VFX partner you can
+          <span className="mt-1 block text-[var(--gold-bright)]">be proud to work with.</span>
         </h2>
 
         <p data-aos="fade-up" data-aos-delay="160" data-aos-offset="60" className="mx-auto mt-7 max-w-[1000px] text-justify text-center text-sm leading-[1.8] text-black sm:text-base">
-          Feather is committed to loftier professional standards for your sensitive Data &amp; Information security. We respect and honor the trusting nature inherent in a professional relationship and in all respects and at all times remain rooted therein. The clear mechanisms of privacy are continually updated and restructured to ensure that they fully support the changing business climate and standards. We are not only renowned for our quality of work, but also for maintaining the trust of our customers coupled with business interests and that is what we want to be.
+          We take the security of your data and production materials seriously. Our team values the trust at the heart of every professional relationship and regularly reviews its practices to support changing business needs. We aim to earn that trust through quality work, clear communication, and responsible handling of client information.
         </p>
 
         {/* Cards grid */}
@@ -128,4 +128,3 @@ const WhyUsSection = () => {
 };
 
 export default WhyUsSection;
-

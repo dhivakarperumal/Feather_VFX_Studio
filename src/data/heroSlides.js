@@ -17,8 +17,8 @@ export const heroSlides = [
     responsiveImage: heroImage('hero1_res.jpg'),
   },
   {
-    message: '2021 Oscars Predictions "One Night in Miami"',
-    supportingMessage: 'Roto - Paint - Matchmove | 200+ shots completed',
+    message: 'One Night in Miami',
+    supportingMessage: 'Roto · Paint · Matchmove | 200+ shots completed',
     compactSupportingMessage: true,
     image: heroImage('hero.webp'),
   },
@@ -44,7 +44,7 @@ export const heroSlides = [
   //   image: heroImage('3.jpg'),
   // },
   {
-    message: 'Feather, Great Work Gets Delivered',
+    message: 'Feather VFX. Great Work, Delivered.',
     image: heroImage('4.jpg'),
   },
 ];
@@ -52,22 +52,22 @@ export const heroSlides = [
 export const heroCapabilities = [
   {
     title: "Rotoscoping",
-    subtitle: "Seamless final shots.",
+    subtitle: "Precise subject mattes.",
     Icon: Layers3,
   },
   {
     title: "Paint and Prep",
-    subtitle: "Precision tracking.",
+    subtitle: "Clean plates and fixes.",
     Icon: Paintbrush,
   },
   {
     title: "Matchmove",
-    subtitle: "Clean plates & fixes.",
+    subtitle: "Precise camera tracking.",
     Icon: Crosshair,
   },
   {
     title: "Compositing",
-    subtitle: "Precise subject mattes.",
+    subtitle: "Seamless final images.",
     Icon: ScanLine,
   },
 ];

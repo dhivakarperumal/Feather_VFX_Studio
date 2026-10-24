@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const FloatingWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = "447459467325";
-  const defaultMessage = encodeURIComponent("Hello Q-Techx Solutions, I would like to inquire about your services.");
+  const defaultMessage = encodeURIComponent("Hello Feather VFX, I would like to enquire about your services.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
   return (

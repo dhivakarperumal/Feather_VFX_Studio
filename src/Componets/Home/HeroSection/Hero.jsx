@@ -66,7 +66,7 @@ const Hero = () => {
 
             <h1 className="w-full text-[clamp(0.8rem,3.5vw,1.5rem)] font-medium leading-tight tracking-[0.12em] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.75)] sm:text-xl md:text-2xl">
               <span className="hero-reveal hero-reveal-d1">
-                Your VFX Outsourcing Partner
+                Feather VFX — Your Reliable VFX Outsourcing Partner
               </span>
             </h1>
 

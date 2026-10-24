@@ -232,11 +232,11 @@ const About = () => (
               id="security-heading"
               className="mt-4 max-w-3xl font-serif text-4xl font-bold leading-[1.02] tracking-[-0.035em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
             >
-              Feather makes you feel more{' '}
-              <span className="text-[var(--gold-bright)]">proud of your business.</span>
+              A VFX partner you can{' '}
+              <span className="text-[var(--gold-bright)]">be proud to work with.</span>
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-[1.8] text-[var(--text-secondary)] sm:text-base">
-              We offer smooth VFX services with the right amount of passion and innovation, with no compromise in quality.
+              We provide reliable VFX services with creativity and care, maintaining high standards of quality throughout production.
             </p>
           </div>
 

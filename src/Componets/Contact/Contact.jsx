@@ -267,7 +267,7 @@ const Contact = () => {
                 disabled={isSending || Boolean(fileError)}
                 className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSending ? 'Sending...' : 'Send Inquiry'} {!isSending && <FaArrowRight aria-hidden="true" />}
+                {isSending ? 'Sending…' : 'Send enquiry'} {!isSending && <FaArrowRight aria-hidden="true" />}
               </button>
             </form>
           </div>
@@ -484,12 +484,12 @@ const Contact = () => {
               <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/10">
                 <FaCheckCircle className="text-3xl text-[var(--gold-primary)]" aria-hidden="true" />
               </span>
-              <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)]">Inquiry sent</p>
+              <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gold-primary)]">Enquiry sent</p>
               <h2 id="contact-success-title" className="mt-2 font-serif text-2xl font-bold uppercase sm:text-3xl">
                 Thank you!
               </h2>
               <p id="contact-success-message" className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-                Your inquiry was sent successfully. Our team will get back to you within 24 hours.
+                Your enquiry was sent successfully. Our team will get back to you within 24 hours.
               </p>
               <button
                 type="button"

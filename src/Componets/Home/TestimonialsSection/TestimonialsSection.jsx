@@ -31,7 +31,7 @@ const testimonials = [
   },
    {
     quote:
-      "My professional experience with FeatherVfx has been one of being really impressed. Your job has been excellent and you have done all that I asked you to do, and some more. I would recommend someone for your service. Good rates, excellent operation, decent working conditions.",
+       "I have been very impressed with my experience working with Feather VFX. The team has done excellent work and delivered everything I asked for, and more. I would recommend their services. They offer good rates, excellent service, and a positive working environment.",
     name: "Andrew Chen",
     role: "Film Director",
     gender: "male",
@@ -39,7 +39,7 @@ const testimonials = [
   },
   {
     quote:
-      "The consistency of their work reflects the respect that FeatherVFX studio has for what they do. They're making our shows look amazing. Thank you for your support, and help us with tight deadlines! I'm looking forward to working on another collaboration with you guys.",
+      "The consistency of their work reflects how much the Feather VFX team cares about what they do. They make our shows look amazing. Thank you for your support and for helping us meet tight deadlines. I look forward to collaborating again.",
     name: "Alexandre Treille",
     role: "3D Supervisor",
     gender: "male",
@@ -47,7 +47,7 @@ const testimonials = [
   },
   {
     quote:
-      "Having a productive and skillful visual effects team is the complete key to getting projects completed. From day one these guys have been working on all levels and the results speak for themselves. I would love to be working with them again.",
+      "A productive and skilled visual effects team is key to completing projects successfully. From day one, the team has delivered at every level, and the results speak for themselves. I would love to work with them again.",
     name: "Guillaume Griffoni",
     role: "VFX Supervisor",
     gender: "male",

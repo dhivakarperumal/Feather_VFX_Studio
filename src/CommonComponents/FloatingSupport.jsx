@@ -58,7 +58,7 @@ const FloatingSupport = () => {
 
   const handleWhatsApp = () => {
     window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Q-Techx Solutions, I need some help!")}`,
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Feather VFX, I need some help with a VFX project.")}`,
       "_blank"
     );
   };

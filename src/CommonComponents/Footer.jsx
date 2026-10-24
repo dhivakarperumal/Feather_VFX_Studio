@@ -18,9 +18,9 @@ const Footer = () => {
   ];
 
   const ourServices = [
-    "Rotoscope",
-    "Paint-Prep",
-    "Cosmetic Fixes",
+    "Rotoscoping",
+    "Paint & Prep",
+    "Cosmetic VFX",
     "Matchmove",
     "Compositing",
   ];
@@ -131,7 +131,7 @@ const Footer = () => {
 
           {/* 5. Google Map */}
           <div className="stagger-child">
-            <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Google Map</h3>
+            <h3 className="text-[17px] font-bold text-[var(--text-primary)] mb-6">Studio Location</h3>
             
             <div className="mb-8">
               <form
