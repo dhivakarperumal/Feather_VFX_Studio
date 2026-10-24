@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Mail } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 import { FiArrowUp } from "react-icons/fi";
 import "./FloatingSupport.css";
 
@@ -20,7 +19,7 @@ const FloatingSupport = () => {
   // User UI pages: any page outside /admin and /employee panels (even if an admin/employee is logged in browsing the site)
   const isUserUIPage = !isAdmin && !isEmployee;
 
-  // WhatsApp, email, and scroll-to-top are shown on public pages.
+  // Email and scroll-to-top are shown on public pages.
   const showUserUIWidgets = isUserUIPage;
 
   // Scroll detection for Scroll-to-Top button
@@ -80,18 +79,6 @@ const FloatingSupport = () => {
             <Mail size={22} />
             <span className="tooltip">Contact us · info@feathervfx.com</span>
           </a>
-        )}
-
-        {/* WhatsApp button - visible on all user UI pages */}
-        {showUserUIWidgets && (
-          <div
-            className="support-item whatsapp"
-            onClick={handleWhatsApp}
-            title="WhatsApp (+44 74 5946 7325)"
-          >
-            <FaWhatsapp size={26} />
-            <span className="tooltip">🟢 WhatsApp (+44 74 5946 7325)</span>
-          </div>
         )}
 
         {/* ScrollNavigator (Scroll-To-Top) button - placed below the Call button */}
