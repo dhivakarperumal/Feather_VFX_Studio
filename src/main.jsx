@@ -62,7 +62,6 @@ function AppRoot() {
             <Route path="careers" element={<Careers />} />
             <Route path="blog" element={<Blog />} />
             <Route path="sitemap" element={<Sitemap />} />
-            <Route path="sitemap.xml" element={<Navigate to="/sitemap" replace />} />
             <Route path="showreel" element={<ShowreelPage />} />
             <Route path="work" element={<Reels />} />
           </Route>

@@ -73,7 +73,6 @@ const QualitySecuritySection = () => (
           <p className="mt-3 max-w-xl text-sm  text-justify leading-[1.7] text-[var(--text-secondary)] sm:text-[16px]">
             Our goal is to build lasting client relationships through quality, transparency, and dependable service.
           </p>
-          {/* ISO Security Certification Highlight */}
           <div className="mt-5 inline-flex max-w-full items-center gap-3 rounded-lg border border-[var(--gold-primary)]/40 bg-[var(--gold-primary)]/[0.07] px-4 py-3 shadow-sm sm:px-5">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--gold-primary)]/50 bg-[var(--gold-primary)]/10 text-[var(--gold-bright)]">
               <ShieldCheck className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
@@ -81,10 +80,10 @@ const QualitySecuritySection = () => (
 
             <div className="min-w-0">
               <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)] sm:text-[10px]">
-                Information Security Standard
+                Security certifications
               </p>
               <p className="mt-1 text-base font-extrabold tracking-wide text-[var(--gold-bright)] sm:text-lg">
-                ISO 27001:2013
+                ISO 27001 Certified · TPN Certified Studio
               </p>
             </div>
           </div>

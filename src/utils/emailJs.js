@@ -21,11 +21,7 @@ export async function sendEmailJsForm(form, templateType) {
 
   try {
     return await emailjs.sendForm(serviceId, templateId, form, { publicKey });
-  } catch (error) {
-    if (error && typeof error === 'object' && 'status' in error && 'text' in error) {
-      throw new Error(`EmailJS error ${error.status}: ${error.text}`);
-    }
-
-    throw error;
+  } catch {
+    throw new Error('The message could not be sent. Please try again or contact us directly.');
   }
 }

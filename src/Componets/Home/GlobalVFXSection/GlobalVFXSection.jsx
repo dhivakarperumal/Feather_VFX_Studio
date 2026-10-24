@@ -1,5 +1,6 @@
 import { Clapperboard, Globe, Trophy, UsersRound } from 'lucide-react';
 import { useCountUp } from '../../../utils/useCountUp';
+import { europeanClientLocations, serviceMarkets } from '../../../data/locationMarkets';
 
 const achievements = [
   { icon: Globe, value: '10+', label: 'Countries', detail: 'Served' },
@@ -18,7 +19,26 @@ const CountUpStat = ({ value, delay = 0 }) => {
   );
 };
 
+const LocationList = ({ locations }) => (
+  <ul className="mt-4 space-y-2">
+    {locations.map(({ country, regions, cities, productionHubs }) => (
+      <li key={country} className="text-sm leading-relaxed text-[var(--text-secondary)]">
+        <strong className="text-[var(--text-primary)]">{country}:</strong>{' '}
+        {regions
+          ? regions
+              .map(({ name, cities: regionCities }) =>
+                regionCities.length ? `${name} (${regionCities.join(', ')})` : name
+              )
+              .join('; ')
+          : cities.join(', ')}
+        {productionHubs && `; production hubs: ${productionHubs.join(' and ')}`}
+      </li>
+    ))}
+  </ul>
+);
+
 const GlobalVFXSection = () => (
+  <>
   <section
     aria-labelledby="global-vfx-title"
     className="relative isolate overflow-hidden border-y border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]"
@@ -88,6 +108,37 @@ const GlobalVFXSection = () => (
       </div>
     </div>
   </section>
+  <section
+    aria-labelledby="service-regions-title"
+    className="border-b border-[var(--border-color)] bg-[var(--bg-primary)] px-[5%] py-10 text-[var(--text-primary)] sm:py-14 lg:px-[3%]"
+  >
+    <div className="mx-auto max-w-[1500px]">
+      <header className="max-w-3xl">
+        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--gold-bright)]">
+          International collaboration
+        </p>
+        <h2 id="service-regions-title" className="mt-2 font-serif text-2xl font-bold uppercase sm:text-3xl">
+          VFX outsourcing markets and <span className="text-[var(--gold-bright)]">client locations</span>
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+          Feather VFX works remotely with production teams across these markets. The locations below describe markets served and verified European client locations; they are not a list of Feather VFX offices.
+        </p>
+      </header>
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        <section className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 sm:p-6" aria-labelledby="markets-served-title">
+          <h3 id="markets-served-title" className="font-serif text-lg font-bold uppercase">United States &amp; United Kingdom</h3>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--gold-bright)]">Markets served</p>
+          <LocationList locations={serviceMarkets} />
+        </section>
+        <section className="border border-[var(--border-color)] bg-[var(--bg-secondary)] p-5 sm:p-6" aria-labelledby="european-clients-title">
+          <h3 id="european-clients-title" className="font-serif text-lg font-bold uppercase">Europe</h3>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--gold-bright)]">Verified client locations</p>
+          <LocationList locations={europeanClientLocations} />
+        </section>
+      </div>
+    </div>
+  </section>
+  </>
 );
 
 export default GlobalVFXSection;

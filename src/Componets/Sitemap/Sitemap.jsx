@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../../CommonComponents/PageHeader';
+import { europeanClientLocations, serviceMarkets } from '../../data/locationMarkets';
 
 const sitemapGroups = [
   {
@@ -20,6 +21,7 @@ const sitemapGroups = [
       { label: 'Projects', to: '/projects' },
       { label: 'Services', to: '/services' },
       { label: 'Showreel', to: '/showreel' },
+      { label: 'Work', to: '/work' },
       { label: 'Careers', to: '/careers' },
       { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },
@@ -54,7 +56,8 @@ const sitemapGroups = [
     links: [
       { label: 'Featured Projects', to: '/projects' },
       { label: 'Project Gallery', to: '/projects' },
-      { label: 'Showreels', to: '/reels' },
+      { label: 'Showreel', to: '/showreel' },
+      { label: 'Work & Reels', to: '/work' },
       { label: 'Blog Articles', to: '/blog' },
     ],
   },
@@ -71,124 +74,12 @@ const sitemapGroups = [
   },
 ];
 
-const globalLocations = [
-  ['Argentina', 'argentina'],
-  ['Australia', 'australia'],
-  ['Austria', 'austria'],
-  ['Belgium', 'belgium'],
-  ['Brazil', 'brazil'],
-  ['Bulgaria', 'bulgaria'],
-  ['Canada', 'canada'],
-  ['Czech Republic', 'czech-republic'],
-  ['Denmark', 'denmark'],
-  ['Finland', 'finland'],
-  ['France', 'france'],
-  ['Germany', 'germany'],
-  ['Greece', 'greece'],
-  ['Greenland', 'greenland'],
-  ['Hungary', 'hungary'],
-  ['Iceland', 'iceland'],
-  ['Ireland', 'ireland'],
-  ['Italy', 'italy'],
-  ['Mexico', 'mexico'],
-  ['Netherlands', 'netherlands'],
-  ['New Zealand', 'new-zealand'],
-  ['Norway', 'norway'],
-  ['Poland', 'poland'],
-  ['Portugal', 'portugal'],
-  ['Romania', 'romania'],
-  ['Spain', 'spain'],
-  ['Sweden', 'sweden'],
-  ['Switzerland', 'switzerland'],
-  ['Turkey', 'turkey'],
-  ['Ukraine', 'ukraine'],
-  ['United Kingdom', 'united-kingdom'],
-  ['United States', 'united-states'],
-  ['London', 'london'],
-  ['Brighton', 'brighton'],
-  ['Bristol', 'bristol'],
-  ['Cambridge', 'cambridge'],
-  ['Guildford', 'guildford'],
-  ['Liverpool', 'liverpool'],
-  ['Manchester', 'manchester'],
-  ['Nottingham', 'nottingham'],
-  ['Glasgow', 'glasgow'],
-  ['Birmingham', 'birmingham%C2%A0'],
-  ['Atlanta', 'atlanta'],
-  ['Austin', 'austin'],
-  ['Baltimore', 'baltimore'],
-  ['Bellevue', 'bellevue'],
-  ['Boston', 'boston'],
-  ['Brisbane', 'brisbane'],
-  ['Brooklyn', 'brooklyn'],
-  ['Burbank', 'burbank'],
-  ['Chicago', 'chicago'],
-  ['Culver City', 'culver-city'],
-  ['Denver', 'denver'],
-  ['Las Vegas', 'las-vegas'],
-  ['Los Angeles', 'los-angeles'],
-  ['Miami', 'miami'],
-  ['New York City', 'new-york-city'],
-  ['Orlando', 'orlando'],
-  ['Pittsburgh', 'pittsburgh'],
-  ['San Diego', 'san-diego'],
-  ['San Francisco', 'san-francisco'],
-  ['Santa Monica', 'santa-monica'],
-  ['Seattle', 'seattle'],
-  ['Angoulême', 'angoul%C3%AAme'],
-  ['Lyon', 'lyon'],
-  ['Paris', 'paris'],
-  ['Vancouver', 'vancouver'],
-  ['Halifax', 'halifax'],
-  ['Ottawa', 'ottawa'],
-  ['St Catharines', 'st-catharines'],
-  ['Toronto', 'toronto'],
-  ['Montreal', 'montreal'],
-  ['Québec', 'qu%C3%A9bec'],
-  ['Quebec City', 'quebec-city'],
-  ['Barcelona', 'barcelona'],
-  ['Madrid', 'madrid'],
-  ['Valencia', 'valencia'],
-  ['Gdansk', 'gdansk'],
-  ['Krakow', 'krakow'],
-  ['Warsaw', 'warsaw'],
-  ['Rzeszów', 'rzesz%C3%B3w'],
-  ['Wrocław', 'wroc%C5%82aw'],
-  ['Berlin', 'berlin'],
-  ['Munich', 'munich'],
-  ['Cologne', 'cologne'],
-  ['Düsseldorf', 'd%C3%BCsseldorf'],
-  ['Frankfurt', 'frankfurt'],
-  ['Hamburg', 'hamburg'],
-  ['Ludwigsburg', 'ludwigsburg'],
-  ['Stuttgart', 'stuttgart'],
-  ['Guadalajara', 'guadalajara'],
-  ['Mexicali', 'mexicali'],
-  ['Mexico City', 'mexico-city'],
-  ['Toluca', 'toluca'],
-  ['Tuxtla Gutierrez', 'tuxtla-gutierrez'],
-  ['Adelaide', 'adelaide'],
-  ['Melbourne', 'melbourne'],
-  ['Sydney', 'sydney'],
-  ['Belfast', 'belfast'],
-  ['Dublin', 'dublin'],
-  ['Galway', 'galway'],
-  ['Kilkenny', 'kilkenny'],
-  ['Gothenburgh', 'gothenburgh'],
-  ['Malmö', 'malm%C3%B6'],
-  ['Stockholm', 'stockholm'],
-  ['Budapest', 'budapest'],
-  ['Auckland', 'auckland'],
-  ['Dunedin', 'dunedin'],
-  ['Wellington', 'wellington'],
-];
-
 const Sitemap = () => (
   <>
     <PageHeader
       eyebrow="Our navigation"
       title="Sitemap"
-      description="Find your way around Feather VFX Studio."
+      description="Explore Feather VFX pages, services, and the regions where we work with clients."
       background="/images/heroimages/3.png"
       align="left"
     >
@@ -200,14 +91,14 @@ const Sitemap = () => (
         <span aria-hidden="true">↓</span>
       </a>
     </PageHeader>
-    <main id="sitemap-links" className="scroll-mt-24 relative isolate overflow-hidden bg-[var(--bg-primary)] px-[5%] py-12 text-[var(--text-primary)] sm:py-16 lg:px-[4%]">
+    <main id="sitemap-links" className="relative isolate scroll-mt-24 overflow-hidden bg-[var(--bg-primary)] px-[5%] py-12 text-[var(--text-primary)] sm:py-16 lg:px-[4%]">
       <div className="mx-auto max-w-[1500px]">
         <header className="mb-8 max-w-2xl">
           <h2 className="font-serif text-3xl font-bold uppercase sm:text-4xl">
             Explore our <span className="text-[var(--gold-bright)]">website</span>
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
-            Find everything you need about Feather VFX Studio. Browse our work, services, team, and more.
+            Browse Feather VFX services, selected work, studio information, and contact details.
           </p>
           <div className="mt-4 h-px w-12 bg-[var(--gold-primary)]" aria-hidden="true" />
         </header>
@@ -235,11 +126,7 @@ const Sitemap = () => (
                 </span>
                 <div className="min-w-0">
                   <h3 className="font-serif text-lg font-semibold uppercase text-[var(--text-primary)]">
-                    {title.split(' ').map((part, index) => (
-                      <span key={`${part}-${index}`} className={index === title.split(' ').length - 1 ? 'text-[var(--gold-bright)]' : ''}>
-                        {index > 0 ? ' ' : ''}{part}
-                      </span>
-                    ))}
+                    {title}
                   </h3>
                   <ul className="mt-3 space-y-1.5">
                     {links.map(({ label, to }) => (
@@ -270,24 +157,44 @@ const Sitemap = () => (
             </span>
             <div>
               <h3 id="global-locations-heading" className="font-serif text-lg font-semibold uppercase text-[var(--text-primary)]">
-                Global <span className="text-[var(--gold-bright)]">Locations</span>
+                Markets &amp; verified <span className="text-[var(--gold-bright)]">client locations</span>
               </h3>
-              <p className="mt-1 text-xs text-[var(--text-secondary)]">{globalLocations.length} countries and cities</p>
+              <p className="mt-1 text-xs text-[var(--text-secondary)]">
+                These are service markets and client locations, not Feather VFX office locations.
+              </p>
             </div>
           </div>
-          <ul className="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {globalLocations.map(([label, slug]) => (
-              <li key={slug}>
-                <a
-                  href={`https://feathervfx.com/${slug}`}
-                  className="inline-flex items-start gap-2 text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--gold-bright)]"
-                >
-                  <span className="text-[var(--gold-primary)]" aria-hidden="true">›</span>
-                  {label}
-                </a>
-              </li>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {serviceMarkets.map(({ country, regions, productionHubs }) => (
+              <section key={country} aria-label={`${country} markets`}>
+                <h4 className="font-serif text-base font-semibold">{country} markets served</h4>
+                <ul className="mt-2 space-y-2">
+                  {regions.map(({ name, cities }) => (
+                    <li key={name} className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                      <strong className="text-[var(--text-primary)]">{name}:</strong>{' '}
+                      {cities.length ? cities.join(', ') : 'VFX outsourcing services'}
+                    </li>
+                  ))}
+                </ul>
+                {productionHubs && (
+                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                    Production hubs: {productionHubs.join(' and ')}.
+                  </p>
+                )}
+              </section>
             ))}
-          </ul>
+            <section aria-label="European client locations">
+              <h4 className="font-serif text-base font-semibold">European client locations</h4>
+              <ul className="mt-2 grid gap-x-4 gap-y-2 sm:grid-cols-2">
+                {europeanClientLocations.map(({ country, cities }) => (
+                  <li key={country} className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                    <strong className="text-[var(--text-primary)]">{country}:</strong> {cities.join(', ')}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
         </section>
       </div>
     </main>

@@ -1,16 +1,18 @@
-# React + Vite
+# Feather VFX Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Local development
 
-Currently, two official plugins are available:
+Install dependencies with `npm install`, then start the Vite development server with `npm run dev`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Create a local `.env.local` from `.env.example` to configure EmailJS. Environment values prefixed with `VITE_` are embedded in browser code at build time and are public; never put passwords, private API keys, or other server secrets in them.
 
-## React Compiler
+## GoDaddy cPanel deployment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Run `npm run build`.
+2. Upload the **contents of `dist`** to the website's cPanel document root (for example, `public_html`). Do not upload the repository, `.env` files, `node_modules`, or Git metadata to the public document root.
+3. Keep the included `.htaccess` file in the document root. It enables client-side route fallback, disables directory listing, redirects HTTP and `www` traffic to the HTTPS canonical domain, sets browser security headers, and blocks source-map files.
+4. Confirm the domain has a valid HTTPS certificate before deployment. The redirect assumes TLS is configured.
+5. In EmailJS, allow only the production site domain, enable the provider's available abuse/spam controls and quotas, and review usage regularly. The EmailJS public key and service/template identifiers are visible to visitors by design; protect submissions with provider-side restrictions.
+6. Keep `.env.local` out of Git and the public document root. If a private credential was ever committed or deployed, revoke/rotate it immediately; removing it from the current working tree does not remove it from Git history or backups.
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The production JavaScript and assets must be downloaded by visitors' browsers and therefore cannot be hidden after deployment. Production builds are optimized, not secret. Keep confidential logic and private credentials on a server rather than in this frontend.
