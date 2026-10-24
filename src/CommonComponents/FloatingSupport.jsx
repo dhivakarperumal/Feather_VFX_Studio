@@ -81,6 +81,17 @@ const FloatingSupport = () => {
           </a>
         )}
 
+         {/* {showUserUIWidgets && (
+          <div
+            className="support-item whatsapp"
+            onClick={handleWhatsApp}
+            title="WhatsApp (+44 74 5946 7325)"
+          >
+            <FaWhatsapp size={26} />
+            <span className="tooltip">🟢 WhatsApp (+44 74 5946 7325)</span>
+          </div>
+        )} */}
+
         {/* ScrollNavigator (Scroll-To-Top) button - placed below the Call button */}
         {showUserUIWidgets && showScrollTop && (
           <div
