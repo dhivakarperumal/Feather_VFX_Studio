@@ -108,7 +108,7 @@ const GlobalVFXSection = () => (
       </div>
     </div>
   </section>
-  <section
+  {/* <section
     aria-labelledby="service-regions-title"
     className="border-b border-[var(--border-color)] bg-[var(--bg-primary)] px-[5%] py-10 text-[var(--text-primary)] sm:py-14 lg:px-[3%]"
   >
@@ -137,7 +137,7 @@ const GlobalVFXSection = () => (
         </section>
       </div>
     </div>
-  </section>
+  </section> */}
   </>
 );
 
