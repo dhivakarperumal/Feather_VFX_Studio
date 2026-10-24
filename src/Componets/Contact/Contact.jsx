@@ -267,7 +267,7 @@ const Contact = () => {
                 disabled={isSending || Boolean(fileError)}
                 className="inline-flex items-center gap-3 bg-[var(--gold-primary)] px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSending ? 'Sending...' : 'Send Inquiry'} {!isSending && <FaArrowRight aria-hidden="true" />}
+                {isSending ? 'Sending...' : 'Send Enquiry'} {!isSending && <FaArrowRight aria-hidden="true" />}
               </button>
             </form>
           </div>
