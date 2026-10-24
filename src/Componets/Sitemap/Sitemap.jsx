@@ -79,17 +79,10 @@ const Sitemap = () => (
     <PageHeader
       eyebrow="Our navigation"
       title="Sitemap"
-      description="Explore Feather VFX pages, services, and the regions where we work with clients."
-      background="/images/heroimages/3.png"
+      background="/images/sitemap.png"
       align="left"
     >
-      <a
-        href="#sitemap-links"
-        className="mt-5 inline-flex items-center gap-3 bg-[var(--gold-primary)] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--bg-primary)] transition-colors hover:bg-[var(--gold-bright)]"
-      >
-        Explore site
-        <span aria-hidden="true">↓</span>
-      </a>
+     
     </PageHeader>
     <main id="sitemap-links" className="relative isolate scroll-mt-24 overflow-hidden bg-[var(--bg-primary)] px-[5%] py-12 text-[var(--text-primary)] sm:py-16 lg:px-[4%]">
       <div className="mx-auto max-w-[1500px]">
